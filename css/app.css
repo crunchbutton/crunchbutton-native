@@ -16,6 +16,13 @@
 	-moz-box-sizing: border-box;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
 a {
     -webkit-touch-callout: none;
     -webkit-user-select: none; /* Disable selection/Copy of UIWebView */
@@ -334,6 +341,7 @@ button.eat {
 	margin: 0 auto;
 	margin-bottom: 10px;
 	margin-top: 15px;
+	-webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1), inset -1px -1px 1px rgba(255, 255, 255, .1);
 }
 
 .location-results {

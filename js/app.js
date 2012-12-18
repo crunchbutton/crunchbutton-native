@@ -10,6 +10,8 @@ if (document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') =
 
 var imageServer = 'http://i.crunchr.co/';
 
+var menuEnabled = true;
+
 var initMain = function() {
 
 	var body   	= document.body
@@ -45,6 +47,8 @@ var initMain = function() {
 			menuOpen = false, menuOpening = false, menuClosing = false;
 
 		page.addEventListener('touchstart', function(event) {
+			if (!menuEnabled) return;
+
 			startX = event.touches[0].pageX;
 			startY = event.touches[0].pageY;
 
@@ -56,6 +60,8 @@ var initMain = function() {
 		});
 
 		page.addEventListener('touchmove', function(event) {
+			if (!menuEnabled) return;
+
 			var moveX  	= event.changedTouches[0].pageX
   			, moveY  	= event.changedTouches[0].pageY
   			, distanceX  = moveX - startX
@@ -85,6 +91,8 @@ var initMain = function() {
 		});
 
 		page.addEventListener('touchend', function(event) {
+			if (!menuEnabled) return;
+
 			if (shouldOpenMenu) {
 				openMenu();
 			} 
@@ -238,6 +246,7 @@ $(function() {
 				self.template = _.template(r);
 				$('#body').html(self.template());
 				$('#page header').hide();
+				menuEnabled = false;
 			});
 
 		},
