@@ -1,4 +1,4 @@
-var App = {};
+var App = {}, Template = {};
 
 if (document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1 ) {
 	// phonegap
@@ -38,6 +38,10 @@ var initMain = function() {
 
 	closeMask.addEventListener('touchmove', function(event) {
 		event.preventDefault();
+	});
+	
+	page.addEventListener('touchmove', function(event) {
+		console.log(event)
 	});
 
 	if (('ontouchend' in window)) {
@@ -219,42 +223,68 @@ $(function() {
 		subviewsNavigator:null,
 		render: function () {
 
-			var self = this;
-			$.get(this._template, function(r) {
-				self.template = _.template(r);
-				self.el.innerHTML = self.template();
-				initMain();
-			});
+			this.el.innerHTML = this.template();
+			initMain();
 
 			App.navigator = new BackStack.StackNavigator({
 				el: '#page'
 			});
-			App.navigator.defaultPushTransition = new BackStack.NoEffect();
+			//App.navigator.defaultPushTransition = new BackStack.NoEffect();
 			Backbone.history.start({pushState: true});
 
 		},
 		initialize: function (args) {
-			this._template = $('#root-template').attr('src');
+			this.template = _.template(Template.root);
 		}
 	});
 	
 	var HomeView = Backbone.View.extend({
 		render:function (er) {
+			this.$el.html(this.template());
+//			$('#body').html();
+			//$('#page header').hide();
+			//menuEnabled = false;
 
-			var self = this;
-			$.get(this._template, function(r) {
-				self.template = _.template(r);
-				$('#body').html(self.template());
-				$('#page header').hide();
-				menuEnabled = false;
+			$('.eat').live('click',function() {
+				App.router.navigate('/restaurants', {trigger: true});
 			});
 
+			$('input').bind('blur', function(e) {
+				window.scrollTo(0, 1);
+			});
+
+			$(window).bind('resize', function(e) {
+				//window.scrollTo(0, 1);
+			});
+
+			$('#page').css('overflow','hidden');
+		},
+		events: {
+			'blur input': 'scrollTop'
+		},
+		scrollTop: function() {
+			window.scrollTo(0, 1);
+		},
+		eatClick: function(e) {
+			App.router.navigate('/restaurants', {trigger: true});
 		},
 		initialize: function (args) {
-			this._template = $('#home-template').attr('src');
+			this.template = _.template(Template.home);
+		}
+	});
+
+	var RestaurantsView = Backbone.View.extend({
+		render : function() {
+			this.$el.html(this.template());
+			//$('#page header').show();
+			//menuEnabled = true;
+		},
+		initialize: function (args) {
+			this.template = _.template(Template.restaurants);
 		}
 	});
 	
+	/*
 	var ErrorView = Backbone.View.extend({
 		el: $('body'),
 		render:function (er) {
@@ -290,37 +320,15 @@ $(function() {
 			this.template = _.template($('#update-template').html());
 		}
 	});
+	*/
 
-	var NewsView = Backbone.View.extend({
-		className: 'news content',
-		model: 'Event',
-		render : function() {
-			var html = this.template({
-				player: App.player,
-				events: App.events
-			});
-			this.$el.html(html);
-		},
-		events: {
-			'click .event-link': 'eventClick'
-		},
-		eventClick: function(e) {
-			var event = App.events.get(
-				$(e.toElement).attr('data-id_event')
-			);
-			App.router.navigate('/event/' + event.attributes.id_event, {trigger: true});
-		},
-		initialize: function (args) {
-			this.template = _.template($('#news-template').html());
-			//_.bindAll(this, 'changeName');
-			//this.model.bind('change:name', this.changeName);
-		}
-	});
+
 
 	var AppRouter = Backbone.Router.extend({
 		routes: {
 			'community/:id': 'getEvent',
 			'forceupdate': 'getUpdate',
+			'restaurants': 'getRestaurants',
 			'*actions': 'defaultRoute',
 		}
 	});
@@ -329,7 +337,10 @@ $(function() {
 		App.router.on('route:defaultRoute', function(actions) {
 		App.navigator.pushView(HomeView);
 	});
-
+	
+	App.router.on('route:getRestaurants', function(actions) {
+		App.navigator.pushView(RestaurantsView);
+	});
 
 	var AppInit = function(res) {
 		localStorage.setItem('version', res.version);
@@ -347,8 +358,21 @@ $(function() {
 
 		App.user = new User(user);
 		*/
-		var main = new MainView;
-		main.render();
+		// download all the templates to mem
+		var tpl = ['root','home','restaurants'];
+		var requests = [];
+
+		$.when($.get('view/root.html'), $.get('view/home.html'), $.get('view/restaurants.html')).done(function() {
+			Template.root = arguments[0][0];
+			Template.home = arguments[1][0];
+			Template.restaurants = arguments[2][0];
+
+			var main = new MainView;
+			main.render();
+		});
+		
+
+
 	};
 
 	var AppUpdate = function(res) {

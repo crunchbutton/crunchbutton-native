@@ -38,6 +38,7 @@ html {
 body {
 	font-family: Helvetica, sans-serif;
 	margin: 0; font-size: 13px; line-height: 1.231;
+	background: #eee;
 }
 
 input {
@@ -102,6 +103,17 @@ body.menu-moving #page {
 	width: 45px;
 	height: 30px;
 	background: transparent url(../img/menu.png) no-repeat;
+	background-size: 100%;
+}
+#page > header .back {
+	position: absolute;
+	z-index: 2;
+	top: 8px;
+	left: 8px;
+	display: block;
+	width: 45px;
+	height: 30px;
+	background: transparent url(../img/back.png) no-repeat;
 	background-size: 100%;
 }
 #page > header .icons {
