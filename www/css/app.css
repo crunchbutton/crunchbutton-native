@@ -127,12 +127,12 @@ body.menu-moving #page {
 	padding: 0 8px;
 }
 
-#page .combo {
+#page .combo, #page .restaurant {
 	position: relative;
 	margin: 12px;
 }
 
-#page .combo-item {
+#page .combo-item, #page .restaurant-item {
 	background-color: rgba(0,0,0,.4);
 	color: #fff;
 	font-family: Museo Slab;
@@ -140,7 +140,12 @@ body.menu-moving #page {
 	border-radius: 8px;
 	-webkit-tap-highlight-color: rgba(0,145,143,.5);
 	display: block;
+	text-shadow: 0 1px 0 rgba(80,17,12,.5);
 }
+#page .restaurant-item {
+	padding: 6px;
+}
+
 #page .combo-price {
 	background-color: rgba(0,0,0,.37);
 	color: #fff;
@@ -155,6 +160,35 @@ body.menu-moving #page {
 	float: left;
 	padding: 5px 0 0 4px;
 }
+
+#page .restaurant-description {
+	padding: 5px 0 0 0;
+	color: #959595;
+}
+
+#page .restaurant-name {
+	padding: 4px 0 0 0;
+}
+
+#page .restaurant-details {
+	float: left;
+	padding: 5px 0 0 4px;
+}
+
+#page .restaurant-image {
+	float: left;
+	margin: 0 5px 0 0;
+	overflow: hidden;
+	border-radius: 5px;
+	height: 53px;
+	width: 53px;
+}
+
+#page .restaurant-image img {
+	height: 53px;
+	width: 53px;
+}
+
 
 #page .combo-price span {
 	position: absolute;
@@ -276,7 +310,7 @@ body.menu-open #menu {
 #page {
 	min-width: 100%;
 	padding-bottom: 20px;
-	height: 900px;
+	min-height: 700px;
 }
 
 .divider {

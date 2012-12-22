@@ -1,3 +1,4 @@
+<!--
 <div class="pad">
 	<h2 class="title">Was it good for you? Reorder your previous orders.</h2>
 </div>
@@ -8,8 +9,9 @@
 		<div class="divider"></div>
 	</a>
 </div>
+-->
 <div class="pad">
-	<h2 class="title">We've chosen the best food from the best restaurants. Choose a restaurant below.</h2>
+	<h2 class="title">Hungry? Can’t decide? Order one of these top orders and get a 5% discount.</h2>
 </div>
 <div class="combo">
 	<a class="pad combo-item" href="#">
@@ -32,3 +34,19 @@
 		<div class="divider"></div>
 	</a>
 </div>
+<div class="pad">
+	<h2 class="title">We've chosen the best food from the best restaurants. Choose a restaurant below.</h2>
+</div>
+
+<% _.each(restaurants, function(restaurant) { %>
+	<div class="restaurant" data-permalink="<%= restaurant.permalink %>">
+		<a class="restaurant-item" href="#">
+			<div class="restaurant-image"><img src="http://i.crunchr.co/106x106/<%= restaurant.image %>.jpg?crop=1"></div>
+			<div class="restaurant-details">
+				<div class="restaurant-name"><%= restaurant.name %></div>
+				<div class="restaurant-description"><%= restaurant.short_description %></div>
+			</div>
+			<div class="divider"></div>
+		</a>
+	</div>
+<% }); %>
