@@ -199,18 +199,32 @@ $(function() {
 
 	var User = Backbone.Model.extend({
 		idAttribute: 'id_user',
-		urlRoot: server + 'user',
-		party: function() {
-			return CreatureCollection.filter({team: 1});
-		},
-		creatures: function() {
-			return this._creatures;
-		}
+		urlRoot: server + 'user'
 	});
 
 	var Restaurant = Backbone.Model.extend({
 		idAttribute: 'permalink',
-		localStorage: new Backbone.LocalStorage('Restaurant')
+		urlRoot: server + 'restaurant',
+		localStorage: new Backbone.LocalStorage('Restaurant'),
+		data: function(complete) {
+			console.log(this.attributes._categories);
+			if (!this.attributes._categories) {
+				var storage = App.restaurant.localStorage;
+				App.restaurant.localStorage = null;
+	
+				Backbone.sync('read',App.restaurant,{
+					success: function (rest) {
+						App.restaurant.set(rest);
+						App.restaurant.localStorage = storage;
+						App.restaurant.save();
+						complete();
+					}
+				});
+			} else {
+				console.log('got')
+				complete();
+			}
+		}
 	});
 
 	var RestaurantCollection = Backbone.Collection.extend({
@@ -230,9 +244,24 @@ $(function() {
 			App.navigator = new BackStack.StackNavigator({
 				el: '#body'
 			});
-			//App.navigator.defaultPushTransition = new BackStack.NoEffect();
+
 			Backbone.history.start({pushState: true});
 
+		},
+		events: {
+			'click .nav-back': 'backClick'
+		},
+		backClick: function() {
+
+			App._goBack = true;
+			App.navigator.defaultPushTransition = new BackStack.SlideEffect({direction: 'right'});
+			var goingBack = function() {
+				App.navigator.defaultPushTransition = new BackStack.SlideEffect({direction: 'left'});
+				$('#body')[0].removeEventListender(goingBack);
+			};
+			$('#body')[0].addEventListener('webkitTransitionEnd', goingBack, false);
+
+			window.history.back();
 		},
 		initialize: function (args) {
 			this.template = _.template(Template.root);
@@ -242,6 +271,9 @@ $(function() {
 	var HomeView = Backbone.View.extend({
 		render:function (er) {
 			window.scrollTo(0, 1);
+			
+			$('header .nav-back').hide();
+			$('header .trigger').show();
 
 			this.$el.html(this.template());
 //			$('#body').html();
@@ -250,10 +282,21 @@ $(function() {
 		},
 		events: {
 			'click .eat': 'eatClick',
-			'blur input': 'scrollTop'
+			'submit #form-where': 'eatSubmit',
+			'blur input': 'scrollTop',
+			'focus input[name="input-where"]': 'scrollFocus'
+		},
+		scrollFocus: function(e) {
+//			window.scrollTo(0, $(e.currentTarget).position().top + 100);
 		},
 		scrollTop: function() {
 			window.scrollTo(0, 1);
+		},
+		eatSubmit: function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			this.eatClick();
+			return false;
 		},
 		eatClick: function(e) {
 			App.setLocation(function() {
@@ -271,6 +314,9 @@ $(function() {
 		render : function() {
 			var self = this;
 			window.scrollTo(0, 1);
+			
+			$('header .nav-back').show();
+			$('header .trigger').hide();
 			
 			this.$el.css('height', '');
 
@@ -309,12 +355,20 @@ $(function() {
 	
 	var RestaurantView = Backbone.View.extend({
 		render : function() {
-			var self = this;
 			window.scrollTo(0, 1);
 
-			this.$el.html(this.template({
-				restaurant: App.restaurant
-			}));
+			$('header .back').show();
+			$('header .trigger').hide();
+
+			var self = this;
+			
+			App.restaurant.data(function() {
+				self.$el.html(self.template({
+					restaurant: App.restaurant
+				}));
+			});
+			
+
 		},
 		initialize: function (args) {
 			this.template = _.template(Template.restaurant);
