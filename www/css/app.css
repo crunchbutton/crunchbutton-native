@@ -105,27 +105,21 @@ body.menu-moving #page {
 	background: transparent url(../img/menu.png) no-repeat;
 	background-size: 100%;
 }
-#page > header .back {
+.nav-back {
 	position: absolute;
-	z-index: 2;
+	z-index: 1000;
 	top: 8px;
 	left: 8px;
 	display: block;
-	width: 45px;
-	height: 30px;
+	width: 51px;
+	height: 31px;
 	background: transparent url(../img/back.png) no-repeat;
 	background-size: 100%;
+    -webkit-user-select: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-#page > header .icons {
-	position: absolute;
-	left: 50%;
-	margin-left: -72px;
-	top: 9px;
-}
-#page > header .icons > span {
-	display: inline-block;
-	padding: 0 8px;
-}
+
+
 
 #page .combo, #page .restaurant {
 	position: relative;
