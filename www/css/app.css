@@ -120,13 +120,36 @@ body.menu-moving #page {
 }
 
 
+#page .dish {
+	position: relative;
+	margin: 8px 12px 8px 12px;
+}
+
+#page .dish-item {
+	padding: 4px;
+}
+
+#page .dish-description {
+	padding: 5px 0 0 0;
+	color: #959595;
+}
+
+#page .dish-name {
+
+}
+
+#page .dish-details {
+	float: left;
+	padding: 5px 0 0 4px;
+}
+
 
 #page .combo, #page .restaurant {
 	position: relative;
 	margin: 12px;
 }
 
-#page .combo-item, #page .restaurant-item {
+#page .combo-item, #page .restaurant-item, #page .dish-item {
 	background-color: rgba(0,0,0,.4);
 	color: #fff;
 	font-family: Museo Slab;
