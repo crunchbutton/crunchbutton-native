@@ -2,17 +2,20 @@
 	<h2><%= restaurant.attributes.name %></h2>
 </div>
 
-<div class="pad">
-	<% _.each(restaurant.dishes, function(dish) { %>
-		<div class="restaurant">
-			<a class="restaurant-item" href="#">
-				<div class="restaurant-image"><img src="http://i.crunchr.co/106x106/<%= restaurant.image %>.jpg?crop=1"></div>
-				<div class="restaurant-details">
-					<div class="restaurant-name"><%= dish.name %></div>
-					<div class="restaurant-description"><%= dish.description %></div>
+
+<% _.each(restaurant.attributes._categories, function(category) { %>
+	<div class="pad">
+		<h2><%= category.name %></h2>
+	</div>
+	<% _.each(category._dishes, function(dish) { %>
+		<div class="dish">
+			<a class="dish-item" href="#">
+				<div class="dish-details">
+					<div class="dish-name"><%= dish.name %></div>
+				<div class="dish-description"><%= dish.description %></div>
 				</div>
 				<div class="divider"></div>
 			</a>
 		</div>
 	<% }); %>
-</div>
+<% }); %>

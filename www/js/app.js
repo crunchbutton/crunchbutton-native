@@ -50,7 +50,7 @@ var initMain = function() {
 		var startX, startY, moveX, moveY,
 			matrix, m41 = 0,
 			shouldOpenMenu = false, shouldCloseMenu = false,
-			menuOpen = false, menuOpening = false, menuClosing = false;
+			menuOpen = false, menuOpening = false, menuClosing = false, everMovedVert;
 
 		page.addEventListener('touchstart', function(event) {
 			if (!menuEnabled) return;
@@ -73,10 +73,14 @@ var initMain = function() {
   			, distanceX  = moveX - startX
   			, distanceY  = moveY - startY
   			, movedLeft  = distanceX < 0
-  			, movedRight = distanceX > 5
-  			, movedVert  = Math.abs(distanceY) > 15;
+  			, movedRight = distanceX > 30
+  			, movedVert  = Math.abs(distanceY) > 5;
+  			
+  			if (movedVert) {
+  				everMovedVert = true;
+  			}
 
-			if (!movedVert) {
+			if (!everMovedVert) {
 
 				if (!menuOpen && movedRight || menuOpen && movedLeft) {
 					event.preventDefault();
@@ -85,7 +89,7 @@ var initMain = function() {
 				}
 
 				if (!menuOpen && movedRight) {
-					shouldOpenMenu = (Math.abs(distanceX) > (body.clientWidth / 2.5));
+					shouldOpenMenu = (Math.abs(distanceX) > (body.clientWidth / 4));
 					shouldCloseMenu = !shouldOpenMenu;
 				}
 
@@ -97,6 +101,7 @@ var initMain = function() {
 		});
 
 		page.addEventListener('touchend', function(event) {
+			everMovedVert = false;
 			if (!menuEnabled) return;
 
 			if (shouldOpenMenu) {
@@ -202,24 +207,54 @@ $(function() {
 		urlRoot: server + 'user'
 	});
 
+//	var restaurantStorage = new Backbone.LocalStorage('Restaurant');
+	var restaurantStorage = new WebSQLStore(App.db, 'Restaurant')
 	var Restaurant = Backbone.Model.extend({
 		idAttribute: 'permalink',
 		urlRoot: server + 'restaurant',
-		localStorage: new Backbone.LocalStorage('Restaurant'),
+		//localStorage: restaurantStorage,
+		store: restaurantStorage,
 		data: function(complete) {
-			console.log(this.attributes._categories);
+		
+			var self = this;
+
 			if (!this.attributes._categories) {
-				var storage = App.restaurant.localStorage;
-				App.restaurant.localStorage = null;
-	
+
+				self.store = null;
+
+				self.fetch({
+					success:function(o, rest) {
+						self.store = restaurantStorage;
+
+						self.attributes._categories = rest._categories;
+						self.set(rest);
+						self.save();
+						
+						console.log(self)
+						complete();
+					},
+					error: function() {
+						alert('failed to read restaurant');
+					}
+				});
+/*
 				Backbone.sync('read',App.restaurant,{
 					success: function (rest) {
-						App.restaurant.set(rest);
-						App.restaurant.localStorage = storage;
-						App.restaurant.save();
+						self.store = restaurantStorage;
+						Restaurant.store = restaurantStorage;
+						console.log(rest);
+
+						self.attributes._categories = rest._categories;
+						self.set(rest);
+						self.save(rest);
+						
+						console.log(self.attributes._categories)
+						console.log(self, App.restaurant)
+
 						complete();
 					}
 				});
+				*/
 			} else {
 				console.log('got')
 				complete();
@@ -229,7 +264,8 @@ $(function() {
 
 	var RestaurantCollection = Backbone.Collection.extend({
 		model: Restaurant,
-		localStorage: new Backbone.LocalStorage('RestaurantCollection')
+//		localStorage: new Backbone.LocalStorage('RestaurantCollection'),
+		store: restaurantStorage
 	});
 
 	var MainView = Backbone.View.extend({
@@ -317,7 +353,7 @@ $(function() {
 			
 			$('header .nav-back').show();
 			$('header .trigger').hide();
-			
+
 			this.$el.css('height', '');
 
 			this.$el[0].addEventListener('webkitTransitionEnd', function(e) {
@@ -327,7 +363,7 @@ $(function() {
 			}, false);
 
 			this.$el.html(this.template({
-				restaurants: App.restaurants
+				restaurants: App.restaurants.models
 			}));
 			//$('#page header').show();
 			//menuEnabled = true;
@@ -344,7 +380,6 @@ $(function() {
 			App.router.navigate('/restaurant/' + permalink, {trigger: true});
 			return;
 
-
 			return false;
 			
 		},
@@ -352,7 +387,7 @@ $(function() {
 			this.template = _.template(Template.restaurants);
 		}
 	});
-	
+
 	var RestaurantView = Backbone.View.extend({
 		render : function() {
 			window.scrollTo(0, 1);
@@ -516,7 +551,7 @@ $(function() {
 	});
 	
 	App.getRestaurants = function() {
-	
+
 		if (arguments.length == 2) {
 			var filters = arguments[0];
 			var complete = arguments[1];
@@ -525,11 +560,13 @@ $(function() {
 		}
 	
 		$.getJSON(server + 'restaurants', {lat: App.loc.lat, lon: App.loc.lon}, function(res, status) {
-			for (var x in res.restaurants) {
-				var rest = new Restaurant(res.restaurants[x]);
-				rest.save();
-			}
-			App.restaurants = res.restaurants;
+			App.restaurants = new RestaurantCollection();
+			App.restaurants.add(res.restaurants);
+			
+			_.each(App.restaurants.models, function(restaurant) {
+				restaurant.save();
+			});
+
 			complete();
 	
 		}).error(function(e) {
