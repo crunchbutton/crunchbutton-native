@@ -1,0 +1,1 @@
+{"prepare_queue":{"installed":[],"uninstalled":[]},"config_munge":{"config.xml":{"/*":{"<feature name=\"Vibration\"><param name=\"ios-package\" value=\"CDVVibration\" /></feature>":1}}},"installed_plugins":{"org.apache.cordova.core.vibration":{"PACKAGE_NAME":"com.crunchbutton"}},"dependent_plugins":{}}
