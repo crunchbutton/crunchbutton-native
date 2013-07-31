@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.crunchbutton" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+    <name>Crunchbutton</name>
+    <description>
+        One click food ordering
+    </description>
+    <author email="dev@crunchbutton.com" href="http://crunchbutton.com">
+        Devin Smith, Crunchbutton
+    </author>
+    <content src="index.html" />
+    <feature name="LocalStorage">
+        <param name="ios-package" value="CDVLocalStorage" />
+    </feature>
+    <plugins>
+        <plugin name="org.apache.cordova.facebook.Connect" value="FacebookConnectPlugin" />
+    </plugins>
+    <access origin="*" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="TopActivityIndicator" value="gray" />
+    <preference name="EnableLocation" value="false" />
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="OpenAllWhitelistURLsInWebView" value="false" />
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="permissions" value="none" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="false" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-installLocation" value="auto" />
+	
+	<preference name="APP_ID" value="***REMOVED***" />
+    <preference name="APP_NAME" value="Crunchbutton" />
+
+</widget>
