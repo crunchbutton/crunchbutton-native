@@ -68,5 +68,10 @@
 	    <preference name="APP_NAME" value="Crunchbutton" />
 	</gap:plugin>
 
+	<gap:plugin name="org.apache.cordova.facebook.Connect">
+	    <preference name="APP_ID" value="***REMOVED***" />
+	    <preference name="APP_NAME" value="Crunchbutton" />
+	</gap:plugin>
+
     <access origin="*" />
 </widget>

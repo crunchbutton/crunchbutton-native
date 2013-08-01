@@ -4,22 +4,45 @@
 		<meta charset="utf-8" />
 		<meta name="format-detection" content="telephone=no" />
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-		<link rel="stylesheet" type="text/css" href="css/index.css" />
-		<title>Hello World</title>
+		<title>Crunchbutton</title>
 	</head>
 	<body>
+		<br /><br />
 		<div class="app">
-			<h1>PhoneGap</h1>
-			<div id="deviceready" class="blink">
-				<p class="event listening"> Connecting to Device!!</p>
-				<p class="event received"> Device is Ready!!</p>
-			</div>
+			<button onclick="login()">Login</button>
 		</div>
-		<script type="text/javascript" src="phonegap.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
+		<div class="fb-root"></div>
+
+		<script type="text/javascript" src="js/phonegap.js"></script>
+		<script type="text/javascript" src="js/cdv-plugin-fb-connect.js"></script>
+		<script type="text/javascript" src="js/facebook-js-sdk.js"></script>
+
 		<script type="text/javascript">
-			app.initialize();
-		</script>
-		<script>location.href="http://beta.crunchr.co/";</script>
+		
+			var login = function() {
+				FB.login(status, {scope: 'email'});
+			};
+			document.addEventListener('deviceready', function() {
+
+				var status = function(e) {
+					console.log(e);
+				}
+				
+				FB.Event.subscribe('auth.statusChange', status);
+				FB.getLoginStatus(status);
+
+				FB.init({
+					appId: '***REMOVED***',
+					//cookie: true,
+					//xfbml: true,
+					//oauth: true,
+					nativeInterface: CDV.FB,
+					useCachedDialogs: false
+				});
+
+				
+			}, false);
+			//location.href="http://beta.crunchr.co/";
+			</script>
 	</body>
 </html>

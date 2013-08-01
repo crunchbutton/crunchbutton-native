@@ -6,6 +6,8 @@
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
 	<string>${PRODUCT_NAME}</string>
+	<key>FacebookAppID</key>
+	<string>***REMOVED***</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -82,8 +84,8 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0.0</string>
-	<key>FacebookAppID</key>
-	<string>***REMOVED***</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
