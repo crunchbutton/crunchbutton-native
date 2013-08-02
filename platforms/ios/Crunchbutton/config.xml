@@ -2,7 +2,7 @@
 <widget id="com.crunchbutton" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
 	<name>Crunchbutton</name>
 	<description>
-		One click food ordering
+		Curated online food ordering
 	</description>
 	<author email="dev@crunchbutton.com" href="http://crunchbutton.com">
 		Devin Smith, Crunchbutton
@@ -11,9 +11,19 @@
 	<feature name="LocalStorage">
 		<param name="ios-package" value="CDVLocalStorage" />
 	</feature>
-	
+
+	<feature name="File">
+		<param name="ios-package" value="CDVFile" />
+	</feature>
+	<feature name="FileTransfer">
+		<param name="ios-package" value="CDVFileTransfer" />
+	</feature>
+
 	<feature name="org.apache.cordova.facebook.Connect">
 		<param name="ios-package" value="FacebookConnectPlugin" />
+	</feature>
+	<feature name="TapToScroll">
+		<param name="ios-package" value="TapToScroll" />
 	</feature>
 
 	<access origin="*" />

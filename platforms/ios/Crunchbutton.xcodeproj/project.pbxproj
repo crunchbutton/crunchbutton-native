@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0822347D17AC32B4009F2FC5 /* TapToScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 0822347C17AC32B4009F2FC5 /* TapToScroll.m */; };
 		083DF06817AACDE5002F26C6 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 083DF06717AACDE5002F26C6 /* FacebookConnectPlugin.m */; };
 		083DF08E17AACF1A002F26C6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083DF08D17AACF1A002F26C6 /* FacebookSDK.framework */; };
 		085E2C3317A84E47007A9847 /* icon-57-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 085E2C2C17A84E47007A9847 /* icon-57-2x.png */; };
@@ -89,6 +90,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0822347B17AC32B4009F2FC5 /* TapToScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapToScroll.h; sourceTree = "<group>"; };
+		0822347C17AC32B4009F2FC5 /* TapToScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapToScroll.m; sourceTree = "<group>"; };
 		083DF06617AACDE5002F26C6 /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookConnectPlugin.h; sourceTree = "<group>"; };
 		083DF06717AACDE5002F26C6 /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookConnectPlugin.m; sourceTree = "<group>"; };
 		083DF08D17AACF1A002F26C6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -314,6 +317,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				0822347B17AC32B4009F2FC5 /* TapToScroll.h */,
+				0822347C17AC32B4009F2FC5 /* TapToScroll.m */,
 				083DF06617AACDE5002F26C6 /* FacebookConnectPlugin.h */,
 				083DF06717AACDE5002F26C6 /* FacebookConnectPlugin.m */,
 			);
@@ -514,6 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0822347D17AC32B4009F2FC5 /* TapToScroll.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				083DF06817AACDE5002F26C6 /* FacebookConnectPlugin.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
