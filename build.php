@@ -2,7 +2,7 @@
 <?php
 
 /**
- * Downloads the latest assets from beta build
+ * Download and build local assets for phonegap
  * 
  * requires php, wget, gunzip
  *
@@ -14,14 +14,40 @@ $server = 'http://crunchbutton.localhost/';
 $srcPath = './www/';
 $path = './platforms/ios/www/';
 
-echo "Cleaning assets...\n";
-//shell_exec('rm -Rf '.$path.'assets');
 
-echo "Creating directories...\n";
-//shell_exec('cp -R '.$srcPath.'assets '.$path.'assets');
+// clean assets
+echo "Cleaning assets...";
+shell_exec('rm -Rf '.$path.'assets');
+echo "complete.\n";
 
 
+// create and copy template dirs
+echo "Creating directories";
+shell_exec('cp -R '.$srcPath.'assets '.$path.'assets');
+echo "complete.\n";
+
+
+// download assets from server
 echo "Downloading assets bundle...\n";
+
+function download($file, $usegzip = false) {
+	global $server, $path;
+	
+	echo '	'.$file.'... ';
+	$dir = $path.'assets/'.dirname($file);
+
+	if (!file_exists($dir)) {
+		mkdir($dir, 0755, true);
+	}
+
+	if ($usegzip) {
+		shell_exec('wget -q -O - --header="Accept-Encoding: gzip" "'.$server.'assets/'.$file.'" | gunzip > "'.$path.'assets/'.$file.'"');
+	} else {
+		shell_exec('wget -O '.$path.'assets/'.$file.' "'.$server.'assets/'.$file.'"');
+		// file_put_contents($path.'assets/'.$file, file_get_contents($server.$file));
+	}
+	echo "complete.\n";
+}
 
 $assets = json_decode(file_get_contents($server.'api/build'));
 foreach ($assets as $asset) {
@@ -30,22 +56,30 @@ foreach ($assets as $asset) {
 	
 	switch ($type) {
 		case 'view':
-			shell_exec('wget -O - "'.$server.$asset.'" > "'.$path.$asset.'"');
-			break;
 		case 'audio':
 		case 'images':
-			shell_exec('wget -O - "'.$server.'assets/'.$asset.'" > "'.$path.'assets/'.$asset.'"');
+			download($asset);
 			break;
+
 		case 'js':
 		case 'css':
-			shell_exec('wget -O - --header="Accept-Encoding: gzip" "'.$server.'assets/'.$asset.'" | gunzip > "'.$path.'assets/'.$asset.'"');
+			download($asset, true);
 			break;
 	}
 }
 
+echo "Asset download complete.\n";
+
+
+// fix root image paths for local files
+echo "Fixing root paths...";
+shell_exec('for i in $(grep "assets" '.$path.'assets/css/* -R | cut -d ":" -f 1); do sed "s/assets/assets/gi" -i $i;');
+echo " complete\n";
+
 exit;
 
 
+// create the index file
 echo "Building body...\n";
 
 $index = file_get_contents($path.'view/template.html');
@@ -54,4 +88,7 @@ $index = str_replace('<body></body>', '<body>'.$body.'</body>', $index);
 
 file_put_contents($path.'index.html', $index);
 
+
+// yay
 echo "Build complete!\n\n";
+
