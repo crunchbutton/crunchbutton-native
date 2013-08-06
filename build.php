@@ -17,7 +17,14 @@ $path = './platforms/ios/www/';
 
 // clean assets
 echo "Cleaning assets...";
-shell_exec('rm -Rf '.$path.'assets');
+$cleanPaths = array(
+	'/Users/arzynik/Sites/crunchbutton/cache/data/*',
+	'/Users/arzynik/Sites/crunchbutton/cache/min/*',
+	$path.'assets'
+);
+foreach ($cleanPaths as $p) {
+	shell_exec('rm -Rf '.$p);
+}
 echo "complete.\n";
 
 
@@ -43,7 +50,7 @@ function download($file, $usegzip = false) {
 	if ($usegzip) {
 		shell_exec('wget -q -O - --header="Accept-Encoding: gzip" "'.$server.'assets/'.$file.'" | gunzip > "'.$path.'assets/'.$file.'"');
 	} else {
-		shell_exec('wget -O '.$path.'assets/'.$file.' "'.$server.'assets/'.$file.'"');
+		shell_exec('wget -q -O '.$path.'assets/'.$file.' "'.$server.'assets/'.$file.'"');
 		// file_put_contents($path.'assets/'.$file, file_get_contents($server.$file));
 	}
 	echo "complete.\n";
@@ -73,7 +80,7 @@ echo "Asset download complete.\n";
 
 // fix root image paths for local files
 echo "Fixing root paths...";
-shell_exec('for i in $(grep "assets" '.$path.'assets/css/* -R | cut -d ":" -f 1); do sed "s/assets/assets/gi" -i $i;');
+//shell_exec('for i in $(grep "assets" '.$path.'assets/css/* -R | cut -d ":" -f 1); do sed "s/assets/assets/gi" -i $i;');
 echo " complete\n";
 
 exit;
