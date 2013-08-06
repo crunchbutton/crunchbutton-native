@@ -10,27 +10,41 @@
 
 
 $server = 'http://beta.crunchr.co/';
+$server = 'http://crunchbutton.localhost/';
+$srcPath = './www/';
 $path = './platforms/ios/www/';
 
-$bundles = array(
-	'assets/js/bundle.js' => 'js/bundle.js',
-	'assets/css/bundle.css' => 'css/bundle.css',
-);
+echo "Cleaning assets...\n";
+shell_exec('rm -Rf '.$path.'assets');
 
-echo "Building bundles...\n";
+echo "Creating directories...\n";
+shell_exec('cp -R '.$srcPath.'assets '.$path.'assets');
 
-foreach ($bundles as $src => $dst) {
-	shell_exec('wget -O - --header="Accept-Encoding: gzip" "'.$server.$src.'" | gunzip > "'.$path.$dst.'"');
+
+echo "Downloading assets bundle...\n";
+
+$assets = json_decode(file_get_contents($server.'api/build'));
+foreach ($assets as $asset) {
+	$type = explode('/',$asset);
+	$type = $type[0];
+	
+	switch ($type) {
+		case 'view':
+			shell_exec('wget -O - "'.$server.$asset.'" > "'.$path.$asset.'"');
+			break;
+		case 'audio':
+		case 'images':
+			shell_exec('wget -O - "'.$server.'assets/'.$asset.'" > "'.$path.'assets/'.$asset.'"');
+			break;
+		case 'js':
+		case 'css':
+			shell_exec('wget -O - --header="Accept-Encoding: gzip" "'.$server.'assets/'.$asset.'" | gunzip > "'.$path.'assets/'.$asset.'"');
+			break;
+	}
 }
 
-echo "Building views...\n";
+exit;
 
-$views = json_decode(file_get_contents($server.'api/views'));
-
-foreach ($views as $file) {
-	$v = file_get_contents($server.'view/'.$file.'.html');
-	file_put_contents($path.'view/'.$file.'.html', $v);
-}
 
 echo "Building body...\n";
 
