@@ -15,10 +15,10 @@ $srcPath = './www/';
 $path = './platforms/ios/www/';
 
 echo "Cleaning assets...\n";
-shell_exec('rm -Rf '.$path.'assets');
+//shell_exec('rm -Rf '.$path.'assets');
 
 echo "Creating directories...\n";
-shell_exec('cp -R '.$srcPath.'assets '.$path.'assets');
+//shell_exec('cp -R '.$srcPath.'assets '.$path.'assets');
 
 
 echo "Downloading assets bundle...\n";
