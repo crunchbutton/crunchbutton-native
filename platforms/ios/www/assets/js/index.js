@@ -1,47 +1,19 @@
+var now = new Date();
+var _gmtServer = now.getUTCFullYear() + '/' + (now.getUTCMonth()+1) + '/' + now.getDate() + '/' + now.getUTCHours() + '/' + now.getUTCMinutes() + '/' + now.getUTCSeconds();
+
 var CB = {
 	server: 'http://beta.crunchr.co/',
 	init: function() {
-	
-	LazyCache.init({
-		debug: false,
-		storeComplete: null
-	});
-	
-$element.LazyCache({
-						attr: 'data-image',
-						lazy: true,
-						css: {
-							'background-position': 'center',
-							'background-repeat': 'no-repeat',
-							'background-size': 'cover'
-						}
-					});
-	
-	
-		CB.version = localStorage.version;
 
 		$.getJSON(CB.service + 'api/config', function(r) {
 			CB.config = r;
 			if (CB.version != CB.config.version) {
-				// update all the assets
-				getAssets(CB.buildApp);
+				App.init();
 			} else {
-				CB.buildApp();
+				App.init();
 			}
 		});
 		
-	},
-	getAssets: function(cb) {
-		$.when($.ajax(CB.server + 'assets/bundle.js?v=' + CB.config.version), $.ajax(CB.server + 'assets/bundle.css?v=' + CB.config.version)).then(function(){
-			console.log(arguments);
-			if (typeof cb === 'function') {
-				cb();
-			}
-		});
-
-	},
-	buildApp: function() {
-		alert('built');
 	}
 };
 
