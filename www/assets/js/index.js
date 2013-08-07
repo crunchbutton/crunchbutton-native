@@ -6,24 +6,6 @@
 var now = new Date();
 var _gmtServer = now.getUTCFullYear() + '/' + (now.getUTCMonth()+1) + '/' + now.getDate() + '/' + now.getUTCHours() + '/' + now.getUTCMinutes() + '/' + now.getUTCSeconds();
 
-var CB = {
-	init: function() {
-		App.server = 'http://beta.crunchr.co/';
-		App.service = App.server + 'api/';
-		App.imgServer = 'http://i.crunchbutton.com/';
-
-		$.getJSON(App.service + 'config/extended', function(r) {
-			var extract = ['aliases','locations','facebookScope','communities','topCommunities'];
-			for (var x in extract) {
-				console.log(extract[x], r[extract[x]]);
-				App[extract[x]] = r[extract[x]];
-				r[extract[x]] = null;
-			}
-			App.init(r);
-		});
-	}
-};
-
 var TapToScroll = function() {
 	
 };
@@ -45,12 +27,27 @@ var login = function() {
 
 document.addEventListener('deviceready', function() {
 
-	CB.init();
+
+	App.server = 'http://beta.crunchr.co/';
+	App.service = App.server + 'api/';
+	App.imgServer = 'http://i.crunchbutton.com/';
+
+	// @todo: add fail handler
+	$.getJSON(App.service + 'config/extended', function(r) {
+		var extract = ['aliases','locations','facebookScope','communities','topCommunities'];
+		for (var x in extract) {
+			App[extract[x]] = r[extract[x]];
+			r[extract[x]] = null;
+		}
+		App.init(r);
+	});
+
+
 
 	window.plugins.tapToScroll.initListener();
 	window.addEventListener('statusTap', function() {
 		$('html, body').animate({scrollTop: 0}, 200);
-		//smoothTop();
+		console.log('TOP TAPPED');
 	});
 
 	var status = function(res) {
@@ -78,28 +75,3 @@ document.addEventListener('deviceready', function() {
 
 	
 }, false);
-
-
-
-var smoothTop = function() {
-	var pos = $(window).scrollTop();
-
-	$('body').css({
-		'margin-top': -pos + 'px',
-		'overflow-y': 'scroll',
-	});
-
-	$(window).scrollTop(0);
-
-	$('body').css({
-		'transition': 'margin-top .2s cubic-bezier(0.35, 0.71, 0.59, 0.88)',
-		'margin-top': '0'    	
-	});
-
-	$('body').on('webkitTransitionEnd transitionend msTransitionEnd oTransitionEnd', function() {
-		$('body').css('transition', 'none');
-	});
-}
-
-
-
