@@ -5,7 +5,6 @@
 
 var now = new Date();
 var _gmtServer = now.getUTCFullYear() + '/' + (now.getUTCMonth()+1) + '/' + now.getDate() + '/' + now.getUTCHours() + '/' + now.getUTCMinutes() + '/' + now.getUTCSeconds();
-var google = null;
 
 var CB = {
 	init: function() {
@@ -13,8 +12,9 @@ var CB = {
 		$.getJSON(App.service + 'config/extended', function(r) {
 			var extract = ['aliases','locations','facebookScope','communities','topCommunities'];
 			for (var x in extract) {
-				App[extract[x]] = r[x];
-				r[x] = null;
+				console.log(extract[x], r[extract[x]]);
+				App[extract[x]] = r[extract[x]];
+				r[extract[x]] = null;
 			}
 			App.init(r);
 		});
