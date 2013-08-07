@@ -60,9 +60,12 @@ $assets = json_decode(file_get_contents($server.'api/build'));
 foreach ($assets as $asset) {
 	$type = explode('/',$asset);
 	$type = $type[0];
-	
+
 	switch ($type) {
 		case 'view':
+			$content .= '<script type="text/ng-template" id="assets/'.$asset.'">'.file_get_contents($server.$asset).'</script>';
+			break;
+
 		case 'audio':
 		case 'images':
 			download($asset);
@@ -78,14 +81,13 @@ foreach ($assets as $asset) {
 echo "Asset download complete.\n";
 
 
-
-
 // create the index file
 echo "Building body...\n";
 
 $index = file_get_contents($path.'assets/view/template.html');
 $body = file_get_contents($server.'view/body.html');
 $index = str_replace('<body></body>', '<body>'.$body.'</body>', $index);
+$index = str_replace('<templates></templates>', $content, $index);
 
 file_put_contents($path.'index.html', $index);
 

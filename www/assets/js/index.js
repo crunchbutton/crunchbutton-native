@@ -1,17 +1,17 @@
+/**
+ * phonegap specific code
+ *
+ **/
+
 var now = new Date();
 var _gmtServer = now.getUTCFullYear() + '/' + (now.getUTCMonth()+1) + '/' + now.getDate() + '/' + now.getUTCHours() + '/' + now.getUTCMinutes() + '/' + now.getUTCSeconds();
+var google = null;
 
 var CB = {
-	server: 'http://beta.crunchr.co/',
 	init: function() {
-
-		$.getJSON(CB.server + 'api/config', function(r) {
-			CB.config = r;
-			if (CB.version != CB.config.version) {
-				App.init();
-			} else {
-				App.init();
-			}
+		App.service = 'http://beta.crunchr.co/api/';
+		$.getJSON(App.service + 'config', function(r) {
+			App.init(r);
 		});
 	}
 };
@@ -70,12 +70,6 @@ document.addEventListener('deviceready', function() {
 
 	
 }, false);
-//location.href="http://beta.crunchr.co/";
-
-
-
-
-
 
 
 
