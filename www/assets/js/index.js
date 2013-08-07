@@ -5,7 +5,7 @@ var CB = {
 	server: 'http://beta.crunchr.co/',
 	init: function() {
 
-		$.getJSON(CB.service + 'api/config', function(r) {
+		$.getJSON(CB.server + 'api/config', function(r) {
 			CB.config = r;
 			if (CB.version != CB.config.version) {
 				App.init();
@@ -13,13 +13,12 @@ var CB = {
 				App.init();
 			}
 		});
-		
 	}
 };
 
 var TapToScroll = function() {
-  
-}
+	
+};
 
 TapToScroll.prototype.initListener = function() {
 	cordova.exec(null, null, 'TapToScroll', 'initListener',[]);
