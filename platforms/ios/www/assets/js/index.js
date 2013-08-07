@@ -8,7 +8,10 @@ var _gmtServer = now.getUTCFullYear() + '/' + (now.getUTCMonth()+1) + '/' + now.
 
 var CB = {
 	init: function() {
-		App.service = 'http://beta.crunchr.co/api/';
+		App.server = 'http://beta.crunchr.co/';
+		App.service = App.server + 'api/';
+		App.imgServer = 'http://i.crunchbutton.com/';
+
 		$.getJSON(App.service + 'config/extended', function(r) {
 			var extract = ['aliases','locations','facebookScope','communities','topCommunities'];
 			for (var x in extract) {

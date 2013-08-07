@@ -26,7 +26,7 @@
 
 	<access origin="*" />
 
-	<preference name="KeyboardDisplayRequiresUserAction" value="true" />
+	<preference name="KeyboardDisplayRequiresUserAction" value="false" />
 	<preference name="SuppressesIncrementalRendering" value="false" />
 	<preference name="UIWebViewBounce" value="false" />
 	<preference name="TopActivityIndicator" value="gray" />
