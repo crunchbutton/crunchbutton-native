@@ -78,18 +78,12 @@ foreach ($assets as $asset) {
 echo "Asset download complete.\n";
 
 
-// fix root image paths for local files
-echo "Fixing root paths...";
-//shell_exec('for i in $(grep "assets" '.$path.'assets/css/* -R | cut -d ":" -f 1); do sed "s/assets/assets/gi" -i $i;');
-echo " complete\n";
-
-exit;
 
 
 // create the index file
 echo "Building body...\n";
 
-$index = file_get_contents($path.'view/template.html');
+$index = file_get_contents($path.'assets/view/template.html');
 $body = file_get_contents($server.'view/body.html');
 $index = str_replace('<body></body>', '<body>'.$body.'</body>', $index);
 
