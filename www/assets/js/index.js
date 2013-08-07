@@ -10,7 +10,12 @@ var google = null;
 var CB = {
 	init: function() {
 		App.service = 'http://beta.crunchr.co/api/';
-		$.getJSON(App.service + 'config', function(r) {
+		$.getJSON(App.service + 'config/extended', function(r) {
+			var extract = ['aliases','locations','facebookScope','communities','topCommunities'];
+			for (var x in extract) {
+				App[extract[x]] = r[x];
+				r[x] = null;
+			}
 			App.init(r);
 		});
 	}
