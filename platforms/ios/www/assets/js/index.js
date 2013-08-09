@@ -4,7 +4,7 @@
  **/
 
 var now = new Date();
-var _gmtServer = now.getUTCFullYear() + '/' + (now.getUTCMonth()+1) + '/' + now.getDate() + '/' + now.getUTCHours() + '/' + now.getUTCMinutes() + '/' + now.getUTCSeconds();
+var _gmtServer = now.getUTCFullYear() + '/' + (now.getUTCMonth()+1) + '/' + now.getUTCDate() + '/' + now.getUTCHours() + '/' + now.getUTCMinutes() + '/' + now.getUTCSeconds();
 
 var TapToScroll = function() {
 	
@@ -46,28 +46,19 @@ document.addEventListener('deviceready', function() {
 
 	window.plugins.tapToScroll.initListener();
 	window.addEventListener('statusTap', function() {
-		$('html, body').animate({scrollTop: 0}, 200);
-		console.log('TOP TAPPED');
+		$('html, body, .snap-content-inner').animate({scrollTop: 0}, 200, $.easing.easeInOutQuart ? 'easeInOutQuart' : null);
 	});
 
-	var status = function(res) {
-		if (res.status === 'connected' && res.authResponse && res.authResponse.accessToken) {
-			FB.api('/me', {fields: 'name' }, function(me) {
-				// logged in
-				console.log('ME',me);
-			});
-		}
-	}
-	
-	FB.Event.subscribe('auth.statusChange', status);
 
-	//FB.getLoginStatus(status);
+	var facebookService = angular.element('html').injector().get('FacebookService');
+	FB.getLoginStatus(facebookService.processStatus);
+	FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
 	
 
 	FB.init({
 		appId: '***REMOVED***',
 		//cookie: true,
-		//xfbml: true,
+		xfbml: true,
 		//oauth: true,
 		nativeInterface: CDV.FB,
 		useCachedDialogs: false

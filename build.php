@@ -68,6 +68,7 @@ foreach ($assets as $asset) {
 
 		case 'audio':
 		case 'images':
+		case 'fonts':
 			download($asset);
 			break;
 
