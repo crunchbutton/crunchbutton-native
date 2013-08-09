@@ -477,10 +477,23 @@
 				<div class="your-order-label" style="font-weight: bold; display: none;">(we've chosen the most popular order, but you can order anything you want)</div>
 				<div class="divider"></div>
 
-				<div ng-show="order.info.deliveryMinDiff" class="delivery-minimum-error">
+				<div ng-show="!order.cart.hasItems()" class="order-begin">
+					<div class="icon">
+						<i class="icon-arrow-left desktop"></i> 	
+						<i class="icon-arrow-down mobile"></i> 
+					</div>
+					<div class="text">
+						Begin by clicking on anything from our curated menu 
+						<span class="desktop"> on the left!</span>
+						<span class="mobile"> below!</span>
+					</div>
+					<div class="divider"></div>
+				</div>
+
+				<div ng-show="order.info.deliveryMinDiff && order.cart.hasItems()" class="delivery-minimum-error">
 					Add $<span class="delivery-min-diff">{{order.info.deliveryMinDiff}}</span> from menu to meet delivery minimum.
 				</div>
-				
+
 				<!-- Cart's basket -->
 				<div>
 
@@ -566,10 +579,8 @@
 	</div>
 
 	<div class="restaurant-payment-div"></div>
-	
-	<!-- payment and user info -->
-	<form class="payment-form main-content-readable" ng-show="order.loaded">
-	
+
+	<div class="is-closet main-content-readable" >
 		<div class="restaurant-closed" ng-show="!restaurant.open()">
 			<div class="restaurant-closed-icon"></div>
 			<div class="restaurant-closed-content">
@@ -583,9 +594,12 @@
 			</div>
 			<div class="divider"></div>
 		</div>
+	</div>
+
+	<!-- payment and user info -->
+	<form class="payment-form main-content-readable" ng-show="order.loaded && order.cart.hasItems()">
 	
-		
-		<div ng-show="restaurant._open && order.showForm">
+		<div ng-show="restaurant._open && order.showForm && order.cart.hasItems()">
 		
 			<div class="content-item-name"><h1>Your Info</h1></div>
 			<div class="your-info-label">(enter this once, and we'll save it for next time)</div>
@@ -751,10 +765,10 @@
 	
 	</form>
 
-	<div ng-show="restaurant._open" class="button-bottom-wrapper" data-role="footer" data-position="fixed"><button class="button-bottom" ng-click="order.submit();"><div>Get Food</div></button></div>
+	<div ng-show="restaurant._open && order.cart.hasItems()" class="button-bottom-wrapper" data-role="footer" data-position="fixed"><button class="button-bottom" ng-click="order.submit();"><div>Get Food</div></button></div>
 
 	<!-- stored user info -->
-	<div class="delivery-payment-info main-content-readable" ng-show="restaurant._open && !order.showForm">
+	<div class="delivery-payment-info main-content-readable" ng-show="restaurant._open && !order.showForm && order.cart.hasItems()">
 
 		<div>
 			<label>Your phone number:&nbsp;</label>
@@ -1134,6 +1148,7 @@ TODO: remove this comment
 						<a href="javascript:App.test.logout();" class="test-logout">TEST: logout</a>
 						<a href="javascript:App.test.clearloc();" class="test-clearloc">TEST: clear loc</a>
 						<a href="javascript:;" ng-click="navigation.link('/')">TEST: go home</a>
+						<a href="javascript:;" ng-click="navigation.link('/location')">TEST: go location</a>
 										<br />
 					<span class="copyright">&copy; 2013 YouBeo. All rights reserved.</span>
 				</div>
