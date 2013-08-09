@@ -25,44 +25,45 @@ var login = function() {
 	FB.login(status, {scope: 'email'});
 };
 
-document.addEventListener('deviceready', function() {
 
+$(function() {
+	document.addEventListener('deviceready', function() {
 
-	App.server = 'http://beta.crunchr.co/';
-	App.service = App.server + 'api/';
-	App.imgServer = 'http://i.crunchbutton.com/';
-
-	// @todo: add fail handler
-	$.getJSON(App.service + 'config/extended', function(r) {
-		var extract = ['aliases','locations','facebookScope','communities','topCommunities'];
-		for (var x in extract) {
-			App[extract[x]] = r[extract[x]];
-			r[extract[x]] = null;
-		}
-		App.init(r);
-	});
-
-
-
-	window.plugins.tapToScroll.initListener();
-	window.addEventListener('statusTap', function() {
-		$('html, body, .snap-content-inner').animate({scrollTop: 0}, 200, $.easing.easeInOutQuart ? 'easeInOutQuart' : null);
-	});
-
-
-	var facebookService = angular.element('html').injector().get('FacebookService');
-	FB.getLoginStatus(facebookService.processStatus);
-	FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
+		App.server = 'http://beta.crunchr.co/';
+		App.service = App.server + 'api/';
+		App.imgServer = 'http://i.crunchbutton.com/';
 	
+		// @todo: add fail handler
+		$.getJSON(App.service + 'config/extended', function(r) {
+			var extract = ['aliases','locations','facebookScope','communities','topCommunities'];
+			for (var x in extract) {
+				App[extract[x]] = r[extract[x]];
+				r[extract[x]] = null;
+			}
+			App.init(r);
+		});
 
-	FB.init({
-		appId: '***REMOVED***',
-		//cookie: true,
-		xfbml: true,
-		//oauth: true,
-		nativeInterface: CDV.FB,
-		useCachedDialogs: false
-	});
-
+		// top tap scroller
+		window.plugins.tapToScroll.initListener();
+		window.addEventListener('statusTap', function() {
+			$('html, body, .snap-content-inner').animate({scrollTop: 0}, 200, $.easing.easeInOutQuart ? 'easeInOutQuart' : null);
+		});
 	
-}, false);
+		setTimeout(function(){
+			var facebookService = angular.element('html').injector().get('FacebookService');
+			FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
+	
+			FB.init({
+				appId: '***REMOVED***',
+				//cookie: true,
+				xfbml: true,
+				//oauth: true,
+				nativeInterface: CDV.FB,
+				useCachedDialogs: false
+			});
+			
+			FB.getLoginStatus(facebookService.processStatus);
+
+		}, 1000);
+	}, true);
+});
