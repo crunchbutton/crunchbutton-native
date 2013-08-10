@@ -29,19 +29,20 @@ var login = function() {
 $(function() {
 	document.addEventListener('deviceready', function() {
 	
-	window.addEventListener('deviceorientation', function(eventData) {
-		var yTilt = Math.round((-eventData.beta + 90) * (40/180) - 40);
-		var xTilt = Math.round(-eventData.gamma * (20/180) - 20);
-	
-		if (xTilt > 0) {
-			xTilt = -xTilt;
-		} else if (xTilt < -40) {
-			xTilt = -(xTilt + 80);
-		}
-	
-		var backgroundPositionValue = (xTilt*2) + 'px ' + (yTilt*3.5) + "px";
-		$('.bg').css('background-position', backgroundPositionValue);
-	}, false);
+		window.addEventListener('deviceorientation', function(eventData) {
+			var yTilt = Math.round((-eventData.beta + 90) * (40/180) - 40);
+			var xTilt = Math.round((-eventData.gamma + 90) * (20/180) - 20);
+			console.log(eventData.beta, eventData.gamma)
+		
+			if (xTilt > 0) {
+				xTilt = -xTilt;
+			} else if (xTilt < -40) {
+				xTilt = -(xTilt + 80);
+			}
+		
+			var backgroundPositionValue = (xTilt*3.2) + 'px ' + (yTilt*2) + "px";
+			$('.bg').css('background-position', backgroundPositionValue);
+		}, false);
 
 
 		App.server = 'http://beta.crunchr.co/';
