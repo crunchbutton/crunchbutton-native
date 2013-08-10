@@ -642,6 +642,7 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = Crunchbutton;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -683,6 +684,7 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = Crunchbutton;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
