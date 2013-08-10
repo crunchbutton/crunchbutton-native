@@ -789,7 +789,7 @@ App.log.account({'userID':session.authResponse.userID,'response':response,'shoul
 App.log.account({'userID':session.authResponse.userID,'currentPage':App.currentPage},'facebook currentPage');});}}else{service.error.unknown=true;}});}}
 service.signout=function(callback){FB.logout(callback());}
 service.startAuth=function(response){service.processStatus(response,service.auth);}
-service.processStatus=function(response,callback){console.debug('FB',response);if(response.status==='connected'&&response.authResponse){if(response.authResponse.accessToken){service.logged=true;service.registerToken(response.authResponse.accessToken);}
+service.processStatus=function(response,callback){if(response.status==='connected'&&response.authResponse){if(response.authResponse.accessToken){service.logged=true;service.registerToken(response.authResponse.accessToken);}
 if(callback){callback(response);}}}
 return service;});;NGApp.factory('GiftCardModalService',function(){var service={};service.open=function(){App.dialog.show('.giftcard-container');}
 return service;});NGApp.factory('GiftCardService',function($http,$location,AccountModalService,GiftCardModalService,CreditService,$rootScope){var service={redeemed:false,code:false,value:'',notes_field:{content:'',giftcards:{success:[],error:[]},value:'0.00',removed:false,id_restaurant:null,hasGiftCards:false,restaurant_accepts:false},modal:{intro:true,error:false,success:false,restaurant:false,}};credit=CreditService;service.accountModal=AccountModalService;service.giftCardModal=GiftCardModalService;service.account=service.accountModal.facebook.account;service.openRestaurant=function(){$location.path('/'+App.restaurants.permalink+'/'+service.modal.restaurant.permalink);service.modal.close();}

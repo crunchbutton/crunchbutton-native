@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0822347D17AC32B4009F2FC5 /* TapToScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 0822347C17AC32B4009F2FC5 /* TapToScroll.m */; };
 		083DF06817AACDE5002F26C6 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 083DF06717AACDE5002F26C6 /* FacebookConnectPlugin.m */; };
