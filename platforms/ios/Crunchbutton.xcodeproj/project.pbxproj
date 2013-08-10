@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0822347D17AC32B4009F2FC5 /* TapToScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 0822347C17AC32B4009F2FC5 /* TapToScroll.m */; };
 		083DF06817AACDE5002F26C6 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 083DF06717AACDE5002F26C6 /* FacebookConnectPlugin.m */; };
@@ -607,6 +608,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: devin smith (23ANY47UK9)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -649,6 +651,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: devin smith (23ANY47UK9)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
