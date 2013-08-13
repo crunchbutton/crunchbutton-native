@@ -11,7 +11,8 @@
 
 $server = 'http://beta.crunchr.co/';
 $server = 'http://crunchbutton.localhost/';
-$srcPath = './www/';
+$srcPath = './src/';
+//$path = './www/';
 $path = './platforms/ios/www/';
 
 
