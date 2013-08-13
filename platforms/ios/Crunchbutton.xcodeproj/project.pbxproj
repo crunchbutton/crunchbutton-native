@@ -12,8 +12,6 @@
 		083DF08E17AACF1A002F26C6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083DF08D17AACF1A002F26C6 /* FacebookSDK.framework */; };
 		085C86AF17B3280000A40B53 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C86AD17B3280000A40B53 /* libTestFlight.a */; };
 		085C86B317B3288500A40B53 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C86B217B3288500A40B53 /* libz.dylib */; };
-		085C86B717B32F7D00A40B53 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C86B617B32F7D00A40B53 /* CoreFoundation.framework */; };
-		085C86B817B32F8F00A40B53 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		085E2C3317A84E47007A9847 /* icon-57-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 085E2C2C17A84E47007A9847 /* icon-57-2x.png */; };
 		085E2C3417A84E47007A9847 /* icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 085E2C2D17A84E47007A9847 /* icon-57.png */; };
 		085E2C3517A84E47007A9847 /* icon-72-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 085E2C2E17A84E47007A9847 /* icon-72-2x.png */; };
@@ -46,6 +44,7 @@
 		085E2CA917A85D20007A9847 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085E2CA817A85D20007A9847 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		085E2CAB17A85D2B007A9847 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085E2CAA17A85D2B007A9847 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		08D6BC5B17B2EAC500EF9235 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5B8109A6A2B0062928A /* AudioToolbox.framework */; };
+		08E6EEF517BA23D8001A0403 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -68,11 +67,9 @@
 		30A0434914DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434614DC770100060A13 /* Localizable.strings */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5AA0E66D1729F45B000DC89A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA0E66C1729F45B000DC89A /* OpenAL.framework */; };
-		5AA0E66F1729F460000DC89A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA0E66E1729F460000DC89A /* ImageIO.framework */; };
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		B293BA0B0A364CB3B70F2998 /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = FF51F6EB1A6340A4A8867361 /* CDVVibration.m */; };
-		C21EFFA5DDEA4259AB7E6123 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71E4DC083D5542C3BA6CC586 /* CDVNotification.bundle */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +132,9 @@
 		085E2CA617A85D14007A9847 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		085E2CA817A85D20007A9847 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		085E2CAA17A85D2B007A9847 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		08DA713F17BA2014004DA9AF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		08DA714317BA2027004DA9AF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		08DA714917BA2054004DA9AF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		0FC15BB298074315BDB3F7D9 /* CDVNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVNotification.m; path = org.apache.cordova.core.dialogs/CDVNotification.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -155,7 +155,6 @@
 		301BF5BE109A6A2B0062928A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		301BF5C0109A6A2B0062928A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		301BF5C2109A6A2B0062928A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		301BF5C4109A6A2B0062928A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		302D95EE14D2391D003F00A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		302D95EF14D2391D003F00A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		302D95F014D2391D003F00A1 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
@@ -167,13 +166,11 @@
 		32CA4F630368D1EE00C91783 /* Crunchbutton-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Crunchbutton-Prefix.pch"; sourceTree = "<group>"; };
 		3B7E2E76C7D1451E96B64A16 /* CDVNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVNotification.h; path = org.apache.cordova.core.dialogs/CDVNotification.h; sourceTree = "<group>"; };
 		5AA0E66C1729F45B000DC89A /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
-		5AA0E66E1729F460000DC89A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		71E4DC083D5542C3BA6CC586 /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CDVNotification.bundle; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Crunchbutton-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Crunchbutton-Info.plist"; path = "../Crunchbutton-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D885BDB6A2BD4B5C966613CA /* CDVVibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVVibration.h; path = org.apache.cordova.core.vibration/CDVVibration.h; sourceTree = "<group>"; };
-		EBEE5442D30C4AD19093F07B /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CDVNotification.bundle; sourceTree = "<group>"; };
+		EBEE5442D30C4AD19093F07B /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CDVNotification.bundle; path = Crunchbutton/Resources/CDVNotification.bundle; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Crunchbutton/config.xml; sourceTree = "<group>"; };
 		FF51F6EB1A6340A4A8867361 /* CDVVibration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVVibration.m; path = org.apache.cordova.core.vibration/CDVVibration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,8 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				085C86B817B32F8F00A40B53 /* CoreGraphics.framework in Frameworks */,
-				085C86B717B32F7D00A40B53 /* CoreFoundation.framework in Frameworks */,
+				08E6EEF517BA23D8001A0403 /* CoreGraphics.framework in Frameworks */,
 				085C86B317B3288500A40B53 /* libz.dylib in Frameworks */,
 				08D6BC5B17B2EAC500EF9235 /* AudioToolbox.framework in Frameworks */,
 				085E2CAB17A85D2B007A9847 /* Security.framework in Frameworks */,
@@ -194,7 +190,6 @@
 				085E2CA517A85D06007A9847 /* Social.framework in Frameworks */,
 				301BF5BF109A6A2B0062928A /* CoreLocation.framework in Frameworks */,
 				083DF08E17AACF1A002F26C6 /* FacebookSDK.framework in Frameworks */,
-				5AA0E66F1729F460000DC89A /* ImageIO.framework in Frameworks */,
 				5AA0E66D1729F45B000DC89A /* OpenAL.framework in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
@@ -290,8 +285,6 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* Crunchbutton-Info.plist */,
-				EBEE5442D30C4AD19093F07B /* CDVNotification.bundle */,
-				71E4DC083D5542C3BA6CC586 /* CDVNotification.bundle */,
 			);
 			name = Resources;
 			path = Crunchbutton/Resources;
@@ -300,6 +293,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EBEE5442D30C4AD19093F07B /* CDVNotification.bundle */,
+				08DA714917BA2054004DA9AF /* OpenGLES.framework */,
+				08DA714317BA2027004DA9AF /* GLKit.framework */,
+				08DA713F17BA2014004DA9AF /* CoreData.framework */,
 				085C86B617B32F7D00A40B53 /* CoreFoundation.framework */,
 				085C86B217B3288500A40B53 /* libz.dylib */,
 				085C86B017B3285D00A40B53 /* lazydylib1.o */,
@@ -309,7 +306,6 @@
 				085E2CA617A85D14007A9847 /* Accounts.framework */,
 				085E2CA417A85D06007A9847 /* Social.framework */,
 				5AEE5B34173C68D80009041E /* CoreLocation.framework */,
-				5AA0E66E1729F460000DC89A /* ImageIO.framework */,
 				5AA0E66C1729F45B000DC89A /* OpenAL.framework */,
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -323,7 +319,6 @@
 				301BF5BE109A6A2B0062928A /* CoreLocation.framework */,
 				301BF5C0109A6A2B0062928A /* MediaPlayer.framework */,
 				301BF5C2109A6A2B0062928A /* QuartzCore.framework */,
-				301BF5C4109A6A2B0062928A /* SystemConfiguration.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 				30E5649113A7FCAF007403D8 /* CoreMedia.framework */,
 			);
@@ -520,7 +515,6 @@
 				085E2C3817A84E47007A9847 /* icon-120.png in Resources */,
 				085E2C4C17A8504E007A9847 /* icon-58.png in Resources */,
 				085E2C4B17A8504E007A9847 /* icon-57.png in Resources */,
-				C21EFFA5DDEA4259AB7E6123 /* CDVNotification.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,12 +601,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: devin smith (23ANY47UK9)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/arzynik/Documents/FacebookSDK,
+					/Users/arzynik/Development/ios/crunchbutton/platforms/ios,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -626,6 +622,7 @@
 					"$(inherited)",
 					/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes,
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -644,6 +641,7 @@
 				PRODUCT_NAME = Crunchbutton;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -651,12 +649,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: devin smith (23ANY47UK9)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/arzynik/Documents/FacebookSDK,
+					/Users/arzynik/Development/ios/crunchbutton/platforms/ios,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Crunchbutton/Crunchbutton-Prefix.pch";
@@ -668,6 +668,7 @@
 					"$(inherited)",
 					/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes,
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -686,6 +687,7 @@
 				PRODUCT_NAME = Crunchbutton;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};

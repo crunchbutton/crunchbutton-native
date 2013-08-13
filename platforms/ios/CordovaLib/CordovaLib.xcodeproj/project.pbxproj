@@ -442,16 +442,10 @@
 		1DEB922308733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = armv7;
 				"ARCHS[sdk=iphoneos*]" = armv7;
-				"ARCHS[sdk=iphoneos6.*]" = (
-					armv7,
-					armv7s,
-				);
-				"ARCHS[sdk=iphoneos7.*]" = (
-					armv7,
-					armv7s,
-				);
+				"ARCHS[sdk=iphoneos6.*]" = armv7;
+				"ARCHS[sdk=iphoneos7.*]" = armv7;
 				"ARCHS[sdk=iphonesimulator*]" = i386;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -480,16 +474,10 @@
 		1DEB922408733DC00010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = armv7;
 				"ARCHS[sdk=iphoneos*]" = armv7;
-				"ARCHS[sdk=iphoneos6.*]" = (
-					armv7,
-					armv7s,
-				);
-				"ARCHS[sdk=iphoneos7.*]" = (
-					armv7,
-					armv7s,
-				);
+				"ARCHS[sdk=iphoneos6.*]" = armv7;
+				"ARCHS[sdk=iphoneos7.*]" = armv7;
 				"ARCHS[sdk=iphonesimulator*]" = i386;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
