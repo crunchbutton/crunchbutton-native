@@ -30,12 +30,12 @@
         <param name="ios-package" value="CDVNotification" />
     </feature>
     <access origin="*" />
-    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <preference name="SuppressesIncrementalRendering" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="TopActivityIndicator" value="gray" />
     <preference name="EnableLocation" value="false" />
-    <preference name=" " value="false" />
+    <preference name="EnableViewportScale" value="false" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="ShowSplashScreenSpinner" value="true" />
     <preference name="MediaPlaybackRequiresUserAction" value="false" />

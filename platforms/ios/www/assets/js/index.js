@@ -28,9 +28,6 @@ var login = function() {
 
 $(function() {
 	document.addEventListener('deviceready', function() {
-		navigator.geolocation.getCurrentPosition(function(){
-			console.log(arguments);
-		});
 	
 		window.addEventListener('deviceorientation', function(eventData) {
 			var yTilt = Math.round((-eventData.beta + 90) * (40/180) - 40);
