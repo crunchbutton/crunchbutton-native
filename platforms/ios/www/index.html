@@ -324,6 +324,13 @@
 		</div>
 	</div>
 </div>
+</script><script type="text/ng-template" id="assets/view/notification.alert.html">
+<div class="notification-alert-container zoom-anim-dialog small-container mfp-hide" ng-controller="NotificationAlertCtrl">
+	<div class="signin-form-container">	
+		<h1 ng-bind="title"></h1>
+		<p ng-bind-html-unsafe="message"></p>
+	</div>
+</div>
 </script><script type="text/ng-template" id="assets/view/order.html">
 <div ng-show="!order.order.id">
 	Orders loader
@@ -429,12 +436,12 @@
 	<div class="signin-form-container">	
 		<h1 ng-bind="restaurant.name"></h1>
 		<p>Is currently closed. It will be open during the following hours (<span ng-bind="restaurant._tzabbr"></span>):<br /><br />
-		<div ng-bind-html-unsafe="restaurant.closedMessage()"</div>
+		<div ng-bind-html-unsafe="restaurant.closedMessage()"></div>
 	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/restaurant.html">
 <div ng-show="!order.loaded">
-	Restaurant Loading Message
+	Restaurant Loading Message!! YOU SHOULD NEVER SEE THIS!!
 </div>
 
 <div ng-show="order.loaded">
@@ -839,16 +846,20 @@
 <div class="content-padder">
 	<div class="meal-items {{mealItemClass}}">
 
-		<div ng-click="display()" ng-class="{'meal-item-closed': restaurant._open==false}" class="meal-item" data-id_restaurant="{{restaurant.id_restaurant}}" data-permalink="{{restaurant.permalink}}" ng-repeat="restaurant in restaurants">
-			<div class="meal-item-content">
-				<div class="meal-pic" style="background: url({{restaurant.img64}});"></div>
-				<h2 class="meal-restaurant">{{restaurant.name}}</h2>
-				<h3 class="meal-food">{{restaurant._short_description}}</h3>
-				<div ng-switch on="restaurant._tag">
-					<div class="meal-item-tag" ng-switch-when="takeout">Take out only</div>
-					<div class="meal-item-tag about-to-close" ng-switch-when="closing">Hurry, closes in {{restaurant.isAboutToClose()}} min!</div>
-					<div class="meal-item-tag-closed" ng-switch-when="closed">Opens in a few hours</div>
+		<div ng-click="display($event)" ng-class="{'meal-item-closed': restaurant._open==false}" class="meal-item" data-id_restaurant="{{restaurant.id_restaurant}}" data-permalink="{{restaurant.permalink}}" ng-repeat="restaurant in restaurants">
+
+			<div class="meal-item-content ladda-button" data-style="zoom-out" data-spinner-color="#333333">
+				<div class="ladda-label">
+					<div class="meal-pic" style="background: url({{restaurant.img64}});"></div>
+					<h2 class="meal-restaurant">{{restaurant.name}}</h2>
+					<h3 class="meal-food">{{restaurant._short_description}}</h3>
+					<div ng-switch on="restaurant._tag">
+						<div class="meal-item-tag" ng-switch-when="takeout">Take out only</div>
+						<div class="meal-item-tag about-to-close" ng-switch-when="closing">Hurry, closes in {{restaurant.isAboutToClose()}} min!</div>
+						<div class="meal-item-tag-closed" ng-switch-when="closed">Opens in a few hours</div>
+					</div>
 				</div>
+				<span class="ladda-spinner"></span>
 			</div>
 			<div class="meal-item-spacer"></div>
 		</div>
@@ -1181,6 +1192,7 @@ TODO: remove this comment
 	<div class="divider"></div>
 </div>
 
+<div ng-include="'assets/view/notification.alert.html'"></div>
 <div ng-include="'assets/view/restaurant.closed.html'"></div>
 <div ng-include="'assets/view/account.html'"></div>
 <div ng-include="'assets/view/account.reset.html'"></div>
