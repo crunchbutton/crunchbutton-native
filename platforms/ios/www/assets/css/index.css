@@ -26,7 +26,7 @@ body {
 }
 
 @media (max-width: 768px) {
-	.ios7 .nav {
+	.ios7 .nav-top {
 		background: url(../images/nav-ios7.png);
 		background-size: 62px;
 		padding-top: 15px;
@@ -34,7 +34,9 @@ body {
 	}
 	.ios7 .main-content {
 		margin-top: 68px;
-
+	}
+	.ios7.route-restaurant .main-content {
+		margin-top: 103px;
 	}
 }
 
