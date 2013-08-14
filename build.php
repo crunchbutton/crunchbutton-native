@@ -26,32 +26,37 @@ $cleanPaths = array(
 foreach ($cleanPaths as $p) {
 	shell_exec('rm -Rf '.$p);
 }
+// delete all js that isnt the generated plugins file
+shell_exec("rm -rf $(ls ".$path."*.js|grep -v 'cordova_plugins.js')");
+
+
 echo "complete.\n";
 
 
 // create and copy template dirs
 echo "Creating directories";
-shell_exec('cp -R '.$srcPath.'assets '.$path.'assets');
+shell_exec('cp -R '.$srcPath.'assets '.$path.'assets && mv '.$path.'assets/js/* '.$path);
 echo "complete.\n";
 
 
 // download assets from server
 echo "Downloading assets bundle...\n";
 
-function download($file, $usegzip = false) {
+function download($file, $dst = null, $usegzip = false) {
 	global $server, $path;
 	
 	echo '	'.$file.'... ';
-	$dir = $path.'assets/'.dirname($file);
+	$parts = pathinfo($path.'assets/'.$file);
+	$dstpath = $dst !== null ? $path.$dst.$parts['basename'] : $path.'assets/'.$file;
 
-	if (!file_exists($dir)) {
-		mkdir($dir, 0755, true);
+	if (!file_exists($parts['dirname'])) {
+		mkdir($parts['dirname'], 0755, true);
 	}
 
 	if ($usegzip) {
-		shell_exec('wget -q -O - --header="Accept-Encoding: gzip" "'.$server.'assets/'.$file.'" | gunzip > "'.$path.'assets/'.$file.'"');
+		shell_exec('wget -q -O - --header="Accept-Encoding: gzip" "'.$server.'assets/'.$file.'" | gunzip > "'.$dstpath.'"');
 	} else {
-		shell_exec('wget -q -O '.$path.'assets/'.$file.' "'.$server.'assets/'.$file.'"');
+		shell_exec('wget -q -O '.$dstpath.' "'.$server.'assets/'.$file.'"');
 		// file_put_contents($path.'assets/'.$file, file_get_contents($server.$file));
 	}
 	echo "complete.\n";
@@ -74,8 +79,11 @@ foreach ($assets as $asset) {
 			break;
 
 		case 'js':
+			download($asset, '', true);
+			break;
+
 		case 'css':
-			download($asset, true);
+			download($asset, null, true);
 			break;
 	}
 }

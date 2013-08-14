@@ -37,4 +37,7 @@
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.core.GeoBroker" />
     </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.core.SplashScreen" />
+    </feature>
 </widget>
