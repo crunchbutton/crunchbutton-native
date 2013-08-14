@@ -441,7 +441,8 @@
 </div>
 </script><script type="text/ng-template" id="assets/view/restaurant.html">
 <div ng-show="!order.loaded">
-	Restaurant Loading Message!! YOU SHOULD NEVER SEE THIS!!
+	Restaurant Loading Message!!<br><br>
+	THIS WILL SHOW UP WHEN A RESTAURANT PAGE IS DIRECTLY LOADED FROM A BROWSER BEFORE THE PAGE SHOWS.
 </div>
 
 <div ng-show="order.loaded">
@@ -469,7 +470,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="restaurant-message" ng-bind-html-unsafe="restaurant.message" ng-show="restaurant.message"></div>
 	
 	<div ng-show="restaurant.image" class="restaurant-pic-wrapper {{AB.restaurantPage}}">
@@ -492,18 +493,21 @@
 				<div class="your-order-label" style="font-weight: bold; display: none;">(we've chosen the most popular order, but you can order anything you want)</div>
 				<div class="divider"></div>
 
-				<div ng-show="!order.cart.hasItems()" class="order-begin">
-					<div class="icon">
-						<i class="icon-arrow-left desktop"></i> 	
-						<i class="icon-arrow-down mobile"></i> 
-					</div>
-					<div class="text">
-						Begin by clicking on anything from our curated menu 
-						<span class="desktop"> on the left!</span>
-						<span class="mobile"> below!</span>
+				<div ng-show="!order.cart.hasItems()" class="order-begin-wrap">
+					<div class="order-begin">
+						<div class="icon">
+							<i class="icon-arrow-left desktop"></i> 	
+							<i class="icon-arrow-down mobile"></i> 
+						</div>
+						<div class="text">
+							Begin by clicking on anything from our curated menu 
+							<span class="desktop"> on the left!</span>
+							<span class="mobile"> below!</span>
+						</div>
 					</div>
 					<div class="divider"></div>
 				</div>
+					<div class="divider"></div>
 
 				<div ng-show="order.info.deliveryMinDiff && order.cart.hasItems()" class="delivery-minimum-error">
 					Add $<span class="delivery-min-diff">{{order.info.deliveryMinDiff}}</span> from menu to meet delivery minimum.
@@ -1117,6 +1121,14 @@
 						</tr>
 					</table>
 				</li>
+				<li ng-instant="App.test.reload()">
+					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+						<tr>
+							<td class="side-menu-icon"><i class="icon-circle-blank"></i></td>
+							<td class="side-menu-label">TEST: reload page</a></td>
+						</tr>
+					</table>
+				</li>
 				
 			</ul>
 			<div>
@@ -1140,7 +1152,7 @@
 
 				<div title="Back" ng-show="navigation.buttons.back" class="nav-back" ng-instant="back()"></div>
 				<div title="Change location" ng-show="navigation.buttons.location" class="location-icon {{ navigation.page == 'home' && 'config-icon-desktop-hide' || '' }}" ng-instant="navigation.link('/location')"></div>
-				<div title="Menu" ng-show="navigation.buttons.menu" class="menu-icon {{ navigation.page == 'home' && 'config-icon-desktop-hide' || '' }}" ng-instant="navigation.menu()"></div>
+				<div title="Menu" ng-show="navigation.buttons.menu" class="menu-icon {{ navigation.page == 'home' && 'config-icon-desktop-hide' || '' }}" ng-click="navigation.menu()"></div>
 
 				<div class="signin-box-header">
 					<div ng-show="account.user.id_user" ng-instant="navigation.link('/orders')" class="signin-user" title="My Account + Past Orders"></div>
@@ -1163,12 +1175,8 @@
 			<div class="divider"></div>
 
 			<div class="footer">
-	
-	<!-- 			
-TODO: remove this comment
 
-	<div class="fb-like-mobile fb-like-box" data-href="http://www.facebook.com/crunchbutton" data-width="300" data-show-faces="false" data-stream="false" data-header="false"></div>
-	 -->
+				
 				<div class="footer-content hidden-phone" ng-controller="MainHeaderCtrl">
 	
 					<a href="javascript:;" ng-click="navigation.link('/help')">Help</a>
