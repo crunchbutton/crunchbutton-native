@@ -35,8 +35,15 @@ body {
 	.ios7 .main-content {
 		margin-top: 68px;
 	}
-	.ios7.route-restaurant .main-content {
+	.ios7.page-restaurant .main-content {
 		margin-top: 103px;
+	}
+	.bg {
+		-webkit-transition: all linear 0.1s;
+		   -moz-transition: all linear 0.1s;
+		    -ms-transition: all linear 0.1s;
+		     -o-transition: all linear 0.1s;
+		        transition: all linear 0.1s;
 	}
 }
 
