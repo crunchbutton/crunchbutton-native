@@ -28,6 +28,10 @@ var login = function() {
 
 $(function() {
 	document.addEventListener('deviceready', function() {
+		// this is only here so we can not get a double permission request
+		navigator.geolocation.getCurrentPosition(function (position) {
+			console.debug('got users position', position);
+		});
 	
 		window.addEventListener('deviceorientation', function(eventData) {
 			var yTilt = Math.round((-eventData.beta + 90) * (40/180) - 40);
