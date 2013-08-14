@@ -1,0 +1,1232 @@
+TCrunchbutton
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Info.plist Crunchbutton/Crunchbutton-Info.plist
+cPhaseScriptExecution "Copy www directory" /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Script-304B58A110DAC018002A0835.sh
+cCpResource Crunchbutton/Resources/icons/icon-57-2x.png build/Crunchbutton.app/icon-57-2x.png
+cCpResource Crunchbutton/Resources/icons/icon-57-2x.png build/Crunchbutton.app/icon-57-2x.png
+cCpResource Crunchbutton/Resources/splash/Default~iphone.png build/Crunchbutton.app/Default~iphone.png
+cCpResource Crunchbutton/Resources/icons/icon-152.png build/Crunchbutton.app/icon-152.png
+cCpResource Crunchbutton/Resources/icons/icon-152.png build/Crunchbutton.app/icon-152.png
+cCpResource Crunchbutton/Resources/splash/Default-Portrait@2x~ipad.png build/Crunchbutton.app/Default-Portrait@2x~ipad.png
+cCpResource Crunchbutton/config.xml build/Crunchbutton.app/config.xml
+cCpResource Crunchbutton/Resources/icons/icon-72.png build/Crunchbutton.app/icon-72.png
+cCpResource Crunchbutton/Resources/icons/icon-72.png build/Crunchbutton.app/icon-72.png
+cCpResource Crunchbutton/Resources/icons/icon-72.png build/Crunchbutton.app/icon-72.png
+cCopyStringsFile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/en.lproj/Localizable.strings Crunchbutton/Resources/en.lproj/Localizable.strings
+cCopyStringsFile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/es.lproj/Localizable.strings Crunchbutton/Resources/es.lproj/Localizable.strings
+cCpResource Crunchbutton/Resources/icons/icon-100.png build/Crunchbutton.app/icon-100.png
+cCpResource Crunchbutton/Resources/icons/icon-72-2x.png build/Crunchbutton.app/icon-72-2x.png
+cCpResource Crunchbutton/Resources/icons/icon-72-2x.png build/Crunchbutton.app/icon-72-2x.png
+cCpResource Crunchbutton/Resources/icons/icon-29.png build/Crunchbutton.app/icon-29.png
+cCpResource Crunchbutton/Resources/icons/icon-40.png build/Crunchbutton.app/icon-40.png
+cCpResource Crunchbutton/Resources/icons/icon-120.png build/Crunchbutton.app/icon-120.png
+cCpResource Crunchbutton/Resources/icons/icon-120.png build/Crunchbutton.app/icon-120.png
+cCompileXIB /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.xib
+cCpResource Crunchbutton/Resources/splash/Default-Portrait~ipad.png build/Crunchbutton.app/Default-Portrait~ipad.png
+cCpResource Crunchbutton/Resources/icons/icon-76.png build/Crunchbutton.app/icon-76.png
+cCpResource Crunchbutton/Resources/icons/icon-76.png build/Crunchbutton.app/icon-76.png
+cCopyStringsFile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/de.lproj/Localizable.strings Crunchbutton/Resources/de.lproj/Localizable.strings
+cCopyStringsFile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/se.lproj/Localizable.strings Crunchbutton/Resources/se.lproj/Localizable.strings
+cCpResource Crunchbutton/Resources/icons/icon-57.png build/Crunchbutton.app/icon-57.png
+cCpResource Crunchbutton/Resources/icons/icon-57.png build/Crunchbutton.app/icon-57.png
+cCpResource Crunchbutton/Resources/icons/icon-50.png build/Crunchbutton.app/icon-50.png
+cCpResource Crunchbutton/Resources/splash/Default-568h@2x~iphone.png build/Crunchbutton.app/Default-568h@2x~iphone.png
+cCpResource Crunchbutton/Resources/splash/Default@2x~iphone.png build/Crunchbutton.app/Default@2x~iphone.png
+cCpResource Crunchbutton/Resources/splash/Default-Landscape@2x~ipad.png build/Crunchbutton.app/Default-Landscape@2x~ipad.png
+cCpResource Crunchbutton/Resources/splash/Default-Landscape~ipad.png build/Crunchbutton.app/Default-Landscape~ipad.png
+cCpResource Crunchbutton/Resources/icons/icon-80.png build/Crunchbutton.app/icon-80.png
+cCpResource Crunchbutton/Resources/icons/icon-58.png build/Crunchbutton.app/icon-58.png
+cCpResource Crunchbutton/Resources/CDVNotification.bundle build/Crunchbutton.app/CDVNotification.bundle
+cProcessPCH /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch.pth Crunchbutton/Crunchbutton-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/main.o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/AppDelegate.o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/TapToScroll.o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/TapToScroll.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/FacebookConnectPlugin.o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/MainViewController.o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/CDVVibration.o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/org.apache.cordova.core.vibration/CDVVibration.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Crunchbutton normal i386
+cGenerateDSYMFile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app.dSYM /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Crunchbutton
+cTouch /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk
+c000000005102E2D30000000000000110
+t1359143635
+s272
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
+c0000000051073A3600000000001EB540
+t1359428150
+s2012480
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Accounts.framework/Accounts
+c0000000051073A350000000000028740
+t1359428149
+s165696
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/AdSupport.framework/AdSupport
+c0000000051073A360000000000003C50
+t1359428150
+s15440
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/AddressBook.framework/AddressBook
+c0000000051073A3600000000000C1030
+t1359428150
+s790576
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
+c0000000051073A360000000000193640
+t1359428150
+s1652288
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/AssetsLibrary.framework/AssetsLibrary
+c0000000051073A3600000000000226E0
+t1359428150
+s141024
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c0000000051073A3600000000003D4DF0
+t1359428150
+s4017648
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
+c0000000051073A370000000000215DB0
+t1359428151
+s2186672
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+c0000000051073A3700000000002B82F0
+t1359428151
+s2851568
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c0000000051073A370000000000228FE0
+t1359428151
+s2265056
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreLocation.framework/CoreLocation
+c0000000051073A37000000000009C590
+t1359428151
+s640400
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreMedia.framework/CoreMedia
+c0000000051073A380000000000085620
+t1359428152
+s546336
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c0000000051073A3B00000000003DDFA0
+t1359428155
+s4054944
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/ImageIO.framework/ImageIO
+c0000000051073A3E00000000002CFBE0
+t1359428158
+s2948064
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
+c0000000051073A4000000000002DBA50
+t1359428160
+s2996816
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/MobileCoreServices.framework/MobileCoreServices
+c0000000051073A4100000000000BCC20
+t1359428161
+s773152
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/OpenAL.framework/OpenAL
+c0000000051073A410000000000030EB0
+t1359428161
+s200368
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c0000000051073A4200000000001D5750
+t1359428162
+s1922896
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Security.framework/Security
+c0000000051073A43000000000006E360
+t1359428163
+s451424
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Social.framework/Social
+c0000000051073A4300000000000E7990
+t1359428163
+s948624
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c0000000051073A450000000000AB6230
+t1359428165
+s11231792
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib/libz.dylib
+c0000000051073A650000000000013500
+t1359428197
+s79104
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/../../../../../Documents/FacebookSDK/FacebookSDK.framework/FacebookSDK
+c0000000051EEE8F30000000000B3DEC4
+t1374611699
+s11787972
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/AppDelegate.h
+c0000000051FAE4E100000000000005BD
+t1375397089
+s1469
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/AppDelegate.m
+c000000005202F2B50000000000001405
+t1375924917
+s5125
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.h
+c0000000051FAE4E100000000000004D2
+t1375397089
+s1234
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.m
+c0000000051FAE4E1000000000000126D
+t1375397089
+s4717
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.xib
+c0000000051FAE4E10000000000001759
+t1375397089
+s5977
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/TestFlight.h
+c0000000051B7AE3A0000000000001046
+t1370992186
+s4166
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/libTestFlight.a
+c0000000051B7AE3A00000000003D35B0
+t1370992186
+s4011440
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Crunchbutton-Prefix.pch
+c0000000051FAE4E100000000000003C9
+t1375397089
+s969
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.h
+c0000000051FAE4E10000000000000130
+t1375397089
+s304
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m
+c0000000051FAE4E10000000000003DC7
+t1375397089
+s15815
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/TapToScroll.h
+c0000000051FBFD870000000000000172
+t1375468935
+s370
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/TapToScroll.m
+c0000000051FBFE2D0000000000000E77
+t1375469101
+s3703
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/org.apache.cordova.core.vibration/CDVVibration.h
+c000000005202B24900000000000003E5
+t1375908425
+s997
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/org.apache.cordova.core.vibration/CDVVibration.m
+c000000005202B24900000000000003B2
+t1375908425
+s946
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/CDVNotification.bundle
+c000000005202B24E0000000000000066
+t1375908430
+s102
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/de.lproj/Localizable.strings
+c0000000051FAE4E100000000000004BF
+t1375397089
+s1215
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/en.lproj/Localizable.strings
+c0000000051FAE4E100000000000004AA
+t1375397089
+s1194
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/es.lproj/Localizable.strings
+c0000000051FAE4E100000000000004B7
+t1375397089
+s1207
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-100.png
+c0000000051FAE4E10000000000004374
+t1375397089
+s17268
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-120.png
+c0000000051FAE4E1000000000000596C
+t1375397089
+s22892
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-152.png
+c0000000051FAE4E100000000000082C1
+t1375397089
+s33473
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-29.png
+c0000000051FAE4E10000000000000B3F
+t1375397089
+s2879
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-40.png
+c0000000051FAE4E10000000000001102
+t1375397089
+s4354
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-50.png
+c0000000051FAE4E1000000000000174D
+t1375397089
+s5965
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-57-2x.png
+c0000000051FAE4E10000000000005315
+t1375397089
+s21269
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-57.png
+c0000000051FAE4E10000000000001C34
+t1375397089
+s7220
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-58.png
+c0000000051FAE4E10000000000001D1A
+t1375397089
+s7450
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-72-2x.png
+c0000000051FAE4E100000000000076EF
+t1375397089
+s30447
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-72.png
+c0000000051FAE4E100000000000027D8
+t1375397089
+s10200
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-76.png
+c0000000051FAE4E10000000000002B63
+t1375397089
+s11107
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-80.png
+c0000000051FAE4E10000000000002F2E
+t1375397089
+s12078
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/se.lproj/Localizable.strings
+c0000000051FAE4E100000000000004AB
+t1375397089
+s1195
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default-568h@2x~iphone.png
+c0000000051FAE4E100000000000C2484
+t1375397089
+s795780
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default-Landscape@2x~ipad.png
+c0000000051FAE4E10000000000356694
+t1375397089
+s3499668
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default-Landscape~ipad.png
+c0000000051FAE4E100000000000E2F88
+t1375397089
+s929672
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default-Portrait@2x~ipad.png
+c0000000051FAE4E100000000002FCFA6
+t1375397089
+s3133350
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default-Portrait~ipad.png
+c0000000051FAE4E100000000000D49D4
+t1375397089
+s870868
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default@2x~iphone.png
+c0000000051FAE4E100000000000AFADA
+t1375397089
+s719578
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default~iphone.png
+c0000000051FAE4E1000000000002F67F
+t1375397089
+s194175
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/config.xml
+c000000005206A6020000000000000AEB
+t1376167426
+s2795
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/main.m
+c000000005202A016000000000000045E
+t1375903766
+s1118
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app
+t1376167424
+s1088
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app.dSYM
+t1376167187
+s102
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/CDVNotification.bundle
+t1376167180
+s102
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Crunchbutton
+t1376167187
+s1880844
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default-568h@2x~iphone.png
+t1376167180
+s795780
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default-Landscape@2x~ipad.png
+t1376167180
+s3499668
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default-Landscape~ipad.png
+t1376167180
+s929672
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default-Portrait@2x~ipad.png
+t1376167180
+s3133350
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default-Portrait~ipad.png
+t1376167180
+s870868
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default@2x~iphone.png
+t1376167180
+s719578
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default~iphone.png
+t1376167180
+s194175
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Info.plist
+t1376167423
+s1707
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/MainViewController.nib
+t1376167185
+s822
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/PkgInfo
+t2
+s0
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/config.xml
+t1376167424
+s2795
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/de.lproj/Localizable.strings
+t1376167180
+s280
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/en.lproj/Localizable.strings
+t1376167180
+s166
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/es.lproj/Localizable.strings
+t1376167180
+s334
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-100.png
+t1376167180
+s17268
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-120.png
+t1376167180
+s22892
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-152.png
+t1376167180
+s33473
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-29.png
+t1376167180
+s2879
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-40.png
+t1376167180
+s4354
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-50.png
+t1376167180
+s5965
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-57-2x.png
+t1376167180
+s21269
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-57.png
+t1376167180
+s7220
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-58.png
+t1376167180
+s7450
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-72-2x.png
+t1376167180
+s30447
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-72.png
+t1376167180
+s10200
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-76.png
+t1376167180
+s11107
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-80.png
+t1376167180
+s12078
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/se.lproj/Localizable.strings
+t1376167180
+s283
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/AppDelegate.o
+t1376167186
+s98332
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/CDVVibration.o
+t1376167186
+s69164
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/Crunchbutton.LinkFileList
+c000000005206A50A00000000000003BF
+t1376167178
+s959
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/FacebookConnectPlugin.o
+t1376167186
+s125424
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/MainViewController.o
+t1376167186
+s79640
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/TapToScroll.o
+t1376167186
+s88872
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/main.o
+t1376167185
+s3144
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Script-304B58A110DAC018002A0835.sh
+c000000005206A50A000000000000051A
+t1376167178
+s1306
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDV.h
+c000000005206A5040000000000000516
+t1376167172
+s1302
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVAvailability.h
+c000000005206A5040000000000000C65
+t1376167172
+s3173
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVCommandDelegate.h
+c000000005206A50400000000000008BA
+t1376167172
+s2234
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVCommandDelegateImpl.h
+c000000005206A5040000000000000473
+t1376167172
+s1139
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVCommandQueue.h
+c000000005206A5040000000000000501
+t1376167172
+s1281
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVDebug.h
+c000000005206A5040000000000000401
+t1376167172
+s1025
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVInvokedUrlCommand.h
+c000000005206A50400000000000007E6
+t1376167172
+s2022
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVJSON.h
+c000000005206A50400000000000003DA
+t1376167172
+s986
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVLocalStorage.h
+c000000005206A50400000000000006CF
+t1376167172
+s1743
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVPlugin.h
+c000000005206A5040000000000000892
+t1376167172
+s2194
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVPluginResult.h
+c000000005206A5040000000000000C13
+t1376167172
+s3091
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVScreenOrientationDelegate.h
+c000000005206A5040000000000000408
+t1376167172
+s1032
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVTimer.h
+c000000005206A504000000000000038D
+t1376167172
+s909
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVURLProtocol.h
+c000000005206A504000000000000041C
+t1376167172
+s1052
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVViewController.h
+c000000005206A5040000000000000ACC
+t1376167172
+s2764
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/CDVWhitelist.h
+c000000005206A50400000000000004B4
+t1376167172
+s1204
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/NSArray+Comparisons.h
+c000000005206A5040000000000000392
+t1376167172
+s914
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/NSData+Base64.h
+c000000005206A504000000000000037D
+t1376167172
+s893
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/NSDictionary+Extensions.h
+c000000005206A50400000000000005DA
+t1376167172
+s1498
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/NSMutableArray+QueueAdditions.h
+c000000005206A50400000000000003A0
+t1376167172
+s928
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include/Cordova/UIDevice+Extensions.h
+c000000005206A5040000000000000476
+t1376167172
+s1142
+
+N/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/libCordova.a
+c000000005206A50A000000000011A918
+t1376167178
+s1157400
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBAccessTokenData.h
+c0000000051EEE8F30000000000000F72
+t1374611699
+s3954
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBAppCall.h
+c0000000051EEE8F300000000000023FA
+t1374611699
+s9210
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBAppEvents.h
+c0000000051EEE8F30000000000004C6B
+t1374611699
+s19563
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBAppLinkData.h
+c0000000051EEE8F300000000000005E7
+t1374611699
+s1511
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBCacheDescriptor.h
+c0000000051EEE8F3000000000000055E
+t1374611699
+s1374
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBDialogs.h
+c0000000051EEE8F30000000000005D2D
+t1374611699
+s23853
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBDialogsData.h
+c0000000051EEE8F30000000000000537
+t1374611699
+s1335
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBDialogsParams.h
+c0000000051EEE8F30000000000000341
+t1374611699
+s833
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBError.h
+c0000000051EEE8F300000000000033AC
+t1374611699
+s13228
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBErrorUtility.h
+c0000000051EEE8F300000000000009AB
+t1374611699
+s2475
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBFrictionlessRecipientCache.h
+c0000000051EEE8F30000000000000B7F
+t1374611699
+s2943
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBFriendPickerViewController.h
+c0000000051EEE8F300000000000023CA
+t1374611699
+s9162
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBGraphLocation.h
+c0000000051EEE8F30000000000000762
+t1374611699
+s1890
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBGraphObject.h
+c0000000051EEE8F30000000000002B6B
+t1374611699
+s11115
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBGraphPlace.h
+c0000000051EEE8F30000000000000610
+t1374611699
+s1552
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBGraphUser.h
+c0000000051EEE8F3000000000000086A
+t1374611699
+s2154
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBInsights.h
+c0000000051EEE8F30000000000000A81
+t1374611699
+s2689
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBLoginView.h
+c0000000051EEE8F3000000000000169C
+t1374611699
+s5788
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBNativeDialogs.h
+c0000000051EEE8F30000000000000F8B
+t1374611699
+s3979
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBOpenGraphAction.h
+c0000000051EEE8F30000000000000C46
+t1374611699
+s3142
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBOpenGraphActionShareDialogParams.h
+c0000000051EEE8F30000000000000592
+t1374611699
+s1426
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBOpenGraphObject.h
+c0000000051EEE8F30000000000000879
+t1374611699
+s2169
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBPlacePickerViewController.h
+c0000000051EEE8F3000000000000211A
+t1374611699
+s8474
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBProfilePictureView.h
+c0000000051EEE8F3000000000000099D
+t1374611699
+s2461
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBRequest.h
+c0000000051EEE8F30000000000006057
+t1374611699
+s24663
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBRequestConnection.h
+c0000000051EEE8F30000000000005770
+t1374611699
+s22384
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBSession.h
+c0000000051EEE8F30000000000008EB3
+t1374611699
+s36531
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBSessionTokenCachingStrategy.h
+c0000000051EEE8F300000000000018A4
+t1374611699
+s6308
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBSettings.h
+c0000000051EEE8F30000000000002273
+t1374611699
+s8819
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBShareDialogParams.h
+c0000000051EEE8F3000000000000096F
+t1374611699
+s2415
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBUserSettingsViewController.h
+c0000000051EEE8F3000000000000100B
+t1374611699
+s4107
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBViewController.h
+c0000000051EEE8F30000000000000F6C
+t1374611699
+s3948
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBWebDialogs.h
+c0000000051EEE8F30000000000002352
+t1374611699
+s9042
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FacebookSDK.h
+c0000000051EEE8F30000000000001677
+t1374611699
+s5751
+
+N/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/NSError+FBError.h
+c0000000051EEE8F30000000000000922
+t1374611699
+s2338
+
+N/var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch.pth
+t1376167185
+s4681020
+
+NCrunchbutton/Crunchbutton-Info.plist
+c000000005206A6010000000000001021
+t1376167425
+s4129
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies83bf3b86ddb6b741^1e373c86ddb6b741^-1144"Warning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-152.pngWarning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-72.pngWarning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-72-2x.pngWarning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-76.pngWarning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-72.pngWarning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-57-2x.pngWarning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-120.pngWarning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-57.png8(21%IDEActivityLogMessage2@142"Warning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-152.png-397860230#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@141"Warning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-72.png-397860230#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@144"Warning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-72-2x.png-397860230#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@141"Warning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-76.png-397860230#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@141"Warning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-72.png-397860230#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@144"Warning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-57-2x.png-397860230#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@142"Warning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-120.png-397860230#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@141"Warning: Multiple build commands for output file /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-57.png-397860230#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--0#1#0#--18"Check dependencies36"4D0B3251-9947-4966-80DE-15C88839B273-
+
+CCompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/AppDelegate.o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s397859985.875753
+e397859986.161591
+r1
+xCompileC
+xbuild/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/AppDelegate.o
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/AppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection100"Compile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/AppDelegate.m4c4fe091dcb6b741^dc632992dcb6b741^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/AppDelegate.m0000000000000000^4104"CompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/AppDelegate.o Crunchbutton/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.0 -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-generated-files.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-own-target-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-all-target-headers.hmap -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-project-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/usr/local/lib/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/UninstalledProducts/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources/i386 -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources -F/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -F/Users/arzynik/Documents/FacebookSDK -include /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch -MMD -MT dependencies -MF /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/AppDelegate.d --serialize-diagnostics /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/AppDelegate.dia -c /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/AppDelegate.m -o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/AppDelegate.o36"C6D47222-9A35-4D02-A41B-CE285F890706-
+
+CCompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/CDVVibration.o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/org.apache.cordova.core.vibration/CDVVibration.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s397859986.386008
+e397859986.476581
+r1
+xCompileC
+xbuild/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/CDVVibration.o
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/org.apache.cordova.core.vibration/CDVVibration.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection135"Compile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/org.apache.cordova.core.vibration/CDVVibration.m0ff26292dcb6b741^6d007a92dcb6b741^---0#0#0#-19%DVTDocumentLocation2@143"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/org.apache.cordova.core.vibration/CDVVibration.m0000000000000000^4178"CompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/CDVVibration.o Crunchbutton/Plugins/org.apache.cordova.core.vibration/CDVVibration.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.0 -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-generated-files.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-own-target-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-all-target-headers.hmap -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-project-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/usr/local/lib/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/UninstalledProducts/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources/i386 -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources -F/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -F/Users/arzynik/Documents/FacebookSDK -include /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch -MMD -MT dependencies -MF /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/CDVVibration.d --serialize-diagnostics /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/CDVVibration.dia -c /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/org.apache.cordova.core.vibration/CDVVibration.m -o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/CDVVibration.o36"5CD20D2C-5EA7-445C-84CA-4624FF73D0C9-
+
+CCompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/FacebookConnectPlugin.o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s397859986.162919
+e397859986.706910
+r1
+xCompileC
+xbuild/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/FacebookConnectPlugin.o
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m:198:14: warning: 'reauthorizeWithPermissions:behavior:completionHandler:' is deprecated [-Wdeprecated-declarations]
+o            [FBSession.activeSession
+o             ^
+o/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBSession.h:440:1: note: method 'reauthorizeWithPermissions:behavior:completionHandler:' declared here
+o- (void)reauthorizeWithPermissions:(NSArray*)permissions
+o^
+o/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m:244:14: warning: 'openActiveSessionWithPermissions:allowLoginUI:completionHandler:' is deprecated [-Wdeprecated-declarations]
+o            [FBSession
+o             ^
+o/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBSession.h:597:1: note: method 'openActiveSessionWithPermissions:allowLoginUI:completionHandler:' declared here
+o+ (BOOL)openActiveSessionWithPermissions:(NSArray*)permissions
+o^
+o2 warnings generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection110"Compile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m28d62992dcb6b741^b81eb592dcb6b741^-1034"/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m:198:14: warning: 'reauthorizeWithPermissions:behavior:completionHandler:' is deprecated [-Wdeprecated-declarations]            [FBSession.activeSession             ^/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBSession.h:440:1: note: method 'reauthorizeWithPermissions:behavior:completionHandler:' declared here- (void)reauthorizeWithPermissions:(NSArray*)permissions^/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m:244:14: warning: 'openActiveSessionWithPermissions:allowLoginUI:completionHandler:' is deprecated [-Wdeprecated-declarations]            [FBSession             ^/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBSession.h:597:1: note: method 'openActiveSessionWithPermissions:allowLoginUI:completionHandler:' declared here+ (BOOL)openActiveSessionWithPermissions:(NSArray*)permissions^2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@70"'reauthorizeWithPermissions:behavior:completionHandler:' is deprecated-397859986#18446744073709551615#0#1(2@77"Method 'reauthorizeWithPermissions:behavior:completionHandler:' declared here-397859986#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@94"file://localhost/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBSession.h0000000000000000^439#0#439#0#20128#0#14"Semantic Issue--1#27"com.apple.dt.IDE.diagnostic3@118"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m0000000000000000^197#13#197#13#7955#0#12"Deprecations--2@80"'openActiveSessionWithPermissions:allowLoginUI:completionHandler:' is deprecated-397859986#18446744073709551615#0#1(2@87"Method 'openActiveSessionWithPermissions:allowLoginUI:completionHandler:' declared here-397859986#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@94"file://localhost/Users/arzynik/Documents/FacebookSDK/FacebookSDK.framework/Headers/FBSession.h0000000000000000^596#0#596#0#28256#0#14"Semantic Issue--1#27"com.apple.dt.IDE.diagnostic3@118"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m0000000000000000^243#13#243#13#10038#0#12"Deprecations--0#0#0#-19%DVTDocumentLocation4@118"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m0000000000000000^4164"CompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/FacebookConnectPlugin.o Crunchbutton/Plugins/FacebookConnectPlugin.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.0 -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-generated-files.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-own-target-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-all-target-headers.hmap -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-project-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/usr/local/lib/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/UninstalledProducts/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources/i386 -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources -F/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -F/Users/arzynik/Documents/FacebookSDK -include /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch -MMD -MT dependencies -MF /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/FacebookConnectPlugin.d --serialize-diagnostics /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/FacebookConnectPlugin.dia -c /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/FacebookConnectPlugin.m -o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/FacebookConnectPlugin.o36"6DDD46CE-0FF2-4679-862E-1C737C048BEC-
+
+CCompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/MainViewController.o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s397859986.288778
+e397859986.384743
+r1
+xCompileC
+xbuild/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/MainViewController.o
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection107"Compile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.m0c224a92dcb6b741^9a7d6292dcb6b741^---0#0#0#-19%DVTDocumentLocation2@115"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.m0000000000000000^4146"CompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/MainViewController.o Crunchbutton/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.0 -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-generated-files.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-own-target-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-all-target-headers.hmap -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-project-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/usr/local/lib/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/UninstalledProducts/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources/i386 -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources -F/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -F/Users/arzynik/Documents/FacebookSDK -include /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch -MMD -MT dependencies -MF /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/MainViewController.d --serialize-diagnostics /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/MainViewController.dia -c /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.m -o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/MainViewController.o36"BD888535-D31C-43F8-A504-15E00E5ECF22-
+
+CCompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/TapToScroll.o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/TapToScroll.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s397859985.956086
+e397859986.287498
+r1
+xCompileC
+xbuild/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/TapToScroll.o
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/TapToScroll.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection100"Compile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/TapToScroll.mc3f1f491dcb6b741^af984992dcb6b741^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/TapToScroll.m0000000000000000^4104"CompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/TapToScroll.o Crunchbutton/Plugins/TapToScroll.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.0 -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-generated-files.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-own-target-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-all-target-headers.hmap -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-project-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/usr/local/lib/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/UninstalledProducts/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources/i386 -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources -F/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -F/Users/arzynik/Documents/FacebookSDK -include /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch -MMD -MT dependencies -MF /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/TapToScroll.d --serialize-diagnostics /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/TapToScroll.dia -c /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Plugins/TapToScroll.m -o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/TapToScroll.o36"22EF6060-EE9F-4AA5-8064-66B8B113E898-
+
+CCompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/main.o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s397859985.874765
+e397859985.954750
+r1
+xCompileC
+xbuild/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/main.o
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Compile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/main.md219e091dcb6b741^54adf591dcb6b741^---0#0#0#-19%DVTDocumentLocation2@93"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/main.m0000000000000000^4046"CompileC build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/main.o Crunchbutton/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.0 -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-generated-files.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-own-target-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-all-target-headers.hmap -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-project-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/usr/local/lib/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/UninstalledProducts/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources/i386 -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources -F/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -F/Users/arzynik/Documents/FacebookSDK -include /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch -MMD -MT dependencies -MF /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/main.dia -c /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/main.m -o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/main.o36"9C936246-764D-49B0-A18E-0405194431DF-
+
+CCompileXIB /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.xib
+s397859980.281832
+e397859985.204131
+r1
+xCompileXIB
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.xib
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection111"Compiling /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.xib473d488cdcb6b741^89413491dcb6b741^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.xib0000000000000000^1267"CompileXIB Crunchbutton/Classes/MainViewController.xib    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 5.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/MainViewController.nib /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes/MainViewController.xib --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk36"CCF4965A-A8AF-42D2-B09B-2796763A22FA-
+
+CCopyStringsFile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/de.lproj/Localizable.strings Crunchbutton/Resources/de.lproj/Localizable.strings
+s397859980.301995
+e397859980.311322
+r1
+xCopyStringsFile
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/de.lproj/Localizable.strings
+xCrunchbutton/Resources/de.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection56"Copy Crunchbutton/Resources/de.lproj/Localizable.strings11194e8cdcb6b741^b2f64f8cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@125"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/de.lproj/Localizable.strings0000000000000000^917"CopyStringsFile build/Crunchbutton.app/de.lproj/Localizable.strings Crunchbutton/Resources/de.lproj/Localizable.strings    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/de.lproj -- Crunchbutton/Resources/de.lproj/Localizable.strings36"68F2DEE4-D2AA-4099-83C6-E2B5D9A01A1E-
+
+CCopyStringsFile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/en.lproj/Localizable.strings Crunchbutton/Resources/en.lproj/Localizable.strings
+s397859980.249356
+e397859980.255232
+r1
+xCopyStringsFile
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/en.lproj/Localizable.strings
+xCrunchbutton/Resources/en.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection56"Copy Crunchbutton/Resources/en.lproj/Localizable.strings6bf33f8cdcb6b741^f356418cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@125"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/en.lproj/Localizable.strings0000000000000000^917"CopyStringsFile build/Crunchbutton.app/en.lproj/Localizable.strings Crunchbutton/Resources/en.lproj/Localizable.strings    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/en.lproj -- Crunchbutton/Resources/en.lproj/Localizable.strings36"105B7501-7E13-495B-9801-C52A81ABE42F-
+
+CCopyStringsFile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/es.lproj/Localizable.strings Crunchbutton/Resources/es.lproj/Localizable.strings
+s397859980.254473
+e397859980.257807
+r1
+xCopyStringsFile
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/es.lproj/Localizable.strings
+xCrunchbutton/Resources/es.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection56"Copy Crunchbutton/Resources/es.lproj/Localizable.stringsfb3d418cdcb6b741^de05428cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@125"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/es.lproj/Localizable.strings0000000000000000^917"CopyStringsFile build/Crunchbutton.app/es.lproj/Localizable.strings Crunchbutton/Resources/es.lproj/Localizable.strings    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/es.lproj -- Crunchbutton/Resources/es.lproj/Localizable.strings36"8DA28F67-79F9-4C6E-9A5B-F47897420F83-
+
+CCopyStringsFile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/se.lproj/Localizable.strings Crunchbutton/Resources/se.lproj/Localizable.strings
+s397859980.312619
+e397859980.318418
+r1
+xCopyStringsFile
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/se.lproj/Localizable.strings
+xCrunchbutton/Resources/se.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection56"Copy Crunchbutton/Resources/se.lproj/Localizable.strings5722508cdcb6b741^691c528cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@125"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/se.lproj/Localizable.strings0000000000000000^917"CopyStringsFile build/Crunchbutton.app/se.lproj/Localizable.strings Crunchbutton/Resources/se.lproj/Localizable.strings    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/se.lproj -- Crunchbutton/Resources/se.lproj/Localizable.strings36"B4F8F737-2A1F-44D3-9BFC-091EB14E6A60-
+
+CCpResource Crunchbutton/Resources/CDVNotification.bundle build/Crunchbutton.app/CDVNotification.bundle
+s397859980.399855
+e397859980.418511
+r1
+xCpResource
+xCrunchbutton/Resources/CDVNotification.bundle
+xbuild/Crunchbutton.app/CDVNotification.bundle
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection50"Copy build/Crunchbutton.app/CDVNotification.bundle747a668cdcb6b741^ac706b8cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@119"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/CDVNotification.bundle000000000080d041^962"CpResource Crunchbutton/Resources/CDVNotification.bundle build/Crunchbutton.app/CDVNotification.bundle    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/CDVNotification.bundle /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"97EB0B5C-F8C1-49B6-96FC-1657814128BB-
+
+CCpResource Crunchbutton/Resources/icons/icon-100.png build/Crunchbutton.app/icon-100.png
+s397859980.256804
+e397859980.261811
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-100.png
+xbuild/Crunchbutton.app/icon-100.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection40"Copy build/Crunchbutton.app/icon-100.png05de418cdcb6b741^7006438cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-100.png000000000080d041^944"CpResource Crunchbutton/Resources/icons/icon-100.png build/Crunchbutton.app/icon-100.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-100.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"36F4FAD9-FD34-4601-898F-1C7B386F6C69-
+
+CCpResource Crunchbutton/Resources/icons/icon-120.png build/Crunchbutton.app/icon-120.png
+s397859980.274534
+e397859980.280976
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-120.png
+xbuild/Crunchbutton.app/icon-120.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection40"Copy build/Crunchbutton.app/icon-120.pngb458468cdcb6b741^1d01488cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-120.png000000000080d041^944"CpResource Crunchbutton/Resources/icons/icon-120.png build/Crunchbutton.app/icon-120.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-120.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"A6E99E5A-0CEF-46A5-B421-6211B37F0F9D-
+
+CCpResource Crunchbutton/Resources/icons/icon-152.png build/Crunchbutton.app/icon-152.png
+s397859980.210169
+e397859980.222657
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-152.png
+xbuild/Crunchbutton.app/icon-152.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection40"Copy build/Crunchbutton.app/icon-152.png1900368cdcb6b741^5f42398cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-152.png0000000000000000^944"CpResource Crunchbutton/Resources/icons/icon-152.png build/Crunchbutton.app/icon-152.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-152.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"CA60DA9C-14A6-4D64-9545-DB514F685689-
+
+CCpResource Crunchbutton/Resources/icons/icon-29.png build/Crunchbutton.app/icon-29.png
+s397859980.265854
+e397859980.272620
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-29.png
+xbuild/Crunchbutton.app/icon-29.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Copy build/Crunchbutton.app/icon-29.pngcc26448cdcb6b741^b70a468cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-29.png000000000080d041^941"CpResource Crunchbutton/Resources/icons/icon-29.png build/Crunchbutton.app/icon-29.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-29.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"E191D0F6-D779-45EF-AEF9-C60A8FE7E204-
+
+CCpResource Crunchbutton/Resources/icons/icon-40.png build/Crunchbutton.app/icon-40.png
+s397859980.270600
+e397859980.273519
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-40.png
+xbuild/Crunchbutton.app/icon-40.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Copy build/Crunchbutton.app/icon-40.png9c6a458cdcb6b741^d712468cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-40.png000000000080d041^941"CpResource Crunchbutton/Resources/icons/icon-40.png build/Crunchbutton.app/icon-40.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-40.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"15EE2479-4C5F-46CC-9F89-A6D3A258ABC2-
+
+CCpResource Crunchbutton/Resources/icons/icon-50.png build/Crunchbutton.app/icon-50.png
+s397859980.329006
+e397859980.337659
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-50.png
+xbuild/Crunchbutton.app/icon-50.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Copy build/Crunchbutton.app/icon-50.png9c50548cdcb6b741^9b71568cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-50.png000000000080d041^941"CpResource Crunchbutton/Resources/icons/icon-50.png build/Crunchbutton.app/icon-50.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-50.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"B62A22B6-B73C-4796-8BA1-168701036A01-
+
+CCpResource Crunchbutton/Resources/icons/icon-57-2x.png build/Crunchbutton.app/icon-57-2x.png
+s397859980.199790
+e397859980.204393
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-57-2x.png
+xbuild/Crunchbutton.app/icon-57-2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection42"Copy build/Crunchbutton.app/icon-57-2x.png5936338cdcb6b741^e752348cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@111"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-57-2x.png000000000080d041^950"CpResource Crunchbutton/Resources/icons/icon-57-2x.png build/Crunchbutton.app/icon-57-2x.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-57-2x.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"FA7626B3-7A5E-4818-A8F2-1FC896D06F1F-
+
+CCpResource Crunchbutton/Resources/icons/icon-57.png build/Crunchbutton.app/icon-57.png
+s397859980.324899
+e397859980.327592
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-57.png
+xbuild/Crunchbutton.app/icon-57.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Copy build/Crunchbutton.app/icon-57.png0f43538cdcb6b741^f3e7538cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-57.png0000000000000000^941"CpResource Crunchbutton/Resources/icons/icon-57.png build/Crunchbutton.app/icon-57.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-57.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"1DE0F811-4FB8-4573-B3B9-94021AF8B6EE-
+
+CCpResource Crunchbutton/Resources/icons/icon-58.png build/Crunchbutton.app/icon-58.png
+s397859980.386779
+e397859980.389827
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-58.png
+xbuild/Crunchbutton.app/icon-58.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Copy build/Crunchbutton.app/icon-58.png691b638cdcb6b741^d520648cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-58.png000000000080d041^941"CpResource Crunchbutton/Resources/icons/icon-58.png build/Crunchbutton.app/icon-58.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-58.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"447FC1AA-188D-42EB-ADED-2C18BB454976-
+
+CCpResource Crunchbutton/Resources/icons/icon-72-2x.png build/Crunchbutton.app/icon-72-2x.png
+s397859980.263057
+e397859980.266394
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-72-2x.png
+xbuild/Crunchbutton.app/icon-72-2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection42"Copy build/Crunchbutton.app/icon-72-2x.png616e438cdcb6b741^ca32448cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@111"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-72-2x.png000000000080d041^950"CpResource Crunchbutton/Resources/icons/icon-72-2x.png build/Crunchbutton.app/icon-72-2x.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-72-2x.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"01E67739-C436-4313-98F3-53016D5B88A2-
+
+CCpResource Crunchbutton/Resources/icons/icon-72.png build/Crunchbutton.app/icon-72.png
+s397859980.239663
+e397859980.251872
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-72.png
+xbuild/Crunchbutton.app/icon-72.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Copy build/Crunchbutton.app/icon-72.png71743d8cdcb6b741^b9e0408cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-72.png0000000000000000^941"CpResource Crunchbutton/Resources/icons/icon-72.png build/Crunchbutton.app/icon-72.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-72.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"614AB065-A537-4A1C-BA45-0D23F42F1243-
+
+CCpResource Crunchbutton/Resources/icons/icon-76.png build/Crunchbutton.app/icon-76.png
+s397859980.297378
+e397859980.300448
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-76.png
+xbuild/Crunchbutton.app/icon-76.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Copy build/Crunchbutton.app/icon-76.png1b474c8cdcb6b741^84f44c8cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-76.png0000000000000000^941"CpResource Crunchbutton/Resources/icons/icon-76.png build/Crunchbutton.app/icon-76.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-76.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"743754D8-EB3B-4482-B6C3-12427CD8BFAF-
+
+CCpResource Crunchbutton/Resources/icons/icon-80.png build/Crunchbutton.app/icon-80.png
+s397859980.383183
+e397859980.385571
+r1
+xCpResource
+xCrunchbutton/Resources/icons/icon-80.png
+xbuild/Crunchbutton.app/icon-80.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Copy build/Crunchbutton.app/icon-80.png9830628cdcb6b741^24d6628cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/icon-80.png000000000080d041^941"CpResource Crunchbutton/Resources/icons/icon-80.png build/Crunchbutton.app/icon-80.png    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/icons/icon-80.png /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"FC45BBBC-BCA2-48DA-AF9B-2A4DC890C6E8-
+
+CCpResource Crunchbutton/Resources/splash/Default-568h@2x~iphone.png build/Crunchbutton.app/Default-568h@2x~iphone.png
+s397859980.339721
+e397859980.345914
+r1
+xCpResource
+xCrunchbutton/Resources/splash/Default-568h@2x~iphone.png
+xbuild/Crunchbutton.app/Default-568h@2x~iphone.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Copy build/Crunchbutton.app/Default-568h@2x~iphone.png7311578cdcb6b741^f6ce588cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@123"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default-568h@2x~iphone.png000000000080d041^994"CpResource "Crunchbutton/Resources/splash/Default-568h@2x~iphone.png" "build/Crunchbutton.app/Default-568h@2x~iphone.png"    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default-568h@2x~iphone.png" /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"E9AB14E2-42BA-4230-85C0-296E10F4EF5E-
+
+CCpResource Crunchbutton/Resources/splash/Default-Landscape@2x~ipad.png build/Crunchbutton.app/Default-Landscape@2x~ipad.png
+s397859980.353171
+e397859980.375327
+r1
+xCpResource
+xCrunchbutton/Resources/splash/Default-Landscape@2x~ipad.png
+xbuild/Crunchbutton.app/Default-Landscape@2x~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Copy build/Crunchbutton.app/Default-Landscape@2x~ipad.png51825a8cdcb6b741^1d56608cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@126"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default-Landscape@2x~ipad.png000000000080d041^1003"CpResource "Crunchbutton/Resources/splash/Default-Landscape@2x~ipad.png" "build/Crunchbutton.app/Default-Landscape@2x~ipad.png"    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default-Landscape@2x~ipad.png" /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"B28CD47B-A595-4C3B-9CA6-621342BD399F-
+
+CCpResource Crunchbutton/Resources/splash/Default-Landscape~ipad.png build/Crunchbutton.app/Default-Landscape~ipad.png
+s397859980.376598
+e397859980.381796
+r1
+xCpResource
+xCrunchbutton/Resources/splash/Default-Landscape~ipad.png
+xbuild/Crunchbutton.app/Default-Landscape~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Copy build/Crunchbutton.app/Default-Landscape~ipad.png7190608cdcb6b741^cbbc618cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@123"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default-Landscape~ipad.png000000000080d041^994"CpResource "Crunchbutton/Resources/splash/Default-Landscape~ipad.png" "build/Crunchbutton.app/Default-Landscape~ipad.png"    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default-Landscape~ipad.png" /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"4CBBF2F0-C7CB-42B8-8EB7-A0DB4D108C7D-
+
+CCpResource Crunchbutton/Resources/splash/Default-Portrait@2x~ipad.png build/Crunchbutton.app/Default-Portrait@2x~ipad.png
+s397859980.210359
+e397859980.222027
+r1
+xCpResource
+xCrunchbutton/Resources/splash/Default-Portrait@2x~ipad.png
+xbuild/Crunchbutton.app/Default-Portrait@2x~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection56"Copy build/Crunchbutton.app/Default-Portrait@2x~ipad.png8ded358cdcb6b741^a5f4388cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@125"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default-Portrait@2x~ipad.png000000000080d041^1000"CpResource "Crunchbutton/Resources/splash/Default-Portrait@2x~ipad.png" "build/Crunchbutton.app/Default-Portrait@2x~ipad.png"    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default-Portrait@2x~ipad.png" /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"F734FA8E-2AD8-4DD7-9E80-4259C59C6AAA-
+
+CCpResource Crunchbutton/Resources/splash/Default-Portrait~ipad.png build/Crunchbutton.app/Default-Portrait~ipad.png
+s397859980.281887
+e397859980.291593
+r1
+xCpResource
+xCrunchbutton/Resources/splash/Default-Portrait~ipad.png
+xbuild/Crunchbutton.app/Default-Portrait~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"Copy build/Crunchbutton.app/Default-Portrait~ipad.pngcd3d488cdcb6b741^a4a54a8cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@122"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default-Portrait~ipad.png000000000080d041^991"CpResource "Crunchbutton/Resources/splash/Default-Portrait~ipad.png" "build/Crunchbutton.app/Default-Portrait~ipad.png"    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default-Portrait~ipad.png" /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"CD8EA3B2-F21C-4F72-8D60-9380B4547E1F-
+
+CCpResource Crunchbutton/Resources/splash/Default@2x~iphone.png build/Crunchbutton.app/Default@2x~iphone.png
+s397859980.347164
+e397859980.351959
+r1
+xCpResource
+xCrunchbutton/Resources/splash/Default@2x~iphone.png
+xbuild/Crunchbutton.app/Default@2x~iphone.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection49"Copy build/Crunchbutton.app/Default@2x~iphone.png1ff8588cdcb6b741^ab5a5a8cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@118"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default@2x~iphone.png000000000080d041^979"CpResource "Crunchbutton/Resources/splash/Default@2x~iphone.png" "build/Crunchbutton.app/Default@2x~iphone.png"    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default@2x~iphone.png" /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"43B6CCB4-EA14-4D41-9583-3433F97A5C69-
+
+CCpResource Crunchbutton/Resources/splash/Default~iphone.png build/Crunchbutton.app/Default~iphone.png
+s397859980.204639
+e397859980.209274
+r1
+xCpResource
+xCrunchbutton/Resources/splash/Default~iphone.png
+xbuild/Crunchbutton.app/Default~iphone.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection46"Copy build/Crunchbutton.app/Default~iphone.png8388348cdcb6b741^b29f358cdcb6b741^---0#0#0#-19%DVTDocumentLocation2@115"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Default~iphone.png000000000080d041^970"CpResource "Crunchbutton/Resources/splash/Default~iphone.png" "build/Crunchbutton.app/Default~iphone.png"    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Resources/splash/Default~iphone.png" /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"785D0E91-924F-426D-8EE8-A7F871679C40-
+
+CCpResource Crunchbutton/config.xml build/Crunchbutton.app/config.xml
+s397860231.190517
+e397860231.193147
+r1
+xCpResource
+xCrunchbutton/config.xml
+xbuild/Crunchbutton.app/config.xml
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection38"Copy build/Crunchbutton.app/config.xml3cde3087ddb6b741^42773187ddb6b741^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/config.xml0000000000000000^906"CpResource Crunchbutton/config.xml build/Crunchbutton.app/config.xml    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/config.xml /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"E53CB499-70AE-417F-8B39-2736BF9EBEBE-
+
+CGenerateDSYMFile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app.dSYM /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Crunchbutton
+s397859987.488356
+e397859987.820610
+r1
+xGenerateDSYMFile
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app.dSYM
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Crunchbutton
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Generate /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app.dSYM632a7d93dcb6b741^d522d293dcb6b741^---0#0#0#-19%DVTDocumentLocation2@101"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app.dSYM000000000080d041^926"GenerateDSYMFile build/Crunchbutton.app.dSYM build/Crunchbutton.app/Crunchbutton    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Crunchbutton -o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app.dSYM36"22D331E1-E1C3-402A-933C-D9ECD19E2057-
+
+CLd /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Crunchbutton normal i386
+s397859986.715458
+e397859987.481205
+r1
+xLd
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Crunchbutton
+xnormal
+xi386
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"Link /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Crunchbutton1f4bb792dcb6b741^f4357b93dcb6b741^---0#0#0#--2420"Ld build/Crunchbutton.app/Crunchbutton normal i386    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv IPHONEOS_DEPLOYMENT_TARGET 5.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -L/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -L/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes -F/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -F/Users/arzynik/Documents/FacebookSDK -filelist /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/Crunchbutton.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -weak_framework CoreFoundation -weak_framework UIKit -weak_framework AVFoundation -weak_framework CoreMedia -weak-lSystem -force_load /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/libCordova.a -ObjC -lsqlite3.0 -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=5.0 -framework CoreGraphics -framework CoreFoundation -lz -framework AudioToolbox -weak_framework Security -weak_framework AdSupport -lTestFlight -weak_framework Accounts -weak_framework Social -framework CoreLocation -framework FacebookSDK -framework ImageIO -framework OpenAL -framework AssetsLibrary /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/libCordova.a -framework Foundation -weak_framework UIKit -framework AddressBook -framework AddressBookUI -weak_framework AVFoundation -framework CFNetwork -framework MediaPlayer -framework QuartzCore -framework MobileCoreServices -weak_framework CoreMedia -framework CoreLocation -o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Crunchbutton36"0C65F26D-9156-4C13-BBBB-479A863465F4-
+
+CPhaseScriptExecution "Copy www directory" /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Script-304B58A110DAC018002A0835.sh
+s397860230.285069
+e397860231.168927
+r1
+xPhaseScriptExecution
+xCopy www directory
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Script-304B58A110DAC018002A0835.sh
+o
+oreal	0m0.842s
+ouser	0m0.230s
+osys	0m0.309s
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Run custom shell script 'Copy www directory'4e0b4a86ddb6b741^861b2c87ddb6b741^-42"real	0m0.842suser	0m0.230ssys	0m0.309s3(21%IDEActivityLogMessage2@14"real	0m0.842s-397860231#1#14#-0#-----2@14"user	0m0.230s-397860231#15#14#-0#-----2@13"sys	0m0.309s-397860231#29#13#-0#-----0#0#0#--22099"PhaseScriptExecution "Copy www directory" build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Script-304B58A110DAC018002A0835.sh    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv ACTION build    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER arzynik    setenv ALWAYS_SEARCH_USER_PATHS NO    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS i386    setenv ARCHS_STANDARD_32_BIT i386    setenv ARCHS_UNIVERSAL_IPHONE_OS i386    setenv AVAILABLE_PLATFORMS "iphonesimulator macosx iphoneos"    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build    setenv BUILD_ROOT /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build    setenv BUILD_STYLE     setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build    setenv CACHE_ROOT /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501    setenv CCHROOT /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLANG_ENABLE_OBJC_ARC YES    setenv CLANG_WARN_BOOL_CONVERSION YES    setenv CLANG_WARN_CONSTANT_CONVERSION YES    setenv CLANG_WARN_EMPTY_BODY YES    setenv CLANG_WARN_ENUM_CONVERSION YES    setenv CLANG_WARN_INT_CONVERSION YES    setenv CLANG_WARN__DUPLICATE_METHOD_MATCH YES    setenv CLASS_FILE_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/JavaClasses    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/CompositeSDKs    setenv COMPRESS_PNG_FILES YES    setenv CONFIGURATION Debug    setenv CONFIGURATION_BUILD_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build    setenv CONFIGURATION_TEMP_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator    setenv CONTENTS_FOLDER_PATH Crunchbutton.app    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP NO    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv CORDOVALIB /Users/arzynik/Documents/CordovaLib    setenv CP /bin/cp    setenv CURRENT_ARCH i386    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING NO    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf-with-dsym    setenv DEFAULT_COMPILER com.apple.compilers.llvm.clang.1_0    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources    setenv DERIVED_FILE_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources    setenv DERIVED_SOURCES_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources    setenv DEVELOPER_APPLICATIONS_DIR /Applications/Xcode.app/Contents/Developer/Applications    setenv DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/usr/bin    setenv DEVELOPER_DIR /Applications/Xcode.app/Contents/Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Applications/Xcode.app/Contents/Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Applications/Xcode.app/Contents/Developer/Library/Frameworks\""    setenv DEVELOPER_LIBRARY_DIR /Applications/Xcode.app/Contents/Developer/Library    setenv DEVELOPER_SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Applications/Xcode.app/Contents/Developer/Tools    setenv DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DOCUMENTATION_FOLDER_PATH Crunchbutton.app/English.lproj/Documentation    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/Crunchbutton.dst    setenv DT_TOOLCHAIN_DIR /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain    setenv DWARF_DSYM_FILE_NAME Crunchbutton.app.dSYM    setenv DWARF_DSYM_FILE_SHOULD_ACCOMPANY_PRODUCT NO    setenv DWARF_DSYM_FOLDER_PATH /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build    setenv EFFECTIVE_PLATFORM_NAME -iphonesimulator    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".DS_Store .svn .git .hg CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLES_FOLDER_PATH Crunchbutton.app/Executables    setenv EXECUTABLE_FOLDER_PATH Crunchbutton.app    setenv EXECUTABLE_NAME Crunchbutton    setenv EXECUTABLE_PATH Crunchbutton.app/Crunchbutton    setenv FILE_LIST /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects/LinkFileList    setenv FIXED_FILES_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/FixedFiles    setenv FRAMEWORKS_FOLDER_PATH Crunchbutton.app/Frameworks    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "\"/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build\"  /Users/arzynik/Documents/FacebookSDK"    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME Crunchbutton.app    setenv GCC3_VERSION 3.3    setenv GCC_C_LANGUAGE_STANDARD c99    setenv GCC_DYNAMIC_NO_PIC NO    setenv GCC_INLINES_ARE_PRIVATE_EXTERN YES    setenv GCC_OBJC_LEGACY_DISPATCH YES    setenv GCC_OPTIMIZATION_LEVEL 0    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_PRECOMPILE_PREFIX_HEADER YES    setenv GCC_PREFIX_HEADER Crunchbutton/Crunchbutton-Prefix.pch    setenv GCC_SYMBOLS_PRIVATE_EXTERN YES    setenv GCC_THUMB_SUPPORT NO    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION com.apple.compilers.llvm.clang.1_0    setenv GCC_VERSION_IDENTIFIER com_apple_compilers_llvm_clang_1_0    setenv GCC_WARN_ABOUT_RETURN_TYPE YES    setenv GCC_WARN_UNDECLARED_SELECTOR YES    setenv GCC_WARN_UNINITIALIZED_AUTOS YES    setenv GCC_WARN_UNUSED_FUNCTION YES    setenv GCC_WARN_UNUSED_VARIABLE YES    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE YES    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADER_SEARCH_PATHS "\"/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include\" \"/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/usr/local/lib/include\" \"/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/UninstalledProducts/include\" \"/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build\""    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_FILE Crunchbutton/Crunchbutton-Info.plist    setenv INFOPLIST_OUTPUT_FORMAT binary    setenv INFOPLIST_PATH Crunchbutton.app/Info.plist    setenv INFOPLIST_PREPROCESS NO    setenv INFOSTRINGS_PATH Crunchbutton.app/English.lproj/InfoPlist.strings    setenv INSTALL_DIR /tmp/Crunchbutton.dst/Applications    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER arzynik    setenv INSTALL_PATH /Applications    setenv INSTALL_ROOT /tmp/Crunchbutton.dst    setenv IPHONEOS_DEPLOYMENT_TARGET 5.0    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FOLDER_PATH Crunchbutton.app/Java    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-LinkMap-normal-i386.txt    setenv LD_NO_PIE NO    setenv LEGACY_DEVELOPER_DIR /Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer    setenv LEX lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_SEARCH_PATHS "\"/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build\"  /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes"    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_i386 /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal/i386/Crunchbutton.LinkFileList    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCALIZED_RESOURCES_FOLDER_PATH Crunchbutton.app/English.lproj    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE mh_execute    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv MAC_OS_X_PRODUCT_BUILD_VERSION 12E55    setenv MAC_OS_X_VERSION_ACTUAL 1084    setenv MAC_OS_X_VERSION_MAJOR 1080    setenv MAC_OS_X_VERSION_MINOR 0804    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJC_ABI_VERSION 2    setenv OBJECT_FILE_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects    setenv OBJECT_FILE_DIR_normal /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Objects-normal    setenv OBJROOT /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build    setenv ONLY_ACTIVE_ARCH YES    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv OTHER_LDFLAGS "-weak_framework CoreFoundation -weak_framework UIKit -weak_framework AVFoundation -weak_framework CoreMedia -weak-lSystem -force_load \"/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/libCordova.a\" -ObjC -lsqlite3.0"    setenv PACKAGE_TYPE com.apple.package-type.wrapper.application    setenv PASCAL_STRINGS YES    setenv PATH "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Tools:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Applications/Xcode.app/Contents/Developer/Headers /Applications/Xcode.app/Contents/Developer/SDKs /Applications/Xcode.app/Contents/Developer/Platforms"    setenv PBDEVELOPMENTPLIST_PATH Crunchbutton.app/pbdevelopment.plist    setenv PFE_FILE_C_DIALECTS objective-c    setenv PHONEGAPLIB /Users/arzynik/Documents/PhoneGapLib    setenv PKGINFO_FILE_PATH /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/PkgInfo    setenv PKGINFO_PATH Crunchbutton.app/PkgInfo    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr    setenv PLATFORM_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform    setenv PLATFORM_NAME iphonesimulator    setenv PLATFORM_PREFERRED_ARCH i386    setenv PLATFORM_PRODUCT_BUILD_VERSION 10B141    setenv PLATFORM_VERSION_AVAILABILITY_H_FORMAT 60100    setenv PLIST_FILE_OUTPUT_FORMAT binary    setenv PLUGINS_FOLDER_PATH Crunchbutton.app/PlugIns    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/PrefixHeaders    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH Crunchbutton.app/PrivateHeaders    setenv PRODUCT_NAME Crunchbutton    setenv PRODUCT_SETTINGS_PATH /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Crunchbutton-Info.plist    setenv PRODUCT_TYPE com.apple.product-type.application    setenv PROFILING_CODE NO    setenv PROJECT Crunchbutton    setenv PROJECT_DERIVED_FILE_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/DerivedSources    setenv PROJECT_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PROJECT_FILE_PATH /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton.xcodeproj    setenv PROJECT_NAME Crunchbutton    setenv PROJECT_TEMP_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build    setenv PROJECT_TEMP_ROOT /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build    setenv PUBLIC_HEADERS_FOLDER_PATH Crunchbutton.app/Headers    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_GIT_FROM_RESOURCES YES    setenv REMOVE_HG_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv REZ_COLLECTOR_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/ResourceManagerResources    setenv REZ_OBJECTS_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/ResourceManagerResources/Objects    setenv REZ_SEARCH_PATHS "\"/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build\" "    setenv RUN_CLANG_STATIC_ANALYZER NO    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPTS_FOLDER_PATH Crunchbutton.app/Scripts    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk    setenv SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk    setenv SDK_NAME iphonesimulator6.1    setenv SDK_PRODUCT_BUILD_VERSION 10B141    setenv SED /usr/bin/sed    setenv SEPARATE_STRIP NO    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SHALLOW_BUNDLE YES    setenv SHARED_DERIVED_FILE_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/DerivedSources    setenv SHARED_FRAMEWORKS_FOLDER_PATH Crunchbutton.app/SharedFrameworks    setenv SHARED_PRECOMPS_DIR /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders    setenv SHARED_SUPPORT_FOLDER_PATH Crunchbutton.app/SharedSupport    setenv SKIP_INSTALL NO    setenv SOURCE_ROOT /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv SRCROOT /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv STRINGS_FILE_OUTPUT_ENCODING binary    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE all    setenv SUPPORTED_DEVICE_FAMILIES "1 2"    setenv SUPPORTED_PLATFORMS "iphonesimulator iphoneos"    setenv SYMROOT /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Applications/Xcode.app/Contents/Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Applications/Xcode.app/Contents/Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Applications/Xcode.app/Contents/Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Applications/Xcode.app/Contents/Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETED_DEVICE_FAMILY 1,2    setenv TARGETNAME Crunchbutton    setenv TARGET_BUILD_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build    setenv TARGET_NAME Crunchbutton    setenv TARGET_TEMP_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build    setenv TEMP_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build    setenv TEMP_FILES_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build    setenv TEMP_FILE_DIR /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build    setenv TEMP_ROOT /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build    setenv TEST_AFTER_BUILD NO    setenv TOOLCHAINS com.apple.dt.toolchain.XcodeDefault    setenv UID 501    setenv UNLOCALIZED_RESOURCES_FOLDER_PATH Crunchbutton.app    setenv UNSTRIPPED_PRODUCT NO    setenv USER arzynik    setenv USER_APPS_DIR /Users/arzynik/Applications    setenv USER_LIBRARY_DIR /Users/arzynik/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT NO    setenv VALID_ARCHS i386    setenv VERBOSE_PBXCP NO    setenv VERSIONPLIST_PATH Crunchbutton.app/version.plist    setenv VERSION_INFO_BUILDER arzynik    setenv VERSION_INFO_FILE Crunchbutton_vers.c    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:Crunchbutton  PROJECT:Crunchbutton-\""    setenv WRAPPER_EXTENSION app    setenv WRAPPER_NAME Crunchbutton.app    setenv WRAPPER_SUFFIX .app    setenv XCODE_APP_SUPPORT_DIR /Applications/Xcode.app/Contents/Developer/Library/Xcode    setenv XCODE_PRODUCT_BUILD_VERSION 4H127    setenv XCODE_VERSION_ACTUAL 0460    setenv XCODE_VERSION_MAJOR 0400    setenv XCODE_VERSION_MINOR 0460    setenv YACC yacc    /bin/sh -c /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Script-304B58A110DAC018002A0835.sh36"26B0191A-6326-4EA7-9C2D-465115CC38BE-
+
+CProcessInfoPlistFile /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Info.plist Crunchbutton/Crunchbutton-Info.plist
+s397860230.255064
+e397860230.272486
+r1
+xProcessInfoPlistFile
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Info.plist
+xCrunchbutton/Crunchbutton-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Process Crunchbutton/Crunchbutton-Info.plistbff44286ddb6b741^4ed14586ddb6b741^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Crunchbutton-Info.plist0000000000000000^978"ProcessInfoPlistFile build/Crunchbutton.app/Info.plist Crunchbutton/Crunchbutton-Info.plist    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    builtin-infoPlistUtility Crunchbutton/Crunchbutton-Info.plist -genpkginfo /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app/Info.plist36"F5A15E36-5E27-4509-8A1C-35BF14669A67-
+
+CProcessPCH /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch.pth Crunchbutton/Crunchbutton-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s397859985.213974
+e397859985.865425
+r1
+xProcessPCH
+x/var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch.pth
+xCrunchbutton/Crunchbutton-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Precompile Crunchbutton/Crunchbutton-Prefix.pchb8ea3691dcb6b741^0cb1de91dcb6b741^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Crunchbutton-Prefix.pch0000000000000000^4047"ProcessPCH /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch.pth Crunchbutton/Crunchbutton-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.0 -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-generated-files.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-own-target-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-all-target-headers.hmap -iquote /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/Crunchbutton-project-headers.hmap -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/usr/local/lib/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/UninstalledProducts/include -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources/i386 -I/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.build/Debug-iphonesimulator/Crunchbutton.build/DerivedSources -F/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build -F/Users/arzynik/Documents/FacebookSDK --serialize-diagnostics /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch.dia -c /Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Crunchbutton-Prefix.pch -o /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/Crunchbutton-Prefix-eadcrpmblvncxdgxidqwavwbfagl/Crunchbutton-Prefix.pch.d36"BC3739B4-3A73-4ECF-B759-0200A4DCB40C-
+
+CTouch /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app
+s397860231.250256
+e397860231.258362
+r1
+xTouch
+x/Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection86"Touch /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.appd4284087ddb6b741^8e234287ddb6b741^---0#0#0#--694"Touch build/Crunchbutton.app    cd /Users/arzynik/Development/ios/crunchbutton/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/heroku/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/arzynik/.ec2/bin:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools:/Users/arzynik/.ec2/bin:/Users/arzynik/Development/adt-bundle/sdk/platform-tools:/Users/arzynik/Development/adt-bundle/sdk/tools"    /usr/bin/touch -c /Users/arzynik/Development/ios/crunchbutton/platforms/ios/build/Crunchbutton.app36"64D63DB4-ECF5-4C34-83EB-88ABCE9326C4-
+
