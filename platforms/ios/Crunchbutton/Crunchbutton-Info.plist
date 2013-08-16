@@ -75,7 +75,9 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb***REMOVED***</string>
+				<string>fb***REMOVED***</string><!-- live -->
+				<string>fb484123474978744</string><!-- localhost -->
+				<string>fb***REMOVED***</string><!-- beta -->
 				<string>crunchbutton</string>
 			</array>
 		</dict>

@@ -78,7 +78,9 @@ $(function() {
 			FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
 	
 			FB.init({
-				appId: '***REMOVED***',
+				appId: '***REMOVED***', // beta
+				appId: '484123474978744', // localhost
+//				appId: '***REMOVED***', // live
 				//cookie: true,
 				xfbml: true,
 				//oauth: true,
