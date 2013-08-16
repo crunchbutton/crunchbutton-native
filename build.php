@@ -103,5 +103,5 @@ file_put_contents($path.'index.html', $index);
 
 
 // yay
-echo "Build complete!\n\n";
-
+echo "\033[32mBuild complete!\033[37m
+";

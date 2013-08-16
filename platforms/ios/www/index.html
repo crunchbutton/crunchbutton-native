@@ -325,11 +325,13 @@
 	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/notification.alert.html">
-<div class="notification-alert-container zoom-anim-dialog small-container mfp-hide" ng-controller="NotificationAlertCtrl">
-	<div class="signin-form-container">	
-		<h1 ng-bind="title"></h1>
-		<p ng-bind-html-unsafe="message"></p>
-	</div>
+<div class="notification-alert-container zoom-anim-dialog small-container mfp-hide modal" ng-controller="NotificationAlertCtrl">
+	<h1 ng-bind="title" ng-show="title"></h1>
+	<p ng-bind-html-unsafe="message" class="small-message"></p>
+
+	<div class="divider dots"></div>
+	<button ng-click="closePopup();" class="ok-button">OK</button>
+	<div class="ok-button-pad"></div>
 </div>
 </script><script type="text/ng-template" id="assets/view/order.html">
 <div ng-show="!order.order.id">
@@ -433,7 +435,7 @@
 </div>
 </script><script type="text/ng-template" id="assets/view/restaurant.closed.html">
 <div class="restaurant-closed-container zoom-anim-dialog small-container mfp-hide" ng-controller="RestaurantClosedCtrl">
-	<div class="signin-form-container">	
+	<div class="signin-form-container">
 		<h1 ng-bind="restaurant.name"></h1>
 		<p>Is currently closed. It will be open during the following hours (<span ng-bind="restaurant._tzabbr"></span>):<br /><br />
 		<div ng-bind-html-unsafe="restaurant.closedMessage()"></div>
@@ -441,9 +443,7 @@
 </div>
 </script><script type="text/ng-template" id="assets/view/restaurant.html">
 <div ng-show="!order.loaded">
-	Restaurant Loading Message!!<br><br>
-	THIS WILL SHOW UP WHEN A RESTAURANT PAGE IS DIRECTLY LOADED FROM A BROWSER BEFORE THE PAGE SHOWS.
-</div>
+	</div>
 
 <div ng-show="order.loaded">
 
@@ -556,12 +556,12 @@
 				</div>
 			</div>
 
-				<div class="default-order-check" ng-show="order.info.totalItems">
-					<input type="checkbox" ng-model="order.form.make_default" id="default-order-check">
-					<label for="default-order-check">Make this your default order for {{restaurant.name}}</label>
-				</div>
-
+			<div class="default-order-check" ng-show="order.info.totalItems && restaurant._open">
+				<input type="checkbox" ng-model="order.form.make_default" id="default-order-check">
+				<label for="default-order-check">Set as default order for this restaurant</label>
 			</div>
+
+		</div>
 		
 
 		<!-- menu -->
@@ -593,7 +593,7 @@
 
 	<div class="restaurant-payment-div"></div>
 
-	<div class="is-closet main-content-readable" ng-show="!restaurant._open && order.loaded">
+	<div class="is-closet main-content-readable" ng-show="!open && order.loaded">
 		<div class="restaurant-closed">
 			<div class="restaurant-closed-icon"></div>
 			<div class="restaurant-closed-content">
@@ -622,7 +622,7 @@
 				<div ng-show="(restaurant.delivery == '1' && restaurant.takeout == '1')">
 					<label class="pay-title-label">Delivery Info</label>
 
-					<div class="input-item clearfix">
+					<div class="input-item toggle-wrapper clearfix">
 						<button ng-click="order.toogleDelivery( 'delivery' )" ng-class="{'toggle-active': order.form.delivery_type=='delivery' }" class="toggle-item">delivery</button>
 						<span class="toggle-spacer">or</span>
 						<button ng-click="order.toogleDelivery( 'takeout' )" ng-class="{'toggle-active': order.form.delivery_type=='takeout' }" class="toggle-item">takeout</button>
@@ -772,13 +772,13 @@
 					<div class="giftcard-payment-message">Pay with a card, NOT CASH, to use your {{AB.dollar}}{{credit.value}} gift card!</div>
 				</div>
 				&nbsp;
-				<span ng-show="order.form.pay_type=='card'">by cart</span>
+				<span ng-show="order.form.pay_type=='card'">by card</span>
 			</div>
 		</div>
 	
 	</form>
 
-	<div ng-position-fixed id="button-get-food" ng-show="restaurant._open && order.cart.hasItems()" class="button-bottom-wrapper" data-role="footer" data-position="fixed"><button class="button-bottom" ng-click="order.submit();"><div>Get Food</div></button></div>
+	<div ng-show="restaurant._open && order.cart.hasItems()" class="button-bottom-wrapper button-bottom-inline"><button class="button-bottom" ng-click="order.submit();"><div>Get Food</div></button></div>
 
 	<!-- stored user info -->
 	<div class="delivery-payment-info main-content-readable" ng-show="restaurant._open && !order.showForm && order.cart.hasItems()">
@@ -1156,18 +1156,19 @@
 				</div>
 			</div>
 			<div class="nav nav-cart">
-
-
-					<div class="cart-summary cart-summary-detail" data-role="header" data-position="fixed">
-						<div class="cart-summary-icon"></div>
-						<div class="cart-summary-item-count"><span>{{order.info.totalItems}}</span></div>
-						<div class="cart-summary-items">{{order.info.cartSummary}}</div>
-					</div>
-
-
+				<div class="cart-summary cart-summary-detail" data-role="header" data-position="fixed">
+					<div class="cart-summary-icon"></div>
+					<div class="cart-summary-item-count"><span>{{order.info.totalItems}}</span></div>
+					<div class="cart-summary-items">{{order.info.cartSummary}}</div>
+				</div>
 			</div>
 		</div>
-	
+
+		<div ng-class="{'button-bottom-show': (navigation.page == 'restaurant' && navigation.restaurant._open && navigation.order.cart.hasItems())}" class="button-bottom-wrapper button-bottom-bar">
+			<button class="button-bottom" ng-click="navigation.order.submit();"><div>Get Food</div></button>
+			<button class="button-bottom" ng-click="navigation.order.checkout();"><div>Checkout</div></button>
+		</div>
+
 		<div class="snap-content-inner bg" ng-scroll-position>
 			<div class="body">
 				<div class="content short-meal-list">
@@ -1176,7 +1177,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="divider"></div>
 
 			<div class="footer">
