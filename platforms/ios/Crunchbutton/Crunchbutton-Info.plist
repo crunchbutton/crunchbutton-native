@@ -75,7 +75,9 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb411729638889643</string>
+				<string>fb411729638889643</string><!-- live -->
+				<string>fb484123474978744</string><!-- localhost -->
+				<string>fb330512547054803</string><!-- beta -->
 				<string>crunchbutton</string>
 			</array>
 		</dict>
@@ -83,7 +85,7 @@
 	<key>CFBundleVersion</key>
 	<string>1.0.0</string>
 	<key>FacebookAppID</key>
-	<string>411729638889643</string>
+	<string>330512547054803</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>

@@ -78,7 +78,9 @@ $(function() {
 			FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
 	
 			FB.init({
-				appId: '411729638889643',
+				appId: '330512547054803', // beta
+				appId: '484123474978744', // localhost
+//				appId: '411729638889643', // live
 				//cookie: true,
 				xfbml: true,
 				//oauth: true,
