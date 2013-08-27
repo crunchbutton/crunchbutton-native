@@ -56,7 +56,7 @@
 			</form>
 			<div class="divider"></div>
 			<a class="help-link" ng-click="help.show(true)">Password help?</a>
-			<button ng-disabled="formSignin.$pristine || formSignin.$invalid" ng-click="account.signin();">Log in</button>
+			<button ng-click="account.signin();">Log in</button>
 			<div class="divider"></div>
 
 		<div facebook-signin-button title="Login with Facebook"></div>
@@ -71,7 +71,7 @@
 				</div>
 			</form>
 			<a class="help-link" ng-click="help.show(false)">Never mind</a>
-			<button ng-disabled="formLoginHelp.$pristine || formLoginHelp.$invalid" ng-click="help.sendForm()">Reset</button>
+			<button ng-click="help.sendForm()">Reset</button>
 			<div class="divider"></div>
 			<div ng-show="formLoginHelp.$dirty && formLoginHelp.$invalid" class="error">
 				Please enter a valid email or phone.
@@ -105,7 +105,7 @@
 				</div>
 			</form>
 			<div class="divider"></div>
-			<button ng-disabled="formSignup.$pristine || formSignup.$invalid" ng-click="account.signup();">Sign up</button>
+			<button ng-click="account.signup();">Sign up</button>
 			<div class="divider"></div>
 			
 			<div facebook-signin-button title="Signup with Facebook"></div>
@@ -115,6 +115,13 @@
 			<div class="success">
 				You can now sign in using <strong>{{account.email}}</strong>!
 			</div>
+		</div>
+	</div>
+
+	<div ng-controller="AccountFacebookCtrl" ng-show="modal.facebookLogin">
+		<div>
+			<h1>Login with Facebook</h1>
+			<div facebook-signin-button title="Connect with Facebook"></div>
 		</div>
 	</div>
 </div>
@@ -134,9 +141,9 @@
 			<div ng-show="reset.error == 'expired'" class="error">
 				Sorry, this code is expired.
 			</div>
-			<button ng-click="reset.validateCode();">Reset</button>
-			<div class="divider"></div>
 		</form>
+		<button ng-click="reset.validateCode();">Reset</button>
+		<div class="divider"></div>
 	</div>
 	<div ng-show="reset.step == 2">
 		<form ng-show="!reset.success">
@@ -149,9 +156,9 @@
 			<div ng-show="reset.error == 'invalid'" class="error">
 				Sorry, this code is invalid.
 			</div>
-			<button ng-click="reset.changePassword();">Change</button>
-			<div class="divider"></div>
 		</form>
+		<button ng-click="reset.changePassword();" ng-show="!reset.success">Change</button>
+		<div class="divider"></div>
 		<div ng-show="reset.success">
 			<h1>Done!</h1>
 			<div class="success">
@@ -172,73 +179,74 @@
 </script><script type="text/ng-template" id="assets/view/giftcard.html">
 <div class="giftcard-container modal zoom-anim-dialog small-container mfp-hide" ng-controller="GiftCardCtrl">
 
-	<div ng-show="giftcard.modal.intro">
+	<div ng-show="modal.intro">
 		<h1>Gift card</h1>
 		<div class="wait">Just a sec.</div>
 	</div>
 	
 	<!-- User is logged -->
-	<div ng-show="giftcard.account.user">
+	<div ng-show="user">
 		<!-- Error -->
-		<div ng-show="giftcard.modal.error && !giftcard.modal.success">
+		<div ng-show="modal.error && !modal.success">
 			<h1>Oops, error!</h1>
-			<div class="error" ng-show="giftcard.modal.error == 'used'">
+			<div class="error" ng-show="modal.error == 'used'">
 				Sorry, this gift card was already used.
 			</div>
-			<div class="error" ng-show="giftcard.modal.error == 'invalid'">
+			<div class="error" ng-show="modal.error == 'invalid'">
 				Sorry, this is an invalid gift card.
 			</div>
-			<div class="error" ng-show="giftcard.modal.error != 'used' && giftcard.modal.error != 'invalid'">
+			<div class="error" ng-show="modal.error != 'used' && modal.error != 'invalid'">
 				Please try it again.
 			</div>
 		</div>
 		<!-- Success -->
-		<div ng-show="giftcard.modal.success && !giftcard.modal.error">
+		<div ng-show="modal.success && !modal.error">
 			<h1>Gift card added!</h1>
-			<div class="success" ng-show="giftcard.modal.restaurant">
-				You've got a <b>${{giftcard.value}}</b> gift card to <b class="pointer" ng-click="giftcard.openRestaurant();">{{giftcard.modal.restaurant.name}}</b>
+			<div class="success" ng-show="modal.restaurant">
+				You've got a <b>${{giftcard.value}}</b> gift card to <b class="pointer" ng-click="giftcard.openRestaurant();">{{modal.restaurant.name}}</b>
 			</div>
-			<div class="success" ng-show="!giftcard.modal.restaurant">
+			<div class="success" ng-show="!modal.restaurant">
 				You've got a <b>${{giftcard.value}}</b> gift card to Crunchbutton!
 			</div>
 		</div>
 	</div>
 
 	<!-- User is not logged -->
-	<div ng-show="!giftcard.account.user">
+	<div ng-show="!user">
 		<!-- Error -->
-		<div ng-show="giftcard.modal.error && !giftcard.modal.success">
+		<div ng-show="modal.error && !modal.success">
 			<h1>Oops, error!</h1>
-			<div class="error" ng-show="giftcard.modal.error == 'used'">
+			<div class="error" ng-show="modal.error == 'used'">
 				Sorry, this gift card was already used.
 			</div>
-			<div class="error" ng-show="giftcard.modal.error == 'invalid'">
+			<div class="error" ng-show="modal.error == 'invalid'">
 				Sorry, this is an invalid gift card.
 			</div>
-			<div class="error" ng-show="giftcard.modal.error != 'used' && giftcard.modal.error != 'invalid'">
+			<div class="error" ng-show="modal.error != 'used' && modal.error != 'invalid'">
 				Please try it again.
 			</div>
 		</div>
 		<!-- Success -->
-		<div ng-show="giftcard.modal.success && !giftcard.modal.error">
+		<div ng-show="modal.success && !modal.error">
 			<h1>Welcome!</h1>
-			<div class="success" ng-show="giftcard.modal.restaurant">
-				You have a <b>${{giftcard.value}}</b> gift card to <b class="pointer" ng-click="giftcard.openRestaurant();">{{giftcard.modal.restaurant.name}}</b>
+			<div class="success" ng-show="modal.restaurant">
+				You have a <b>${{giftcard.value}}</b> gift card to <b class="pointer" ng-click="giftcard.openRestaurant();">{{modal.restaurant.name}}</b>
 			</div>
-			<div class="success" ng-show="!giftcard.modal.restaurant">
+			<div class="success" ng-show="!modal.restaurant">
 				You have a <b>${{giftcard.value}}</b> gift card!
 			</div>
 			<div class="bottom-links">
-				<span ng-click="giftcard.modal.signIn();">Sign In</span>
-				<span ng-click="giftcard.modal.close();">Later</span>
+				<span class="giftcard-later" ng-click="modal.close();">Later</span>
+				<span class="giftcard-signin" ng-click="modal.signIn();">Sign In</span>
 			</div>
+			<div class="divider"></div>
 		</div>
 	</div>
 
 </div>
 
 </script><script type="text/ng-template" id="assets/view/help.html">
-	<div class="main-content-readable"><h1 class="about-header">About</h1><p>Crunchbutton lets you order your favorite food with one click. We highlight the top food from the top restaurants in a community. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click/tap.</p><br /><br /><h1 class="about-header">Help</h1><p><b>Problem with your order?</b><br />Try contacting the restaurant you ordered from.<br /><br /><b>Need to contact Crunchbutton?</b><br />Call us at 646-783-1444.<br /><br /></p><br /><br /><h1 class="about-header">FAQ</h1><p><b>How do I order food?</b><br />Easy! Just go to crunchbutton.com and click the restaurant you want to order from. Add whatever food you want, and enter your address, phone, and payment info. Click "Get Food" and try to stay hungry! The restaurant will call you when they're outside.<br /><br /><b>Is it cheaper for me to just call the restaurant?</b><br />No!! Crunchbutton is totally free to you. Prices are the same as calling the restaurant. Sometimes even cheaper!!<br /><br /><b>Is it faster for me to just call the restaurant?</b><br />No!! With Crunchbutton ordering is as fast as a single click!! And we make sure our restaurants receive orders promptlier and accuratelier than when you call.<br /><br /><b>How do you save my info?</b><br />We use a super secure system away from our web server to store and encrypt all your financial information.<br /><br /><b>How do I change my stored info?</b><br />Just click on the info you want to change, enter the changes, and, after you place your order, it’ll be saved for next time.<br /><br /><b>But I've never used Crunchbutton before...</b><br />Oh man, it's okay. I remember my first time, it didn't last more than 30 seconds. I went to Crunchbutton.com, found my favorite restaurant, hit "Get Food." Minutes later, my sandwich arrived. Post-coital bliss ensued, that sandwich sure knew how to crunch my buttons.<br /><br /><b>omg i am wayy too drunk to enter my information</b><br />We thought this might happen. Luckily, Crunchbutton saves your address, phone, and payment info, so all you have to do is click what you want and hit the big, red "Get Food" button. Try to be awake when the delivery guy calls.<br /><br /><b>I want to put a restaurant on Crunchbutton.</b><br />Good idea! Contact <span class="crunchbutton-join-mail"></span><br /><br /><b>I know I can order food online, but can I order by US mail?</b><br />Why yes you can! Send a check or money order to 95 Chestnut Street, Providence, RI 02903, give us one week's notice, and we will get you your food!<br /><br /></p></div>
+	
 </script><script type="text/ng-template" id="assets/view/home.html">
  
 </script><script type="text/ng-template" id="assets/view/legal.html">
@@ -280,7 +288,7 @@
 		<h1>Crunchbutton by city:</h1> 
 		<div class="content-item-locations-cities">
 			<span ng-repeat="alias in topCommunities">
-				<span class="content-item-locations-city" ng-click="openCity(alias.name)" permalink="{{alias.alias}}">{{alias.name}}</span>
+				<span class="content-item-locations-city" ng-click="openCity(alias.alias)" permalink="{{alias.alias}}">{{alias.name}}</span>
 			</span>
 		</div>
 	</div>
@@ -334,17 +342,17 @@
 	<div class="ok-button-pad"></div>
 </div>
 </script><script type="text/ng-template" id="assets/view/order.html">
-<div ng-show="!order.order.id">
+<div ng-show="!order.id">
 	Orders loader
 </div>
 
-<div ng-show="order.order.id">
+<div ng-show="order.id">
 
 	<div class="content-padder-before"></div>
 
 	<div class="order-info content-padder main-content-readable">
 	
-		<span class="order-thanks-message" ng-show="order.order.new">
+		<span class="order-thanks-message" ng-show="order.new">
 			Crunched!
 			<span class="order-thanks-message-block">Your order is placed</span>
 			<span class="order-thanks-message-small">(and saved for easy 1 click ordering next time)</span>
@@ -357,37 +365,54 @@
 
 		<div ng-show="!account.user.has_auth">
 				Add a password to reorder your favorite food anywhere, including <a data-ng-href="http://crunchbutton.com">crunchbutton.com</a> on your phone.
-				<a href="javascript:;" ng-click="modal.signinOpen();" class="add-password-button">Add a password now</a>
+				<a href="javascript:;" ng-click="modal.signupOpen();" class="add-password-button">Add a password now</a>
 		</div>
 	
 		<div class="order-details">
 
-			<div ng-show="(order.order.delivery_type == 'delivery')">
-				<b>Your delivery address:</b><br><span ng-bind-html-unsafe="nl2br(order.order.address)"></span><br><br>
+			<div ng-show="(order.delivery_type == 'delivery')">
+				<b>Your delivery address:</b><br><span ng-bind-html-unsafe="order.address | nl2br"></span><br><br>
 			</div>
 	
-			<div ng-hide="(order.order.delivery_type == 'delivery')">
+			<div ng-hide="(order.delivery_type == 'delivery')">
 				<b>Takeout order</b><br><br>
 			</div>
 	
-			<b>Your phone #:</b><br>{{formatPhone(order.order.phone)}}<br><br>
+			<b>Your phone #:</b><br>{{ order.phone | formatPhone }}<br><br>
 	
-			<b>Your order:</b><span ng-bind-html-unsafe="order.order._message"></span><br><br>
+			<b>Your order:</b><span ng-bind-html-unsafe="order._message"></span><br><br>
 	
-			<i ng-show="order.order.notes" ng-bind-html-unsafe="nl2br(order.order.notes)"></i><br><br>
+			<i ng-show="order.notes" ng-bind-html-unsafe="order.notes | nl2br"></i><br><br>
 	
-			<b ng-show="(order.order.pay_type == 'card')">Your total:<br></b>
-			<b ng-hide="(order.order.pay_type == 'card')">Your approximate total:<br></b>
+			<b ng-show="(order.pay_type == 'card')">Your total:<br></b>
+			<b ng-hide="(order.pay_type == 'card')">Your approximate total:<br></b>
 			
-			${{formatPrice(order.order.charged)}}
+			${{order.charged | formatPrice}}
 	
-			<div class="credit" ng-show="(order.order.credit && order.order.credit > 0)">( ${{order.order._final_price}} - ${{order.order._credit}} credit )</div>
+			<div class="credit" ng-show="(order.credit && order.credit > 0)">( ${{order._final_price}} - ${{order._credit}} credit )</div>
 	
 			<br><br>
 	
-			For updates on your order, please call<br>{{order.restaurant.name}}: <b>{{callPhone( order.restaurant.phone )}}</b><br><br>
-	
-			You can reach Crunchbutton by texting or calling <b> {{callPhone( '(646) 783-1444' )}} </b> <br><br>
+			For updates on your order, please call
+			<div>
+				{{order._restaurant_name}}: 
+				<b>
+					<span ng-show="restaurant.phone">
+						<span ng-show="isMobile"><a href="tel:{{restaurant.phone}}">{{ restaurant.phone }}</a></span>
+						<span ng-show="!isMobile">{{ restaurant.phone }}</span>
+					</span>
+					<span ng-show="!restaurant.phone">
+						<i class="icon-spinner icon-spin"></i>
+					</span>
+				</b>
+			</div>
+
+			<br><br>
+
+			You can reach Crunchbutton by texting or calling <b> 
+			<span ng-show="isMobile"><a href="tel:(646) 783-1444">{{ '6467831444' | formatPhone }}</a></span>
+			<span ng-show="!isMobile">{{ '6467831444' | formatPhone }}</span>
+			</b> <br><br>
 	
 			We've saved your order for easy 1 click ordering next time
 
@@ -395,6 +420,7 @@
 
 			<div class="facebook-button facebook-button-share clearfix" ng-click="facebook();">
 				<i class="icon-facebook"></i><span class="facebook-button-text">Share what you ordered</span>
+				<div class="divider"></div>
 			</div>
 	
 		</div>
@@ -402,8 +428,7 @@
 	
 	<br>
 	
-	<a data-ng-href="/printorder/{{ order.order.uuid }}" target="_blank" class="print-icon"><i class="icon-print"></i> Print Receipt</a>
-
+	
 	<div class="divider"></div>
 </div>
 </script><script type="text/ng-template" id="assets/view/orders.html">
@@ -428,8 +453,8 @@
 	</ul>
 
 	<div class="order-options">
-		<a ng-show="(!account.facebook.logged && !account.user.facebook)" href="javascript:;" class="signup-add-facebook-button" >Connect with Facebook</a>
-		<a href="javascript:;" ng-click="signout.do()" class="signout-button">Sign out</a>
+		<a ng-show="!account.hasFacebook" href="javascript:;" ng-click="facebook()" class="signup-add-facebook-button" >Connect with Facebook</a>
+		<a href="javascript:;" ng-click="signout()" class="signout-button">Sign out</a>
 		<div class="divider"></div>
 	</div>
 </div>
@@ -447,7 +472,7 @@
 
 <div ng-show="order.loaded">
 
-	<div class="giftcard-badge-container" ng-show="credit.value != '0.00' && App.isMobile()">
+	<div class="giftcard-badge-container" ng-show="credit.value != '0.00'">
 		<div class="giftcard-badge">
 			<div ng-click="credit.tooltip=!credit.tooltip" class="giftcard-badge-value">${{credit.value}}</div>
 		</div>
@@ -458,7 +483,7 @@
 
 	<div class="restaurant-name">
 		<h1>{{restaurant.name}}</h1>
-		<div class="giftcard-desktop-container" ng-show="credit.value != '0.00' && !App.isMobile()">
+		<div class="giftcard-desktop-container" ng-show="credit.value != '0.00'">
 			<div class="giftcard-desktop-message">
 				You have a <span class="giftcard-value">{{AB.dollar}}{{credit.value}}</span> gift card!
 			</div>
@@ -602,7 +627,7 @@
 				</span>
 				<span class="restaurant-closed-content">
 					It will be open during the following hours (EDT):<br> 
-					<span ng-bind-html-unsafe="nl2br(restaurant.closedMessage())"></span>
+					<span ng-bind-html-unsafe="restaurant.closedMessage() | nl2br"></span>
 				</span>
 			</div>
 			<div class="divider"></div>
@@ -693,6 +718,9 @@
 									</div>
 								</div>
 							</div>
+							<spa ng-show="giftcard.justOneGiftCardError">
+								You can only use one gift card at a time!
+							</span>
 						</div>
 					</div>
 	
@@ -726,7 +754,7 @@
 
 						<label ng-show="order.form.pay_type=='card'">Credit card #</label>
 
-						<div ng-show="order.form.pay_type=='card'" class="input-item"><input type="text" name="pay-card-number" tabindex="6" ng-change="order.cardInfoChanged()" ng-model="order.form.cardNumber"></div><div class="divider"></div>
+						<div ng-show="order.form.pay_type=='card'" class="input-item"><input type="text" name="pay-card-number" tabindex="6" ng-change="order.creditCardChanged();" ng-model="order.form.cardNumber"></div><div class="divider"></div>
 		
 						<label ng-show="order.form.pay_type=='card'">Expiration</label>
 						<div ng-show="order.form.pay_type=='card'" class="input-item">
@@ -785,7 +813,7 @@
 
 		<div>
 			<label>Your phone number:&nbsp;</label>
-			<i ng-show="user.phone">{{formatPhone(user.phone)}}</i>
+			<i ng-show="user.phone">{{ user.phone | formatPhone }}</i>
 			<i ng-show="!user.phone">no phone # provided</i>
 		</div>
 
@@ -805,7 +833,7 @@
 
 		<div ng-show="restaurant.delivery == '1' && order.form.delivery_type=='delivery'">
 			<label>Your food will be delivered to:</label><br />
-			<span ng-bind-html-unsafe="nl2br(order.form.address)"></span>
+			<span ng-bind-html-unsafe="order.form.address | nl2br"></span>
 			<i ng-hide="order.form.address">no address provided</i>
 		</div>
 
@@ -823,6 +851,18 @@
 
 </div>
 <div class="bottom-spacer"></div>
+
+<div class="giftcard-payment-warning modal zoom-anim-dialog small-container mfp-hide">
+	<h1>Sorry, you must pay with a credit card to use this gift code.</h1>
+	<ul>
+		<li>
+			<div ng-click="placeAnyway();">Place Order Anyway</div>
+		</li>
+		<li>
+			<div ng-click="showCreditPayment();">Pay with Credit Card</div>
+		</li>
+	</ul>
+</div>
 
 </script><script type="text/ng-template" id="assets/view/restaurant.suggestion.tooltip.html">
 <span class="tooltip-help-desktop-container">
@@ -1130,13 +1170,12 @@
 			</div>
 		</div>
 	</div>
-	<div class="snap-drawer snap-drawer-right"></div>
 </div>
 
 <div class="wrapper">
 	
 	<div id="snap-content" class="snap-content">
-		<div class="navs" data-role="header" data-position="fixed" ng-controller="MainHeaderCtrl">
+		<div class="navs" data-position="fixed" ng-controller="MainHeaderCtrl">
 			<div class="nav nav-top">
 				<div class="content short-meal-list">
 					
@@ -1145,7 +1184,8 @@
 					<div class="logo"><a href="javascript:;" ng-instant="navigation.home()"><div class="logo-img"></div></a></div>
 	
 					<div title="Back" ng-show="navigation.buttons.back" class="nav-back" ng-instant="back()"></div>
-					<div title="Change location" ng-show="navigation.buttons.location" class="location-icon {{ navigation.page == 'home' && 'config-icon-desktop-hide' || '' }}" ng-instant="navigation.link('/location')"></div>
+					
+					<div title="Change location" ng-show="navigation.buttons.location" class="location-icon config-icon-desktop-hide" ng-instant="navigation.link('/location')"></div>
 					<div title="Menu" ng-show="navigation.buttons.menu" class="menu-icon {{ navigation.page == 'home' && 'config-icon-desktop-hide' || '' }}" ng-click="navigation.menu()"></div>
 	
 					<div class="signin-box-header">
@@ -1156,7 +1196,7 @@
 				</div>
 			</div>
 			<div class="nav nav-cart">
-				<div class="cart-summary cart-summary-detail" data-role="header" data-position="fixed">
+				<div class="cart-summary cart-summary-detail">
 					<div class="cart-summary-icon"></div>
 					<div class="cart-summary-item-count"><span>{{order.info.totalItems}}</span></div>
 					<div class="cart-summary-items">{{order.info.cartSummary}}</div>
@@ -1164,7 +1204,7 @@
 			</div>
 		</div>
 
-		<div ng-class="{'button-bottom-show': (navigation.page == 'restaurant' && navigation.restaurant._open && navigation.order.cart.hasItems())}" class="button-bottom-wrapper button-bottom-bar">
+		<div ng-class="{'button-bottom-show': (navigation.page == 'restaurant' && navigation.restaurant._open && navigation.order.cart.hasItems())}" class="button-bottom-wrapper button-bottom-bar" data-position="fixed">
 			<button class="button-bottom" ng-click="navigation.order.submit();"><div>Get Food</div></button>
 			<button class="button-bottom" ng-click="navigation.order.checkout();"><div>Checkout</div></button>
 		</div>
