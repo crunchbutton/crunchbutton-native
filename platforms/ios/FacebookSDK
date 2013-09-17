@@ -1,0 +1,20 @@
+document.addEventListener("deviceready", goNotification, true);
+
+function goNotification() {
+
+	alert('#1');
+		setTimeout( function(){
+			alert('#2');
+			alert(navigator.notification)
+			navigator.notification.confirm('Some question here?',
+																		function(){
+																		if(button == "1"){
+																			navigator.app.exitApp();
+																		}
+																		},
+																		'Funny title',
+																		'OK,Cancel'
+																		);
+			},500 );
+			alert('#3');
+}
