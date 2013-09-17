@@ -195,10 +195,10 @@
 				085E2CA717A85D14007A9847 /* Accounts.framework in Frameworks */,
 				085E2CA517A85D06007A9847 /* Social.framework in Frameworks */,
 				301BF5BF109A6A2B0062928A /* CoreLocation.framework in Frameworks */,
-				083DF08E17AACF1A002F26C6 /* FacebookSDK.framework in Frameworks */,
 				5AA0E66D1729F45B000DC89A /* OpenAL.framework in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
+				083DF08E17AACF1A002F26C6 /* FacebookSDK.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				301BF5B5109A6A2B0062928A /* AddressBook.framework in Frameworks */,
@@ -621,6 +621,7 @@
 					"$(inherited)",
 					/Users/arzynik/Documents/FacebookSDK,
 					/Users/arzynik/Development/ios/crunchbutton/platforms/ios,
+					"\"$(SRCROOT)/../../../../../Documents/FacebookSDK\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -633,6 +634,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes,
+					"\"$(SRCROOT)/Crunchbutton/Classes\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -651,7 +653,6 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = Crunchbutton;
-				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s";
 			};
@@ -669,6 +670,7 @@
 					"$(inherited)",
 					/Users/arzynik/Documents/FacebookSDK,
 					/Users/arzynik/Development/ios/crunchbutton/platforms/ios,
+					"\"$(SRCROOT)/../../../../../Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Crunchbutton/Crunchbutton-Prefix.pch";
@@ -679,6 +681,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/arzynik/Development/ios/crunchbutton/platforms/ios/Crunchbutton/Classes,
+					"\"$(SRCROOT)/Crunchbutton/Classes\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -697,7 +700,6 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = Crunchbutton;
-				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s";
 			};
