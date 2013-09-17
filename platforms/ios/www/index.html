@@ -64,7 +64,7 @@
 		<div ng-show="help.visible">
 			<form class="signin-help-form" name="formLoginHelp" novalidate>
 				<h1>Password help?</h1>
-				<input type="text" maxlength="250" name="email" required  class="help-email" ng-enter="help.sendForm()" validate-login placeholder="email or phone" tabindex="10" ng-model="account.form.email" autofocus>
+				<input type="text" maxlength="250" name="email" required  class="help-email" ng-enter="help.sendForm()" validate-login placeholder="email or phone" tabindex="10" ng-model="account.form.email">
 				<div class="divider"></div>
 				<div ng-show="help.error" class="error">
 					Sorry, that email/phone is not registered with us.
@@ -183,74 +183,55 @@
 		<h1>Gift card</h1>
 		<div class="wait">Just a sec.</div>
 	</div>
-	
-	<!-- User is logged -->
-	<div ng-show="user">
-		<!-- Error -->
-		<div ng-show="modal.error && !modal.success">
-			<h1>Oops, error!</h1>
-			<div class="error" ng-show="modal.error == 'used'">
-				Sorry, this gift card was already used.
-			</div>
-			<div class="error" ng-show="modal.error == 'invalid'">
-				Sorry, this is an invalid gift card.
-			</div>
-			<div class="error" ng-show="modal.error != 'used' && modal.error != 'invalid'">
-				Please try it again.
-			</div>
+
+	<!-- Error -->
+	<div ng-show="modal.error && !modal.success">
+		<h1>Oops, error!</h1>
+		<div class="error" ng-show="modal.error == 'used'">
+			Sorry, this gift card was already used.
 		</div>
-		<!-- Success -->
-		<div ng-show="modal.success && !modal.error">
-			<h1>Gift card added!</h1>
-			<div class="success" ng-show="modal.restaurant">
-				You've got a <b>${{giftcard.value}}</b> gift card to <b class="pointer" ng-click="giftcard.openRestaurant();">{{modal.restaurant.name}}</b>
-			</div>
-			<div class="success" ng-show="!modal.restaurant">
-				You've got a <b>${{giftcard.value}}</b> gift card to Crunchbutton!
-			</div>
+		<div class="error" ng-show="modal.error == 'invalid'">
+			Sorry, this is an invalid gift card.
+		</div>
+		<div class="error" ng-show="modal.error != 'used' && modal.error != 'invalid'">
+			Please try it again.
 		</div>
 	</div>
 
-	<!-- User is not logged -->
-	<div ng-show="!user">
-		<!-- Error -->
-		<div ng-show="modal.error && !modal.success">
-			<h1>Oops, error!</h1>
-			<div class="error" ng-show="modal.error == 'used'">
-				Sorry, this gift card was already used.
-			</div>
-			<div class="error" ng-show="modal.error == 'invalid'">
-				Sorry, this is an invalid gift card.
-			</div>
-			<div class="error" ng-show="modal.error != 'used' && modal.error != 'invalid'">
-				Please try it again.
-			</div>
+	<!-- Success -->
+	<div ng-show="modal.success && !modal.error">
+		<h1 ng-show="!user">Welcome!</h1>
+		<h1 ng-show="user">Congrats!</h1>
+		<div class="success" ng-show="modal.restaurant">
+			Congrats, you just got a <b>${{giftcard.value}}</b> gift card to <b class="pointer" ng-click="giftcard.openRestaurant();">{{modal.restaurant.name}}</b>.
+			<br/>
+			Go ahead and order some food!
 		</div>
-		<!-- Success -->
-		<div ng-show="modal.success && !modal.error">
-			<h1>Welcome!</h1>
-			<div class="success" ng-show="modal.restaurant">
-				You have a <b>${{giftcard.value}}</b> gift card to <b class="pointer" ng-click="giftcard.openRestaurant();">{{modal.restaurant.name}}</b>
-			</div>
-			<div class="success" ng-show="!modal.restaurant">
-				You have a <b>${{giftcard.value}}</b> gift card!
-			</div>
-			<div class="bottom-links">
-				<span class="giftcard-later" ng-click="modal.close();">Later</span>
-				<span class="giftcard-signin" ng-click="modal.signIn();">Sign In</span>
-			</div>
-			<div class="divider"></div>
+		<div class="success" ng-show="!modal.restaurant">
+			Congrats, you just got a <b>${{giftcard.value}}</b> gift card.
+			<br/>
+			Go ahead and order some food!
 		</div>
+		<div class="bottom-links">
+			<span class="giftcard-later" ng-click="modal.close();">Great</span>
+		</div>
+		<div class="divider"></div>
 	</div>
 
 </div>
 
 </script><script type="text/ng-template" id="assets/view/help.html">
-	
+	<div class="main-content-readable"><h1 class="about-header">About</h1><p>Crunchbutton lets you order your favorite food with one click. We highlight the top food from the top restaurants in a community. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click/tap.</p><br /><br /><h1 class="about-header">Help</h1><p><b>Problem with your order?</b><br />Try contacting the restaurant you ordered from.<br /><br /><b>Need to contact Crunchbutton?</b><br />Call us at 646-783-1444 or email us at <a href="mailto:happycustomers@crunchbutton.com">happycustomers@crunchbutton.com</a>.<br /><br /></p><br /><br /><h1 class="about-header">FAQ</h1><p><b>How do I order food?</b><br />Easy! Just go to crunchbutton.com and click the restaurant you want to order from. Add whatever food you want, and enter your address, phone, and payment info. Click "Get Food" and try to stay hungry! The restaurant will call you when they're outside.<br /><br /><b>Is it cheaper for me to just call the restaurant?</b><br />No!! Crunchbutton is totally free to you. Prices are the same as calling the restaurant. Sometimes even cheaper!!<br /><br /><b>Is it faster for me to just call the restaurant?</b><br />No!! With Crunchbutton ordering is as fast as a single click!! And we make sure our restaurants receive orders promptlier and accuratelier than when you call.<br /><br /><b>How do you save my info?</b><br />We use a super secure system away from our web server to store and encrypt all your financial information.<br /><br /><b>How do I change my stored info?</b><br />Just click on the info you want to change, enter the changes, and, after you place your order, it’ll be saved for next time.<br /><br /><b>But I've never used Crunchbutton before...</b><br />Oh man, it's okay. I remember my first time, it didn't last more than 30 seconds. I went to Crunchbutton.com, found my favorite restaurant, hit "Get Food." Minutes later, my sandwich arrived. Post-coital bliss ensued, that sandwich sure knew how to crunch my buttons.<br /><br /><b>omg i am wayy too drunk to enter my information</b><br />We thought this might happen. Luckily, Crunchbutton saves your address, phone, and payment info, so all you have to do is click what you want and hit the big, red "Get Food" button. Try to be awake when the delivery guy calls.<br /><br /><b>I want to put a restaurant on Crunchbutton.</b><br />Good idea! Contact <a href="mailto:join@crunchbutton.com">join@crunchbutton.com</a>.<br /><br /><b>I know I can order food online, but can I order by US mail?</b><br />Why yes you can! Send a check or money order to 95 Chestnut Street, Providence, RI 02903, give us one week's notice, and we will get you your food!<br /><br /></p></div>
+<br /><br />
+Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page</a> for legal and privacy information.
 </script><script type="text/ng-template" id="assets/view/home.html">
- 
+<div class="main-content-readable home-greeting">
+	<div class="home-welcome">
+		<h1>Finding you the best food...</h1>
+	</div>
+</div>
 </script><script type="text/ng-template" id="assets/view/legal.html">
-	<div class="main-content-readable"><p><b>TERMS OF USE</b><br /><br />Youbeo Inc., d/b/a Crunchbutton  (“Crunchbutton”) through the http://crunchbutton.com website (the “Site”) provides a collection of online food ordering resources for restaurants, merchants and the public (referred to hereafter as the “Service”) subject to the following Terms of Use (the “Terms”). By using the Service in any way, you are agreeing to comply with the Terms set forth herein and amended from time to time, including the Privacy Policy. In addition, when using the Service, you agree to abide by any applicable posted guidelines for all of our Services, which may change from time to time. Should you object to the Terms or any subsequent modifications thereto or become dissatisfied with the Service in any way, your only recourse is to immediately discontinue use of our Service. <br /><br />All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Site. If you are a minor, you must have your parent or guardian read and agree to the Terms prior to using the Site. Persons under the age of 13 are not permitted to register for the Site or use the Services.<br /><br />1.  Acceptance of these Terms<br /><br />(a) By viewing, accessing, browsing, or using the Service, you agree to these Terms as a binding legal agreement between you and Crunchbutton, without limitation or qualification. The term “you” or “You” shall refer to any person or entity who views, accesses, browses or uses the Service.<br /><br />2.  Purpose<br /><br />We have created the Site to serve as a marketplace to facilitate the ordering and delivering of food. Crunchbutton does not sell or control the production of any food produced and simply provides buyers the ability to search for and find local restaurants that deliver or make food available for pick up.<br /><br />3.  Use of the Site<br /><br />(a) Use of the Service requires that you create an account (“Account”) or use the Site as a guest. To create an Account, you must select an account name and password and provide certain personal information. In consideration of the use of the Services, you agree to: (a) provide true, accurate, current and complete information about yourself as prompted by the registration form, and (b) maintain and promptly update the personal information you provide to keep it true, accurate, current and complete. If you provide any information that is untrue, inaccurate, not current or incomplete, or Crunchbutton has reasonable grounds to suspect that such information is untrue, inaccurate, not current or incomplete, Crunchbutton has the right to refuse any and all current or future use of the Site.<br /><br />(b) You are responsible for maintaining the confidentiality and security of your Account and password, and you are fully responsible for all activities that occur under your Account, and for any other actions taken in connection with the Account or password. You agree to (a) immediately notify Crunchbutton of any known or suspected unauthorized use(s) of your Account, or any known or suspected breach of security, including loss, theft, or unauthorized disclosure of your password or credit card information; and (b) ensure that you exit from your Account at the end of each session. Crunchbutton will not be liable for any injury, loss or damage of any kind arising from or relating to your failure to comply with (a) and (b) or for any acts or omissions by you or someone else using your Account and/or password.<br /><br />4.  Payment and Refunds<br /><br />(a) All ordering is performed online and may be paid for with cash upon delivery or by credit card.  If you decide to use a credit card, your payment will be processed by Balancedpayments.com and not by Crunchbutton. By submitting a payment by credit card you hereby authorize Crunchbutton to transfer your credit card information to Balancedpayments.com for processing.<br /><br />(b) Crunchbutton is dedicated to customer satisfaction. If you encounter problems with your food order, please contact the restaurant directly. If you are unable to resolve an issue with a restaurant, please contact Crunchbutton and we will try to assist you. In appropriate cases, we may be able to provide a partial or full refund and/or a credit towards a future purchase.<br /><br />5.  Restaurant Reviews<br /><br />(a) If at any time, Crunchbutton enables site visitors to post reviews of and comments on foods featured on the Site, the party posting that comment or review grants Crunchbutton and its affiliates a non-exclusive, royalty-free, perpetual, irrevocable, and fully sub-licensable right to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such reviews and comments throughout the world in any media. You also grant Crunchbutton and its affiliates the right to use the name that you submit with any review or comment, if any, in connection with such review or comment. Any content posted by you on the Site shall not contain viruses, worms, Trojan horses, malicious code or other harmful or destructive content. Additionally, any content posted to the site shall not be deemed, in Crunchbutton’s sole discretion, obscene, lewd, lascivious, filthy, violent, harassing or otherwise objectionable, libelous or slanderous.<br /><br />6.  Intellectual Property<br /><br />(a) The content on the Site (the “Crunchbutton Content”) and the trademarks, service marks and logos contained therein (the “Crunchbutton Marks”) are owned by or licensed to Crunchbutton, and are subject to copyright and other intellectual property rights under United States and foreign laws. Crunchbutton Content, includes, without limitation, all source code, databases, functionality, software, website designs, audio, video, text, photographs and graphics. Crunchbutton Content on the Site is provided to you “AS IS” for your information and personal use only and may not be used, copied, reproduced, distributed, transmitted, broadcast, displayed, sold, licensed, or otherwise exploited for any other purposes whatsoever without the prior written consent of the respective owners. Systematic retrieval of data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database or directory without written permission from Crunchbutton is prohibited. Crunchbutton reserves all rights not expressly granted to you in and to the Site and Crunchbutton Content and Crunchbutton Marks. If you download or print a copy of the Crunchbutton Content for personal use, you must retain all copyright and other proprietary notices contained therein. You agree not to circumvent, disable or otherwise interfere with security related features of the Site or features that prevent or restrict use or copying of any Crunchbutton Content or enforce limitations on use of the Site or the Crunchbutton Content therein.<br /><br />7.  Third Party Websites<br /><br />(a) The Site contains links to other websites (the “Third Party Websites”) as well as photographs, text, graphics, pictures, designs, music, sound, video, information, applications, software and other content or items belonging to or originating from third parties (the “Third Party Content”). Such Third Party Websites and Third Party Content are not investigated, monitored or checked for accuracy, appropriateness, or completeness by us, and we are not responsible for any Third Party Websites accessed through the Site or any Third Party Content posted on, available through or installed from the Site, including the content, accuracy, offensiveness, opinions, reliability, privacy practices or other policies of or contained in the Third Party Websites or the Third Party Content. Inclusion of, linking to or permitting the use or installation of any Third Party Website or any Third Party Content does not imply approval or endorsement thereof by us. If you decide to leave the Site and access the Third Party Websites or to use or install any Third Party Content, you do so at your own risk and you should be aware that our terms and policies no longer govern. You should review the applicable terms and policies, including privacy and data gathering practices, of any website to which you navigate from the Site or relating to any applications you use or install from the Site. Any purchases you make through Third Party Websites will be through other websites and from other companies and Crunchbutton takes no responsibility whatsoever in relation to such purchases which are exclusively between you and the applicable third party.<br /><br />8.  Term and Termination<br /><br />(a) This Agreement shall remain in full force and effect while you use the Site.  You may terminate your use or participation at any time, for any reason, by following the instructions for terminating user accounts on the Site.<br /><br />(b) WITHOUT LIMITING ANY OTHER PROVISION OF THIS AGREEMENT, CRUNCHBUTTON RESERVES THE RIGHT TO, IN CRUNCHBUTTON’S SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, BLOCK OR DENY ACCESS TO AND USE OF THE SITE AND THE SERVICES, TO ANY PERSON FOR ANY REASON OR FOR NO REASON AT ALL, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY OR COVENANT CONTAINED IN THIS AGREEMENT, OR OF ANY APPLICABLE LAW OR REGULATION, AND CRUNCHBUTTON MAY DELETE YOUR ACCOUNT AT ANY TIME, WITHOUT WARNING, IN CRUNCHBUTTON’S SOLE DISCRETION.<br /><br />(c) Any provisions of this Agreement that, in order to fulfill the purposes of such provisions, need to survive the termination or expiration of this Agreement, shall be deemed to survive for as long as necessary to fulfill such purposes.<br /><br />9.  Disputes<br /><br />(a) If there is a dispute between you and any third party, you understand and agree that Crunchbutton is under no obligation to become involved. You hereby agree to release Crunchbutton, its officers, employees, agents and successors in rights from claims, demands and damages (actual and consequential) of every kind or nature, known or unknown, suspected and unsuspected, disclosed and undisclosed, arising out of or in any way related to such disputes.<br /><br />10. Disclaimer<br /><br />(a) Generally speaking, restaurants are required to comply with federal, state and local laws, rules, regulations, and standards pertaining to food preparation, sale, marketing and safety; however, Crunchbutton does not in any way independently verify the credentials, representations, products or compliance of restaurants or the quality of any products, including the ingredients or specific food preparations such as “kosher,” “halal,” “organic,” “macrobiotic” or allergen-specific standards such as “nut-free,” “gluten-free,” or “lactose-free.” Crunchbutton shall not be liable or responsible for any food offered by restaurants that is unhealthy, is the cause of injury or sickness, that is otherwise unacceptable to you or that does not meet your expectations. Furthermore, Crunchbutton does not endorse any restaurant or food provided by any restaurants. <br /><br />(b) YOU AGREE THAT YOUR USE OF THE SITE AND SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW. CRUNCHBUTTON, ITS OFFICERS, DIRECTORS, MEMBERS, EMPLOYEES, AND AGENTS DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND SERVICES AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. CRUNCHBUTTON MAKES NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITE’S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THIS SITE AND ASSUMES NO LIABILITY OR RESPONSIBILITY FOR ANY (A) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (B) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE AND SERVICES, (C) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS, (D) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE, (E) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (F) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. CRUNCHBUTTON DOES NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED THROUGH THE SITE OR ANY HYPERLINKED WEBSITE OR FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND CRUNCHBUTTON WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.<br /><br />11. Limitation of Liability<br /><br />(a) IN NO EVENT SHALL CRUNCHBUTTON BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, SPECIAL, PUNITIVE, INCIDENTAL, EXEMPLARY OR CONSEQUENTIAL DAMAGES, OR ANY LOSS OR DAMAGES WHATSOEVER (EVEN IF CRUNCHBUTTON HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES), WHETHER IN AN ACTION UNDER CONTRACT, NEGLIGENCE, OR ANY OTHER THEORY, IN ANY MANNER ARISING OUT OF OR IN CONNECTION WITH THE USE, INABILITY TO USE, PERFORMANCE OF, OR SERVICES PROVIDED ON OR THROUGH THE SITE. CRUNCHBUTTON ASSUMES NO RESPONSIBILITY AND SHALL NOT BE LIABLE FOR ANY DAMAGES TO, OR VIRUSES THAT MAY INFECT, YOUR COMPUTER EQUIPMENT OR OTHER PROPERTY ON ACCOUNT OF YOUR ACCESS TO, USE OF, BROWSING OF, OR DOWNLOADING OF ANY MATERIAL FROM THE SITE. CRUNCHBUTTON ASSUMES NO RESPONSIBILITY OR LIABILITY IN ANY MANNER ARISING OUT OF OR IN CONNECTION WITH ANY INFORMATION, CONTENT, PRODUCTS, SERVICES, OR MATERIAL AVAILABLE ON OR THROUGH THE SITE, AS WELL AS ANY THIRD PARTY WEBSITE PAGES OR ADDITIONAL WEBSITES LINKED TO THIS SITE, FOR ANY ERROR, DEFAMATION, LIBEL, SLANDER, OMISSION, FALSEHOOD, OBSCENITY, PORNOGRAPHY, PROFANITY, DANGER, INACCURACY CONTAINED THEREIN OR HARM TO PERSON OR PROPERTY CAUSED THEREBY. THESE LIMITATIONS SHALL APPLY NOTWITHSTANDING ANY FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY. BECAUSE SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU. IN NO EVENT SHALL CRUNCHBUTTON’S TOTAL LIABILITY TO YOU FOR ALL DAMAGES, LOSSES AND CAUSES OF ACTION, WHETHER IN CONTRACT, TORT (INCLUDING BUT NOT LIMITED TO, NEGLIGENCE) OR OTHERWISE, EXCEED THE AMOUNT PAID BY YOU TO CRUNCHBUTTON OR A RESTAURANT FOR THE SERVICE.<br />YOU AND CRUNCHBUTTON AGREE THAT THE WARRANTY DISCLAIMERS AND LIMITATIONS OF LIABILITY IN THESE TERMS OF USE ARE MATERIAL, BARGAINED-FOR BASES OF THIS AGREEMENT, AND THAT THEY HAVE BEEN TAKEN INTO ACCOUNT IN DETERMINING THE CONSIDERATION TO BE GIVEN BY EACH PARTY UNDER THIS AGREEMENT AND IN THE DECISION BY EACH PARTY TO ENTER INTO THIS AGREEMENT. YOU AND CRUNCHBUTTON AGREE THAT THE WARRANTY DISCLAIMERS AND LIMITATIONS OF LIABILITY IN THESE TERMS OF USE ARE FAIR AND REASONABLE.<br /><br />12. Miscellaneous <br /><br />(a) This Agreement is governed by the internal substantive laws of the State of Rhode Island without respect to its conflicts of laws principles or provisions.  You expressly agree to submit to personal jurisdiction in the state and federal courts sitting in the City of Providence, Rhode Island.  If any provision of this Agreement is found to be invalid by any court having competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions of this Agreement, which shall remain in full force and effect.  Failure of a party to act on or enforce any provision of this Agreement shall not be construed as a waiver of that provision or of any other provision in this Agreement.  No waiver shall be effective against Crunchbutton unless made in writing and no waiver shall be construed as a waiver in any other or subsequent instance.  Except as expressly agreed by Crunchbutton and you, this Agreement constitutes the entire agreement between you and Crunchbutton with respect to the subject matter and supersedes all previous or contemporaneous agreements whether written or oral, between the parties with respect to the subject matter.  The section headings of this Agreement are provided merely for convenience and where contrary to the language of this Agreement, the language shall control.  This Agreement will inure to the benefit of our successors, assigns, licensees and sublicensees.<br /> <br />PRIVACY POLICY<br /><br />Youbeo, Inc., d/b/a Crunchbutton, including its affiliates (“Crunchbutton”), is committed to protecting the privacy of your information. Crunchbutton provides this Privacy Policy (the “Policy”) to help you understand how Crunchbutton collects, uses, maintains and discloses information collected from users (each, a “User”) of the http://crunchbutton.com website (the “Site”). This Policy applies to the Site and all products and services offered by Crunchbutton. Crunchbutton users must consent to the Crunchbutton Terms of Use (http://www.crunchbutton.com/legal).<br /><br />1.  Personally Identifiable Information<br /><br />1.1 Users may be asked for, as appropriate, their name, email address, mailing address, phone number, and credit card information (collectively, the “Personally Identifiable Information”). The Site is not intended for use by children under the age of 13 and Crunchbutton does not knowingly collect Personally Identifiable Information from children under the age of 13. We may collect Personally Identifiable Information from Users in a variety of ways, including, but not limited to, when Users visit our site, create an account, place an order, and in connection with other activities, services, features, promotions or resources we make available on our Site. We will collect Personally Identifiable Information from Users only if they voluntarily submit such information to us. Users can always refuse to supply Personally Identifiable Information, except that it may prevent them from engaging in certain Site related activities. The Personally Identifiable Information we collect through registration and order placement is strictly used to provide the services specified on our Site.<br /><br />2.  Non-Personally Identifiable Information<br /><br />2.1 We may collect non-Personally Identifiable Information about Users whenever they interact with our Site. Non-Personally Identifiable Information may include the browser name, the type of computer and technical information about Users means of connection to our Site, such as the operating system and the Internet service providers utilized and other similar information.<br /><br />3.  Web browser cookies<br /><br />3.1 Our Site may use “cookies” to enhance User experience. User’s web browser places cookies on their hard drive for record-keeping purposes and sometimes to track information about them. User may choose to set their web browser to refuse cookies, or to alert you when cookies are being sent. If they do so, note that some parts of the Site may not function properly.<br /><br />4. How we use collected information<br /><br />4.1 Crunchbutton may collect and use Users Personally Identifiable Information for the following purposes:<br /><br />4.1.1 To personalize user experience<br /><br />4.1.2 We may use Personally Identifiable Information in the aggregate to understand how our Users as a group use the services and resources provided on our Site.<br /><br />4.1.3  To process payments<br /><br />4.1.4 We may use the Personally Identifiable Information Users provide about themselves when placing an order only to provide service to that order. We do not share this Personally Identifiable Information with outside parties except to the extent necessary to provide the service.<br /><br />4.1.5 To send periodic emails<br /><br />4.1.6 We may use the email address to send User information and updates pertaining to their order. It may also be used to respond to their inquiries, questions, and/or other requests. <br /><br />5.  How we protect your Personally Identifiable Information<br /><br />5.1 Crunchbutton places a great importance on the security of all information associated with our customers. We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorized access, alteration, disclosure or destruction of your Personally Identifiable Information, username, password, transaction information and data stored on our Site.<br /><br />5.2 Sensitive and private data exchange between the Site and its Users happens over a SSL secured communication channel and is encrypted and protected with digital signatures. Our Site is also in compliance with PCI vulnerability standards in order to create as secure of an environment as possible for Users. <br /><br />5.3 Crunchbutton cannot guarantee the security of Personally Identifiable Information. By using the Services, you acknowledge and agree that Crunchbutton makes no such guarantee, and that you use the services at your own risk.<br /><br />6.  Sharing your Personally Identifiable Information<br /><br />6.1 We do not sell, trade, or rent Users Personally Identifiable Information to others. Crunchbutton shares collected Personally Identifiable Information to third-party vendors and service providers with whom Crunchbutton works to process credit card payments and to provide other functions in connection with the delivery of Crunchbutton services. In addition, Crunchbutton shares users’ Crunchbutton order content, special order instructions, first and last name, street address, e-mail address, telephone number and gratuity amounts with restaurants where users’ orders are placed and delivery drivers, to the extent necessary to process and deliver those orders. Crunchbutton may also disclose Personally Identifiable Information to third parties such as attorneys, collection agencies, tribunals or law enforcement authorities as required by law or pursuant to valid requests in connection with alleged violations of Crunchbutton terms of use and service or other alleged contract violations, infringement or similar harm to persons or property. <br /><br />6.2 We may share generic aggregated demographic information not linked to any Personally Identifiable Information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above.<br /><br />7.  Changes to this privacy policy<br /><br />7.1 Crunchbutton has the discretion to update this Policy at any time. When we do, we will revise the effective date at the bottom of this page and the new version will become effective on the effective date. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the Personally Identifiable Information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications.<br /><br />8.  Your acceptance of these terms<br /><br />8.1 By using this Site, you signify your acceptance of this Policy. If you do not agree to this Policy, please do not use the Site. Your continued use of the Site following the posting of changes to this Policy will be deemed your acceptance of those changes.<br /><br />9.  Contacting us<br /><br />9.1 If you have any questions about this Policy, the practices of this site, or your dealings with this site, please contact us at <span class="crunchbutton-join-mail"></span><br /><br />This document was last updated on May 15, 2013.<br /><br /></p></div>
+	<div class="main-content-readable"><p><b>TERMS OF USE</b><br /><br />Youbeo Inc., d/b/a Crunchbutton  (“Crunchbutton”) through the http://crunchbutton.com website (the “Site”) provides a collection of online food ordering resources for restaurants, merchants and the public (referred to hereafter as the “Service”) subject to the following Terms of Use (the “Terms”). By using the Service in any way, you are agreeing to comply with the Terms set forth herein and amended from time to time, including the Privacy Policy. In addition, when using the Service, you agree to abide by any applicable posted guidelines for all of our Services, which may change from time to time. Should you object to the Terms or any subsequent modifications thereto or become dissatisfied with the Service in any way, your only recourse is to immediately discontinue use of our Service. <br /><br />All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Site. If you are a minor, you must have your parent or guardian read and agree to the Terms prior to using the Site. Persons under the age of 13 are not permitted to register for the Site or use the Services.<br /><br />1.  Acceptance of these Terms<br /><br />(a) By viewing, accessing, browsing, or using the Service, you agree to these Terms as a binding legal agreement between you and Crunchbutton, without limitation or qualification. The term “you” or “You” shall refer to any person or entity who views, accesses, browses or uses the Service.<br /><br />2.  Purpose<br /><br />We have created the Site to serve as a marketplace to facilitate the ordering and delivering of food. Crunchbutton does not sell or control the production of any food produced and simply provides buyers the ability to search for and find local restaurants that deliver or make food available for pick up.<br /><br />3.  Use of the Site<br /><br />(a) Use of the Service requires that you create an account (“Account”) or use the Site as a guest. To create an Account, you must select an account name and password and provide certain personal information. In consideration of the use of the Services, you agree to: (a) provide true, accurate, current and complete information about yourself as prompted by the registration form, and (b) maintain and promptly update the personal information you provide to keep it true, accurate, current and complete. If you provide any information that is untrue, inaccurate, not current or incomplete, or Crunchbutton has reasonable grounds to suspect that such information is untrue, inaccurate, not current or incomplete, Crunchbutton has the right to refuse any and all current or future use of the Site.<br /><br />(b) You are responsible for maintaining the confidentiality and security of your Account and password, and you are fully responsible for all activities that occur under your Account, and for any other actions taken in connection with the Account or password. You agree to (a) immediately notify Crunchbutton of any known or suspected unauthorized use(s) of your Account, or any known or suspected breach of security, including loss, theft, or unauthorized disclosure of your password or credit card information; and (b) ensure that you exit from your Account at the end of each session. Crunchbutton will not be liable for any injury, loss or damage of any kind arising from or relating to your failure to comply with (a) and (b) or for any acts or omissions by you or someone else using your Account and/or password.<br /><br />(c) To delete your account, and all data associated with it, email us at [email].<br /><br />4.  Payment and Refunds<br /><br />(a) All ordering is performed online and may be paid for with cash upon delivery or by credit card.  If you decide to use a credit card, your payment will be processed by Balancedpayments.com and not by Crunchbutton. By submitting a payment by credit card you hereby authorize Crunchbutton to transfer your credit card information to Balancedpayments.com for processing.<br /><br />(b) Crunchbutton is dedicated to customer satisfaction. If you encounter problems with your food order, please contact the restaurant directly. If you are unable to resolve an issue with a restaurant, please contact Crunchbutton and we will try to assist you. In appropriate cases, we may be able to provide a partial or full refund and/or a credit towards a future purchase.<br /><br />5.  Restaurant Reviews<br /><br />(a) If at any time, Crunchbutton enables site visitors to post reviews of and comments on foods featured on the Site, the party posting that comment or review grants Crunchbutton and its affiliates a non-exclusive, royalty-free, perpetual, irrevocable, and fully sub-licensable right to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such reviews and comments throughout the world in any media. You also grant Crunchbutton and its affiliates the right to use the name that you submit with any review or comment, if any, in connection with such review or comment. Any content posted by you on the Site shall not contain viruses, worms, Trojan horses, malicious code or other harmful or destructive content. Additionally, any content posted to the site shall not be deemed, in Crunchbutton’s sole discretion, obscene, lewd, lascivious, filthy, violent, harassing or otherwise objectionable, libelous or slanderous.<br /><br />6.  Intellectual Property<br /><br />(a) The content on the Site (the “Crunchbutton Content”) and the trademarks, service marks and logos contained therein (the “Crunchbutton Marks”) are owned by or licensed to Crunchbutton, and are subject to copyright and other intellectual property rights under United States and foreign laws. Crunchbutton Content, includes, without limitation, all source code, databases, functionality, software, website designs, audio, video, text, photographs and graphics. Crunchbutton Content on the Site is provided to you “AS IS” for your information and personal use only and may not be used, copied, reproduced, distributed, transmitted, broadcast, displayed, sold, licensed, or otherwise exploited for any other purposes whatsoever without the prior written consent of the respective owners. Systematic retrieval of data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database or directory without written permission from Crunchbutton is prohibited. Crunchbutton reserves all rights not expressly granted to you in and to the Site and Crunchbutton Content and Crunchbutton Marks. If you download or print a copy of the Crunchbutton Content for personal use, you must retain all copyright and other proprietary notices contained therein. You agree not to circumvent, disable or otherwise interfere with security related features of the Site or features that prevent or restrict use or copying of any Crunchbutton Content or enforce limitations on use of the Site or the Crunchbutton Content therein.<br /><br />7.  Third Party Websites<br /><br />(a) The Site contains links to other websites (the “Third Party Websites”) as well as photographs, text, graphics, pictures, designs, music, sound, video, information, applications, software and other content or items belonging to or originating from third parties (the “Third Party Content”). Such Third Party Websites and Third Party Content are not investigated, monitored or checked for accuracy, appropriateness, or completeness by us, and we are not responsible for any Third Party Websites accessed through the Site or any Third Party Content posted on, available through or installed from the Site, including the content, accuracy, offensiveness, opinions, reliability, privacy practices or other policies of or contained in the Third Party Websites or the Third Party Content. Inclusion of, linking to or permitting the use or installation of any Third Party Website or any Third Party Content does not imply approval or endorsement thereof by us. If you decide to leave the Site and access the Third Party Websites or to use or install any Third Party Content, you do so at your own risk and you should be aware that our terms and policies no longer govern. You should review the applicable terms and policies, including privacy and data gathering practices, of any website to which you navigate from the Site or relating to any applications you use or install from the Site. Any purchases you make through Third Party Websites will be through other websites and from other companies and Crunchbutton takes no responsibility whatsoever in relation to such purchases which are exclusively between you and the applicable third party.<br /><br />8.  Term and Termination<br /><br />(a) This Agreement shall remain in full force and effect while you use the Site.  You may terminate your use or participation at any time, for any reason, by following the instructions for terminating user accounts on the Site.<br /><br />(b) WITHOUT LIMITING ANY OTHER PROVISION OF THIS AGREEMENT, CRUNCHBUTTON RESERVES THE RIGHT TO, IN CRUNCHBUTTON’S SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, BLOCK OR DENY ACCESS TO AND USE OF THE SITE AND THE SERVICES, TO ANY PERSON FOR ANY REASON OR FOR NO REASON AT ALL, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY OR COVENANT CONTAINED IN THIS AGREEMENT, OR OF ANY APPLICABLE LAW OR REGULATION, AND CRUNCHBUTTON MAY DELETE YOUR ACCOUNT AT ANY TIME, WITHOUT WARNING, IN CRUNCHBUTTON’S SOLE DISCRETION.<br /><br />(c) Any provisions of this Agreement that, in order to fulfill the purposes of such provisions, need to survive the termination or expiration of this Agreement, shall be deemed to survive for as long as necessary to fulfill such purposes.<br /><br />9.  Disputes<br /><br />(a) If there is a dispute between you and any third party, you understand and agree that Crunchbutton is under no obligation to become involved. You hereby agree to release Crunchbutton, its officers, employees, agents and successors in rights from claims, demands and damages (actual and consequential) of every kind or nature, known or unknown, suspected and unsuspected, disclosed and undisclosed, arising out of or in any way related to such disputes.<br /><br />10. Disclaimer<br /><br />(a) Generally speaking, restaurants are required to comply with federal, state and local laws, rules, regulations, and standards pertaining to food preparation, sale, marketing and safety; however, Crunchbutton does not in any way independently verify the credentials, representations, products or compliance of restaurants or the quality of any products, including the ingredients or specific food preparations such as “kosher,” “halal,” “organic,” “macrobiotic” or allergen-specific standards such as “nut-free,” “gluten-free,” or “lactose-free.” Crunchbutton shall not be liable or responsible for any food offered by restaurants that is unhealthy, is the cause of injury or sickness, that is otherwise unacceptable to you or that does not meet your expectations. Furthermore, Crunchbutton does not endorse any restaurant or food provided by any restaurants. <br /><br />(b) YOU AGREE THAT YOUR USE OF THE SITE AND SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW. CRUNCHBUTTON, ITS OFFICERS, DIRECTORS, MEMBERS, EMPLOYEES, AND AGENTS DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND SERVICES AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. CRUNCHBUTTON MAKES NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITE’S CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THIS SITE AND ASSUMES NO LIABILITY OR RESPONSIBILITY FOR ANY (A) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (B) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE AND SERVICES, (C) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS, (D) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE, (E) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR (F) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. CRUNCHBUTTON DOES NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED THROUGH THE SITE OR ANY HYPERLINKED WEBSITE OR FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND CRUNCHBUTTON WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.<br /><br />11. Limitation of Liability<br /><br />(a) IN NO EVENT SHALL CRUNCHBUTTON BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, SPECIAL, PUNITIVE, INCIDENTAL, EXEMPLARY OR CONSEQUENTIAL DAMAGES, OR ANY LOSS OR DAMAGES WHATSOEVER (EVEN IF CRUNCHBUTTON HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES), WHETHER IN AN ACTION UNDER CONTRACT, NEGLIGENCE, OR ANY OTHER THEORY, IN ANY MANNER ARISING OUT OF OR IN CONNECTION WITH THE USE, INABILITY TO USE, PERFORMANCE OF, OR SERVICES PROVIDED ON OR THROUGH THE SITE. CRUNCHBUTTON ASSUMES NO RESPONSIBILITY AND SHALL NOT BE LIABLE FOR ANY DAMAGES TO, OR VIRUSES THAT MAY INFECT, YOUR COMPUTER EQUIPMENT OR OTHER PROPERTY ON ACCOUNT OF YOUR ACCESS TO, USE OF, BROWSING OF, OR DOWNLOADING OF ANY MATERIAL FROM THE SITE. CRUNCHBUTTON ASSUMES NO RESPONSIBILITY OR LIABILITY IN ANY MANNER ARISING OUT OF OR IN CONNECTION WITH ANY INFORMATION, CONTENT, PRODUCTS, SERVICES, OR MATERIAL AVAILABLE ON OR THROUGH THE SITE, AS WELL AS ANY THIRD PARTY WEBSITE PAGES OR ADDITIONAL WEBSITES LINKED TO THIS SITE, FOR ANY ERROR, DEFAMATION, LIBEL, SLANDER, OMISSION, FALSEHOOD, OBSCENITY, PORNOGRAPHY, PROFANITY, DANGER, INACCURACY CONTAINED THEREIN OR HARM TO PERSON OR PROPERTY CAUSED THEREBY. THESE LIMITATIONS SHALL APPLY NOTWITHSTANDING ANY FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY. BECAUSE SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU. IN NO EVENT SHALL CRUNCHBUTTON’S TOTAL LIABILITY TO YOU FOR ALL DAMAGES, LOSSES AND CAUSES OF ACTION, WHETHER IN CONTRACT, TORT (INCLUDING BUT NOT LIMITED TO, NEGLIGENCE) OR OTHERWISE, EXCEED THE AMOUNT PAID BY YOU TO CRUNCHBUTTON OR A RESTAURANT FOR THE SERVICE.<br />YOU AND CRUNCHBUTTON AGREE THAT THE WARRANTY DISCLAIMERS AND LIMITATIONS OF LIABILITY IN THESE TERMS OF USE ARE MATERIAL, BARGAINED-FOR BASES OF THIS AGREEMENT, AND THAT THEY HAVE BEEN TAKEN INTO ACCOUNT IN DETERMINING THE CONSIDERATION TO BE GIVEN BY EACH PARTY UNDER THIS AGREEMENT AND IN THE DECISION BY EACH PARTY TO ENTER INTO THIS AGREEMENT. YOU AND CRUNCHBUTTON AGREE THAT THE WARRANTY DISCLAIMERS AND LIMITATIONS OF LIABILITY IN THESE TERMS OF USE ARE FAIR AND REASONABLE.<br /><br />12. Miscellaneous <br /><br />(a) This Agreement is governed by the internal substantive laws of the State of Rhode Island without respect to its conflicts of laws principles or provisions.  You expressly agree to submit to personal jurisdiction in the state and federal courts sitting in the City of Providence, Rhode Island.  If any provision of this Agreement is found to be invalid by any court having competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions of this Agreement, which shall remain in full force and effect.  Failure of a party to act on or enforce any provision of this Agreement shall not be construed as a waiver of that provision or of any other provision in this Agreement.  No waiver shall be effective against Crunchbutton unless made in writing and no waiver shall be construed as a waiver in any other or subsequent instance.  Except as expressly agreed by Crunchbutton and you, this Agreement constitutes the entire agreement between you and Crunchbutton with respect to the subject matter and supersedes all previous or contemporaneous agreements whether written or oral, between the parties with respect to the subject matter.  The section headings of this Agreement are provided merely for convenience and where contrary to the language of this Agreement, the language shall control.  This Agreement will inure to the benefit of our successors, assigns, licensees and sublicensees.<br /> <br />PRIVACY POLICY<br /><br />Youbeo, Inc., d/b/a Crunchbutton, including its affiliates (“Crunchbutton”), is committed to protecting the privacy of your information. Crunchbutton provides this Privacy Policy (the “Policy”) to help you understand how Crunchbutton collects, uses, maintains and discloses information collected from users (each, a “User”) of the http://crunchbutton.com website (the “Site”). This Policy applies to the Site and all products and services offered by Crunchbutton. Crunchbutton users must consent to the Crunchbutton Terms of Use (http://www.crunchbutton.com/legal).<br /><br />1.  Personally Identifiable Information<br /><br />1.1 Users may be asked for, as appropriate, their name, email address, mailing address, phone number, and credit card information (collectively, the “Personally Identifiable Information”). The Site is not intended for use by children under the age of 13 and Crunchbutton does not knowingly collect Personally Identifiable Information from children under the age of 13. We may collect Personally Identifiable Information from Users in a variety of ways, including, but not limited to, when Users visit our site, create an account, place an order, and in connection with other activities, services, features, promotions or resources we make available on our Site. We will collect Personally Identifiable Information from Users only if they voluntarily submit such information to us. Users can always refuse to supply Personally Identifiable Information, except that it may prevent them from engaging in certain Site related activities. The Personally Identifiable Information we collect through registration and order placement is strictly used to provide the services specified on our Site.<br /><br />2.  Non-Personally Identifiable Information<br /><br />2.1 We may collect non-Personally Identifiable Information about Users whenever they interact with our Site. Non-Personally Identifiable Information may include the browser name, the type of computer and technical information about Users means of connection to our Site, such as the operating system and the Internet service providers utilized and other similar information.<br /><br />3.  Web browser cookies<br /><br />3.1 Our Site may use “cookies” to enhance User experience. User’s web browser places cookies on their hard drive for record-keeping purposes and sometimes to track information about them. User may choose to set their web browser to refuse cookies, or to alert you when cookies are being sent. If they do so, note that some parts of the Site may not function properly.<br /><br />4. How we use collected information<br /><br />4.1 Crunchbutton may collect and use Users Personally Identifiable Information for the following purposes:<br /><br />4.1.1 To personalize user experience<br /><br />4.1.2 We may use Personally Identifiable Information in the aggregate to understand how our Users as a group use the services and resources provided on our Site.<br /><br />4.1.3  To process payments<br /><br />4.1.4 We may use the Personally Identifiable Information Users provide about themselves when placing an order only to provide service to that order. We do not share this Personally Identifiable Information with outside parties except to the extent necessary to provide the service.<br /><br />4.1.5 To send periodic emails<br /><br />4.1.6 We may use the email address to send User information and updates pertaining to their order. It may also be used to respond to their inquiries, questions, and/or other requests. <br /><br />5.  How we protect your Personally Identifiable Information<br /><br />5.1 Crunchbutton places a great importance on the security of all information associated with our customers. We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorized access, alteration, disclosure or destruction of your Personally Identifiable Information, username, password, transaction information and data stored on our Site.<br /><br />5.2 Sensitive and private data exchange between the Site and its Users happens over a SSL secured communication channel and is encrypted and protected with digital signatures. Our Site is also in compliance with PCI vulnerability standards in order to create as secure of an environment as possible for Users. <br /><br />5.3 Crunchbutton cannot guarantee the security of Personally Identifiable Information. By using the Services, you acknowledge and agree that Crunchbutton makes no such guarantee, and that you use the services at your own risk.<br /><br />6.  Sharing your Personally Identifiable Information<br /><br />6.1 We do not sell, trade, or rent Users Personally Identifiable Information to others. Crunchbutton shares collected Personally Identifiable Information to third-party vendors and service providers with whom Crunchbutton works to process credit card payments and to provide other functions in connection with the delivery of Crunchbutton services. In addition, Crunchbutton shares users’ Crunchbutton order content, special order instructions, first and last name, street address, e-mail address, telephone number and gratuity amounts with restaurants where users’ orders are placed and delivery drivers, to the extent necessary to process and deliver those orders. Crunchbutton may also disclose Personally Identifiable Information to third parties such as attorneys, collection agencies, tribunals or law enforcement authorities as required by law or pursuant to valid requests in connection with alleged violations of Crunchbutton terms of use and service or other alleged contract violations, infringement or similar harm to persons or property. <br /><br />6.2 We may share generic aggregated demographic information not linked to any Personally Identifiable Information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above.<br /><br />7.  Changes to this privacy policy<br /><br />7.1 Crunchbutton has the discretion to update this Policy at any time. When we do, we will revise the effective date at the bottom of this page and the new version will become effective on the effective date. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the Personally Identifiable Information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications.<br /><br />8.  Your acceptance of these terms<br /><br />8.1 By using this Site, you signify your acceptance of this Policy. If you do not agree to this Policy, please do not use the Site. Your continued use of the Site following the posting of changes to this Policy will be deemed your acceptance of those changes.<br /><br />9.  Contacting us<br /><br />9.1 If you have any questions about this Policy, the practices of this site, or your dealings with this site, please contact us at <span class="crunchbutton-join-mail"></span><br /><br />This document was last updated on May 15, 2013.<br /><br /></p></div>
 </script><script type="text/ng-template" id="assets/view/location.html">
 <div class="main-content-readable home-greeting" ng-show="!locationError">
 	<div class="home-welcome">
@@ -269,7 +250,7 @@
 		<table class="button-letseat-table" cellpadding="0" cellspacing="0">
 			<tr>
 				<td style="width: 100%;">
-					<input type="text" class="location-address" ng-enter="letsEat()" ng-model="location.form.address" placeholder="Enter your zip code or full address">
+					<input type="text" class="location-address" ng-class="{ 'location-warning' : warningPlaceholder }" ng-enter="letsEat()" ng-model="location.form.address" placeholder="Enter zip code or address">
 				</td>
 				<td>
 					<div class="location-detect">
@@ -282,52 +263,57 @@
 	</form>
 </div>
 <div class="divider"></div>
-<button ng-show="!locationError" class="button-letseat-form button-bottom" ng-click="letsEat()"><div>Let's Eat!</div></button>
+<button ng-show="!locationError" class="button-letseat-form button-bottom" ng-click="letsEat()"><div>Find Restaurants!</div></button>
+
 <div class="error-location" ng-show="locationError">
-	<div class="content-item-locations">
-		<h1>Crunchbutton by city:</h1> 
-		<div class="content-item-locations-cities">
-			<span ng-repeat="alias in topCommunities">
-				<span class="content-item-locations-city" ng-click="openCity(alias.alias)" permalink="{{alias.alias}}">{{alias.name}}</span>
-			</span>
-		</div>
-	</div>
-	<div class="main-content-readable">
-		<div class="home-welcome home-welcom-error">
-			<h1>Sorry!</h1>
+
+	<div class="main-content-readable" ng-controller="RecommendRestaurantCtrl">
+		<div class="home-welcome">
+			<h1>&#9785; Sorry!</h1>
 			<h2>
-				We don't serve <span ng-click="resetFormLocation()" class="loc-your-area change-location-inline">{{yourArea}}</span> yet. Please click <span ng-click="resetFormLocation()" class="change-location-inline">here</span> to enter a different address.
+				We detected your address as <span ng-click="resetFormLocation()" class="loc-your-area change-location-inline">{{yourArea}}</span>, which we don't serve. <br/>
+				Please {{isMobile | iif : 'tap' : 'click'}} <span ng-click="resetFormLocation()" class="change-location-inline">here</span> here to enter a different address.
+				<div ng-hide="recommend.greetings">
+					<div class="home-reccomend-spacer"></div>
+					Have something specific in mind? Tell us your favorite restaurant in your area! After we add it, we will let you know.
+				</div>
 			</h2>
 		</div>
-		<div class="divider"></div>
-		<div class="home-recommend" ng-controller="RecommendRestaurantCtrl">
-		
-			<div class="home-recommend-form" ng-show="!formSent">
-				<div class="home-recommend-title">
-					<h1><strong>Recommend a restaurant:</strong></h1>
-				</div>
 
-				<input type="text" ng-enter="recommend.send()" ng-model="recommend.form.restaurant" class="home-recommend-text">
-				<button ng-click="recommend.send()" class="home-recommend-button"><div>Recommend!</div></button>
+		<div class="home-recommend">
+			<div class="home-recommend-form" ng-hide="recommend.greetings">
+				<input type="text" ng-enter="recommend.send()" ng-model="recommend.form.restaurant" class="home-recommend-text" placeholder="ex: Your favorite restaurant">
+				<button ng-click="recommend.send()" class="home-recommend-button"><div>Recommend it!</div></button>
 				<div class="divider"></div>
-				<div class="home-recommend-message">
-					What's your absolute favorite? What should be on Crunchbutton? Tell us, and we'll actually add it and get back to you.
-				</div>
 				<div class="divider"></div>
 			</div>
+
 			<div class="home-recommend-thank-you" ng-show="recommend.greetings">
-				<div class="home-recommend-title">
-					<h1>Awesome, thanks!</h1>
-				</div>
 				<div class="divider"></div>
 				<div class="home-recommend-message-thank-you">
 					<div ng-show="account.user">
-						We'll let you know if they make it to Crunchbutton.
+						<span class="home-reccomend-message-content">We'll let you know if they make it to Crunchbutton.</span>
 					</div>
 					<div ng-show="!account.user">
-						<a href="#" ng-click="modal.signupOpen()" class="home-recommend-message-create-account"><span>Create an account</span></a> and when we'll let you know when we launch in your area!
+						<button ng-click="modal.signupOpen()" class="home-recommend-button"><div>Create an account</div></button>
+						<span class="home-reccomend-message-content">and we'll let you know when we launch in your area!</span>
 					</div>
 				</div>
+			</div>
+			<div class="divider"></div>
+		</div>
+	</div>
+	
+	<div class="divider dots"></div>
+	
+	<div class="main-content-readable content-item-locations">
+		<div class="home-welcome">
+			<h1>Our most popular cities</h1> 
+			<h2>Take a look at some of the best delivery food in these cities.</h2>
+			<div class="content-item-locations-cities">
+				<span ng-repeat="alias in topCommunities">
+					<span class="content-item-locations-city" ng-click="openCity(alias.alias)" permalink="{{alias.alias}}">{{alias.name}}</span>
+				</span>
 			</div>
 		</div>
 	</div>
@@ -343,7 +329,7 @@
 </div>
 </script><script type="text/ng-template" id="assets/view/order.html">
 <div ng-show="!order.id">
-	Orders loader
+	<!-- Orders loader -->
 </div>
 
 <div ng-show="order.id">
@@ -353,21 +339,24 @@
 	<div class="order-info content-padder main-content-readable">
 	
 		<span class="order-thanks-message" ng-show="order.new">
-			Crunched!
-			<span class="order-thanks-message-block">Your order is placed</span>
+			Crunched!&nbsp;
+			<span class="order-thanks-message-block"> Your order is placed</span>
 			<span class="order-thanks-message-small">(and saved for easy 1 click ordering next time)</span>
-			<br><br>
 		</span>
+
+		
+		<div ng-show="!account.user.has_auth">
+			Create an account to reorder your favorite food anywhere, including <a data-ng-href="http://crunchbutton.com">crunchbutton.com</a> on your phone.
+			<a href="javascript:;" ng-click="modal.signupOpen();" class="add-password-button">Create an account</a>
+		</div>
 	
-		<div ng-show="account.user">
-			You can one click order anywhere, including <a data-ng-href="http://crunchbutton.com">crunchbutton.com</a> on your phone.
+		<div class="order-invite-code field-container" ng-show="order.new && referral.invite_url && referral.enabled">
+			<h4>Invite Code</h4>
+			Earn Crunch Credit for every new friend who orders with this link!
+			<br/>
+			<input type="text" style="margin:10px;" ng-click-select-all value="{{referral.invite_url.replace('http://','')}}" readonly="readonly" />
 		</div>
 
-		<div ng-show="!account.user.has_auth">
-				Add a password to reorder your favorite food anywhere, including <a data-ng-href="http://crunchbutton.com">crunchbutton.com</a> on your phone.
-				<a href="javascript:;" ng-click="modal.signupOpen();" class="add-password-button">Add a password now</a>
-		</div>
-	
 		<div class="order-details">
 
 			<div ng-show="(order.delivery_type == 'delivery')">
@@ -397,13 +386,8 @@
 			<div>
 				{{order._restaurant_name}}: 
 				<b>
-					<span ng-show="restaurant.phone">
-						<span ng-show="isMobile"><a href="tel:{{restaurant.phone}}">{{ restaurant.phone }}</a></span>
-						<span ng-show="!isMobile">{{ restaurant.phone }}</span>
-					</span>
-					<span ng-show="!restaurant.phone">
-						<i class="icon-spinner icon-spin"></i>
-					</span>
+					<span ng-show="isMobile"><a href="tel:{{order._restaurant_phone}}">{{ order._restaurant_phone | formatPhone }}</a></span>
+					<span ng-show="!isMobile">{{ order._restaurant_phone | formatPhone }}</span>
 				</b>
 			</div>
 
@@ -433,11 +417,11 @@
 </div>
 </script><script type="text/ng-template" id="assets/view/orders.html">
 <div ng-show="!orders.list">
-	Orders loader
+	<!-- Orders loader -->
 </div>
 <div ng-show="orders.list" class="main-content-readable">
 
-	<div class="restaurant-item-title">order history</div>
+	<div class="restaurant-item-title">PAST ORDERS</div>
 
 	<ul class="resturant-dishes resturant-dish-container your-orders">
 		<li ng-repeat="order in orders.list">
@@ -452,17 +436,54 @@
 		</li>
 	</ul>
 
+	<div>
+		<div class="invite-code-container field-container" ng-show="referral.enabled">
+			<div class="restaurant-item-title">Invite code</div>
+			<p>
+				For every NEW friend who orders food, we'll give you ${{referral.value}} credit.
+				<br/>
+				You have {{referral.limit - referral.invites }} invite(s) remaining.
+			</p>
+
+			<input type="text" style="margin:10px;" ng-click-select-all value="{{referral.invite_url.replace('http://','')}}" readonly="readonly" />
+
+			<p>
+				<a target="blank"class="twitter-invite-button" href="https://twitter.com/intent/tweet?url={{referral.invite_url}}&text=#nom"><i class="icon-twitter"></i> Tweet on Twitter</a>
+				<a href="#" class="facebook-invite-button" ng-click="referral.facebook()"><i class="icon-facebook" style=""></i> Share on Facebook</a>
+			</p>
+			
+			<div class="divider"></div>
+		</div>
+	</div>
+
 	<div class="order-options">
 		<a ng-show="!account.hasFacebook" href="javascript:;" ng-click="facebook()" class="signup-add-facebook-button" >Connect with Facebook</a>
 		<a href="javascript:;" ng-click="signout()" class="signout-button">Sign out</a>
 		<div class="divider"></div>
 	</div>
 </div>
+</script><script type="text/ng-template" id="assets/view/restaurant.closed.inline.html">
+<div class="restaurant-closed" ng-show="!open && order.loaded">
+	<div class="restaurant-closed-icon">
+		<i class="icon-time"></i>
+	</div>
+	<div class="restaurant-closed-content">
+		<span class="restaurant-closed-title">
+			<span class="restaurant-closed-name">{{restaurant.name}} is currently closed!</span>
+			<span class="restaurant-closed-generic">Currently closed!</span>
+		</span>
+		<span class="restaurant-closed-content">
+			It will be open during the following hours (<span ng-bind="restaurant._tzabbr"></span>):<br> 
+			<span ng-bind-html-unsafe="restaurant.closedMessage() | nl2br"></span>
+		</span>
+	</div>
+	<div class="divider"></div>
+</div>
 </script><script type="text/ng-template" id="assets/view/restaurant.closed.html">
 <div class="restaurant-closed-container zoom-anim-dialog small-container mfp-hide" ng-controller="RestaurantClosedCtrl">
 	<div class="signin-form-container">
 		<h1 ng-bind="restaurant.name"></h1>
-		<p>Is currently closed. It will be open during the following hours (<span ng-bind="restaurant._tzabbr"></span>):<br /><br />
+		<p>is currently closed. It will be open during the following hours (<span ng-bind="restaurant._tzabbr"></span>):<br /><br />
 		<div ng-bind-html-unsafe="restaurant.closedMessage()"></div>
 	</div>
 </div>
@@ -477,7 +498,7 @@
 			<div ng-click="credit.tooltip=!credit.tooltip" class="giftcard-badge-value">${{credit.value}}</div>
 		</div>
 		<div class="giftcard-badge-tooltip" ng-show="credit.tooltip">
-			You have a <span class="giftcard-value">{{AB.dollar}}{{credit.value}}</span> gift card!
+			You have a <span class="giftcard-value">{{AB.dollar}}{{credit.value}}</span> gift card
 		</div>
 	</div>
 
@@ -485,7 +506,7 @@
 		<h1>{{restaurant.name}}</h1>
 		<div class="giftcard-desktop-container" ng-show="credit.value != '0.00'">
 			<div class="giftcard-desktop-message">
-				You have a <span class="giftcard-value">{{AB.dollar}}{{credit.value}}</span> gift card!
+				You have a <span class="giftcard-value">{{AB.dollar}}{{credit.value}}</span> gift card
 			</div>
 		</div>
 	</div>
@@ -499,7 +520,9 @@
 	<div ng-show="restaurant.message" class="main-content-readable">
 		<div class="restaurant-message-mobile" ng-bind-html-unsafe="restaurant.message"></div>
 	</div>
-	
+
+	<div class="restaurant-closed-mobile" restaurant-is-closed></div>
+
 	<!-- main-content-readable-margin -->
 	<div class="main-content-readable">
 		<!-- cart -->
@@ -507,7 +530,7 @@
 			<div ng-show="restaurant._open">
 				<div class="restaurant-item-title text-your-order">
 					Your Order 
-					<div ng-show="App.isMobile()" ng-include="assets/view/restaurant.suggestion.tooltip.html"></div>
+					<span suggestion-tool-tip type="mobile"></span>
 				</div>
 				<div class="your-order-label" style="font-weight: bold; display: none;">(we've chosen the most popular order, but you can order anything you want)</div>
 				<div class="divider"></div>
@@ -560,9 +583,10 @@
 
 										<!-- Customizable - checkbox -->
 										<div ng-switch-when="check">
-												<input type="checkbox" ng-change="order.cart.customizeItem(option, item)" ng-model="option.checked" class="cart-customize-check">
+												<input type="checkbox" custom-checkbox ng-change="order.cart.customizeItem(option, item)" ng-model="option.checked" class="cart-customize-check">
 												<label ng-click="option.checked = !option.checked; order.cart.customizeItem(option, item);" class="cart-item-customize-name">{{option.name}}</label>
 												<label ng-click="option.checked = !option.checked; order.cart.customizeItem(option, item);" class="cart-item-customize-price">{{option.priceFormated}}</label>
+												<div class="divider"></div>
 										</div>
 
 										<!-- Customizable - select -->
@@ -582,19 +606,19 @@
 			</div>
 
 			<div class="default-order-check" ng-show="order.info.totalItems && restaurant._open">
-				<input type="checkbox" ng-model="order.form.make_default" id="default-order-check">
+				<input custom-checkbox type="checkbox" ng-model="order.form.make_default" id="default-order-check">
 				<label for="default-order-check">Set as default order for this restaurant</label>
+				<div class="divider"></div>
 			</div>
 
 		</div>
 		
-
 		<!-- menu -->
 		<div class="restaurant-items">
 			<div class="content-item-name content-item-main-name">
 				<h1>
-					Add to your order
-					<div ng-show="!App.isMobile()" ng-include="assets/view/restaurant.suggestion.tooltip.html"></div>
+					Add to your order 
+					<span suggestion-tool-tip type="desktop"></span>
 				</h1>
 			</div>
 		
@@ -606,31 +630,18 @@
 					</li>
 				</ul>
 			</div>
-		
-			<div class="suggestion-link-container" ng-controller="RecommendFoodCtrl">
-				<div class="suggestion-link-title">Really want something else?</div>
-					<a href="javascript:;" ng-click="recommend.modal.open();"><b><i>Suggest other food</i></b></a>
-			</div>
-			
+						
 		</div>
 		<div class="divider"></div>
 	</div>
 
 	<div class="restaurant-payment-div"></div>
 
-	<div class="is-closet main-content-readable" ng-show="!open && order.loaded">
-		<div class="restaurant-closed">
-			<div class="restaurant-closed-icon"></div>
-			<div class="restaurant-closed-content">
-				<span class="restaurant-closed-title">
-					<span class="restaurant-closed-name">{{restaurant.name}} is currently closed!</span><span class="restaurant-closed-generic">Currently closed!</span>
-				</span>
-				<span class="restaurant-closed-content">
-					It will be open during the following hours (EDT):<br> 
-					<span ng-bind-html-unsafe="restaurant.closedMessage() | nl2br"></span>
-				</span>
-			</div>
-			<div class="divider"></div>
+	
+
+	<div class="restaurant-closed-desktop">
+		<div class="is-closet main-content-readable">
+			<div restaurant-is-closed></div>	
 		</div>
 	</div>
 
@@ -671,11 +682,11 @@
 		
 					<label>Phone #</label>
 					<div class="input-item">
-					<input type="tel" name="pay-phone" tabindex="3" ng-model="order.form.phone"></div><div class="divider"></div>
+					<input type="tel" name="pay-phone" tabindex="3" ng-format-phone ng-model="order.form.phone"></div><div class="divider"></div>
 		
 					<label ng-show="order.form.delivery_type=='delivery'">Delivery Address</label>
 					<div ng-show="order.form.delivery_type=='delivery'" class="input-item">
-					<textarea ng-model="order.form.address" name="pay-address" name="pay-address" tabindex="5"></textarea></div>
+					<textarea ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5"></textarea></div>
 					<div class="divider"></div>
 	
 					<div ng-show="(restaurant.id != 74)">
@@ -696,14 +707,14 @@
 							</div>
 
 							<div ng-show="giftcard.value != '0.00' && order.form.pay_type == 'cash' ">
-								Pay with a card, NOT CASH, to use your {{AB.dollar}}{{giftcard.value}} gift card!</span>
+								Pay with a card, NOT CASH, to use your ${{giftcard.value}} gift card!</span>
 							</div>
 
 							<div ng-show="restaurant.giftcard == 1 && order.form.pay_type == 'card' ">
 								<!-- Gift card success -->
 								<div ng-repeat="success in giftcard.giftcards.success">
 									<div ng-show="!success.error">
-										Congrats! This gift card ({{success.giftcard}}) gives you {{AB.dollar}}{{success.value}}.	
+										Congrats! This gift card ({{success.giftcard}}) gives you ${{success.value}}.	
 									</div>
 									<div ng-show="success.error == 'other restaurant'">
 										The gift card ({{success.giftcard}}) you are trying to use belongs to another restaurant.
@@ -745,10 +756,10 @@
 		
 						<div ng-show="order.form.pay_type=='card'" class="payment-card-info"><p>Your credit card information is <br />super secure and encrypted.<br /><br /></p>
 							<div class="card-icons">
-								<div class="payment-card card-visa payment-card-grey" title="visa"></div>
-								<div class="payment-card card-master-card" title="master card"></div>
-								<div class="payment-card card-amex" title="american express"></div>
-								<div class="payment-card card-discover" title="discover card"></div>
+								<div class="payment-card card-visa payment-card-grey" pre-load-image="/assets/images/payment/card-visa-grey@2x.png" title="visa"></div>
+								<div class="payment-card card-master-card" pre-load-image="/assets/images/payment/card-master-grey@2x.png" title="master card"></div>
+								<div class="payment-card card-amex" pre-load-image="/assets/images/payment/card-amex-grey@2x.png" title="american express"></div>
+								<div class="payment-card card-discover" pre-load-image="/assets/images/payment/card-discover-grey@2x.png" title="discover card"></div>
 							</div>
 						</div>
 
@@ -797,7 +808,7 @@
 				for a total of {{order.info.totalText}}
 				&nbsp;
 				<div ng-show="credit.value != '0.00' && order.form.pay_type == 'cash' ">
-					<div class="giftcard-payment-message">Pay with a card, NOT CASH, to use your {{AB.dollar}}{{credit.value}} gift card!</div>
+					<div class="giftcard-payment-message">Pay with a card, NOT CASH, to use your {{AB.dollar}}{{credit.value}} gift card</div>
 				</div>
 				&nbsp;
 				<span ng-show="order.form.pay_type=='card'">by card</span>
@@ -818,17 +829,25 @@
 		</div>
 
 		<div ng-show="order.subtotal()">
-			<label>You're paying:&nbsp;<span ng-show="order.form.pay_type=='cash'">approximately</span> </label>
+			<label>You're paying:&nbsp;<span ng-show="order.form.pay_type=='cash'" class="unbold">approximately</span></label>
 			&nbsp;{{order.info.breakdownDescription}}&nbsp;
 			<span ng-show="order.info.extraCharges">( + {{order.info.extraCharges}} )</span>
-			<strong class="cart-gift"></strong>&nbsp;
+			<strong class="cart-gift" ng-show="credit.value != '0.00' && order.form.pay_type == 'card' ">
+					<span>
+						&nbsp;(-{{AB.dollar}}{{credit.value}} credit 
+
+						<span ng-show="order.info.creditLeft != ''" class="gift-left">
+							- You'll still have {{AB.dollar}}{{order.info.creditLeft}} gift card left
+						</span> )
+					</span>
+				</strong>&nbsp;
 			for a total of {{order.info.totalText}}
 			&nbsp;
 				<div ng-show="credit.value != '0.00' && order.form.pay_type == 'cash' ">
-					<div class="giftcard-payment-message">Pay with a card, NOT CASH, to use your {{AB.dollar}}{{credit.value}} gift card!</div>
+					<div class="giftcard-payment-message">Pay with a card, NOT CASH, to use your {{AB.dollar}}{{credit.value}} gift card</div>
 				</div>
 			&nbsp;
-			<span ng-show="order.form.pay_type=='card'">by cart</span>
+			<span ng-show="order.form.pay_type=='card'">by card</span>
 		</div>
 
 		<div ng-show="restaurant.delivery == '1' && order.form.delivery_type=='delivery'">
@@ -852,59 +871,75 @@
 </div>
 <div class="bottom-spacer"></div>
 
-<div class="giftcard-payment-warning modal zoom-anim-dialog small-container mfp-hide">
-	<h1>Sorry, you must pay with a credit card to use this gift code.</h1>
+<div class="address-not-found-warning order-warning modal zoom-anim-dialog small-container mfp-hide">
+	<h1>Confirm your address?</h1>
+	<p><strong>We could not find the address:<br/>{{order.form.address}}</strong></p>
 	<ul>
 		<li>
-			<div ng-click="placeAnyway();">Place Order Anyway</div>
+			<div ng-click="addressPlaceAnyway();">Continue</div>
 		</li>
 		<li>
-			<div ng-click="showCreditPayment();">Pay with Credit Card</div>
+			<div ng-click="addressLetMeChangeIt();">Add a City or Zip Code</div>
 		</li>
 	</ul>
 </div>
 
 </script><script type="text/ng-template" id="assets/view/restaurant.suggestion.tooltip.html">
-<span class="tooltip-help-desktop-container">
-	<span class="tooltip-help tooltip-help-desktop"><span>?</span>
+<span class="tooltip-help-{{type}}-container">
 
-	<div class="tooltip-help-content tooltip-help-content-desktop">
+	<span ng-show="type == 'mobile'" class="tooltip-help-mobile-touchable">
+		<span class="tooltip-help tooltip-help-mobile" ng-click="show=!show">
+			<span>?</span>
+		</span>
+	</span>
+
+	<span ng-show="type == 'desktop'" class="tooltip-help tooltip-help-desktop" ng-click="show=!show">
+		<span>?</span>
+	</span>
+
+	<div ng-show="show" class="tooltip-help-content tooltip-help-content-{{type}}">
 		Crunchbutton curates menus. We've curated just the top food here.
-		If you really want something else, suggest it below.
 	</div>
 </span>
-
 </script><script type="text/ng-template" id="assets/view/restaurants.html">
-<div class="home-welcome home-tagline main-content-readable">
-	<h1 ng-bind-html-unsafe="slogan"></h1>
-	<h2 ng-bind-html-unsafe="tagline"></h2>
-</div>
-
-<div class="content-padder-before"></div>
-<div class="content-padder">
-	<div class="meal-items {{mealItemClass}}">
-
-		<div ng-click="display($event)" ng-class="{'meal-item-closed': restaurant._open==false}" class="meal-item" data-id_restaurant="{{restaurant.id_restaurant}}" data-permalink="{{restaurant.permalink}}" ng-repeat="restaurant in restaurants">
-
-			<div class="meal-item-content ladda-button" data-style="zoom-out" data-spinner-color="#333333">
-				<div class="ladda-label">
-					<div class="meal-pic" style="background: url({{restaurant.img64}});"></div>
-					<h2 class="meal-restaurant">{{restaurant.name}}</h2>
-					<h3 class="meal-food">{{restaurant._short_description}}</h3>
-					<div ng-switch on="restaurant._tag">
-						<div class="meal-item-tag" ng-switch-when="takeout">Take out only</div>
-						<div class="meal-item-tag about-to-close" ng-switch-when="closing">Hurry, closes in {{restaurant.isAboutToClose()}} min!</div>
-						<div class="meal-item-tag-closed" ng-switch-when="closed">Opens in a few hours</div>
-					</div>
-				</div>
-				<span class="ladda-spinner"></span>
-			</div>
-			<div class="meal-item-spacer"></div>
+<div ng-show="!restaurants">
+	<div class="main-content-readable home-greeting">
+		<div class="home-welcome">
+			<h1>Finding you the best food...</h1>
 		</div>
-
 	</div>
 </div>
 
+<div ng-show="restaurants">
+	<div class="home-welcome home-tagline main-content-readable">
+		<h1 ng-bind-html-unsafe="slogan"></h1>
+		<h2 ng-bind-html-unsafe="tagline"></h2>
+	</div>
+
+	<div class="content-padder-before"></div>
+	<div class="content-padder">
+		<div class="meal-items {{mealItemClass}}">
+
+			<div ng-click="display($event)" ng-class="{'meal-item-closed': restaurant._open==false}" class="meal-item" data-id_restaurant="{{restaurant.id_restaurant}}" data-permalink="{{restaurant.permalink}}" ng-repeat="restaurant in restaurants">
+
+				<div class="meal-item-content ladda-button" data-style="zoom-out" data-spinner-color="#333333">
+					<div class="ladda-label">
+						<div class="meal-pic" style="background: url({{restaurant.img64}});"></div>
+						<h2 class="meal-restaurant">{{restaurant.name}}</h2>
+						<h3 class="meal-food">{{restaurant._short_description}}</h3>
+						<div ng-switch on="restaurant._tag">
+							<div class="meal-item-tag" ng-switch-when="takeout">Take out only</div>
+							<div class="meal-item-tag about-to-close" ng-switch-when="closing">Hurry, closes in {{restaurant.isAboutToClose()}} min!</div>
+							<div class="meal-item-tag-closed" ng-switch-when="closed">Opens in a few hours</div>
+						</div>
+					</div>
+					<span class="ladda-spinner"></span>
+				</div>
+				<div class="meal-item-spacer"></div>
+			</div>
+		</div>
+	</div>
+</div>
 </script><script type="text/ng-template" id="assets/view/signin.html">
 <div class="signin-container zoom-anim-dialog small-container mfp-hide">
 	<div class="signin-form-container">	
@@ -919,7 +954,7 @@
 					<div class="divider"></div>
 				</div>
 
-				<input type="text" maxlength="250" name="signin-email" placeholder="email or phone" tabindex="10" ng-model="account.email" autofocus>
+				<input type="text" maxlength="250" name="signin-email" placeholder="email or phone" tabindex="10" ng-model="account.email">
 				<div class="divider"></div>
 				<input type="password" maxlength="250" name="signin-password" placeholder="password" tabindex="10" ng-model="account.password">
 				<div class="divider"></div>
@@ -947,7 +982,7 @@
 		<div ng-show="account.help">
 			<form class="signin-help-form">
 				<h1>Password help?</h1>
-				<input type="text" maxlength="250" name="password-help-email" placeholder="email or phone" tabindex="10" ng-model="account.email" autofocus>
+				<input type="text" maxlength="250" name="password-help-email" id="password-help-email" placeholder="email or phone" tabindex="10" ng-model="account.email">
 				<div class="divider"></div>
 				<div class="password-help-error"></div>
 				<a class="signin-password-help-back" ng-click="account.setHelp(false)">Never mind</a>
@@ -1130,14 +1165,6 @@
 						</tr>
 					</table>
 				</li>
-				<li ng-instant="navigation.link('/legal')">
-					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
-						<tr>
-							<td class="side-menu-icon"><i class="icon-file" style="margin-left: 2px;"></i></td>
-							<td class="side-menu-label">Legal</a></td>
-						</tr>
-					</table>
-				</li>
 
 								<li ng-instant="App.test.card()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
@@ -1195,7 +1222,7 @@
 	
 				</div>
 			</div>
-			<div class="nav nav-cart">
+			<div class="nav nav-cart" ng-click="cartScroll()">
 				<div class="cart-summary cart-summary-detail">
 					<div class="cart-summary-icon"></div>
 					<div class="cart-summary-item-count"><span>{{order.info.totalItems}}</span></div>
@@ -1226,7 +1253,6 @@
 				<div class="footer-content hidden-phone" ng-controller="MainHeaderCtrl">
 	
 					<a href="javascript:;" ng-click="navigation.link('/help')">Help</a>
-					<a href="javascript:;" ng-click="navigation.link('/legal')">Legal</a>
 					<a ng-show="navigation.account.user" href="javascript:;" ng-click="navigation.link('/orders')">Order History</a>
 											<a href="javascript:App.test.card();" class="test-card">TEST: card</a>
 						<a href="javascript:App.test.logout();" class="test-logout">TEST: logout</a>
@@ -1248,9 +1274,11 @@
 
 <div ng-include="'assets/view/notification.alert.html'"></div>
 <div ng-include="'assets/view/restaurant.closed.html'"></div>
+<div ng-include="'assets/view/restaurant.suggestion.tooltip.html'"></div>
 <div ng-include="'assets/view/account.html'"></div>
 <div ng-include="'assets/view/account.reset.html'"></div>
 <div ng-include="'assets/view/account.facebook.html'"></div>
+<div ng-include="'assets/view/restaurant.closed.inline.html'"></div>
 <div ng-include="'assets/view/giftcard.html'"></div>
 <div ng-include="'assets/view/suggestion.html'"></div>
 <div ng-include="'assets/view/support.html'"></div>
