@@ -13,7 +13,6 @@
 		0822347D17AC32B4009F2FC5 /* TapToScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 0822347C17AC32B4009F2FC5 /* TapToScroll.m */; };
 		08409BEF17E5319A001051B7 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 08409BEE17E5319A001051B7 /* FacebookConnectPlugin.m */; };
 		08409BF317E8EC2F001051B7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08409BF217E8EC2F001051B7 /* FacebookSDK.framework */; };
-		085C86AF17B3280000A40B53 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C86AD17B3280000A40B53 /* libTestFlight.a */; };
 		085C86B317B3288500A40B53 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C86B217B3288500A40B53 /* libz.dylib */; };
 		085E2C3317A84E47007A9847 /* icon-57-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 085E2C2C17A84E47007A9847 /* icon-57-2x.png */; };
 		085E2C3417A84E47007A9847 /* icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 085E2C2D17A84E47007A9847 /* icon-57.png */; };
@@ -46,6 +45,7 @@
 		085E2CA717A85D14007A9847 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085E2CA617A85D14007A9847 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		085E2CA917A85D20007A9847 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085E2CA817A85D20007A9847 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		085E2CAB17A85D2B007A9847 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085E2CAA17A85D2B007A9847 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		08A1D7C817EB68B9008DA7CC /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A1D7C417EB68B9008DA7CC /* libTestFlight.a */; };
 		08E6EEF517BA23D8001A0403 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -68,6 +68,7 @@
 		30A0434814DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434314DC770100060A13 /* Localizable.strings */; };
 		30A0434914DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434614DC770100060A13 /* Localizable.strings */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		476CBF40532743F2ACE9406B /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 799EE6A7E899409A96F4EA9B /* CDVInAppBrowser.m */; };
 		5AA0E66D1729F45B000DC89A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA0E66C1729F45B000DC89A /* OpenAL.framework */; };
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
@@ -101,8 +102,6 @@
 		08409BED17E5319A001051B7 /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookConnectPlugin.h; sourceTree = "<group>"; };
 		08409BEE17E5319A001051B7 /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookConnectPlugin.m; sourceTree = "<group>"; };
 		08409BF217E8EC2F001051B7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		085C86AD17B3280000A40B53 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		085C86AE17B3280000A40B53 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		085C86B017B3285D00A40B53 /* lazydylib1.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = lazydylib1.o; path = usr/lib/lazydylib1.o; sourceTree = SDKROOT; };
 		085C86B217B3288500A40B53 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		085C86B617B32F7D00A40B53 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -137,6 +136,10 @@
 		085E2CA617A85D14007A9847 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		085E2CA817A85D20007A9847 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		085E2CAA17A85D2B007A9847 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		08A1D7C417EB68B9008DA7CC /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		08A1D7C517EB68B9008DA7CC /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		08A1D7C617EB68B9008DA7CC /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		08A1D7C717EB68B9008DA7CC /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		08DA713F17BA2014004DA9AF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		08DA714317BA2027004DA9AF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		08DA714917BA2054004DA9AF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -174,6 +177,7 @@
 		5AA0E66C1729F45B000DC89A /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		799EE6A7E899409A96F4EA9B /* CDVInAppBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowser.m; path = org.apache.cordova.core.inappbrowser/CDVInAppBrowser.m; sourceTree = "<group>"; };
 		80E7FF14E2BB495F9864FE6C /* CDVSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVSplashScreen.m; path = org.apache.cordova.core.splashscreen/CDVSplashScreen.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Crunchbutton-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Crunchbutton-Info.plist"; path = "../Crunchbutton-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		C1AE95280D2D4E5E81BC2AB2 /* CDVLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLocation.h; path = org.apache.cordova.core.geolocation/CDVLocation.h; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 		CCF29C350DAC417B8473DB0F /* CDVSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSplashScreen.h; path = org.apache.cordova.core.splashscreen/CDVSplashScreen.h; sourceTree = "<group>"; };
 		D885BDB6A2BD4B5C966613CA /* CDVVibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVVibration.h; path = org.apache.cordova.core.vibration/CDVVibration.h; sourceTree = "<group>"; };
 		EBEE5442D30C4AD19093F07B /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CDVNotification.bundle; path = Crunchbutton/Resources/CDVNotification.bundle; sourceTree = "<group>"; };
+		F00B6C72BF184188AE610940 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVInAppBrowser.h; path = org.apache.cordova.core.inappbrowser/CDVInAppBrowser.h; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Crunchbutton/config.xml; sourceTree = "<group>"; };
 		FF51F6EB1A6340A4A8867361 /* CDVVibration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVVibration.m; path = org.apache.cordova.core.vibration/CDVVibration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,10 +198,10 @@
 				08168BFA17E920F100347F67 /* AudioToolbox.framework in Frameworks */,
 				08409BF317E8EC2F001051B7 /* FacebookSDK.framework in Frameworks */,
 				08E6EEF517BA23D8001A0403 /* CoreGraphics.framework in Frameworks */,
+				08A1D7C817EB68B9008DA7CC /* libTestFlight.a in Frameworks */,
 				085C86B317B3288500A40B53 /* libz.dylib in Frameworks */,
 				085E2CAB17A85D2B007A9847 /* Security.framework in Frameworks */,
 				085E2CA917A85D20007A9847 /* AdSupport.framework in Frameworks */,
-				085C86AF17B3280000A40B53 /* libTestFlight.a in Frameworks */,
 				085E2CA717A85D14007A9847 /* Accounts.framework in Frameworks */,
 				085E2CA517A85D06007A9847 /* Social.framework in Frameworks */,
 				301BF5BF109A6A2B0062928A /* CoreLocation.framework in Frameworks */,
@@ -223,8 +228,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				085C86AD17B3280000A40B53 /* libTestFlight.a */,
-				085C86AE17B3280000A40B53 /* TestFlight.h */,
+				08A1D7C417EB68B9008DA7CC /* libTestFlight.a */,
+				08A1D7C517EB68B9008DA7CC /* TestFlight.h */,
+				08A1D7C617EB68B9008DA7CC /* TestFlight+AsyncLogging.h */,
+				08A1D7C717EB68B9008DA7CC /* TestFlight+ManualSessions.h */,
 				302D95EE14D2391D003F00A1 /* MainViewController.h */,
 				302D95EF14D2391D003F00A1 /* MainViewController.m */,
 				302D95F014D2391D003F00A1 /* MainViewController.xib */,
@@ -360,6 +367,8 @@
 				C1AE95280D2D4E5E81BC2AB2 /* CDVLocation.h */,
 				80E7FF14E2BB495F9864FE6C /* CDVSplashScreen.m */,
 				CCF29C350DAC417B8473DB0F /* CDVSplashScreen.h */,
+				799EE6A7E899409A96F4EA9B /* CDVInAppBrowser.m */,
+				F00B6C72BF184188AE610940 /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = Crunchbutton/Plugins;
@@ -568,6 +577,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				F35F1819FDA84D96B05B49EA /* CDVLocation.m in Sources */,
 				AAF3A2FDFCA341EEA4BBAF44 /* CDVSplashScreen.m in Sources */,
+				476CBF40532743F2ACE9406B /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
