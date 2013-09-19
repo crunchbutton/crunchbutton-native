@@ -9,9 +9,9 @@
 		<link rel="stylesheet" href="assets/css/index.css">
 		<script type="text/ng-template" id="assets/view/account.facebook.html">
 <div class="facebook">
-	<div class="facebook-button" ng-click="facebook.auth()">
-		<span class="icon-facebook"></span>
-		<span class="facebook-button-text">{{title}}</span>
+	<div class="social-button facebook-button" ng-click="facebook.auth()">
+		<i class="icon-facebook"></i>
+		<span class="social-button-text">{{title}}</span>
 		<div class="divider"></div>
 	</div>
 	<div class="wait" ng-show="facebook.facebook.wait && !facebook.facebook.error.userExists && !facebook.facebook.error.unknown && !facebook.facebook.error.login">
@@ -221,7 +221,7 @@
 </div>
 
 </script><script type="text/ng-template" id="assets/view/help.html">
-	<div class="main-content-readable"><h1 class="about-header">About</h1><p>Crunchbutton lets you order your favorite food with one click. We highlight the top food from the top restaurants in a community. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click/tap.</p><br /><br /><h1 class="about-header">Help</h1><p><b>Problem with your order?</b><br />Try contacting the restaurant you ordered from.<br /><br /><b>Need to contact Crunchbutton?</b><br />Call us at 646-783-1444 or email us at <a href="mailto:happycustomers@crunchbutton.com">happycustomers@crunchbutton.com</a>.<br /><br /></p><br /><br /><h1 class="about-header">FAQ</h1><p><b>How do I order food?</b><br />Easy! Just go to crunchbutton.com and click the restaurant you want to order from. Add whatever food you want, and enter your address, phone, and payment info. Click "Get Food" and try to stay hungry! The restaurant will call you when they're outside.<br /><br /><b>Is it cheaper for me to just call the restaurant?</b><br />No!! Crunchbutton is totally free to you. Prices are the same as calling the restaurant. Sometimes even cheaper!!<br /><br /><b>Is it faster for me to just call the restaurant?</b><br />No!! With Crunchbutton ordering is as fast as a single click!! And we make sure our restaurants receive orders promptlier and accuratelier than when you call.<br /><br /><b>How do you save my info?</b><br />We use a super secure system away from our web server to store and encrypt all your financial information.<br /><br /><b>How do I change my stored info?</b><br />Just click on the info you want to change, enter the changes, and, after you place your order, it’ll be saved for next time.<br /><br /><b>But I've never used Crunchbutton before...</b><br />Oh man, it's okay. I remember my first time, it didn't last more than 30 seconds. I went to Crunchbutton.com, found my favorite restaurant, hit "Get Food." Minutes later, my sandwich arrived. Post-coital bliss ensued, that sandwich sure knew how to crunch my buttons.<br /><br /><b>omg i am wayy too drunk to enter my information</b><br />We thought this might happen. Luckily, Crunchbutton saves your address, phone, and payment info, so all you have to do is click what you want and hit the big, red "Get Food" button. Try to be awake when the delivery guy calls.<br /><br /><b>I want to put a restaurant on Crunchbutton.</b><br />Good idea! Contact <a href="mailto:join@crunchbutton.com">join@crunchbutton.com</a>.<br /><br /><b>I know I can order food online, but can I order by US mail?</b><br />Why yes you can! Send a check or money order to 95 Chestnut Street, Providence, RI 02903, give us one week's notice, and we will get you your food!<br /><br /></p></div>
+	<div class="main-content-readable"><h1 class="about-header">About</h1><p>Crunchbutton lets you order your favorite food with one click. We highlight the top food from the top restaurants in a community. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click/tap.</p><br /><br /><h1 class="about-header">Help</h1><p><b>Problem with your order?</b><br />Try contacting the restaurant you ordered from.<br /><br /><b>Need to contact Crunchbutton?</b><br />Call us at 646-783-1444 or email us at <a href="mailto:happycustomers@crunchbutton.com">happycustomers@crunchbutton.com</a>.<br /><br /></p><br /><br /><h1 class="about-header">FAQ</h1><p><b>How do I order food?</b><br />Easy! Just go to crunchbutton.com and click the restaurant you want to order from. Add whatever food you want, and enter your address, phone, and payment info. Click "Get Food" and try to stay hungry! The restaurant will call you when they're outside.<br /><br /><b>Is it cheaper for me to just call the restaurant?</b><br />No!! Crunchbutton is totally free to you. Prices are the same as calling the restaurant. Sometimes even cheaper!!<br /><br /><b>Is it faster for me to just call the restaurant?</b><br />No!! With Crunchbutton ordering is as fast as a single click!! And we make sure our restaurants receive orders promptlier and accuratelier than when you call.<br /><br /><b>How do you save my info?</b><br />We use a super secure system away from our web server to store and encrypt all your financial information.<br /><br /><b>How do I change my stored info?</b><br />Just click on the info you want to change, enter the changes, and, after you place your order, it’ll be saved for next time.<br /><br /><b>But I've never used Crunchbutton before...</b><br />Oh man, it's okay. I remember my first time, it didn't last more than 30 seconds. I went to Crunchbutton.com, found my favorite restaurant, hit "Get Food." Minutes later, my sandwich arrived. Post-coital bliss ensued, that sandwich sure knew how to crunch my buttons.<br /><br /><b>omg i am wayy too drunk to enter my information</b><br />We thought this might happen. Luckily, Crunchbutton saves your address, phone, and payment info, so all you have to do is click what you want and hit the big, red "Get Food" button. Try to be awake when the delivery guy calls.<br /><br /><b>I want to put a restaurant on Crunchbutton.</b><br />Good idea! Contact <a href="mailto:join@crunchbutton.com">join@crunchbutton.com</a>.<br /><br /><b>I know I can order food online, but can I order by US mail?</b><br />Why yes you can! Send a check or money order to Crunchbutton, 13701 Marina Pointe Dr #344, Marina Del Rey, CA 90292, give us one week's notice, and we will get you your food!<br /><br /></p></div>
 <br /><br />
 Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page</a> for legal and privacy information.
 </script><script type="text/ng-template" id="assets/view/home.html">
@@ -354,7 +354,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 			<h4>Invite Code</h4>
 			Earn Crunch Credit for every new friend who orders with this link!
 			<br/>
-			<input type="text" style="margin:10px;" ng-click-select-all value="{{referral.invite_url.replace('http://','')}}" readonly="readonly" />
+			<input type="text" ng-click-select-all value="{{referral.invite_url.replace('http://','')}}" readonly="readonly" />
 		</div>
 
 		<div class="order-details">
@@ -402,8 +402,8 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 
 			<br><br>
 
-			<div class="facebook-button facebook-button-share clearfix" ng-click="facebook();">
-				<i class="icon-facebook"></i><span class="facebook-button-text">Share what you ordered</span>
+			<div class="social-button facebook-button social-button-share clearfix" ng-click="facebook();">
+				<i class="icon-facebook"></i><span class="social-button-text">Share what you ordered</span>
 				<div class="divider"></div>
 			</div>
 	
@@ -438,19 +438,21 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 
 	<div>
 		<div class="invite-code-container field-container" ng-show="referral.enabled">
-			<div class="restaurant-item-title">Invite code</div>
+			<div class="restaurant-item-title">Crunch Credit Invites</div>
 			<p>
-				For every NEW friend who orders food, we'll give you ${{referral.value}} credit.
+				For every NEW friend who orders food, we'll award you Crunch Credit.
 				<br/>
-				You have {{referral.limit - referral.invites }} invite(s) remaining.
+				You have {{referral.limit - referral.invites}} invite{{referral.limit - referral.invites == 1 | iif : '' : 's'}} remaining.
 			</p>
 
-			<input type="text" style="margin:10px;" ng-click-select-all value="{{referral.invite_url.replace('http://','')}}" readonly="readonly" />
-
-			<p>
-				<a target="blank"class="twitter-invite-button" href="https://twitter.com/intent/tweet?url={{referral.invite_url}}&text=#nom"><i class="icon-twitter"></i> Tweet on Twitter</a>
-				<a href="#" class="facebook-invite-button" ng-click="referral.facebook()"><i class="icon-facebook" style=""></i> Share on Facebook</a>
-			</p>
+			<div class="social-button twitter-button social-button-invite" ng-click="referral.twitter();">
+				<i class="icon-twitter"></i><span class="social-button-text">Tweet</span>
+			</div>
+			<div class="social-button facebook-button social-button-invite" ng-click="referral.facebook();">
+				<i class="icon-facebook"></i><span class="social-button-text">Share</span>
+			</div>
+			<div class="divider"></div>
+			Invite URL: <input type="text" ng-click-select-all value="{{referral.invite_url.replace('http://','')}}" readonly="readonly" />
 			
 			<div class="divider"></div>
 		</div>
@@ -607,7 +609,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 
 			<div class="default-order-check" ng-show="order.info.totalItems && restaurant._open">
 				<input custom-checkbox type="checkbox" ng-model="order.form.make_default" id="default-order-check">
-				<label for="default-order-check">Set as default order for this restaurant</label>
+				<label for="default-order-check">Save this order for next time</label>
 				<div class="divider"></div>
 			</div>
 
@@ -898,7 +900,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 	</span>
 
 	<div ng-show="show" class="tooltip-help-content tooltip-help-content-{{type}}">
-		Crunchbutton curates menus. We've curated just the top food here.
+		We've highlighted the top food from this restaurant below. If you really want something else, contact us at 646-783-1444 and we'll add it right away.
 	</div>
 </span>
 </script><script type="text/ng-template" id="assets/view/restaurants.html">
@@ -967,7 +969,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 				<div class="divider"></div>
 			</form>
 			<div class="signin-facebook-container">
-				<div class="signin-facebook">
+				<div class="social-button facebook-button social-button-share">
 					<a href="javascript:;" class="signin-facebook-button">
 						<span class="signin-facebook-icon"></span>
 						<span class="signin-facebook-text">Login with Facebook</span>
@@ -1081,10 +1083,11 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 		</div>
 
 		<div class="support-maximized-content">
-			Call us at (646) 783-1444 <br/>or send a message:
-			<div class="divisor"></div>
+			<span ng-show="!support.thanks">
+				Call us at (646) 783-1444 <br/>or send a message:
+			</span>
 			<div ng-show="support.thanks">
-				Thank you!
+				Thanks, we'll get back to you as fast as we can.
 			</div>
 			<div ng-show="!support.thanks">
 				<form name="formSupport">
