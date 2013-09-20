@@ -7,7 +7,7 @@
 		<title>Crunchbutton</title>
 		<link rel="stylesheet" href="assets/css/bundle.css">
 		<link rel="stylesheet" href="assets/css/index.css">
-		<script type="text/ng-template" id="assets/view/account.facebook.html">
+		<script type="text/ng-template" id="assets/view/.DS_Store.html"></script><script type="text/ng-template" id="assets/view/account.facebook.html">
 <div class="facebook">
 	<div class="social-button facebook-button" ng-click="facebook.auth()">
 		<i class="icon-facebook"></i>
@@ -175,6 +175,10 @@
 			<span class="content-item-locations-city" permalink="<%= alias.alias %>"><%= alias.name %></span>&nbsp;&nbsp;&nbsp;&nbsp;
 		<% }); %>
 	</div>
+</div>
+</script><script type="text/ng-template" id="assets/view/connection.error.html">
+<div class="connection-error" ng-show="connectionError" ng-style="{width: windowWidth, height: windowHeight}">
+	<i class="icon-warning-sign"></i> Sorry no internet connection!
 </div>
 </script><script type="text/ng-template" id="assets/view/giftcard.html">
 <div class="giftcard-container modal zoom-anim-dialog small-container mfp-hide" ng-controller="GiftCardCtrl">
@@ -1285,6 +1289,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 <div ng-include="'assets/view/giftcard.html'"></div>
 <div ng-include="'assets/view/suggestion.html'"></div>
 <div ng-include="'assets/view/support.html'"></div>
+<div ng-include="'assets/view/connection.error.html'"></div>
 
 <div id="fb-root"></div>
 

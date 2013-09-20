@@ -26,6 +26,15 @@
 //
 
 #import "MainViewController.h"
+#import "Reachability.h"
+
+
+@interface MainViewController ()
+
+@property (nonatomic) Reachability *internetReachability;
+@property (nonatomic) BOOL connectionON;
+
+@end
 
 @implementation MainViewController
 
@@ -73,8 +82,45 @@
 
 - (void)viewDidLoad
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    self.connectionON = YES;
+    self.internetReachability = [Reachability reachabilityForInternetConnection];
+	[self.internetReachability startNotifier];
+	[self updateInterfaceWithReachability:self.internetReachability];
+
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void) reachabilityChanged:(NSNotification *)note
+{
+	Reachability* curReach = [note object];
+	NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+	[self updateInterfaceWithReachability:curReach];
+}
+
+- (void)updateInterfaceWithReachability:(Reachability *)reachability
+{
+    NetworkStatus status = [reachability currentReachabilityStatus];
+    BOOL isConnected = [reachability connectionRequired];
+    
+    if (status == NotReachable) {
+        isConnected = NO;
+     } else {
+        isConnected = YES;
+    }
+    if( isConnected ){
+        NSLog(@"is connected");
+        if( !self.connectionON ){
+            NSLog(@"connection back");
+            [self.webView stringByEvaluatingJavaScriptFromString:@"App.noInternet.hide();"];
+        }
+        self.connectionON = YES;
+    } else {
+        NSLog(@"is not connected");
+        [self.webView stringByEvaluatingJavaScriptFromString:@"App.noInternet.show();"];
+        self.connectionON = NO;
+    }
 }
 
 - (void)viewDidUnload
