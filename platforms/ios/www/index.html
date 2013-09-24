@@ -176,6 +176,10 @@
 		<% }); %>
 	</div>
 </div>
+</script><script type="text/ng-template" id="assets/view/connection.error.html">
+<div class="connection-error">
+	<div class="connection-error-image"></div>
+</div>
 </script><script type="text/ng-template" id="assets/view/giftcard.html">
 <div class="giftcard-container modal zoom-anim-dialog small-container mfp-hide" ng-controller="GiftCardCtrl">
 
@@ -349,12 +353,12 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 			Create an account to reorder your favorite food anywhere, including <a data-ng-href="http://crunchbutton.com">crunchbutton.com</a> on your phone.
 			<a href="javascript:;" ng-click="modal.signupOpen();" class="add-password-button">Create an account</a>
 		</div>
-	
+
 		<div class="order-invite-code field-container" ng-show="order.new && referral.invite_url && referral.enabled">
 			<h4>Invite Code</h4>
 			Earn Crunch Credit for every new friend who orders with this link!
 			<br/>
-			<input type="text" ng-click-select-all value="{{referral.invite_url.replace('http://','')}}" readonly="readonly" />
+			<input type="text" ng-simulate-read-only="{{referral.cleaned_url()}}" value="{{referral.cleaned_url()}}" />
 		</div>
 
 		<div class="order-details">
@@ -452,8 +456,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 				<i class="icon-facebook"></i><span class="social-button-text">Share</span>
 			</div>
 			<div class="divider"></div>
-			Invite URL: <input type="text" ng-click-select-all value="{{referral.invite_url.replace('http://','')}}" readonly="readonly" />
-			
+			Invite URL: <input type="text" ng-simulate-read-only="{{referral.cleaned_url()}}" value="{{referral.cleaned_url()}}" />
 			<div class="divider"></div>
 		</div>
 	</div>
@@ -913,9 +916,12 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 </div>
 
 <div ng-show="restaurants">
-	<div class="home-welcome home-tagline main-content-readable">
+	<div class="home-welcome home-tagline main-content-readable" ng-class="{'home-welcome-anony-hasuser': account.user.id_user}">
 		<h1 ng-bind-html-unsafe="slogan"></h1>
 		<h2 ng-bind-html-unsafe="tagline"></h2>
+	</div>
+	<div class="home-welcome home-tagline main-content-readable home-welcome-user" ng-show="account.user.id_user">
+		<h1 ng-bind-html-unsafe="motivationText"></h1>
 	</div>
 
 	<div class="content-padder-before"></div>
@@ -1113,7 +1119,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 </div>
 </script>
 	</head>
-	<body>
+	<body class="ios7">
 
 <div class="snap-drawers" ng-controller="SideMenuCtrl">
 	<div class="snap-drawer snap-drawer-left">
@@ -1140,7 +1146,15 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="icon-time"></i></td>
-							<td class="side-menu-label">Order History</a></td>
+							<td class="side-menu-label">Previous Orders</a></td>
+						</tr>
+					</table>
+				</li>
+				<li ng-instant="navigation.link('/help')">
+					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+						<tr>
+							<td class="side-menu-icon"><i class="icon-question-sign"></i></td>
+							<td class="side-menu-label">FAQ</a></td>
 						</tr>
 					</table>
 				</li>
@@ -1160,16 +1174,8 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 						</tr>
 					</table>
 				</li>
-				<li ng-instant="navigation.link('/help')">
-					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
-						<tr>
-							<td class="side-menu-icon"><i class="icon-question-sign"></i></td>
-							<td class="side-menu-label">Help</a></td>
-						</tr>
-					</table>
-				</li>
 
-								<li ng-instant="App.test.card()">
+								<li ng-instant="test.card()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="icon-circle-blank"></i></td>
@@ -1177,7 +1183,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 						</tr>
 					</table>
 				</li>
-				<li ng-instant="App.test.clearloc()">
+				<li ng-instant="test.clearloc()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="icon-circle-blank"></i></td>
@@ -1185,7 +1191,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 						</tr>
 					</table>
 				</li>
-				<li ng-instant="App.test.reload()">
+				<li ng-instant="test.reload()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="icon-circle-blank"></i></td>
@@ -1285,6 +1291,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 <div ng-include="'assets/view/giftcard.html'"></div>
 <div ng-include="'assets/view/suggestion.html'"></div>
 <div ng-include="'assets/view/support.html'"></div>
+<div ng-include="'assets/view/connection.error.html'"></div>
 
 <div id="fb-root"></div>
 

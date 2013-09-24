@@ -58,13 +58,17 @@ $(function() {
 		App.imgServer = 'http://i.crunchbutton.com/';
 	
 		// @todo: add fail handler
-		$.getJSON(App.service + 'config/extended', function(r) {
+		App.request(App.service + 'config/extended', function(r) {
 			var extract = ['aliases','locations','facebookScope','communities','topCommunities'];
 			for (var x in extract) {
 				App[extract[x]] = r[extract[x]];
 				r[extract[x]] = null;
 			}
+			App._remoteConfig = true;
 			App.init(r);
+		}, function() {
+			App._remoteConfig = false;
+			App.init({});
 		});
 
 		// top tap scroller
