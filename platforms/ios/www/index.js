@@ -28,6 +28,15 @@ var login = function() {
 
 $(function() {
 	document.addEventListener('deviceready', function() {
+
+		// Start the connection tests
+		App.verifyConnection.init();
+
+        // There is no internet connection, stop here! this lines will be called again when the internet came back
+		if (navigator.connection.type == Connection.NONE) {
+			return;
+		}
+
 		// this is only here so we can not get a double permission request
 		navigator.geolocation.getCurrentPosition(function (position) {
 			console.debug('got users position', position);
