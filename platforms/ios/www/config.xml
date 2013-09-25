@@ -53,7 +53,7 @@
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
 
 	<gap:plugin name="com.phonegap.plugins.facebookconnect">
-	    <param name="APP_ID" value="411729638889643" />
+	    <param name="APP_ID" value="330512547054803" />
 	    <param name="APP_NAME" value="Crunchbutton" />
 	</gap:plugin>
 
