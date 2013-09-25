@@ -83,10 +83,10 @@ $(function() {
 	
 			FB.init({
 				appId: '***REMOVED***', // beta
-				appId: '484123474978744', // localhost
+//				appId: '484123474978744', // localhost
 //				appId: '***REMOVED***', // live
 				//cookie: true,
-				xfbml: true,
+//				xfbml: true,
 				//oauth: true,
 				nativeInterface: CDV.FB,
 				useCachedDialogs: false
