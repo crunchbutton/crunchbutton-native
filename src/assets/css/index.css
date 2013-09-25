@@ -43,11 +43,11 @@ body {
 		margin-top: 103px;
 	}
 	.bg {
-		-webkit-transition: all linear 0.1s;
-		   -moz-transition: all linear 0.1s;
-		    -ms-transition: all linear 0.1s;
-		     -o-transition: all linear 0.1s;
-		        transition: all linear 0.1s;
+		-webkit-transition: background-position linear 0.1s;
+		   -moz-transition: background-position linear 0.1s;
+		    -ms-transition: background-position linear 0.1s;
+		     -o-transition: background-position linear 0.1s;
+		        transition: background-position linear 0.1s;
 	}
 }
 
