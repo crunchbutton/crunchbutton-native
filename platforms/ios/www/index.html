@@ -257,10 +257,10 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 					<input type="text" class="location-address" ng-class="{ 'location-warning' : warningPlaceholder }" ng-enter="letsEat()" ng-model="location.form.address" placeholder="Enter zip code or address">
 				</td>
 				<td>
-					<div class="location-detect">
-						<div class="location-detect-icon" ng-click="locEat()"></div>
-						<div class="location-detect-loader"></div>
-					</div>
+				<button class="location-detect ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF" ng-click="locEat()">
+					<div class="location-detect-icon ladda-label"></div>
+					<div class="ladda-spinner"></div>
+				</button>
 				</td>
 			</tr>
 		</table>
@@ -1185,30 +1185,6 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 					</table>
 				</li>
 
-								<li ng-instant="test.card()">
-					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
-						<tr>
-							<td class="side-menu-icon"><i class="icon-circle-blank"></i></td>
-							<td class="side-menu-label">TEST: card</a></td>
-						</tr>
-					</table>
-				</li>
-				<li ng-instant="test.clearloc()">
-					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
-						<tr>
-							<td class="side-menu-icon"><i class="icon-circle-blank"></i></td>
-							<td class="side-menu-label">TEST: clear loc</a></td>
-						</tr>
-					</table>
-				</li>
-				<li ng-instant="test.reload()">
-					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
-						<tr>
-							<td class="side-menu-icon"><i class="icon-circle-blank"></i></td>
-							<td class="side-menu-label">TEST: reload page</a></td>
-						</tr>
-					</table>
-				</li>
 				
 			</ul>
 			<div>
@@ -1273,11 +1249,6 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 	
 					<a href="javascript:;" ng-click="navigation.link('/help')">Help</a>
 					<a ng-show="navigation.account.user" href="javascript:;" ng-click="navigation.link('/orders')">Order History</a>
-											<a href="javascript:App.test.card();" class="test-card">TEST: card</a>
-						<a href="javascript:App.test.logout();" class="test-logout">TEST: logout</a>
-						<a href="javascript:App.test.clearloc();" class="test-clearloc">TEST: clear loc</a>
-						<a href="javascript:;" ng-click="navigation.link('/')">TEST: go home</a>
-						<a href="javascript:;" ng-click="navigation.link('/location')">TEST: go location</a>
 										<br />
 					<span class="copyright">&copy; 2013 YouBeo. All rights reserved.</span>
 				</div>
@@ -1312,6 +1283,19 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 		<source src="assets/audio/crunch.ogg"></source>
 	</audio>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript">
+	    (function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");
+	    b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+
+	    '//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';d=c.getElementsByTagName("script")[0];
+	    d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){
+	    var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(
+	    Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?g=a[f]=[]:
+	    f="mixpanel";g.people=g.people||[];h=['disable','track','track_pageview','track_links',
+	    'track_forms','register','register_once','unregister','identify','alias','name_tag',
+	    'set_config','people.set','people.increment','people.track_charge','people.append'];
+	    for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.2;})(document,window.mixpanel||[]);
+	    mixpanel.init("6eb260b54eecfd293d50b5f1423c6e98");
+	</script>
 	<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="angular-1.0.7.min.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
