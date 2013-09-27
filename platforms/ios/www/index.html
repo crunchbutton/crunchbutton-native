@@ -267,7 +267,10 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 	</form>
 </div>
 <div class="divider"></div>
-<button ng-show="!locationError" class="button-letseat-form button-bottom" ng-click="letsEat()"><div>Find Restaurants!</div></button>
+<button ng-show="!locationError" ng-spinner class="button-letseat-form button-bottom ladda-button" data-style="zoom-out" data-spinner-color="#FFFFFF" ng-click="letsEat()">
+	<div class="ladda-label">Find Restaurants!</div>
+	<span class="ladda-spinner"></span>
+</button>
 
 <div class="error-location" ng-show="locationError">
 
@@ -468,7 +471,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 	</div>
 
 	<div class="order-options">
-		<a ng-show="!account.hasFacebook" href="javascript:;" ng-click="facebook()" class="signup-add-facebook-button" >Connect with Facebook</a>
+		<a ng-show="!account.user.facebook" href="javascript:;" ng-click="facebook()" class="signup-add-facebook-button" >Connect with Facebook</a>
 		<a href="javascript:;" ng-click="signout()" class="signout-button">Sign out</a>
 		<div class="divider"></div>
 	</div>
@@ -937,7 +940,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 
 			<div ng-click="display($event)" ng-class="{'meal-item-closed': restaurant._open==false}" class="meal-item" data-id_restaurant="{{restaurant.id_restaurant}}" data-permalink="{{restaurant.permalink}}" ng-repeat="restaurant in restaurants">
 
-				<div class="meal-item-content ladda-button" data-style="zoom-out" data-spinner-color="#333333">
+				<div class="meal-item-content ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#333333">
 					<div class="ladda-label">
 						<div class="meal-pic" style="background: url({{restaurant.img64}});"></div>
 						<h2 class="meal-restaurant">{{restaurant.name}}</h2>
