@@ -71,7 +71,7 @@ $(function() {
 		}, false);
 
 
-		App.server = 'https://crunchbutton.com/';
+		App.server = 'APP_SERVER_URL';
 		App.service = App.server + 'api/';
 		App.imgServer = 'http://i.crunchbutton.com/';
 	

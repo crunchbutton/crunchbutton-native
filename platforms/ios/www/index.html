@@ -779,7 +779,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 
 						<label ng-show="order.form.pay_type=='card'">Credit card #</label>
 
-						<div ng-show="order.form.pay_type=='card'" class="input-item"><input type="text" name="pay-card-number" tabindex="6" ng-change="order.creditCardChanged();" ng-model="order.form.cardNumber"></div><div class="divider"></div>
+						<div ng-show="order.form.pay_type=='card'" class="input-item"><input type="tel" name="pay-card-number" tabindex="6" ng-change="order.creditCardChanged();" ng-model="order.form.cardNumber"></div><div class="divider"></div>
 		
 						<label ng-show="order.form.pay_type=='card'">Expiration</label>
 						<div ng-show="order.form.pay_type=='card'" class="input-item">
@@ -912,7 +912,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 	</span>
 
 	<div ng-show="show" class="tooltip-help-content tooltip-help-content-{{type}}">
-		We've highlighted the top food from this restaurant below. If you really want something else, contact us at 646-783-1444 and we'll add it right away.
+		We've highlighted the top food from this restaurant below. Suggest something else? Text or call us at <a href="tel:+16467831444">(646) 783-1444</a>.
 	</div>
 </span>
 </script><script type="text/ng-template" id="assets/view/restaurants.html">
@@ -938,7 +938,7 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 	<div class="content-padder">
 		<div class="meal-items {{mealItemClass}}">
 
-			<div ng-click="display($event)" ng-class="{'meal-item-closed': restaurant._open==false}" class="meal-item" data-id_restaurant="{{restaurant.id_restaurant}}" data-permalink="{{restaurant.permalink}}" ng-repeat="restaurant in restaurants">
+			<div ng-click="display($event)" ng-class="{'meal-item-closed': restaurant._open==false}" class="meal-item" data-id_restaurant="{{restaurant.id_restaurant}}" data-permalink="{{restaurant.permalink}}" ng-repeat="restaurant in restaurants | limitTo:restaurantsToShow">
 
 				<div class="meal-item-content ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#333333">
 					<div class="ladda-label">
@@ -955,6 +955,9 @@ Visit our <a href="javascript:;" ng-click="navigation.link('/legal')">legal page
 				</div>
 				<div class="meal-item-spacer"></div>
 			</div>
+			<button class="showMoreRestaurants" ng-show="restaurantsToShow < restaurants.length" ng-click="showMoreRestaurants()">
+				Show more
+			</button>
 		</div>
 	</div>
 </div>
