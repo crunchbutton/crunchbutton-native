@@ -84,10 +84,8 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0.0</string>
-	<key>BalancedMarketplaceURI</key>
-	<string>/v1/marketplaces/TEST-MP87deQgmIr46omxRRF4KGO</string>
 	<key>FacebookAppID</key>
-	<string>330512547054803</string>
+	<string>411729638889643</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>

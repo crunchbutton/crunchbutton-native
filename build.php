@@ -9,11 +9,11 @@
  */
 
 
-$server = 'http://beta.crunchr.co/';
 $server = 'http://crunchbutton.localhost/';
 $srcPath = './src/';
 //$path = './www/';
 $path = './platforms/ios/www/';
+$live = true;
 
 
 // clean assets
@@ -54,15 +54,17 @@ function download($file, $dst = null, $usegzip = false) {
 	}
 
 	if ($usegzip) {
-		shell_exec('wget -q -O - --header="Accept-Encoding: gzip" "'.$server.'assets/'.$file.'" | gunzip > "'.$dstpath.'"');
+		shell_exec('wget -q -O - --header="Accept-Encoding: gzip" "'.$server.'assets/'.$file.($live ? '?__live=1' : '').'" | gunzip > "'.$dstpath.'"');
 	} else {
-		shell_exec('wget -q -O '.$dstpath.' "'.$server.'assets/'.$file.'"');
+		shell_exec('wget -q -O '.$dstpath.' "'.$server.'assets/'.$file.($live ? '?__live=1' : '').'"');
 		// file_put_contents($path.'assets/'.$file, file_get_contents($server.$file));
 	}
 	echo "complete.\n";
 }
 
-$assets = json_decode(file_get_contents($server.'api/build'));
+$assets = json_decode(file_get_contents($server.'api/build'.($live ? '?__live=1' : '')));
+$config = json_decode(file_get_contents($server.'api/build/config'.($live ? '?__live=1' : '')));
+
 foreach ($assets as $asset) {
 	$type = explode('/',$asset);
 	$type = $type[0];
@@ -93,13 +95,39 @@ echo "Asset download complete.\n";
 
 // create the index file
 echo "Building body...\n";
-
 $index = file_get_contents($path.'assets/view/template.html');
-$body = file_get_contents($server.'view/body.html');
+$body = file_get_contents($server.'view/body.html'.($live ? '?__live=1' : ''));
 $index = str_replace('<body></body>', '<body class="ios7">'.$body.'</body>', $index);
 $index = str_replace('<templates></templates>', $content, $index);
-
 file_put_contents($path.'index.html', $index);
+
+
+// add facebook to index js
+echo "Building index js...\n";
+$index = file_get_contents($path.'index.js');
+$index = str_replace('FACEBOOK_APP_IP', $config->facebook, $index);
+file_put_contents($path.'index.js', $index);
+
+
+// add facebook to info plst
+echo "Building info plist...\n";
+$plst = file($path.'../Crunchbutton/Crunchbutton-Info.plist');
+foreach ($plst as $l => $line) {
+	if (preg_match('/FacebookAppID/i', $line)) {
+		$correct = $l+1;
+		break;
+	}
+}
+$plst[$correct] = '	<string>'.$config->facebook."</string>\n";
+$plst = join("",$plst);
+file_put_contents($path.'../Crunchbutton/Crunchbutton-Info.plist', $plst);
+
+
+// add facebook to info plst
+echo "Building balanced plugin...\n";
+$bal = file_get_contents($path.'../Crunchbutton/Plugins/BalancedPlugin.m');
+$bal = preg_replace('/(NSString\* balancedId = @").*("\;)/','\\1'.$config->balanced.'\\2',$bal);
+file_put_contents($path.'../Crunchbutton/Plugins/BalancedPlugin.m', $bal);
 
 
 // yay
