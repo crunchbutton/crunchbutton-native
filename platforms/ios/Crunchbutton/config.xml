@@ -23,6 +23,9 @@
     <feature name="TapToScroll">
         <param name="ios-package" value="TapToScroll" />
     </feature>
+    <feature name="BalancedPlugin">
+        <param name="ios-package" value="BalancedPlugin" />
+    </feature>
     <access origin="*" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <preference name="SuppressesIncrementalRendering" value="false" />

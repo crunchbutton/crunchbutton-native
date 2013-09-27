@@ -21,6 +21,23 @@ if (!window.plugins.tapToScroll) {
 	window.plugins.tapToScroll = new TapToScroll();
 }
 
+balanced = {
+	card: {
+		create: function(args, complete) {
+			cordova.exec(function(response) {
+				complete({
+					status: 201,
+					data: response
+				});
+			}, function() {
+				complete({
+					status: 500
+				});
+			}, 'BalancedPlugin', 'tokenizeCard',[args.card_number, args.expiration_month, args.expiration_year, args.security_code || '']);
+		}
+	}
+};
+
 var login = function() {
 	FB.login(status, {scope: 'email'});
 };
@@ -39,6 +56,7 @@ $(function() {
 				if (App.rootScope.navigation.page == 'location') {
 					var yTilt = Math.round((-eventData.beta + 90) * (40/180) - 40);
 					var xTilt = Math.round((-eventData.gamma + 90) * (20/180) - 20);
+					var bgOffset = 0;
 				
 					if (xTilt > 0) {
 						xTilt = -xTilt;
@@ -46,7 +64,7 @@ $(function() {
 						xTilt = -(xTilt + 80);
 					}
 				
-					var backgroundPositionValue = (xTilt*3.2) + 'px ' + (yTilt*2) + "px";
+					var backgroundPositionValue = (xTilt*3.2) + 'px ' + ((yTilt*2) + bgOffset) + "px";
 					$('.bg').css('background-position', backgroundPositionValue);
 				}
 			} catch (e) {}
@@ -83,10 +101,10 @@ $(function() {
 	
 			FB.init({
 				appId: '330512547054803', // beta
-//				appId: '484123474978744', // localhost
+				appId: '484123474978744', // localhost
 //				appId: '411729638889643', // live
 				//cookie: true,
-//				xfbml: true,
+				xfbml: true,
 				//oauth: true,
 				nativeInterface: CDV.FB,
 				useCachedDialogs: false
