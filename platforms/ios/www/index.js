@@ -26,12 +26,12 @@ balanced = {
 		create: function(args, complete) {
 			cordova.exec(function(response) {
 				complete({
-					status: 201,
+					status: response.status_code,
 					data: response
 				});
 			}, function() {
 				complete({
-					status: 500
+					status: 999
 				});
 			}, 'BalancedPlugin', 'tokenizeCard',[args.card_number, args.expiration_month, args.expiration_year, args.security_code || '']);
 		}
