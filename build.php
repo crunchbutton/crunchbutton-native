@@ -13,8 +13,10 @@ $server = 'http://crunchbutton.localhost/';
 $srcPath = './src/';
 //$path = './www/';
 $path = './platforms/ios/www/';
-$live = true;
+$live = $argv[1] == 'live' ? true : false;
 
+
+echo "Building for ".($live ? 'LIVE' : 'BETA')."\n";
 
 // clean assets
 echo "Cleaning assets...";
@@ -132,5 +134,5 @@ file_put_contents($path.'../Crunchbutton/Plugins/BalancedPlugin.m', $bal);
 
 
 // yay
-echo "\033[32mBuild complete!\033[37m
+echo "\033[32m".($live ? 'LIVE' : 'BETA')." build complete!\033[37m
 ";
