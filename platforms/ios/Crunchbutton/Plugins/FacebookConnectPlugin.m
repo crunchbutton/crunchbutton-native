@@ -305,6 +305,26 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void) share:(CDVInvokedUrlCommand*)command
+{
+	NSURL* url = [NSURL URLWithString:[command argumentAtIndex:0]];
+	NSString* name = [command argumentAtIndex:1];
+	NSString* caption = [command argumentAtIndex:2];
+	NSString* description = [command argumentAtIndex:3];
+	NSURL* picture = [NSURL URLWithString:[command argumentAtIndex:4]];
+
+	[FBDialogs presentShareDialogWithLink:url name:name caption:caption description:description picture:picture clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+		if (error) {
+			CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:results];
+			[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+		} else {
+			CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:results];
+			[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+		}
+	}];
+}
+
+
 - (void) showDialog:(CDVInvokedUrlCommand*)command
 {
     // Save the callback ID
