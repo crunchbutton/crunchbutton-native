@@ -45,8 +45,8 @@ var login = function() {
 
 $(function() {
 	document.addEventListener('deviceready', function() {
-		// this is only here so we can not get a double permission request
 		/*
+		// the double permission thing doesnt seem to happen anymore. so i dont think we need this.
 		navigator.geolocation.getCurrentPosition(function (position) {
 			console.debug('got users position', position);
 		});
