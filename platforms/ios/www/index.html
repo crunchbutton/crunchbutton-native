@@ -30,7 +30,7 @@
 </script><script type="text/ng-template" id="assets/view/account.html">
 <div class="account-container modal zoom-anim-dialog small-container mfp-hide">
 	<div ng-controller="AccountModalHeaderCtrl" class="header" ng-show="modal.header">
-		<h1 class="signin {{ modal.signin && 'active' || 'link' }}" ng-click="modal.toggleSignForm( 'signin' )">Sign in</h1>
+		<h1 class="signin {{ modal.signin && 'active' || 'link' }}" ng-click="modal.toggleSignForm( 'signin' )">Log In</h1>
 		<div class="divisor">|</div>
 		<h1 class="signup {{ modal.signup && 'active' || 'link' }}" ng-click="modal.toggleSignForm( 'signup' )">Sign up</h1>
 		<div class="divider"></div>
@@ -59,7 +59,7 @@
 			<button ng-click="account.signin();">Log in</button>
 			<div class="divider"></div>
 
-		<div facebook-signin-button title="Login with Facebook"></div>
+		<div facebook-signin-button title="Log in with Facebook"></div>
 		</div>
 		<div ng-show="help.visible">
 			<form class="signin-help-form" name="formLoginHelp" novalidate>
@@ -113,14 +113,14 @@
 		<div ng-show="account.user.has_auth">
 			<h1>Congratulations!</h1>
 			<div class="success">
-				You can now sign in using <strong>{{account.email}}</strong>!
+				You can now log in using <strong>{{account.email}}</strong>!
 			</div>
 		</div>
 	</div>
 
 	<div ng-controller="AccountFacebookCtrl" ng-show="modal.facebookLogin">
 		<div>
-			<h1>Login with Facebook</h1>
+			<h1>Log in with Facebook</h1>
 			<div facebook-signin-button title="Connect with Facebook"></div>
 		</div>
 	</div>
@@ -225,7 +225,7 @@
 </div>
 
 </script><script type="text/ng-template" id="assets/view/help.html">
-	<div class="main-content-readable"><h1 class="about-header">About</h1><p>Crunchbutton lets you order your favorite food with one click. We highlight the top food from the top restaurants in a community. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click/tap.</p><br /><br /><h1 class="about-header">Help</h1><p><b>Problem with your order?</b><br />Try contacting the restaurant you ordered from.<br /><br /><b>Need to contact Crunchbutton?</b><br />Call us at <a href="tel:16467831444">(646) 783-1444</a> or email us at <a href="mailto:happycustomers@crunchbutton.com">happycustomers@crunchbutton.com</a>.<br /><br /></p><br /><br /><h1 class="about-header">FAQ</h1><p><b>How do I order food?</b><br />Easy! Just go to crunchbutton.com and click the restaurant you want to order from. Add whatever food you want, and enter your address, phone, and payment info. Click "Get Food" and try to stay hungry! The restaurant will call you when they're outside.<br /><br /><b>Is it cheaper for me to just call the restaurant?</b><br />No!! Crunchbutton is totally free to you. Prices are the same as calling the restaurant. Sometimes even cheaper!!<br /><br /><b>Is it faster for me to just call the restaurant?</b><br />No!! With Crunchbutton ordering is as fast as a single click!! And we make sure our restaurants receive orders promptlier and accuratelier than when you call.<br /><br /><b>How do you save my info?</b><br />We use a super secure system away from our web server to store and encrypt all your financial information.<br /><br /><b>How do I change my stored info?</b><br />Just click on the info you want to change, enter the changes, and, after you place your order, it’ll be saved for next time.<br /><br /><b>But I've never used Crunchbutton before...</b><br />Oh man, it's okay. I remember my first time, it didn't last more than 30 seconds. I went to Crunchbutton.com, found my favorite restaurant, hit "Get Food." Minutes later, my sandwich arrived. Post-coital bliss ensued, that sandwich sure knew how to crunch my buttons.<br /><br /><b>omg i am wayy too drunk to enter my information</b><br />We thought this might happen. Luckily, Crunchbutton saves your address, phone, and payment info, so all you have to do is click what you want and hit the big, red "Get Food" button. Try to be awake when the delivery guy calls.<br /><br /><b>I want to put a restaurant on Crunchbutton.</b><br />Good idea! Contact <a href="mailto:join@crunchbutton.com">join@crunchbutton.com</a>.<br /><br /><b>I know I can order food online, but can I order by US mail?</b><br />Why yes you can! Send a check or money order to Crunchbutton, 13701 Marina Pointe Dr #344, Marina Del Rey, CA 90292, give us one week's notice, and we will get you your food!<br /><br /></p><br /><br /><p>Visit our <a href="/legal" ng-click="navigation.link('/legal')">legal page</a> for legal and privacy information.</p></div>
+	<div class="main-content-readable"><h1 class="about-header">About</h1><p>Crunchbutton lets you order your favorite food with one click. We highlight the top food from the top restaurants in a community. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click/tap.</p><br /><br /><h1 class="about-header">Help</h1><p><b>Problem with your order?</b><br />Try contacting the restaurant you ordered from.<br /><br /><b>Need to contact Crunchbutton?</b><br />Call us at <a href="tel:16467831444">(646) 783-1444</a> or email us at <a href="mailto:happycustomers@crunchbutton.com">happycustomers@crunchbutton.com</a>.<br /><br /></p><br /><br /><h1 class="about-header">FAQ</h1><p><b>How do I order food?</b><br />Easy! Just go to crunchbutton.com and click the restaurant you want to order from. Add whatever food you want, and enter your address, phone, and payment info. Click "Get Food" and try to stay hungry! The restaurant will call you when they're outside.<br /><br /><b>Is it cheaper for me to just call the restaurant?</b><br />No!! Crunchbutton is totally free to you. Prices are the same as calling the restaurant. Sometimes even cheaper!!<br /><br /><b>Is it faster for me to just call the restaurant?</b><br />No!! With Crunchbutton ordering is as fast as a single click!! And we make sure our restaurants receive orders promptlier and accuratelier than when you call.<br /><br /><b>How do you save my info?</b><br />We use a super secure system away from our web server to store and encrypt all your financial information.<br /><br /><b>How do I change my stored info?</b><br />Just click on the info you want to change, enter the changes, and, after you place your order, it’ll be saved for next time.<br /><br /><b>But I've never used Crunchbutton before...</b><br />Oh man, it's okay. I remember my first time, it didn't last more than 30 seconds. I went to Crunchbutton.com, found my favorite restaurant, hit "Get Food." Minutes later, my sandwich arrived. Post-coital bliss ensued, that sandwich sure knew how to crunch my buttons.<br /><br /><b>omg i am wayy too drunk to enter my information</b><br />We thought this might happen. Luckily, Crunchbutton saves your address, phone, and payment info, so all you have to do is click what you want and hit the big, red "Get Food" button. Try to be awake when the delivery guy calls.<br /><br /><b>I want to put a restaurant on Crunchbutton.</b><br />Good idea! Contact <a href="mailto:join@crunchbutton.com">join@crunchbutton.com</a>.<br /><br /><b>I know I can order food online, but can I order by US mail?</b><br />Why yes you can! Send a check or money order to Crunchbutton, 13701 Marina Pointe Dr #344, Marina Del Rey, CA 90292, give us one week's notice, and we will get you your food!<br /><br /></p><br /><br /><p>Visit our <a class="pointer" ng-click="legal()">legal page</a> for legal and privacy information.</p></div>
 </script><script type="text/ng-template" id="assets/view/home.html">
 <div class="main-content-readable home-greeting">
 	<div class="home-welcome">
@@ -280,7 +280,7 @@
 				Please {{isMobile | iif : 'tap' : 'click'}} <span ng-click="resetFormLocation()" class="change-location-inline">here</span> here to enter a different address.
 				<div ng-hide="recommend.greetings">
 					<div class="home-reccomend-spacer"></div>
-					Have something specific in mind? Tell us your favorite restaurant in your area!
+					Have something specific in mind? Tell us your favorite delivery restaurant in your area!
 				</div>
 			</h2>
 		</div>
@@ -428,7 +428,11 @@
 </div>
 </script><script type="text/ng-template" id="assets/view/orders.html">
 <div ng-show="!orders.list">
-	<!-- Orders loader -->
+	<div class="main-content-readable home-greeting">
+		<div class="home-welcome">
+			<h1>Finding your awesome orders...</h1>
+		</div>
+	</div>
 </div>
 <div ng-show="orders.list" class="main-content-readable">
 
@@ -941,7 +945,7 @@
 						<h3 class="meal-food">{{restaurant._short_description}}</h3>
 						<div ng-switch on="restaurant._tag">
 							<div class="meal-item-tag" ng-switch-when="takeout">Take out only</div>
-							<div class="meal-item-tag about-to-close" ng-switch-when="closing">Hurry, closes in {{restaurant._minToClose}} min!</div>
+							<div class="meal-item-tag about-to-close" ng-switch-when="closing">Hurry, closes in {{restaurant._closesIn}} min!</div>
 							<div class="meal-item-tag-closed" ng-switch-when="closed">Opens in a few hours</div>
 						</div>
 					</div>
@@ -963,7 +967,7 @@
 			<form class="signin-form">
 
 				<div class="sign-form-links">
-					<h1 ng-class="{{account.tab == 'signin' && 'tab-active' || 'link' }}" ng-click="account.setTab('signin')">Sign in</h1>
+					<h1 ng-class="{{account.tab == 'signin' && 'tab-active' || 'link' }}" ng-click="account.setTab('signin')">Log In</h1>
 					<div class="divisor">|</div>
 					<h1 ng-class="{{account.tab == 'signup' && 'tab-active' || 'link' }}" ng-click="account.setTab('signup')">Sign up</h1>
 					<div class="divider"></div>
@@ -985,7 +989,7 @@
 				<div class="social-button facebook-button social-button-share">
 					<a href="javascript:;" class="signin-facebook-button">
 						<span class="signin-facebook-icon"></span>
-						<span class="signin-facebook-text">Login with Facebook</span>
+						<span class="signin-facebook-text">Log in with Facebook</span>
 						<div class="divider"></div>
 					</a>
 				</div>
@@ -1013,7 +1017,7 @@
 			<div class="signup-form-options">
 				<form class="signup-form">
 					<div class="sign-form-links">
-						<h1 class="signin signin-link link">Sign in</h1>
+						<h1 class="signin signin-link link">Log In</h1>
 						<div class="divisor">|</div>
 						<h1 class="active signup">Sign up</h1>
 						<div class="divider"></div>
@@ -1042,7 +1046,7 @@
 			<div class="signup-success-container">
 				<h1>Congratulations!</h1>
 				<div class="signup-success">
-					You can now sign in using <strong class="success-phone"></strong>!
+					You can now log in using <strong class="success-phone"></strong>!
 				</div>
 			</div>
 		</div>
@@ -1169,7 +1173,7 @@
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="icon-user"></i></td>
-							<td class="side-menu-label">Login</a></td>
+							<td class="side-menu-label">Log In</a></td>
 						</tr>
 					</table>
 				</li>
