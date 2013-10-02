@@ -26,6 +26,9 @@
     <feature name="BalancedPlugin">
         <param name="ios-package" value="BalancedPlugin" />
     </feature>
+    <feature name="VersionPlugin">
+        <param name="ios-package" value="VersionPlugin" />
+    </feature>
     <access origin="*" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <preference name="SuppressesIncrementalRendering" value="false" />

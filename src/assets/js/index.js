@@ -52,6 +52,16 @@ $(function() {
 		});
 		*/
 
+		// set a timeout for when ajax requests timeout
+		cordova.exec(function(response) {
+			$.ajaxSetup({
+				timeout: App.ajaxTimeout,
+				data: {
+					'_v': response
+				}
+			});
+		}, null, 'VersionPlugin', 'version',[]);
+
 		// do the ios7 style 3d tilt thing on the location page
 		window.addEventListener('deviceorientation', function(eventData) {
 			try {
