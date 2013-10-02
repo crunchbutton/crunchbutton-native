@@ -46,6 +46,7 @@
 		085E2CA917A85D20007A9847 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085E2CA817A85D20007A9847 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		085E2CAB17A85D2B007A9847 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085E2CAA17A85D2B007A9847 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		08A1D7C817EB68B9008DA7CC /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A1D7C417EB68B9008DA7CC /* libTestFlight.a */; };
+		08AE05C417FC8D98008E44E7 /* VersionPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AE05C317FC8D98008E44E7 /* VersionPlugin.m */; };
 		08E6EEF517BA23D8001A0403 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		08F8416317F4D2550020D069 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F8416217F4D2550020D069 /* CoreTelephony.framework */; };
 		08F8416517F4D2700020D069 /* balanced.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F8416417F4D2700020D069 /* balanced.a */; };
@@ -147,6 +148,8 @@
 		08A1D7C517EB68B9008DA7CC /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		08A1D7C617EB68B9008DA7CC /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		08A1D7C717EB68B9008DA7CC /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		08AE05C217FC8D98008E44E7 /* VersionPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionPlugin.h; sourceTree = "<group>"; };
+		08AE05C317FC8D98008E44E7 /* VersionPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionPlugin.m; sourceTree = "<group>"; };
 		08DA713F17BA2014004DA9AF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		08DA714317BA2027004DA9AF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		08DA714917BA2054004DA9AF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -378,6 +381,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				08AE05C217FC8D98008E44E7 /* VersionPlugin.h */,
+				08AE05C317FC8D98008E44E7 /* VersionPlugin.m */,
 				08F8417517F4E5210020D069 /* balanced */,
 				08F8416C17F4D31D0020D069 /* BalancedPlugin.h */,
 				08F8416F17F4D3B10020D069 /* BalancedPlugin.m */,
@@ -600,6 +605,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08F8417017F4D3B10020D069 /* BalancedPlugin.m in Sources */,
+				08AE05C417FC8D98008E44E7 /* VersionPlugin.m in Sources */,
 				0822347D17AC32B4009F2FC5 /* TapToScroll.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				08168BF617E91FF700347F67 /* CDVNotification.m in Sources */,
