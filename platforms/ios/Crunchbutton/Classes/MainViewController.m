@@ -71,14 +71,68 @@
     [super viewWillAppear:animated];
 }
 
+-(void) changeFramePosition{
+
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7")) {
+        
+        CGRect statusBarFrame;
+        statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+
+        CGFloat statusHeight = statusBarFrame.size.height - 20;
+
+        UIScreen *screen = [UIScreen mainScreen];
+        CGRect viewRect = screen.bounds;
+
+        viewRect.size.height -= statusHeight;
+        viewRect.origin.y = statusHeight;
+        self.view.frame = viewRect;
+
+        [self tellJavascriptAboutTheFramePosition];
+
+    }
+}
+
+-(void) tellJavascriptAboutTheFramePosition{
+
+    CGRect statusBarFrame;
+    statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+
+    if( statusBarFrame.size.height > 20 ){
+        NSString* jsString = [NSString stringWithFormat:@"App.setNotificationBarStatus(true)" ];
+        [self.webView stringByEvaluatingJavaScriptFromString:jsString];       
+    } else {
+        NSString* jsString = [NSString stringWithFormat:@"App.setNotificationBarStatus(false) " ];
+        [self.webView stringByEvaluatingJavaScriptFromString:jsString];       
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                            selector:@selector(statusFrameChanged:)
+                                                name:UIApplicationWillChangeStatusBarFrameNotification
+                                            object:nil];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)statusFrameChanged:(NSNotification*)note
+{
+    [self changeFramePosition];
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    [self changeFramePosition];
 }
 
 - (void)viewDidUnload
 {
+ [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationWillChangeStatusBarFrameNotification
+                                                  object:nil];
+
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
