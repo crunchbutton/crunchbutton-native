@@ -265,7 +265,7 @@
 	</form>
 </div>
 <div class="divider"></div>
-<button ng-show="!locationError" ng-spinner class="button-letseat-form button-bottom ladda-button" data-style="zoom-out" data-spinner-color="#FFFFFF" ng-click="letsEat()">
+<button ng-show="!locationError" ng-spinner class="button-letseat-form button-bottom ladda-button button-orange" data-style="zoom-out" data-spinner-color="#FFFFFF" ng-click="letsEat()">
 	<div class="ladda-label">Find Restaurants!</div>
 	<span class="ladda-spinner"></span>
 </button>
@@ -300,7 +300,7 @@
 						<span class="home-reccomend-message-content">We'll let you know if they make it to Crunchbutton.</span>
 					</div>
 					<div ng-show="!account.user.has_auth">
-						<button ng-click="modal.signupOpen()" class="home-recommend-button"><div>Create an account</div></button>
+						<button ng-click="signupOpen()" class="home-recommend-button"><div>Create an account</div></button>
 						<span class="home-reccomend-message-content">and we'll let you know when we launch in your area!</span>
 					</div>
 				</div>
@@ -359,14 +359,15 @@
 				<div class="divider dots"></div>
 			</div>
 			
-
-			<div class="social-button facebook-button social-button-share clearfix" ng-click="facebook();">
-				<i class="icon-facebook"></i><span class="social-button-text">Share what you ordered</span>
-				<div class="divider"></div>
-			</div>
-			<div ng-show="order.new && referral.invite_url && referral.enabled">
-				Earn <b>Crunch Credit</b> for every new friend who orders with your shared link!
-				<br /><br />
+			<div ng-show="account.user.has_auth">
+				<div class="social-button facebook-button social-button-share clearfix" ng-click="facebook();">
+					<i class="icon-facebook"></i><span class="social-button-text">Share what you ordered</span>
+					<div class="divider"></div>
+				</div>
+				<div ng-show="order.new && referral.invite_url && referral.enabled">
+					Earn <b>Crunch Credit</b> for every new friend who orders with your shared link!
+					<br /><br />
+				</div>
 			</div>
 			
 			<div class="divider dots"></div>
@@ -430,16 +431,15 @@
 <div ng-show="!orders.list">
 	<div class="main-content-readable home-greeting">
 		<div class="home-welcome">
-			<h1>Finding your awesome orders...</h1>
-			<div>
-				<img src="/assets/images/orders-loading.gif" />
-			</div>
+			<h2>What great taste you have!</h2>
+			<br>
+			<div class="ajax-loader-teal"></div>
+			<br>
 		</div>
 	</div>
 </div>
 
 <div ng-show="orders.list" class="main-content-readable">
-
 	<div class="restaurant-item-title">PAST ORDERS</div>
 
 	<ul class="resturant-dishes resturant-dish-container your-orders">
@@ -513,7 +513,7 @@
 
 <div ng-show="order.loaded">
 
-	<div class="giftcard-badge-container" ng-show="credit.value != '0.00'">
+	<div class="giftcard-badge-container" ng-show="credit.hasValue">
 		<div class="giftcard-badge">
 			<div ng-click="credit.tooltip=!credit.tooltip" class="giftcard-badge-value">${{credit.value}}</div>
 		</div>
@@ -524,7 +524,7 @@
 
 	<div class="restaurant-name">
 		<h1>{{restaurant.name}}</h1>
-		<div class="giftcard-desktop-container" ng-show="credit.value != '0.00'">
+		<div class="giftcard-desktop-container" ng-show="credit.hasValue">
 			<div class="giftcard-desktop-message">
 				You have a <span class="giftcard-value">{{AB.dollar}}{{credit.value}}</span> gift card
 			</div>
@@ -558,13 +558,12 @@
 				<div ng-show="!order.cart.hasItems()" class="order-begin-wrap">
 					<div class="order-begin">
 						<div class="icon">
-							<i class="icon-arrow-left desktop"></i> 	
-							<i class="icon-arrow-down mobile"></i> 
+							<i class="icon-arrow-left hidden-phone"></i> 	
+							<i class="icon-arrow-down hidden-desktop"></i> 
 						</div>
 						<div class="text">
-							Begin by clicking on anything from our curated menu 
-							<span class="desktop"> on the left!</span>
-							<span class="mobile"> below!</span>
+							<span class="hidden-phone">{{nothingInTheCartDesktop}}</span>
+							<span class="hidden-desktop">{{nothingInTheCartMobile}}</span>
 						</div>
 					</div>
 					<div class="divider"></div>
@@ -581,8 +580,12 @@
 					<div ng-repeat="item in order.cart.items">
 
 						<div class="cart-item cart-item-dish">
-
-							<div class="cart-button cart-button-remove" ng-click="order.cart.remove(item.details.id);"><span></span></div>
+							<div class="hidden-desktop">
+								<div class="button-orange cart-button cart-button-remove" ng-click="order.cart.remove(item.details.id);"><span class="icon-remove"></span></div>
+							</div>
+							<div class="hidden-phone">
+								<div class="cart-button cart-button-remove" ng-click="order.cart.remove(item.details.id);"><span class="icon-remove-sign"></span></div>
+							</div>
 
 							<div class="cart-item-name">{{item.details.name}}
 								<span class="cart-item-description">{{item.details.description}}</span>
@@ -593,7 +596,7 @@
 						</div>
 
 						<!-- Customizable options -->
-						<div ng-show="item.details.customization.customizable && item.details.customization.expanded">
+						<div class="cart-customize-options" ng-show="item.details.customization.customizable && item.details.customization.expanded">
 							
 							<div ng-repeat="option in item.details.customization.options">
 
@@ -603,10 +606,10 @@
 
 										<!-- Customizable - checkbox -->
 										<div ng-switch-when="check">
-												<input type="checkbox" custom-checkbox ng-change="order.cart.customizeItem(option, item)" ng-model="option.checked" class="cart-customize-check">
-												<label ng-click="option.checked = !option.checked; order.cart.customizeItem(option, item);" class="cart-item-customize-name">{{option.name}}</label>
-												<label ng-click="option.checked = !option.checked; order.cart.customizeItem(option, item);" class="cart-item-customize-price">{{option.priceFormated}}</label>
-												<div class="divider"></div>
+											<input type="checkbox" custom-checkbox ng-change="order.cart.customizeItem(option, item)" ng-model="option.checked" class="cart-customize-check">
+											<a ng-click="option.checked = !option.checked; order.cart.customizeItem(option, item);" class="cart-item-customize-name">{{option.name}}</a>
+											<a ng-click="option.checked = !option.checked; order.cart.customizeItem(option, item);" class="cart-item-customize-price">{{option.priceFormated}}</a>
+											<div class="divider"></div>
 										</div>
 
 										<!-- Customizable - select -->
@@ -626,8 +629,8 @@
 			</div>
 
 			<div class="default-order-check" ng-show="order.info.totalItems && restaurant._open">
-				<input custom-checkbox type="checkbox" ng-model="order.form.make_default" id="default-order-check">
-				<label for="default-order-check">Save this order for next time</label>
+				<input custom-checkbox type="checkbox" ng-model="order.form.make_default">
+				<a ng-click="order.form.make_default = !order.form.make_default;">Save this order for next time</a>
 				<div class="divider"></div>
 			</div>
 
@@ -646,7 +649,7 @@
 				<div class="restaurant-item-title">{{category.name}}{{category.locName()}}</div>
 				<ul class="resturant-dishes resturant-dish-container" date-id_category="{{category.id_category}}">
 					<li ng-repeat="dish in category.dishes()" ng-click="order.cart.add( dish.id_dish )" class="dish-item">
-						<span class="dish-name"><i class="icon-star" ng-show="dish.top"></i> {{dish.name}}</span><span class="dish-price">({{AB.dollar}}{{dish.price}}{{AB.changeablePrice(dish)}})</span>
+						<span class="dish-name"><i class="icon-star" ng-show="dish.top"></i> {{dish.name}}</span><span class="dish-price">({{AB.dollar}}{{dish.price}}<span ng-show="dish.changeable_price">+</span>)</span>
 					</li>
 				</ul>
 			</div>
@@ -726,7 +729,7 @@
 								This restaurant does not accept gift card.
 							</div>
 
-							<div ng-show="giftcard.value != '0.00' && order.form.pay_type == 'cash' ">
+							<div ng-show="giftcard.hasValue && order.form.pay_type == 'cash' ">
 								Pay with a card, NOT CASH, to use your ${{giftcard.value}} gift card!</span>
 							</div>
 
@@ -816,9 +819,12 @@
 				<span ng-show="order.form.pay_type=='cash'">approximately</span>
 				&nbsp;{{order.info.breakdownDescription}}&nbsp;
 				<span ng-show="order.info.extraCharges">( + {{order.info.extraCharges}} )</span>
-				<strong class="cart-gift" ng-show="credit.value != '0.00' && order.form.pay_type == 'card' ">
+				<strong class="cart-gift" ng-show="credit.hasValue && order.form.pay_type == 'card' ">
 					<span>
-						&nbsp;(-{{AB.dollar}}{{credit.value}} credit 
+						&nbsp;(-{{AB.dollar}}
+						<span ng-show="order.total() <= credit.number">{{order.total()}}</span>
+						<span ng-show="order.total() > credit.number">{{credit.value}}</span>
+						&nbsp;credit 
 
 						<span ng-show="order.info.creditLeft != ''" class="gift-left">
 							- You'll still have {{AB.dollar}}{{order.info.creditLeft}} gift card left
@@ -827,7 +833,7 @@
 				</strong>&nbsp;
 				for a total of {{order.info.totalText}}
 				&nbsp;
-				<div ng-show="credit.value != '0.00' && order.form.pay_type == 'cash' ">
+				<div ng-show="credit.hasValue && order.form.pay_type == 'cash' ">
 					<div class="giftcard-payment-message">Pay with a card, NOT CASH, to use your {{AB.dollar}}{{credit.value}} gift card</div>
 				</div>
 				&nbsp;
@@ -837,7 +843,7 @@
 	
 	</form>
 
-	<div ng-show="restaurant._open && order.cart.hasItems()" class="button-bottom-wrapper button-bottom-inline"><button class="button-bottom" ng-click="order.submit();"><div>Get Food</div></button></div>
+	<div ng-show="restaurant._open && order.cart.hasItems()" class="button-bottom-wrapper button-bottom-inline"><button class="button-bottom button-orange" ng-click="order.submit();"><div>Get Food</div></button></div>
 
 	<!-- stored user info -->
 	<div class="delivery-payment-info main-content-readable" ng-show="restaurant._open && !order.showForm && order.cart.hasItems()">
@@ -852,10 +858,12 @@
 			<label>You're paying:&nbsp;<span ng-show="order.form.pay_type=='cash'" class="unbold">approximately</span></label>
 			&nbsp;{{order.info.breakdownDescription}}&nbsp;
 			<span ng-show="order.info.extraCharges">( + {{order.info.extraCharges}} )</span>
-			<strong class="cart-gift" ng-show="credit.value != '0.00' && order.form.pay_type == 'card' ">
+			<strong class="cart-gift" ng-show="credit.hasValue && order.form.pay_type == 'card' ">
 					<span>
-						&nbsp;(-{{AB.dollar}}{{credit.value}} credit 
-
+						&nbsp;(-{{AB.dollar}}
+						<span ng-show="order.total() <= credit.number">{{order.total()}}</span>
+						<span ng-show="order.total() > credit.number">{{credit.value}}</span>
+						&nbsp;credit 
 						<span ng-show="order.info.creditLeft != ''" class="gift-left">
 							- You'll still have {{AB.dollar}}{{order.info.creditLeft}} gift card left
 						</span> )
@@ -863,7 +871,7 @@
 				</strong>&nbsp;
 			for a total of {{order.info.totalText}}
 			&nbsp;
-				<div ng-show="credit.value != '0.00' && order.form.pay_type == 'cash' ">
+				<div ng-show="credit.hasValue && order.form.pay_type == 'cash' ">
 					<div class="giftcard-payment-message">Pay with a card, NOT CASH, to use your {{AB.dollar}}{{credit.value}} gift card</div>
 				</div>
 			&nbsp;
@@ -1091,7 +1099,7 @@
 <div ng-controller="SupportCtrl" class="support-container" ng-show="!App.isMobile()">
 
 	<div class="support-minimized" ng-show="support.minimized" ng-click="support.toggle();">
-		<div class="support-icon"></div>
+		<div class="icon-comments-alt support-icon"></div>
 		<div class="support-title">Contact us?</div>
 		<div class="divider"></div>
 	</div>
@@ -1099,7 +1107,7 @@
 	<div class="support-maximized" ng-show="support.maximized">
 
 		<div class="support-maximized-header" ng-click="support.toggle();">
-			<div class="support-icon"></div>
+			<div class="icon-comments-alt support-icon"></div>
 			<div class="support-title">Question? Comment?</div>
 			<div class="divider"></div>
 		</div>
@@ -1191,7 +1199,30 @@
 					</table>
 				</li>
 
-				
+				<li ng-instant="test.card()" ng-show="account.user.debug">
+					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+						<tr>
+							<td class="side-menu-icon"><i class="icon-circle-blank"></i></td>
+							<td class="side-menu-label">TEST: card</a></td>
+						</tr>
+					</table>
+				</li>
+				<li ng-instant="test.clearloc()" ng-show="account.user.debug">
+					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+						<tr>
+							<td class="side-menu-icon"><i class="icon-circle-blank"></i></td>
+							<td class="side-menu-label">TEST: clear loc</a></td>
+						</tr>
+					</table>
+				</li>
+				<li ng-instant="test.reload()" ng-show="account.user.debug">
+					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+						<tr>
+							<td class="side-menu-icon"><i class="icon-circle-blank"></i></td>
+							<td class="side-menu-label">TEST: reload page</a></td>
+						</tr>
+					</table>
+				</li>
 			</ul>
 			<div>
 				<p>&copy; 2013 YouBeo. All rights reserved.</p>
@@ -1206,8 +1237,6 @@
 		<div class="navs" data-position="fixed" ng-controller="MainHeaderCtrl">
 			<div class="nav nav-top">
 				<div class="content short-meal-list">
-					
-					<div class="pacman-loading pacman-left"></div>
 	
 					<div class="logo"><a href="javascript:;" ng-instant="navigation.home()"><div class="logo-img"></div></a></div>
 	
@@ -1232,9 +1261,10 @@
 			</div>
 		</div>
 
-		<div ng-class="{'button-bottom-show': (navigation.page == 'restaurant' && navigation.restaurant._open && navigation.order.cart.hasItems())}" class="button-bottom-wrapper button-bottom-bar" data-position="fixed">
-			<button class="button-bottom" ng-click="navigation.order.submit();"><div>Get Food</div></button>
-			<button class="button-bottom" ng-click="navigation.order.checkout();"><div>Checkout</div></button>
+
+		<div ng-class="{'button-bottom-show': (navigation.page == 'restaurant' && navigation.restaurant._open && navigation.order.cart.hasItems() && !notificationBarStatus ), 'button-bottom-show-notification-bar-on': (navigation.page == 'restaurant' && navigation.restaurant._open && navigation.order.cart.hasItems() && notificationBarStatus )}" class="button-bottom-wrapper button-bottom-bar" data-position="fixed">
+			<button class="button-bottom button-orange" ng-click="navigation.order.submit();"><div>Get Food</div></button>
+			<button class="button-bottom button-orange" ng-click="navigation.order.checkout();"><div>Checkout</div></button>
 		</div>
 
 		<div class="snap-content-inner bg" ng-scroll-position>
@@ -1255,7 +1285,14 @@
 	
 					<a href="javascript:;" ng-click="navigation.link('/help')">Help</a>
 					<a ng-show="navigation.account.user" href="javascript:;" ng-click="navigation.link('/orders')">Order History</a>
-										<br />
+
+					<a href="javascript:App.test.card();" class="test-card" ng-show="account.user.debug">TEST: card</a>
+					<a href="javascript:App.test.logout();" class="test-logout" ng-show="account.user.debug">TEST: logout</a>
+					<a href="javascript:App.test.clearloc();" class="test-clearloc" ng-show="account.user.debug">TEST: clear loc</a>
+					<a href="javascript:;" ng-click="navigation.link('/')" ng-show="account.user.debug">TEST: go home</a>
+					<a href="javascript:;" ng-click="navigation.link('/location')" ng-show="account.user.debug">TEST: go location</a>
+
+					<br />
 					<span class="copyright">&copy; 2013 YouBeo. All rights reserved.</span>
 				</div>
 			</div>
@@ -1290,7 +1327,7 @@
 	</audio>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 	<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="angular-1.0.7.min.js"></script>
+	<script type="text/javascript" src="angular-1.0.8.min.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="cdv-plugin-fb-connect.js"></script>
 	<script type="text/javascript" src="facebook-js-sdk.js"></script>
