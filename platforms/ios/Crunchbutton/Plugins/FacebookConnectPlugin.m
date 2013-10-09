@@ -67,7 +67,7 @@
                     [FBRequestConnection startForMeWithCompletionHandler:
                      ^(FBRequestConnection *connection, id <FBGraphUser>user, NSError *error) {
                          if (!error) {
-							 // @bug: when submitting to the app store, this line gives it an error
+							 // @bug #1950: when submitting to the app store, this line gives it an error
                              self.userid = user.id;
                              // Send the plugin result. Wait for a successful fetch of user info.
                              CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
