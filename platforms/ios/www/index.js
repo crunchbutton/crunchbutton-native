@@ -83,7 +83,7 @@ $(function() {
 		}, false);
 
 
-		App.server = 'http://beta.crunchr.co/';
+		App.server = 'https://crunchbutton.com/';
 		App.service = App.server + 'api/';
 		App.imgServer = 'http://i.crunchbutton.com/';
 	
@@ -112,7 +112,7 @@ $(function() {
 			FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
 	
 			FB.init({
-				appId: '330512547054803',
+				appId: '411729638889643',
 				//cookie: true,
 				xfbml: true,
 				//oauth: true,
