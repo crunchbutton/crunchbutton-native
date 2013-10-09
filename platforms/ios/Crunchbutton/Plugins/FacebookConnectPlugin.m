@@ -23,13 +23,13 @@
 /* This overrides CDVPlugin's method, which receives a notification when handleOpenURL is called on the main app delegate */
 - (void) handleOpenURL:(NSNotification*)notification
 {
-        NSURL* url = [notification object];
-
-        if (![url isKindOfClass:[NSURL class]]) {
+	NSURL* url = [notification object];
+	
+	if (![url isKindOfClass:[NSURL class]]) {
         return;
-        }
+	}
     
-        [FBSession.activeSession handleOpenURL:url];
+	[FBSession.activeSession handleOpenURL:url];
 }
 
 - (void)pluginInitialize
@@ -67,6 +67,7 @@
                     [FBRequestConnection startForMeWithCompletionHandler:
                      ^(FBRequestConnection *connection, id <FBGraphUser>user, NSError *error) {
                          if (!error) {
+							 // @bug: when submitting to the app store, this line gives it an error
                              self.userid = user.id;
                              // Send the plugin result. Wait for a successful fetch of user info.
                              CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
@@ -80,8 +81,8 @@
                 }else {
                     // Don't get user's info but trigger success callback
                     // Send the plugin result. Wait for a successful fetch of user info.
-                    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK 
-                                                                messageAsDictionary:[self responseObject]];
+                    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
+																  messageAsDictionary:[self responseObject]];
                     [self.commandDelegate sendPluginResult:pluginResult callbackId:self.loginCallbackId];
                 }
             }
@@ -172,32 +173,32 @@
 }
 
 - (void) init:(CDVInvokedUrlCommand*)command
-{    
+{
     self.userid = @"";
     
     [FBSession openActiveSessionWithReadPermissions:nil
-                                   allowLoginUI:NO
-                              completionHandler:^(FBSession *session,
-                                                  FBSessionState state,
-                                                  NSError *error) {
-                                  [self sessionStateChanged:session
-                                                      state:state
-                                                      error:error];
-                              }];
+									   allowLoginUI:NO
+								  completionHandler:^(FBSession *session,
+													  FBSessionState state,
+													  NSError *error) {
+									  [self sessionStateChanged:session
+														  state:state
+														  error:error];
+								  }];
     
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void) getLoginStatus:(CDVInvokedUrlCommand*)command
-{    
+{
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
                                                   messageAsDictionary:[self responseObject]];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void) login:(CDVInvokedUrlCommand*)command
-{    
+{
     NSArray *permissions = nil;
     if ([command.arguments count] > 0) {
         permissions = command.arguments;
@@ -242,9 +243,9 @@
              requestNewPublishPermissions:permissions
              defaultAudience:FBSessionDefaultAudienceFriends
              completionHandler:^(FBSession *session, NSError *error) {
-                [self sessionStateChanged:session
-                                    state:session.state
-                                    error:error];
+				 [self sessionStateChanged:session
+									 state:session.state
+									 error:error];
              }];
         } else {
             // Only read permissions
@@ -312,7 +313,7 @@
 	NSString* caption = [command argumentAtIndex:2];
 	NSString* description = [command argumentAtIndex:3];
 	NSURL* picture = [NSURL URLWithString:[command argumentAtIndex:4]];
-
+	
 	[FBDialogs presentShareDialogWithLink:url name:name caption:caption description:description picture:picture clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
 		if (error) {
 			CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:results];
@@ -353,13 +354,13 @@
                 [jsonDataString release];
 #endif
             }
-//            // For optional ARC support
-//#if __has_feature(objc_arc)
-//            FBSBJSON *jsonWriter = [FBSBJSON new];
-//#else
-//            FBSBJSON *jsonWriter = [[FBSBJSON new] autorelease];
-//#endif
-//            params[key] = [jsonWriter stringWithObject:obj];
+			//            // For optional ARC support
+			//#if __has_feature(objc_arc)
+			//            FBSBJSON *jsonWriter = [FBSBJSON new];
+			//#else
+			//            FBSBJSON *jsonWriter = [[FBSBJSON new] autorelease];
+			//#endif
+			//            params[key] = [jsonWriter stringWithObject:obj];
         }
     }];
     
@@ -381,20 +382,20 @@
                  // Send the URL parameters back, for a requests dialog, the "request" parameter
                  // will include the resutling request id. For a feed dialog, the "post_id"
                  // parameter will include the resulting post id.
-                 NSDictionary *params = [self parseURLParams:[resultURL query]];                 
+                 NSDictionary *params = [self parseURLParams:[resultURL query]];
                  pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:params];
              }
          }
          [self.commandDelegate sendPluginResult:pluginResult callbackId:self.dialogCallbackId];
-    }];
+	 }];
     
     // For optional ARC support
-    #if __has_feature(objc_arc)
-    #else
-        [method release];
-        [params release];
-        [options release];
-    #endif
+#if __has_feature(objc_arc)
+#else
+	[method release];
+	[params release];
+	[options release];
+#endif
     
     [super writeJavascript:nil];
 }
@@ -427,7 +428,7 @@
     if (nil != sessionDict) {
         [statusDict setObject:sessionDict forKey:@"authResponse"];
     }
-        
+	
     return statusDict;
 }
 
@@ -443,7 +444,7 @@
          NSString *val = [kv[1]
                           stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
          params[kv[0]] = val;
-    }];
+	 }];
     return params;
 }
 

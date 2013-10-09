@@ -9,23 +9,25 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>icon.png</string>
+	<string>icon-72-2x.png</string>
 	<key>CFBundleIcons</key>
 	<dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>icon-58</string>
-				<string>icon-80</string>
 				<string>icon-29</string>
-				<string>icon-120</string>
-				<string>icon-57-2x</string>
+				<string>icon-40</string>
+				<string>icon-50</string>
 				<string>icon-57</string>
-				<string>icon.png</string>
-				<string>icon@2x.png</string>
+				<string>icon-57-2x</string>
+				<string>icon-58</string>
 				<string>icon-72.png</string>
-				<string>icon-72@2x.png</string>
+				<string>icon-72-2x.png</string>
+				<string>icon-80</string>
+				<string>icon-100</string>
+				<string>icon-120</string>
+				<string>icon-152</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -37,6 +39,7 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>icon</string>
 				<string>icon-58</string>
 				<string>icon-29</string>
 				<string>icon-40</string>
@@ -49,13 +52,9 @@
 				<string>icon-120</string>
 				<string>icon-57-2x</string>
 				<string>icon-57</string>
-				<string>icon.png</string>
-				<string>icon@2x.png</string>
-				<string>icon-72.png</string>
-				<string>icon-72@2x.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
-			<false/>
+			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
