@@ -46,12 +46,12 @@
 		085E2CA917A85D20007A9847 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085E2CA817A85D20007A9847 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		085E2CAB17A85D2B007A9847 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085E2CAA17A85D2B007A9847 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		08A1D7C817EB68B9008DA7CC /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A1D7C417EB68B9008DA7CC /* libTestFlight.a */; };
+		08AB49B6181A124A0084A835 /* balanced.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AB49B5181A124A0084A835 /* balanced.a */; };
+		08AB49B8181A12950084A835 /* Balanced in Resources */ = {isa = PBXBuildFile; fileRef = 08AB49B7181A12950084A835 /* Balanced */; };
 		08AE05C417FC8D98008E44E7 /* VersionPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AE05C317FC8D98008E44E7 /* VersionPlugin.m */; };
 		08E6EEF517BA23D8001A0403 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		08F8416317F4D2550020D069 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F8416217F4D2550020D069 /* CoreTelephony.framework */; };
-		08F8416517F4D2700020D069 /* balanced.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F8416417F4D2700020D069 /* balanced.a */; };
 		08F8417017F4D3B10020D069 /* BalancedPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F8416F17F4D3B10020D069 /* BalancedPlugin.m */; };
-		08F8417617F4E5210020D069 /* balanced in Resources */ = {isa = PBXBuildFile; fileRef = 08F8417517F4E5210020D069 /* balanced */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -145,16 +145,16 @@
 		08A1D7C517EB68B9008DA7CC /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		08A1D7C617EB68B9008DA7CC /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		08A1D7C717EB68B9008DA7CC /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		08AB49B5181A124A0084A835 /* balanced.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = balanced.a; sourceTree = "<group>"; };
+		08AB49B7181A12950084A835 /* Balanced */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Balanced; sourceTree = "<group>"; };
 		08AE05C217FC8D98008E44E7 /* VersionPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionPlugin.h; sourceTree = "<group>"; };
 		08AE05C317FC8D98008E44E7 /* VersionPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionPlugin.m; sourceTree = "<group>"; };
 		08DA713F17BA2014004DA9AF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		08DA714317BA2027004DA9AF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		08DA714917BA2054004DA9AF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		08F8416217F4D2550020D069 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		08F8416417F4D2700020D069 /* balanced.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = balanced.a; sourceTree = "<group>"; };
 		08F8416C17F4D31D0020D069 /* BalancedPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BalancedPlugin.h; sourceTree = "<group>"; };
 		08F8416F17F4D3B10020D069 /* BalancedPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalancedPlugin.m; sourceTree = "<group>"; };
-		08F8417517F4E5210020D069 /* balanced */ = {isa = PBXFileReference; lastKnownFileType = folder; path = balanced; sourceTree = "<group>"; };
 		0FC15BB298074315BDB3F7D9 /* CDVNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVNotification.m; path = org.apache.cordova.core.dialogs/CDVNotification.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -217,8 +217,8 @@
 				08E6EEF517BA23D8001A0403 /* CoreGraphics.framework in Frameworks */,
 				08A1D7C817EB68B9008DA7CC /* libTestFlight.a in Frameworks */,
 				085C86B317B3288500A40B53 /* libz.dylib in Frameworks */,
-				08F8416517F4D2700020D069 /* balanced.a in Frameworks */,
 				085E2CAB17A85D2B007A9847 /* Security.framework in Frameworks */,
+				08AB49B6181A124A0084A835 /* balanced.a in Frameworks */,
 				085E2CA917A85D20007A9847 /* AdSupport.framework in Frameworks */,
 				085E2CA717A85D14007A9847 /* Accounts.framework in Frameworks */,
 				085E2CA517A85D06007A9847 /* Social.framework in Frameworks */,
@@ -331,7 +331,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				08F8416417F4D2700020D069 /* balanced.a */,
+				08AB49B5181A124A0084A835 /* balanced.a */,
 				0805B17A1804FBA000525B32 /* FacebookSDK.framework */,
 				08F8416217F4D2550020D069 /* CoreTelephony.framework */,
 				08168BF817E920A500347F67 /* CoreAudio.framework */,
@@ -378,9 +378,9 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				08AB49B7181A12950084A835 /* Balanced */,
 				08AE05C217FC8D98008E44E7 /* VersionPlugin.h */,
 				08AE05C317FC8D98008E44E7 /* VersionPlugin.m */,
-				08F8417517F4E5210020D069 /* balanced */,
 				08F8416C17F4D31D0020D069 /* BalancedPlugin.h */,
 				08F8416F17F4D3B10020D069 /* BalancedPlugin.m */,
 				08409BED17E5319A001051B7 /* FacebookConnectPlugin.h */,
@@ -554,6 +554,7 @@
 				085E2C5117A8504E007A9847 /* icon-100.png in Resources */,
 				085E2C3517A84E47007A9847 /* icon-72-2x.png in Resources */,
 				085E2C4717A8504E007A9847 /* icon-29.png in Resources */,
+				08AB49B8181A12950084A835 /* Balanced in Resources */,
 				085E2C3617A84E47007A9847 /* icon-72.png in Resources */,
 				085E2C4817A8504E007A9847 /* icon-40.png in Resources */,
 				085E2C5217A8504E007A9847 /* icon-120.png in Resources */,
@@ -562,7 +563,6 @@
 				085E2C4F17A8504E007A9847 /* icon-76.png in Resources */,
 				085E2C3417A84E47007A9847 /* icon-57.png in Resources */,
 				085E2C4917A8504E007A9847 /* icon-50.png in Resources */,
-				08F8417617F4E5210020D069 /* balanced in Resources */,
 				085E2C4D17A8504E007A9847 /* icon-72-2x.png in Resources */,
 				085E2C7517A853FD007A9847 /* Default-568h@2x~iphone.png in Resources */,
 				085E2C3717A84E47007A9847 /* icon-76.png in Resources */,

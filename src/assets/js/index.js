@@ -25,10 +25,20 @@ balanced = {
 	card: {
 		create: function(args, complete) {
 			cordova.exec(function(response) {
-				complete({
-					status: response.status_code,
-					data: response
-				});
+
+				if (response.data && response.status) {
+					// we have a balanced.js compatable response
+					response.status = parseInt(response.status);
+
+				} else {
+					// format the response properly
+					response = {
+						status: response.uri ? 201 : (response.status_code || 666),
+						data: response
+					};
+				}
+				complete(response);
+
 			}, function() {
 				complete({
 					status: 999
