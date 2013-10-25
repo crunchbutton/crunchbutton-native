@@ -12,9 +12,9 @@
 	NSString* num = [command argumentAtIndex:0];
 	NSString* expmonth = [command argumentAtIndex:1];
     NSString* expyear = [command argumentAtIndex:2];
-    NSString* cvv = @"";
 
-	BPCard *card = [[BPCard alloc] initWithNumber:num expirationMonth:expmonth.intValue expirationYear:expyear.intValue securityCode:cvv];
+	BPCard *card = [[BPCard alloc] initWithNumber:num expirationMonth:expmonth.intValue expirationYear:expyear.intValue];
+	
 	Balanced *balanced = [[Balanced alloc] initWithMarketplaceURI:balancedId];
 	
 	[balanced tokenizeCard:card onSuccess:^(NSDictionary *responseParams) {
