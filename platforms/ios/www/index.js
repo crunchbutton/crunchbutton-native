@@ -33,7 +33,7 @@ balanced = {
 				} else {
 					// format the response properly
 					response = {
-						status: response.uri ? 201 : 666,
+						status: response.uri ? 201 : (response.status_code || 666),
 						data: response
 					};
 				}
