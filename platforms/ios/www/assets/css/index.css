@@ -2,7 +2,7 @@
  * phonegap specific css
  *
  */
- 
+/*
 @font-face {
 	font-family: 'Open Sans';
 	src: url('../fonts/OpenSans-Regular-webfont.eot');
@@ -13,6 +13,39 @@
 	font-weight: normal;
 	font-style: normal;
 }
+*/
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(../fonts/OpenSans-Light.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(../fonts/OpenSans.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(../fonts/OpenSans-Semibold.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(../fonts/OpenSans-Bold.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'), url(../fonts/OpenSans-Extrabold.woff) format('woff');
+}
+
 
 * {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);	/* make transparent link selection, adjust last value opacity 0 to 1.0 */
@@ -30,18 +63,24 @@ body {
 }
 
 @media (max-width: 768px) {
+/*
 	.ios7 .nav-top {
+
 		background: url(../images/nav-ios7.png);
 		background-size: 62px;
+
 		padding-top: 15px;
 		padding-bottom: 3px;
+
 	}
+
 	.ios7 .main-content {
 		margin-top: 68px;
 	}
 	.ios7.page-restaurant .main-content {
 		margin-top: 103px;
 	}
+*/
 	.bg {
 		-webkit-transition: background-position linear 0.1s;
 		   -moz-transition: background-position linear 0.1s;

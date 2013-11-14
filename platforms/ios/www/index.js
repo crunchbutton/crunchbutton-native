@@ -93,7 +93,7 @@ $(function() {
 		}, false);
 
 
-		App.server = 'https://crunchbutton.com/';
+		App.server = 'http://beta.crunchr.co/';
 		App.service = App.server + 'api/';
 		App.imgServer = 'http://i.crunchbutton.com/';
 	
