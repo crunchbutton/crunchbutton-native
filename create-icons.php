@@ -9,6 +9,10 @@
  * author: Devin Smith (http://devin.la)
  *
  */
+ 
+ 
+$bgColor = '#f98f5c';
+$icon = 'src/res/logo.png';
 
 $images = [
 	'icons' => [
@@ -71,9 +75,9 @@ foreach ($images as $type) {
 	}
 
 	foreach ($type['items'] as $item) {
-		$cmd = "convert -define jpeg: src/res/logo.png -thumbnail '".$type['scale']($item['size'])."x4000>' \
+		$cmd = "convert -define jpeg: '".$icon."' -thumbnail '".$type['scale']($item['size'])."x4000>' \
 			-gravity center -crop ".$item['size'][0]."x".$item['size'][1]."+0+0\! \
-			-background '#f98f5c' -flatten ".$type['path'].$type['prefix'].$item['name'].".png";
+			-background '".$bgColor."' -flatten ".$type['path'].$type['prefix'].$item['name'].".png";
 		if ($type['copyPath']) {
 			$cmd .= " && cp ".$type['path'].$type['prefix'].$item['name'].".png ".$type['copyPath']
 				.($item['copyName'] ?
