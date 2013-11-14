@@ -93,3 +93,7 @@ body {
 .location-detect {
 	display: block !important;
 }
+
+.dialog-message-error {
+	padding-bottom: .7em;
+}

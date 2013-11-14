@@ -321,7 +321,8 @@
 	<br /><br /><br /><br />
 	Visit our <a href="/legal">legal page</a> for legal and privacy information.
 	<br /><br /><br /><br /><br /><br /><br />
-	<center><div class="icon-heart faq-heart"></div></center>
+	<center><div class="fa fa-heart faq-heart"></div></center>
+	<br /><br /><br /><br />
 </div>
 
 </script><script type="text/ng-template" id="assets/view/home.html">
@@ -562,23 +563,24 @@
 					<div class="order-comment">
 						<p ng-bind-html-unsafe="order.notes | nl2br"></p>
 					</div>
-					<br />
 				</div>
 				
-				<div class="order-map" style="background: url('https://maps.googleapis.com/maps/api/staticmap?&size={{width*2}}x300&markers=color:green%7Clabel:A%7C{{order.address.replace('#','') | nl2cm}}&markers=color:red%7Clabel:B%7C{{order._restaurant_lat}},{{order._restaurant_lon}}&sensor=false&visual_refresh=true');"></div>
+				<div class="divider spacer-one-two"></div>
+				
+				<a href="{{order.mapLink}}"><div class="order-map" style="background: url('https://maps.googleapis.com/maps/api/staticmap?&size={{width*2}}x300&markers=color:green%7Clabel:A%7C{{order.address.replace('#','') | nl2cm}}&markers=color:red%7Clabel:B%7C{{order._restaurant_lat}},{{order._restaurant_lon}}&sensor=false&visual_refresh=true');"></div></a>
 				
 				<div class="divider spacer-two-two"></div>
 				
 				<div class="order-icon"><div class="icon-map-home"></div></div>
 				<div class="order-info">
-					<p class="order-info-address"ng-bind-html-unsafe="order.address | nl2br"></p>
+					<p class="order-info-address"><a href="{{order.mapLink}}"><span ng-bind-html-unsafe="order.address | nl2br"></span></a></p>
 					<br />
 				</div>
 				<div class="divider"></div>
 				
 				<div class="order-icon"><div class="icon-map-restaurant"></div></div>
 				<div class="order-info">
-					<p class="order-info-address" ng-bind-html-unsafe="order._restaurant_address | nl2br"></p>
+					<p class="order-info-address"><a href="{{order.mapLink}}"><span ng-bind-html-unsafe="order._restaurant_address | nl2br"></span></a></p>
 				</div>
 				<div class="divider"></div>
 				
@@ -831,6 +833,12 @@
 							<div class="cart-item-customize-item">
 							
 								<div ng-switch on="option.type">
+								
+									<!-- Customizable - select -->
+									<div ng-switch-when="select">
+										<label class="cart-item-customize-select-name">{{option.name}}</label>
+										<select ng-change="order.cart.customizeItem(option, item)" ng-model="option.selected" ng-options="opt.id_option as opt.name for opt in option.options" class="cart-customize-select"></select>
+									</div>
 
 									<!-- Customizable - checkbox -->
 									<div ng-switch-when="check">
@@ -840,11 +848,7 @@
 										<div class="divider"></div>
 									</div>
 
-									<!-- Customizable - select -->
-									<div ng-switch-when="select">
-										<label class="cart-item-customize-select-name">{{option.name}}</label>
-										<select ng-change="order.cart.customizeItem(option, item)" ng-model="option.selected" ng-options="opt.id_option as opt.name for opt in option.options" class="cart-customize-select"></select>
-									</div>
+
 
 								</div>
 							</div>
@@ -1043,27 +1047,67 @@
 			<div class="content-padding">
 			
 			<p>We’ve saved your payment and delivery info for one click reordering.</p>
-		
-			<div>
-				<label>Your phone number:&nbsp;</label>
-				<i ng-show="user.phone">{{ user.phone | formatPhone }}</i>
-				<i ng-show="!user.phone">no phone # provided</i>
+			
+			<div class="divider spacer-one-one"></div>
+			
+			<div class="order-icon"><div class="icon-phone"></div></div>
+			<div class="order-info order-info-oneline">
+				<p>
+					<span ng-show="user.phone">{{ user.phone | formatPhone }}</span>
+					<span ng-show="!user.phone">no phone # provided</span>
+				</p>
 			</div>
-		
-			<div ng-show="restaurant.delivery == '1' && order.form.delivery_type=='delivery'">
-				<label>Your food will be delivered to:</label><br />
-				<span ng-bind-html-unsafe="order.form.address | nl2br"></span>
-				<i ng-hide="order.form.address">no address provided</i>
+			<div class="divider"></div>
+			
+			<div class="order-icon">
+				<div class="icon-card"></div>
+					<div class="icon-credit" ng-show="order.form.pay_type=='card' && order.total() <= credit.number"></div>
+					<div class="icon-card" ng-show="order.form.pay_type=='card' && order.total() > credit.number"></div>
+					<div class="icon-cash" ng-show="order.form.pay_type=='cash'"></div>
 			</div>
-		
-			<div ng-show="restaurant.takeout == '1' && order.form.delivery_type=='takeout'">
-				<label>Delivery Address:</label> <i>takeout</i>
+			<div class="order-info order-info-oneline">
+				<p>
+					<span ng-show="order.form.pay_type=='card' && order.total() <= credit.number">Gift card balance</span>
+					<span ng-show="order.form.pay_type=='card' && credit.number && order.total() > credit.number">Card ending in 9999 &amp; - {{credit.value}} credit</span>
+					<span ng-show="order.form.pay_type=='card' && !credit.number">Card ending in 9999</span>
+					<span ng-show="order.form.pay_type=='cash'">Pay and tip with <b>cash</b></span>
+				</p>
 			</div>
-		
-			<div>
-				<span class="clickable" ng-click="order.showForm=true">Change delivery or payment details</span>
+			<div class="divider"></div>
+			
+			<div class="order-icon">
+				<div class="icon-map-home" ng-show="restaurant.delivery == '1' && order.form.delivery_type=='delivery'"></div>
+				<div class="icon-map-restaurant" ng-show="restaurant.takeout == '1' && order.form.delivery_type=='takeout'"></div>
 			</div>
-		
+			<div class="order-info" ng-show="restaurant.delivery == '1' && order.form.delivery_type=='delivery'">
+				<p>
+					Delivered to:<br />
+				</p>
+				<p class="restaurant-info-address">
+					<span ng-bind-html-unsafe="order.form.address | nl2br"></span>
+					<i ng-hide="order.form.address">no address provided</i>
+				</p>
+			</div>
+			<div class="order-info" ng-show="restaurant.takeout == '1' && order.form.delivery_type=='takeout'">
+				<p>
+					Deliver to:<br />
+				</p>
+				<p class="restaurant-info-address">
+					Pick up from:<br />
+					<span ng-bind-html-unsafe="restaurant.address | nl2br"></span>
+				</p>
+			</div>
+			<div class="divider"></div>
+			
+			<div class="order-icon"><div class="icon-notes" ng-show="order.form.notes"></div></div>
+			<div class="order-info">
+				<p ng-bind-html-unsafe="order.form.notes | nl2br" class="restaurant-info-address"></p>
+			</div>
+			<div class="divider"></div>
+			
+			<div class="divider spacer-one-two"></div>
+
+			<button class="button green" ng-click="order.showForm=true">Change info</button>		
 		</div>
 	</div>
 
