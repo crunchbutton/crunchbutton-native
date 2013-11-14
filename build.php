@@ -9,7 +9,7 @@
  */
 
 
-$server = 'http://crunchbutton.localhost/';
+$server = 'http://seven.localhost/';
 $srcPath = './src/';
 //$path = './www/';
 $path = './platforms/ios/www/';
