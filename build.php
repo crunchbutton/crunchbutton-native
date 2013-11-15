@@ -99,7 +99,7 @@ echo "Asset download complete.\n";
 echo "Building body...\n";
 $index = file_get_contents($path.'assets/view/template.html');
 $body = file_get_contents($server.'view/body.html'.($live ? '?__live=1' : ''));
-$index = str_replace('<body></body>', '<body class="ios7">'.$body.'</body>', $index);
+$index = str_replace('<body></body>', '<body bgcolor="#fffef8" class="ios7 no-init">'.$body.'</body>', $index);
 $index = str_replace('<templates></templates>', $content, $index);
 file_put_contents($path.'index.html', $index);
 

@@ -85,7 +85,7 @@
 
         viewRect.size.height -= statusHeight;
         viewRect.origin.y = statusHeight;
-        self.view.frame = viewRect;
+//        self.view.frame = viewRect;
 
         [self tellJavascriptAboutTheFramePosition];
 
