@@ -1321,7 +1321,7 @@
 </div>
 </script>
 	</head>
-	<body class="ios7">
+	<body bgcolor="#fffef8" class="ios7 no-init">
 
 <div class="snap-drawers" ng-controller="SideMenuCtrl">
 	<div class="snap-drawer snap-drawer-left">
@@ -1441,7 +1441,7 @@
 				
 					<div title="Menu" class="menu side" ng-click="navigation.menu()" ng-show="navigation.buttons.menu"></div>
 					<div title="Menu" class="menu drop" data-dropdown="#dropdown-menu" ng-show="navigation.buttons.menu"></div>
-					<div title="Back" ng-show="navigation.buttons.back" class="nav-back" ng-instant="back()">back</div>
+					<div title="Back" ng-show="navigation.buttons.back" class="nav-back hide-before-init" ng-instant="back()">back</div>
 
 					<div class="logo" ng-click="navigation.home()"></div>
 	

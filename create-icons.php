@@ -11,12 +11,14 @@
  */
  
  
-$bgColor = '#f98f5c';
-$icon = 'src/res/logo.png';
+$bgColor = '#f98f5c';										// background color
+$icon = 'src/res/logo.png';									// path to logo
+$createPath = 'src/res/'; 									// path to generate files to
+$projectPath = 'platforms/ios/Crunchbutton/Resources/';		// path of ios project
 
 $images = [
 	'icons' => [
-		'itemsx' => [
+		'items' => [
 			['size' => [29,29], 'name' => '29'],
 			['size' => [40,40], 'name' => '40'],
 			['size' => [50,50], 'name' => '50'],
@@ -32,8 +34,8 @@ $images = [
 			['size' => [152,152], 'name' => '152'],
 			['size' => [1024,1024], 'name' => '1024']
 		],
-		'path' => 'src/res/icon/ios/',
-		'copyPath' => 'platforms/ios/Crunchbutton/Resources/icons/', // secondary path if you are using phonegap with trailing
+		'path' => $createPath.'icon/ios/',
+		'copyPath' => $projectPath.'icons/', // secondary path if you are using phonegap with trailing
 		'prefix' => 'icon-',
 		'scale' => function($size) {
 			return $size[0] * .65;
@@ -47,8 +49,8 @@ $images = [
 			['size' => [768,1024], 'name' => 'screen-ipad-portrait', 'copyName' => 'Default-Portrait~ipad'],
 			['size' => [1024,768], 'name' => 'screen-ipad-landscape', 'copyName' => 'Default-Landscape~ipad'],
 		],
-		'path' => 'src/res/screen/ios/',
-		'copyPath' => 'platforms/ios/Crunchbutton/Resources/splash/', // secondary path if you are using phonegap with trailing
+		'path' => $createPath.'screen/ios/',
+		'copyPath' => $projectPath.'splash/', // secondary path if you are using phonegap with trailing
 		'scale' => function($size) {
 			return (($size[0] + $size[1]) / 2) * .25;
 		}
@@ -61,13 +63,15 @@ $images = [
 			['size' => [1536,2016], 'name' => 'screen-ipad-portrait-2x', 'copyName' => 'Default-Portrait@2x~ipad'],
 			['size' => [2048,1536], 'name' => 'screen-ipad-landscape-2x', 'copyName' => 'Default-Landscape@2x~ipad']
 		],
-		'path' => 'src/res/screen/ios/',
-		'copyPath' => 'platforms/ios/Crunchbutton/Resources/splash/', // secondary path if you are using phonegap with trailing
+		'path' => $createPath.'screen/ios/',
+		'copyPath' => $projectPath.'splash/', // secondary path if you are using phonegap with trailing
 		'scale' => function($size) {
 			return (($size[0] + $size[1]) / 2) * .2;
 		}
 	]
 ];
+
+echo "Creating iOS icons...";
 
 foreach ($images as $type) {
 	if (!$type['items']) {
@@ -84,6 +88,9 @@ foreach ($images as $type) {
 					$type['prefix'].$item['copyName'].".png" :
 					$type['prefix'].$item['name'].".png");
 		}
-		exec ($cmd);
-	}		
+		exec($cmd);
+	}
 }
+
+echo "\033[32m complete!\033[37m
+";
