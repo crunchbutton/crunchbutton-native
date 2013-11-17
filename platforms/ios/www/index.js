@@ -55,13 +55,6 @@ var login = function() {
 
 $(function() {
 	document.addEventListener('deviceready', function() {
-		/*
-		// the double permission thing doesnt seem to happen anymore. so i dont think we need this.
-		navigator.geolocation.getCurrentPosition(function (position) {
-			console.debug('got users position', position);
-		});
-		*/
-
 		// set a timeout for when ajax requests timeout
 		cordova.exec(function(response) {
 			$.ajaxSetup({
@@ -72,25 +65,95 @@ $(function() {
 			});
 		}, null, 'VersionPlugin', 'version',[]);
 
-		// do the ios7 style 3d tilt thing on the location page
-		window.addEventListener('deviceorientation', function(eventData) {
-			try {
-				if (App.rootScope.navigation.page == 'location' || App.rootScope.navigation.page == 'splash') {
-					var yTilt = Math.round((-eventData.beta + 90) * (40/180) - 40);
-					var xTilt = Math.round((-eventData.gamma + 90) * (20/180) - 20);
-					var bgOffset = 200;
-				
-					if (xTilt > 0) {
-						xTilt = -xTilt;
-					} else if (xTilt < -40) {
-						xTilt = -(xTilt + 80);
-					}
-				
-					var backgroundPositionValue = (xTilt*3.2) + 'px ' + ((yTilt*2) + bgOffset) + "px";
-					$('.bg').css('background-position', backgroundPositionValue);
-				}
-			} catch (e) {}
-		}, false);
+
+
+function orientationChanged (orientationEvent) {
+	if (!App || !App.parallax.bg || !App.parallax.enabled) {
+		return;
+	}
+
+	var beta = orientationEvent.beta;
+	var gamma = orientationEvent.gamma;
+	//get the rotation around the x and y axes from the orientation event
+	
+	if (window.orientation !== null) {
+		//don't check for truthiness as window.orientation can be 0!
+		var screenOrientation = window.orientation;
+	
+		if (screenOrientation === -90) {
+			//rotated to the left 90 degrees
+			beta = orientationEvent.gamma;
+			gamma = -1 * orientationEvent.beta;
+		}
+
+		if (screenOrientation === 90) {
+			beta = -1 * orientationEvent.gamma;
+			gamma = orientationEvent.beta;
+
+		}
+	
+		if (screenOrientation === 180) {
+			beta = -1 * orientationEvent.beta;
+			gamma = -1 * orientationEvent.gamma;
+		}
+	}
+	
+	var tanOfGamma = Math.tan(gamma*(Math.PI/180));
+	var tanOfBeta = Math.tan((beta -45)*(Math.PI/180));
+	//calculate the tan of the rotation around the X and Y axes
+	//we treat beta = 45degrees as neutral
+	//Math.tan takes radians, not degrees, as the argument
+	
+	var backgroundDistance = 50;
+	//set the distance of the background from the foreground
+	//the smaller, the 'closer' an object appears
+	
+	var xImagePosition = (-1 * tanOfGamma * backgroundDistance) + App.parallax.x;
+	var yImagePosition = (-1 * tanOfBeta * backgroundDistance) + App.parallax.y;
+	//calculate the distance to shift the background image horizontally
+	
+	//prevent wrap
+	if (yImagePosition >= 0) {
+		yImagePosition = 0;
+	}
+	if (xImagePosition >= 0) {
+		xImagePosition = 0;
+	}
+	
+	App.parallax.bg.style.backgroundPosition = xImagePosition + 'px ' + yImagePosition + 'px';
+	//set the backgroundimage position to  xImagePosition yImagePosition
+}
+
+App.parallax.setupBackgroundImage = function(el) {
+	App.parallax.bg = el;
+
+	var imgURL = window.getComputedStyle(App.parallax.bg).backgroundImage ;
+	//get the current background-image
+		
+	//bg image format is url(' + url + ') so we strip the url() bit
+	imgURL = imgURL.replace(/"/g,'').replace(/url\(|\)$/ig, '');
+	
+	//now we make a new image element and set this as its source
+	var theImage = new Image();
+	theImage.src = imgURL;
+	
+	//we'll set an onload listener, so that when the image loads, we position the background image of the element
+	theImage.onload = function() {
+		var elRect = App.parallax.bg.getBoundingClientRect();
+		App.parallax.x = -1 * (this.width - elRect.width)/2;
+		App.parallax.y = -1 * (this.height - elRect.height)/2;
+	}
+}
+
+window.addEventListener('deviceorientation', orientationChanged, false)
+
+
+setTimeout(function() {
+	//setupBackgroundImage();
+},1000);
+
+
+
 
 
 		App.server = 'http://beta.crunchr.co/';

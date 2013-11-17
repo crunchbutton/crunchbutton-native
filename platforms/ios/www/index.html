@@ -31,14 +31,14 @@
 		</div>
 		<div class="bubble-tail-spacer"></div>
 	</div>
-	<div class="about-pear" ng-instant="pearMessage = (pearMessage > 12 && 1) || pearMessage + 1"></div>
+	<div class="about-pear animated-resize" ng-instant="pearMessage = (pearMessage > 12 && 1) || pearMessage + 1"></div>
 	<div class="divider"></div>
 </div>
 
 <div class="content-padding">
 	<br />
 	<div class="staff">
-		<div class="staff-judd staff-image"></div>
+		<div class="staff-judd staff-image animated-resize"></div>
 		<h1>Judd Rosenblatt</h1>
 		<h2>Chief Eater</h2>
 		<p class="staff-favorite">
@@ -51,7 +51,7 @@
 	</div>
 
 	<div class="staff">
-		<div class="staff-devin staff-image"></div>
+		<div class="staff-devin staff-image animated-resize"></div>
 		<h1>Devin Smith</h1>
 		<h2>Head Chef</h2>
 		<p class="staff-favorite">
@@ -64,7 +64,7 @@
 	</div>
 	
 	<div class="staff">
-		<div class="staff-david staff-image"></div>
+		<div class="staff-david staff-image animated-resize"></div>
 		<h1>David Klumpp</h1>
 		<h2>Chief Taster</h2>
 		<p class="staff-favorite">
@@ -77,7 +77,7 @@
 	</div>
 	
 	<div class="staff">
-		<div class="staff-nick staff-image"></div>
+		<div class="staff-nick staff-image animated-resize"></div>
 		<h1>Nick Hunter</h1>
 		<h2>Garbage Disposal</h2>
 		<p class="staff-favorite">
@@ -90,7 +90,7 @@
 	</div>
 	
 	<div class="staff">
-		<div class="staff-daniel staff-image"></div>
+		<div class="staff-daniel staff-image animated-resize"></div>
 		<h1>Daniel Camargo</h1>
 		<h2>Sous-chef</h2>
 		<p class="staff-favorite">
@@ -103,7 +103,7 @@
 	</div>
 
 	<div class="about-join-bubble-wrap">
-		<div class="bubble-curved bubble-curved-green bubble-animated">
+		<div class="bubble-curved bubble-curved-green bubble-animated animated-resize">
 			<div class="text" ng-switch="orangeMessage">
 				<span class="small" ng-switch-when="2">So you can write stupid messages like this</span>
 				<span  ng-switch-when="3">That no one will ever read</span>
@@ -122,7 +122,7 @@
 		</div>
 		<div class="bubble-curved-spacer"></div>
 	</div>
-	<div class="about-green-orange" ng-instant="orangeMessage = (orangeMessage > 12 && 1) || orangeMessage + 1"></div>
+	<div class="about-green-orange animated-resize" ng-instant="orangeMessage = (orangeMessage > 12 && 1) || orangeMessage + 1"></div>
 	<div class="divider"></div>
 
 	<p>
@@ -570,7 +570,7 @@
 <div class="notification-alert-container zoom-anim-dialog mfp-hide dialog" ng-controller="NotificationAlertCtrl">
 	<div class="dialog-padding">
 		<h1 ng-bind="title" ng-show="title"></h1>
-		<div class="dialog-egg"></div>
+		<div class="dialog-egg animated-resize"></div>
 		<p ng-bind-html-unsafe="message"></p>
 		<div class="divider"></div>
 	</div>
@@ -793,7 +793,7 @@
 		</ul>
 	</div>
 	
-	<div class="orders-oranges"></div>
+	<div class="orders-oranges animated-resize"></div>
 
 </div>
 </script><script type="text/ng-template" id="assets/view/owners.html">
@@ -820,7 +820,7 @@
 		</div>
 		<div class="bubble-tail-spacer"></div>
 	</div>
-	<div class="owner-brocoli" ng-instant="ownerMessage = (ownerMessage > 14 && 1) || ownerMessage + 1"></div>
+	<div class="owner-brocoli animated-resize" ng-instant="ownerMessage = (ownerMessage > 14 && 1) || ownerMessage + 1"></div>
 	<div class="divider"></div>
 </div>
 
@@ -890,7 +890,7 @@
 <div class="restaurant-closed-container zoom-anim-dialog mfp-hide dialog" ng-controller="RestaurantClosedCtrl">
 	<div class="dialog-padding">
 		<h1 ng-bind="restaurant.name"></h1>
-		<div class="dialog-egg"></div>
+		<div class="dialog-egg animated-resize"></div>
 		<p>is currently closed. It will be open during the following hours (<span ng-bind="restaurant._tzabbr"></span>):<br /><br />
 		<p ng-bind-html-unsafe="restaurant.closedMessage()" class="dialog-hours"></p>
 		<div class="divider"></div>
@@ -1287,7 +1287,7 @@
 <div class="divider dots spacer-one-two" ng-show="order.info.subtotal && order.info.subtotal!='0.00'"></div>
 
 <div class="payment-total content-padding" ng-show="order.info.subtotal && order.info.subtotal!='0.00'">
-	<div class="restaurant-banana"></div>
+	<div class="restaurant-banana animated-resize"></div>
 	
 	<div class="payment-wrap">
 		<div class="payment-ribbon">
@@ -1432,11 +1432,11 @@
 </script><script type="text/ng-template" id="assets/view/splash.html">
 <div class="bg home-top splash-top">
 	<div class="splash-spacer-one"></div>
-	<div title="Crunchbutton" class="logo" ng-click="navigation.home()"></div>
+	<div title="Crunchbutton" class="logo animated-resize" ng-click="navigation.home()"></div>
 	<div class="splash-spacer-two"></div>
 
 	<div class="splash-bubble-wrap">
-		<div class="bubble-curved bubble-curved-white bubble-animated">
+		<div class="bubble-curved bubble-curved-white bubble-animated animated-resize">
 			<div class="text" ng-switch="splashMessage">
 				<span class="single-line" ng-switch-when="2">Hey!!</span>
 				<span class="single-line" ng-switch-when="3">Try logging in!</span>
@@ -1453,16 +1453,30 @@
 				<span ng-switch-when="14">There is now cow level.</span>
 				<span ng-switch-when="15">Snape kills Dumbledore.</span>
 				<span class="small" ng-switch-when="16">Rubber baby buggy bumpers.</span>
-				<span class="single-line" ng-switch-when="17">@#%*@%&!</span>
-				<span class="single-line" ng-switch-when="18"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
-				<span class="single-line" ng-switch-when="1">Oh, Hello!</span>
-				<span class="single-line" ng-switch-default>Oh, Hello!</span>
+				<span class="small" ng-switch-when="17" style="margin-top: 1.2em;">
+					<i class="fa fa-arrow-circle-up"></i> 
+					<i class="fa fa-arrow-circle-up"></i> 
+					<i class="fa fa-arrow-circle-down"></i> 
+					<i class="fa fa-arrow-circle-down"></i> 
+					<i class="fa fa-arrow-circle-left"></i> 
+					<i class="fa fa-arrow-circle-right"></i> 
+					<i class="fa fa-arrow-circle-left"></i> 
+					<i class="fa fa-arrow-circle-right"></i> 
+					B 
+					A 
+				</span>
+				<span class="single-line" ng-switch-when="18">@#%*@%&!</span>
+				
+				
+				<span class="single-line" ng-switch-when="19"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
+				<span class="single-line" ng-switch-when="1">Oh, Hello!&nbsp;&nbsp;</span>
+				<span class="single-line" ng-switch-default>Oh, Hello!&nbsp;&nbsp;</span>
 			</div>
 		</div>
 		<div class="bubble-curved-spacer"></div>
 	</div>
 
-	<div class="about-green-orange" ng-instant="splashMessage = (splashMessage > 18 && 1) || splashMessage + 1"></div>
+	<div class="about-green-orange animated-resize" ng-instant="splashMessage = (splashMessage > 19 && 1) || splashMessage + 1"></div>
 	<div class="divider"></div>
 	
 	<div class="splash-bottom">
@@ -1691,7 +1705,7 @@
 						<div class="nav-cart-count">{{order.info.totalItems}}</div>
 					</div>
 
-					<div title="Crunchbutton" class="logo" ng-click="navigation.home()"></div>
+					<div title="Crunchbutton" class="logo animated-resize" ng-click="navigation.home()"></div>
 
 				</div>
 			</div>
