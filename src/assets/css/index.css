@@ -70,11 +70,12 @@ body {
 	}
 */
 	.bg {
-		-webkit-transition: background-position linear 0.1s;
-		   -moz-transition: background-position linear 0.1s;
-		    -ms-transition: background-position linear 0.1s;
-		     -o-transition: background-position linear 0.1s;
-		        transition: background-position linear 0.1s;
+		-webkit-transform: translate3d(0,0,0);
+		/*-webkit-transition: background-position linear 0.1s; */
+	}
+	.home-top {
+		background: #90562f url(../images/micro/bg-sandwich-phone.jpg);
+		background-position: -321px -83px;
 	}
 }
 
