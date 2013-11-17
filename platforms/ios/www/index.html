@@ -13,28 +13,124 @@
 <div class="top-pad"></div>
 
 <div class="about-bubble-wrap">
-	<div class="bubble-tail bubble-tail-green">
-		<div class="text">
-			<b>&nbsp;&nbsp;Hey there!</b><br />
-			Nice to meet you!
+	<div class="bubble-tail bubble-tail-green bubble-animated">
+		<div class="text" ng-switch="pearMessage">
+			<span ng-switch-when="2">I don't actually work here.</span>
+			<span ng-switch-when="3">These guys do though.</span>
+			<span ng-switch-when="4">You should buy them a beer.</span>
+			<span ng-switch-when="5">I'm sure they deserve it.</span>
+			<span class="single-line" ng-switch-when="6">Maybe two.</span>
+			<span class="single-line" ng-switch-when="7">Or three.</span>
+			<span ng-switch-when="8">In fact just buy them a keg.</span>
+			<span class="single-line" ng-switch-when="9">Me?</span>
+			<span class="small" ng-switch-when="10">I'll take a magnum of Veuve Clicquot, thanks.</span>
+			<span class="single-line" ng-switch-when="11">Cheers!</span>
+			<span class="single-line" ng-switch-when="12"><i class="fa fa-glass"></i> <i class="fa fa-glass"></i> <i class="fa fa-glass"></i></span>
+			<span ng-switch-when="1"><b>Hey there!</b><br>Nice to meet you!</span>
+			<span ng-switch-default><b>Hey there!</b><br>Nice to meet you!</span>
 		</div>
+		<div class="bubble-tail-spacer"></div>
 	</div>
-	<div class="about-pear"></div>
+	<div class="about-pear" ng-instant="pearMessage = (pearMessage > 12 && 1) || pearMessage + 1"></div>
 	<div class="divider"></div>
 </div>
 
 <div class="content-padding">
 	<br />
-	<h4>So, what exactly do you do?</h4>
-	<p>We highlight the top food from the top restaurants in a community. Place an order, and we save it for next time, along with your delivery and payment info. Reorder your favorites with a single tap :)</p>
-	<br /><br />
-	<h4>Hey! I need help with my order!</h4>
-	<p>Please visit your <a href="/orders">Previous Orders</a> and contact the restaurant you ordered from.</p>
-	<br /><br />
-	<h4>Need to contact Crunchbutton?</h4>
-	<p>Call or text us at <a href="tel:+16467831444">(646) 783-1444</a> or email us at <a href="mailto:happycustomers@crunchbutton.com">happycustomers@crunchbutton.com</a>.</p>
-	<br /><br />
-	<button class="button green">Live chat with us</button>
+	<div class="staff">
+		<div class="staff-judd staff-image"></div>
+		<h1>Judd Rosenblatt</h1>
+		<h2>Chief Eater</h2>
+		<p class="staff-favorite">
+			Fav<span class="staff-orite">orite</span> food: THE Wenzel
+			<br>Fav<span class="staff-orite">orite</span> beer: Oatmeal Stout
+		</p>
+		<p class="staff-content">
+			Entrepreneur, Yale grad, and other words go here. I dont have anything to say because im too busy trying to make things look pretty right now. Maybe you should think of some shit. Or maybe close ur mouth.
+		</p>
+	</div>
+
+	<div class="staff">
+		<div class="staff-devin staff-image"></div>
+		<h1>Devin Smith</h1>
+		<h2>Head Chef</h2>
+		<p class="staff-favorite">
+			Fav<span class="staff-orite">orite</span> food: Toro Sushi
+			<br>Fav<span class="staff-orite">orite</span> beer: Matilda
+		</p>
+		<p class="staff-content">
+			Building stuff. Thats what he does. Since Devin was a kid he has been building software and websites. Devin brings his passion for design and development to Crunchbutton paired with a strong belgian ale. 
+		</p>
+	</div>
+	
+	<div class="staff">
+		<div class="staff-david staff-image"></div>
+		<h1>David Klumpp</h1>
+		<h2>Chief Taster</h2>
+		<p class="staff-favorite">
+			Fav<span class="staff-orite">orite</span> food: Chocolate Crostata
+			<br>Fav<span class="staff-orite">orite</span> beer: Root Beer
+		</p>
+		<p class="staff-content">
+			We're not really sure what he does. But without him we're pretty sure that we would be thrown into a state of chaos.
+		</p>
+	</div>
+	
+	<div class="staff">
+		<div class="staff-nick staff-image"></div>
+		<h1>Nick Hunter</h1>
+		<h2>Garbage Disposal</h2>
+		<p class="staff-favorite">
+			Fav<span class="staff-orite">orite</span> food: Mexican
+			<br>Fav<span class="staff-orite">orite</span> beer: Hefeweizen
+		</p>
+		<p class="staff-content">
+			He like miso soup too much. And I honestly cant even tell if this is a pic of nick or not.
+		</p>
+	</div>
+	
+	<div class="staff">
+		<div class="staff-daniel staff-image"></div>
+		<h1>Daniel Camargo</h1>
+		<h2>Sous-chef</h2>
+		<p class="staff-favorite">
+			Fav<span class="staff-orite">orite</span> food: Pepperoni Pizza
+			<br>Fav<span class="staff-orite">orite</span> beer: Stella Artois
+		</p>
+		<p class="staff-content">
+			Hes in Brazil.
+		</p>
+	</div>
+
+	<div class="about-join-bubble-wrap">
+		<div class="bubble-curved bubble-curved-green bubble-animated">
+			<div class="text" ng-switch="orangeMessage">
+				<span class="small" ng-switch-when="2">So you can write stupid messages like this</span>
+				<span  ng-switch-when="3">That no one will ever read</span>
+				<span ng-switch-when="4">So you could put anything</span>
+				<span class="single-line" ng-switch-when="5">No really.</span>
+				<span class="single-line" ng-switch-when="6">Like...</span>
+				<span class="single-line" ng-switch-when="7">"Hi Crystal!"</span>
+				<span ng-switch-when="8">Did I mention we like beer?</span>
+				<span class="single-line" ng-switch-when="9">Yeah we do.</span>
+				<span ng-switch-when="10">We even brew our own beer</span>
+				<span class="small" ng-switch-when="11">That just screams cool right there</span>
+				<span class="single-line" ng-switch-when="12"><i class="fa fa-beer"></i> <i class="fa fa-beer"></i> <i class="fa fa-beer"></i></span>
+				<span class="single-line" ng-switch-when="1"><b>Join the team!</b></span>
+				<span class="single-line" ng-switch-default><b>Join the team!</b></span>
+			</div>
+		</div>
+		<div class="bubble-curved-spacer"></div>
+	</div>
+	<div class="about-green-orange" ng-instant="orangeMessage = (orangeMessage > 12 && 1) || orangeMessage + 1"></div>
+	<div class="divider"></div>
+
+	<p>
+		<br><br>
+		Like food? Like fun? Like beer? Then we want you! Join our young ambitious team in sunny LA!
+	</p>
+	<br>
+	<button class="button lightorange" ng-click="navigation.link('/jobs')">Jobs</button>
 </div>
 
 </script><script type="text/ng-template" id="assets/view/account.facebook.html">
@@ -59,101 +155,136 @@
 </div>
 </script><script type="text/ng-template" id="assets/view/account.html">
 <div class="account-container zoom-anim-dialog mfp-hide dialog mfp-hide">
-	<div ng-controller="AccountModalHeaderCtrl" class="header" ng-show="modal.header">
-		<h1 class="signin {{ modal.signin && 'active' || 'link' }}" ng-click="modal.toggleSignForm( 'signin' )">Log In</h1>
-		<div class="divisor">|</div>
-		<h1 class="signup {{ modal.signup && 'active' || 'link' }}" ng-click="modal.toggleSignForm( 'signup' )">Sign up</h1>
-		<div class="divider"></div>
-	</div>
-	<div ng-controller="AccountSignInCtrl" ng-show="modal.signin">
-		<div ng-show="!help.visible">
-			<form name="formSignin" ng-submit="account.signin()">
-				<input type="email" maxlength="250" name="email" class="signin-email" ng-enter="account.signin()" validate-login required placeholder="email or phone" tabindex="10" ng-model="account.form.email" />
-				<div class="divider"></div>
-				<input type="password" maxlength="250" name="password" class="signin-password" ng-enter="account.signin()" required placeholder="password" tabindex="10" ng-model="account.form.password" />
-				<div class="divider"></div>
-				<div ng-show="formSignin.$dirty && formSignin.$invalid" class="error">
-					<div ng-show="formSignin.email.$error">
-						Please enter a valid email or phone.
-					</div>
-					<div ng-show="formSignin.password.$error">
-						Please enter your password.
-					</div>
-				</div>
-				<div ng-show="account.error.signin" class="error">
-					Your log in information was incorrect.
-				</div>
-			</form>
-			<div class="divider"></div>
-			<a class="help-link" ng-click="help.show(true)">Password help?</a>
-			<button ng-click="account.signin();">Log in</button>
-			<div class="divider"></div>
-
-		<div facebook-signin-button title="Log in with Facebook"></div>
+	<div class="dialog-padding">
+	
+				<div ng-controller="AccountModalHeaderCtrl" class="header" ng-show="modal.header">
+			<span class="account-title-link signin {{ modal.signin && 'active' || 'link' }}" ng-click="modal.toggleSignForm( 'signin' )">Log In</span>
+			<span class="account-title-link signup {{ modal.signup && 'active' || 'link' }}" ng-click="modal.toggleSignForm( 'signup' )">Sign up</span>
+			<div class="divider spacer-one-one"></div>
 		</div>
-		<div ng-show="help.visible">
-			<form class="signin-help-form" name="formLoginHelp" novalidate>
-				<h1>Password help?</h1>
-				<input type="text" maxlength="250" name="email" required  class="help-email" ng-enter="help.sendForm()" validate-login placeholder="email or phone" tabindex="10" ng-model="account.form.email">
-				<div class="divider"></div>
-				<div ng-show="help.error" class="error">
-					Sorry, that email/phone is not registered with us.
+
+				<div class="dialog-message dialog-message-error" ng-controller="AccountSignInCtrl">
+
+			<div ng-show="formSignin.$dirty && formSignin.$invalid">
+				<div ng-show="formSignin.email.$error">
+					Please enter a valid email or phone.
 				</div>
-			</form>
-			<a class="help-link" ng-click="help.show(false)">Never mind</a>
-			<button ng-click="help.sendForm()">Reset</button>
-			<div class="divider"></div>
-			<div ng-show="formLoginHelp.$dirty && formLoginHelp.$invalid" class="error">
+				<div ng-show="formSignin.password.$error">
+					Please enter your password.
+				</div>
+			</div>
+			<div ng-show="account.error.signin" class="error">
+				Your log in information was incorrect.
+			</div>
+	
+			<div ng-show="help.error" class="error">
+				Sorry, that email/phone is not registered with us.
+			</div>
+					
+			<div ng-show="formLoginHelp.$dirty && formLoginHelp.$invalid">
 				Please enter a valid email or phone.
 			</div>
-			
-			<div ng-show="help.success.visible" class="success">
-				You will receive a code to reset your password! It will expire in 24 hours.
-				<div ng-show="help.success.facebook.visible">
-					You can also try logging in with <span class="login-facebook">Facebook</span>.
+
+			<div ng-show="formSignup.$dirty && formSignup.$invalid">
+				<div ng-show="formSignup.email.$error">
+					Please enter a valid email or phone.
+				</div>
+				<div ng-show="formSignup.password.$error">
+					Please enter your password.
 				</div>
 			</div>
-		</div>
-	</div>
-	<div ng-controller="AccountSignUpCtrl" ng-show="modal.signup">
-		<div class="signup-form-options" ng-show="!account.user.has_auth">
-			<form class="signin-form" name="formSignup" novalidate>
-				<input type="text" maxlength="250" name="email" class="signup-email" ng-enter="account.signup()" validate-login required placeholder="email or phone" tabindex="10" ng-model="account.form.email" />
-				<div class="divider"></div>
-				<input type="password" maxlength="250" name="password" class="signup-password" ng-enter="account.signup()" required placeholder="password" tabindex="10" ng-model="account.form.password" />
-				<div class="divider"></div>
-				<div ng-show="formSignup.$dirty && formSignup.$invalid" class="error">
-					<div ng-show="formSignup.email.$error">
-						Please enter a valid email or phone.
-					</div>
-					<div ng-show="formSignup.password.$error">
-						Please enter your password.
-					</div>
-				</div>
-				<div ng-show="account.error.signup" class="error">
-					It seems that the email is already registered!
-				</div>
-			</form>
-			<div class="divider"></div>
-			<button ng-click="account.signup();">Sign up</button>
-			<div class="divider"></div>
+			<div ng-show="account.error.signup" class="error">
+				It seems that the email is already registered!
+			</div>
 			
-			<div facebook-signin-button title="Signup with Facebook"></div>
+
+			<div ng-show="facebook.facebook.error.userExists">
+				Sorry, it seems the facebook user is already related with other user.
+			</div>
+			<div ng-show="facebook.facebook.error.unknown">
+				Sorry, something bad happened.
+			</div>
+			<div ng-show="facebook.facebook.error.login">
+				Sorry, it seems you cancelled login or did not fully authorize.
+			</div>
+	
 		</div>
-		<div ng-show="account.user.has_auth">
-			<h1>Congratulations!</h1>
-			<div class="success">
-				You can now log in using <strong>{{account.email}}</strong>!
+
+			
+		<div class="dialog-message dialog-message-success" ng-controller="AccountSignInCtrl">
+			<div ng-show="help.success.visible">
+				<p>Please check your email or phone. You will receive a password reset link that will expire in 24 hours.</p>
 			</div>
 		</div>
+
+				<div ng-controller="AccountSignInCtrl" ng-show="modal.signin">
+
+			<div ng-show="!help.visible">
+			
+				<form name="formSignin" ng-submit="account.signin()">
+					<div class="support-form-group form-group">
+						<input type="email" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" class="form-input support-form-input" placeholder="email address" ng-enter="account.signin()">
+					</div>
+					<div class="support-form-group form-group">
+						<input type="password" maxlength="250" ng-model="account.form.password" name="password" tabindex="11" class="form-input support-form-input" placeholder="password" ng-enter="account.signin()">
+					</div>
+				</form>
+
+				<div class="divider spacer-half"></div>
+				<a class="account-login-help" ng-click="help.show(true)">Password help?</a>
+				<button class="button lightorange account-go" ng-click="account.signin();">Go!</button>
+				<div class="divider"></div>
+				<div class="spacer-half"></div>
+				<button class="button facebook" ng-click="facebook.auth()">
+					<i class="fa fa-facebook-square"></i>&nbsp;
+					<span ng-hide="facebook.facebook.wait">Log in with Facebook</span>
+					<span ng-show="facebook.facebook.wait">Just a sec...</span>
+				</button>
+			</div>
+
+			<div ng-show="help.visible">
+				<form name="formLoginHelp" novalidate>
+					<p>Enter your email or phone number and we will send you a link to reset your password.</p>
+					<br />
+					<input type="text" maxlength="250" name="email" required  class="form-input support-form-input" ng-enter="help.sendForm()" validate-login placeholder="email or phone" tabindex="10" ng-model="account.form.email">
+				</form>
+
+				<a class="account-login-help" ng-click="help.show(false)">Back to log in</a>
+				<button class="button lightorange account-go" ng-click="help.sendForm()">Reset</button>
+				<div class="divider"></div>
+				<div class="spacer-half"></div>
+			</div>
+		</div>
+	
+				<div ng-controller="AccountSignUpCtrl" ng-show="modal.signup">
+			<div ng-show="!account.user.has_auth">
+				<form name="formSignup" novalidate>
+					<div class="support-form-group form-group">
+						<input type="email" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" class="form-input support-form-input" placeholder="email address" ng-enter="account.signup()">
+					</div>
+					<div class="support-form-group form-group">
+						<input type="password" maxlength="250" ng-model="account.form.password" name="password" tabindex="11" class="form-input support-form-input" placeholder="password" ng-enter="account.signup()">
+					</div>
+				</form>
+
+				<button class="button lightorange account-go" ng-click="account.signup();">Go!</button>
+				<div class="divider"></div>
+				<div class="spacer-one-half"</div>
+				<button class="button facebook" ng-click="facebook.auth()">
+					<i class="fa fa-facebook-square"></i>&nbsp;
+					<span ng-hide="facebook.facebook.wait">Sign up with Facebook</span>
+					<span ng-show="facebook.facebook.wait">Just a sec...</span>
+				</button>
+			</div>
+
+			<div ng-show="account.user.has_auth">
+				<h1>Congratulations!</h1>
+				<p>You can now log in using <b>{{account.email}}</b>!</p>
+			</div>
+		</div>
+	
 	</div>
 
-	<div ng-controller="AccountFacebookCtrl" ng-show="modal.facebookLogin">
-		<div>
-			<h1>Log in with Facebook</h1>
-			<div facebook-signin-button title="Connect with Facebook"></div>
-		</div>
-	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/account.reset.html">
 <div class="account-reset-container modal zoom-anim-dialog small-container mfp-hide" ng-controller="AccountResetCtrl">
@@ -208,7 +339,13 @@
 </div>
 </script><script type="text/ng-template" id="assets/view/connection.error.html">
 <div class="connection-error">
-	<div class="connection-error-image"></div>
+	<div class="connection-error-image">
+		<div class="text">
+			<b>Wo there! Slow down!</b>
+			<br>Please reconnect to the
+			<br>internet and try again.
+		</div>
+	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/giftcard.html">
 <div class="giftcard-container modal zoom-anim-dialog small-container mfp-hide" ng-controller="GiftCardCtrl">
@@ -364,9 +501,10 @@
 	<div class="top-pad"></div>
 	<div class="pushabutton"></div>
 	<div class="home-inputs">
+		<h4>What's your address?</h4>
 		<table cellpadding="0" cellspacing="0" class="home-location">
 			<tr>
-				<td style="width: 100%;"><input class="location-address" placeholder="Enter your location" ng-enter="letsEat()" ng-model="location.form.address"></td>
+				<td style="width: 100%;"><input class="location-address" placeholder="e.g. 371 Elm St, New Haven, CT 06511" ng-enter="letsEat()" ng-model="location.form.address"></td>
 				<td>				
 					<button class="location-detect ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF" ng-click="locEat()">
 						<span class="fa fa-location-arrow "></span>
@@ -375,10 +513,12 @@
 				</td>
 			</tr>
 		</table>
-		<button class="button pushable orange find-restaurants button-letseat-form ladda-button" ng-click="letsEat()" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF">
-			<div class="ladda-label">Find Restaurants!</div>
-			<span class="ladda-spinner"></span>
-		</button>
+		<div class="button-pushable find-restaurants">
+			<button class="button orange find-restaurants button-letseat-form ladda-button" ng-click="letsEat()" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF">
+				<div class="ladda-label">Find Restaurants!</div>
+				<span class="ladda-spinner"></span>
+			</button>
+		</div>
 	</div>
 </div>
 
@@ -436,7 +576,7 @@
 	</div>
 	<div class="dialog-divider"></div>
 	<div class="dialog-padding dialog-bottom-buttons">
-		<button class="button lightorange pushable" ng-click="closePopup()">ok</button>
+		<div class="button-pushable"><button class="button lightorange" ng-click="closePopup()">ok</button></div>
 	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/order.html">
@@ -660,13 +800,27 @@
 <div class="top-pad"></div>
 
 <div class="owners-bubble-wrap">
-	<div class="bubble-tail bubble-tail-beige">
-		<div class="text">
-			<b>&nbsp;&nbsp;We're good</b><br />
-			for your business!
+	<div class="bubble-tail bubble-tail-beige bubble-animated">
+		<div class="text" ng-switch="ownerMessage">
+			<span class="single-line" ng-switch-when="1">Get it?</span>
+			<span class="single-line" ng-switch-when="2"><b>GOOD</b> for you!!</span>
+			<span ng-switch-when="3">No but seriously though</span>
+			<span ng-switch-when="4">You really should use Crunchbutton</span>
+			<span ng-switch-when="5">Our customers are awesome</span>
+			<span class="single-line" ng-switch-when="6">They love us</span>
+			<span class="small" ng-switch-when="7">And we are more than willing to share that love</span>
+			<span ng-switch-when="8">For a small fee of course</span>
+			<span ng-switch-when="9">I mean nothing is free</span>
+			<span class="single-line" ng-switch-when="10">Not even love</span>
+			<span class="single-line" ng-switch-when="11">Except from me</span>
+			<span class="single-line" ng-switch-when="12">I love you</span>
+			<span ng-switch-when="13">That was completely free</span>
+			<span class="single-line" ng-switch-when="14"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
+			<span ng-switch-default><b>We're good</b><br>for your business!</span>
 		</div>
+		<div class="bubble-tail-spacer"></div>
 	</div>
-	<div class="owner-brocoli"></div>
+	<div class="owner-brocoli" ng-instant="ownerMessage = (ownerMessage > 14 && 1) || ownerMessage + 1"></div>
 	<div class="divider"></div>
 </div>
 
@@ -743,7 +897,7 @@
 	</div>
 	<div class="dialog-divider"></div>
 	<div class="dialog-padding dialog-bottom-buttons">
-		<button class="button lightorange pushable" ng-click="closePopup()">ok</button>
+		<div class="button-pushable"><button class="button lightorange" ng-click="closePopup()">ok</button></div>
 	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/restaurant.html">
@@ -765,11 +919,21 @@
 			<h1>{{restaurant.name}}</h1>
 			<h2>{{restaurant.message || restaurant.short_description}}</h2>
 		</div>
+		<div class="restaurant-comment" ng-show="restaurant.comment">
+			<div class="restaurant-comment-wrap">
+				<div class="restaurant-comment-image">
+					<div class="restaurant-comment-image-img" style="background: url(http://graph.facebook.com/{{restaurant.comment.fb}}/picture?type=normal)"></div>
+				</div>
+				<div class="restaurant-comment-content">
+					<h4>{{restaurant.comment.user}} says</h4>
+					<p>{{restaurant.comment.content}}</p>
+				</div>
+			</div>
+		</div>
 		<div class="giftcard-badge" ng-show="credit.hasValue">
 			<i class="fa fa-certificate"></i>
 			<div class="giftcard-badge-value"><sup>$</sup>{{Math.round(credit.value)}}</div>
 			<div class="giftcard-badge-text">gift card</div>
-
 		</div>
 		
 		<div class="divider"></div>
@@ -797,8 +961,8 @@
 				</div>
 				
 			
-				<div ng-show="order.info.deliveryMinDiff && order.cart.hasItems()" class="dialog-message-error delivery-minimum-error">
-					Add <sup>$</sup><span class="delivery-min-diff">{{order.info.deliveryMinDiff}}</span> more to meet the delivery minimum.
+				<div ng-show="order.info.deliveryMinDiff && order.cart.hasItems()" class="dialog-message dialog-message-error delivery-minimum-error">
+					Add <sup>$</sup><span class="delivery-min-diff">{{order.info.deliveryMinDiff}}</span> more to meet the delivery min.
 				</div>
 
 				<div ng-show="order.cart.hasItems()">
@@ -1122,20 +1286,30 @@
 <!-- total breakdown -->
 <div class="divider dots spacer-one-two" ng-show="order.info.subtotal && order.info.subtotal!='0.00'"></div>
 
-<div class="payment-total" ng-show="order.info.subtotal && order.info.subtotal!='0.00'">
+<div class="payment-total content-padding" ng-show="order.info.subtotal && order.info.subtotal!='0.00'">
 	<div class="restaurant-banana"></div>
-				
-	<span class="restaurant-payment-item">Subtotal: <span ng-show="order.form.pay_type=='cash'">~</span>${{order.info.subtotal}}</span>
-	<span class="restaurant-payment-item">Tax: ${{order.info.taxes}}</span>
-	<span class="restaurant-payment-item" ng-show="order.form.pay_type!='cash' && order.info.tip!='0.00'">Tip: ${{order.info.tip}}</span>
-	<span class="restaurant-payment-item" ng-show="order.info.delivery!='0.00'">Delivery Fee: ${{order.info.delivery}}</span>
-	<span class="restaurant-payment-item" ng-show="order.info.fee!='0.00'">Service Fee: ${{order.info.fee}}</span>
-	<span class="restaurant-payment-item" ng-show="credit.hasValue && order.form.pay_type == 'card'">Credit: -$
-		<span ng-show="order.total() <= credit.number">{{order.info.total}}</span>
-		<span ng-show="order.total() > credit.number">{{credit.value}}</span>
-	</span>
-	<span class="restaurant-payment-item">Bananas: 0</span>
-	<span class="restaurant-payment-item">Total: <b>{{order.info.totalText}}</b></span>
+	
+	<div class="payment-wrap">
+		<div class="payment-ribbon">
+			<div class="payment-ribbon-content">
+				<span class="restaurant-payment-item">Subtotal: <span ng-show="order.form.pay_type=='cash'">~</span>${{order.info.subtotal}}</span>
+				<span class="restaurant-payment-item">Tax: ${{order.info.taxes}}</span>
+				<span class="restaurant-payment-item" ng-show="order.form.pay_type!='cash' && order.info.tip!='0.00'">Tip: ${{order.info.tip}}</span>
+				<span class="restaurant-payment-item" ng-show="order.info.delivery!='0.00'">Delivery Fee: ${{order.info.delivery}}</span>
+				<span class="restaurant-payment-item" ng-show="order.info.fee!='0.00'">Service Fee: ${{order.info.fee}}</span>
+				<span class="restaurant-payment-item" ng-show="credit.hasValue && order.form.pay_type == 'card'">Credit: -$
+					<span ng-show="order.total() <= credit.number">{{order.info.total}}</span>
+					<span ng-show="order.total() > credit.number">{{credit.value}}</span>
+				</span>
+				<span class="restaurant-payment-item">Bananas: 0</span>
+				<span class="restaurant-payment-item">Total: <b>{{order.info.totalText}}</b></span>
+			</div>
+		</div>
+		<div class="divider"></div>
+	</div>
+	<div class="divider"></div>
+
+	<br><br><br>
 
 	<div ng-show="credit.hasValue && order.form.pay_type == 'cash' ">
 		<div class="giftcard-payment-message">Pay with a card, NOT CASH, to use your ${{credit.value}} gift card</div>
@@ -1184,29 +1358,39 @@
 </script><script type="text/ng-template" id="assets/view/restaurants.html">
 <div class="top-pad"></div>
 
-<div ng-show="!restaurants">
-	<div class="content-padding">
-		<h1>Finding you the best food...</h1>
+<div class="restaurants-bubble-wrap">
+	<div class="bubble-tail bubble-tail-green bubble-animated">
+		<div class="text" ng-switch="pushMessage">
+			<span class="small" ng-switch-when="2">Push one of those restaurants down there.</span>
+			<span ng-switch-when="3">The RESTAURANTS.</span>
+			<span ng-switch-when="4">The AWESOME restaurants.</span>
+			<span class="single-line" ng-switch-when="5">Down there.</span>
+			<span class="single-line" ng-switch-when="6">NOT me!!</span>
+			<span class="single-line" ng-switch-when="7">@#%*@%&!</span>
+			<span class="single-line" ng-switch-when="8">...</span>
+			<span class="single-line" ng-switch-when="9">....</span>
+			<span class="single-line" ng-switch-when="10">.....</span>
+			<span class="single-line" ng-switch-when="11">......</span>
+			<span class="single-line" ng-switch-when="12">.......</span>
+			<span class="single-line" ng-switch-when="13">........</span>
+			<span class="single-line" ng-switch-when="14">I quit.</span>
+			<span class="single-line" ng-switch-when="15"><i class="fa fa-suitcase"></i> <i class="fa fa-suitcase"></i> <i class="fa fa-suitcase"></i></span>
+			<span ng-switch-when="1">Push a button.<br>Get food.&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span ng-switch-default>Push a button.<br>Get food.&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		</div>
+		<div class="bubble-tail-spacer"></div>
 	</div>
+	<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 15 && 1) || pushMessage + 1"></div>
+	<div class="divider"></div>
+	<div class="restaurants-tagline">
+		<h1>Order the top local delivery food.</h1>
+		<h2>Choose one of these awesome restaurants</h2>
+	</div>
+	<div class="divider"></div>
 </div>
 
-<div ng-show="restaurants">
 
-	<div class="restaurants-bubble-wrap">
-		<div class="bubble-tail bubble-tail-green">
-			<div class="text">
-				Push a button.<br />
-				&nbsp;&nbsp;&nbsp;&nbsp;Get food.
-			</div>
-		</div>
-		<div class="restaurants-orange"></div>
-		<div class="divider"></div>
-		<div class="restaurants-tagline">
-			<h1>Order the top local delivery food.</h1>
-			<h2>Choose one of these awesome restaurants</h2>
-		</div>
-		<div class="divider"></div>
-	</div>
+<div ng-show="restaurants">
 
 	<div class="restaurants-items">
 		<div ng-click="display($event)" ng-class="{'meal-item-closed': restaurant._open==false}" class="restaurants-item" data-id_restaurant="{{restaurant.id_restaurant}}" data-permalink="{{restaurant.permalink}}" ng-repeat="restaurant in restaurants | limitTo:restaurantsToShow">
@@ -1216,10 +1400,11 @@
 				<div class="restaurants-opensin">Opens in 4 hours</div>			
 			</div>
 
+
 			<div class="restaurants-open" ng-hide="restaurant._tag == 'closed'">
-				<div class="restaurants-item-content ladda-button" style="background: url({{restaurant.img}});" ng-spinner data-style="zoom-out" data-spinner-color="#333333">
+				<div class="restaurants-item-content ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#333333">
 					<div class="ladda-label">
-						<div class="restaurants-pic" style="background: url({{restaurant.img64}});"></div>
+						<div class="restaurants-pic meal-pic" style="background: url({{restaurant.img64}});"></div>
 						<h2 class="restaurants-name">{{restaurant.name}}</h2>
 						<h3 class="restaurants-description">{{restaurant._short_description}}</h3>
 
@@ -1244,6 +1429,64 @@
 
 	</div>
 </div>
+</script><script type="text/ng-template" id="assets/view/splash.html">
+<div class="bg home-top splash-top">
+	<div class="splash-spacer-one"></div>
+	<div title="Crunchbutton" class="logo" ng-click="navigation.home()"></div>
+	<div class="splash-spacer-two"></div>
+
+	<div class="splash-bubble-wrap">
+		<div class="bubble-curved bubble-curved-white bubble-animated">
+			<div class="text" ng-switch="splashMessage">
+				<span class="single-line" ng-switch-when="2">Hey!!</span>
+				<span class="single-line" ng-switch-when="3">Try logging in!</span>
+				<span class="single-line" ng-switch-when="4">No, down THERE!</span>
+				<span ng-switch-when="5">You are in<br>for a treat</span>
+				<span ng-switch-when="6">I can tell you are excited</span>
+				<span class="small" ng-switch-when="7">Perhaps too excited to follow directions</span>
+				<span class="small" ng-switch-when="8">But the next page is even MORE exciting!</span>
+				<span class="single-line" ng-switch-when="9">You can do it!</span>
+				<span class="single-line" ng-switch-when="10">I believe in you!</span>
+				<span class="single-line" ng-switch-when="11">You are awesome!</span>
+				<span class="single-line" ng-switch-when="12">Log in!</span>
+				<span class="single-line" ng-switch-when="13">YA!</span>
+				<span ng-switch-when="14">There is now cow level.</span>
+				<span ng-switch-when="15">Snape kills Dumbledore.</span>
+				<span class="small" ng-switch-when="16">Rubber baby buggy bumpers.</span>
+				<span class="single-line" ng-switch-when="17">@#%*@%&!</span>
+				<span class="single-line" ng-switch-when="18"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
+				<span class="single-line" ng-switch-when="1">Oh, Hello!</span>
+				<span class="single-line" ng-switch-default>Oh, Hello!</span>
+			</div>
+		</div>
+		<div class="bubble-curved-spacer"></div>
+	</div>
+
+	<div class="about-green-orange" ng-instant="splashMessage = (splashMessage > 18 && 1) || splashMessage + 1"></div>
+	<div class="divider"></div>
+	
+	<div class="splash-bottom">
+		<div class="splash-inputs">
+			<p class="splash-tagline">
+				<b>We’re Crunchbutton.</b>
+				<br>We deliver you the best food from the best restaurants in your community.
+			</p>
+			<div class="button-pushable">
+				<button class="button facebook" ng-click="facebook.auth()">
+					<i class="fa fa-facebook-square"></i>&nbsp;
+					<span ng-hide="facebook.facebook.wait">Log in with Facebook</span>
+					<span ng-show="facebook.facebook.wait">Just a sec...</span>
+				</button>
+			</div>
+	
+			<p>
+				<a href="" class="splash-continue" ng-instant="navigation.link('/location')">Continue without logging in</a>
+			</p>
+		</div>
+	</div>
+
+</div>
+
 </script><script type="text/ng-template" id="assets/view/suggestion.html">
 <div class="suggest-food-container modal zoom-anim-dialog small-container mfp-hide" ng-controller="RecommendFoodCtrl">
 
@@ -1280,7 +1523,7 @@
 
 		<p ng-show="support.thanks && !support.error">Thanks, we'll get back to you as fast as we can.</p>
 		
-		<div class="dialog-message-error" ng-show="support.error && !support.thanks">
+		<div class="dialog-message dialog-message-error" ng-show="support.error && !support.thanks">
 			<i class="fa fa-frown-o"></i>&nbsp;&nbsp;
 			<span ng-bind-html-unsafe="support.error"></span>
 		</div>
@@ -1302,7 +1545,7 @@
 					<textarea ng-model="support.form.message" class="form-input support-form-input" name="support-message" tabindex="3" placeholder="message"></textarea>
 				</div>
 
-			</form>				
+			</form>
 		</div>
 
 		<div class="divider"></div>
@@ -1323,8 +1566,8 @@
 	</head>
 	<body bgcolor="#fffef8" class="ios7 no-init">
 
-<div class="snap-drawers" ng-controller="SideMenuCtrl">
-	<div class="snap-drawer snap-drawer-left">
+<div class="snap-drawers static-nav-viewport" ng-controller="SideMenuCtrl">
+	<div class="snap-drawer snap-drawer-left side-menu" id="side-menu">
 		<div>
 			<div class="pushabutton"></div>
 			<ul>
@@ -1339,7 +1582,7 @@
 				<li ng-show="account.user.id_user" ng-instant="navigation.link('/orders')">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
-							<td class="side-menu-icon"><i class="fa fa-clock-o"></i></td>
+							<td class="side-menu-icon"><i class="fa fa-truck"></i></td>
 							<td class="side-menu-label">Previous Orders</a></td>
 						</tr>
 					</table>
@@ -1347,7 +1590,7 @@
 				<li ng-instant="navigation.link('/location')">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
-							<td class="side-menu-icon"><i class="fa fa-map-marker" style="margin-left: 3px;"></i></td>
+							<td class="side-menu-icon"><i class="fa fa-map-marker"></i></td>
 							<td class="side-menu-label">Change Location</a></td>
 						</tr>
 					</table>
@@ -1355,7 +1598,7 @@
 				<li ng-instant="navigation.link('/help')">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
-							<td class="side-menu-icon"><i class="fa fa-question-circle"></i></td>
+							<td class="side-menu-icon"><i class="fa fa-heart"></i></td>
 							<td class="side-menu-label">Help</a></td>
 						</tr>
 					</table>
@@ -1363,7 +1606,7 @@
 				<li ng-instant="navigation.link('/about')">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
-							<td class="side-menu-icon"><i class="fa fa-question-circle"></i></td>
+							<td class="side-menu-icon"><i class="fa fa-lightbulb-o"></i></td>
 							<td class="side-menu-label">About</a></td>
 						</tr>
 					</table>
@@ -1371,7 +1614,7 @@
 				<li ng-show="!account.user.id_user" ng-instant="navigation.signin()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
-							<td class="side-menu-icon"><i class="fa fa-user"></i></td>
+							<td class="side-menu-icon"><i class="fa fa-sign-in"></i></td>
 							<td class="side-menu-label">Log In</a></td>
 						</tr>
 					</table>
@@ -1379,7 +1622,7 @@
 				<li ng-show="account.user.id_user" ng-instant="signout.do()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
-							<td class="side-menu-icon"><i class="fa fa-mail-reply"></i></td>
+							<td class="side-menu-icon"><i class="fa fa-sign-out"></i></td>
 							<td class="side-menu-label">Logout</a></td>
 						</tr>
 					</table>
@@ -1414,7 +1657,7 @@
 	</div>
 </div>
 
-<div class="wrapper">
+<div class="wrapper static-nav-viewport">
 	
 	<div id="snap-content" class="snap-content">
 		<div class="navs" data-position="fixed" ng-controller="MainHeaderCtrl">
@@ -1442,30 +1685,27 @@
 					<div title="Menu" class="menu side" ng-click="navigation.menu()" ng-show="navigation.buttons.menu"></div>
 					<div title="Menu" class="menu drop" data-dropdown="#dropdown-menu" ng-show="navigation.buttons.menu"></div>
 					<div title="Back" ng-show="navigation.buttons.back" class="nav-back hide-before-init" ng-instant="back()">back</div>
+					
+					<div title="Cart" class="nav-cart hide-before-init" ng-click="cartScroll()" ng-show="order.info.totalItems">
+						<div class="fa fa-shopping-cart"></div>
+						<div class="nav-cart-count">{{order.info.totalItems}}</div>
+					</div>
 
-					<div class="logo" ng-click="navigation.home()"></div>
-	
-				</div>
-			</div>
-			<div class="nav nav-cart" ng-click="cartScroll()">
-				<div class="cart-summary cart-summary-detail">
-					<div class="cart-summary-icon"></div>
-					<div class="cart-summary-item-count"><span>{{order.info.totalItems}}</span></div>
-					<div class="cart-summary-items">{{order.info.cartSummary}}</div>
+					<div title="Crunchbutton" class="logo" ng-click="navigation.home()"></div>
+
 				</div>
 			</div>
 		</div>
 
 
 		<div ng-class="{'button-bottom-show': (navigation.page == 'restaurant' && navigation.restaurant._open && navigation.order.cart.hasItems() && !notificationBarStatus ), 'button-bottom-show-notification-bar-on': (navigation.page == 'restaurant' && navigation.restaurant._open && navigation.order.cart.hasItems() && notificationBarStatus )}" class="button-bottom-wrapper">
-			<button class="button pushable orange get-food" ng-click="navigation.order.submit();"><div>Get Food</div></button>
+			<div class="button-pushable" ng-show="navigation.order.form.name || navigation.order.form.phone"><button class="button orange get-food ani-all" ng-click="navigation.order.submit();"><div>Get Food</div></button></div>
+			<div class="button-pushable" ng-show="!navigation.order.form.name && !navigation.order.form.phone"><button class="button orange get-food ani-all" ng-click="navigation.order.checkout();"><div>Checkout</div></button></div>
 		</div>
 
 		<div class="snap-content-inner bg" ng-scroll-position>
 			<div class="content">
-				<div class="main-content">
-					<div ng-view></div>
-				</div>
+				<div ng-view><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1>Push a button.<br />Get food.&nbsp;&nbsp;&nbsp;&nbsp;</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div><div class="restaurants-tagline"><h1>Order the top local delivery food.</h1><h2>Choose one of these awesome restaurants</h2></div><div class="divider"></div></div></div></div>
 			</div>
 
 			<div class="divider"></div>
@@ -1496,7 +1736,6 @@
 <div ng-include="'assets/view/restaurant.closed.html'"></div>
 <div ng-include="'assets/view/account.html'"></div>
 <div ng-include="'assets/view/account.reset.html'"></div>
-<div ng-include="'assets/view/account.facebook.html'"></div>
 <div ng-include="'assets/view/restaurant.closed.inline.html'"></div>
 <div ng-include="'assets/view/giftcard.html'"></div>
 <div ng-include="'assets/view/suggestion.html'"></div>
@@ -1504,7 +1743,7 @@
 <div ng-include="'assets/view/connection.error.html'"></div>
 
 <div id="fb-root"></div>
-
+<div class="is-ui2"></div>
 </body>
 	<audio id="get-food-audio">
 		<source src="assets/audio/crunch.mp3"></source>

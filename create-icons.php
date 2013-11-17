@@ -10,9 +10,7 @@
  *
  */
  
- 
-$bgColor = '#f98f5c';										// background color
-$icon = 'src/res/logo.png';									// path to logo
+
 $createPath = 'src/res/'; 									// path to generate files to
 $projectPath = 'platforms/ios/Crunchbutton/Resources/';		// path of ios project
 
@@ -39,7 +37,12 @@ $images = [
 		'prefix' => 'icon-',
 		'scale' => function($size) {
 			return $size[0] * .65;
-		}
+		},
+		'offset' => function($size) {
+			return '+0';
+		},
+		'color' => 'f98f5c',
+		'image' => 'src/res/logo.png'
 	],
 	'backgrounds' => [
 		'items' => [
@@ -52,8 +55,13 @@ $images = [
 		'path' => $createPath.'screen/ios/',
 		'copyPath' => $projectPath.'splash/', // secondary path if you are using phonegap with trailing
 		'scale' => function($size) {
-			return (($size[0] + $size[1]) / 2) * .25;
-		}
+			return (($size[0] + $size[1]) / 2) * .35;
+		},
+		'offset' => function($size) {
+			return '-'.round((($size[0] + $size[1]) / 2) * .05);
+		},
+		'color' => 'fc9a6b',
+		'image' => 'src/res/bg.png'
 	],
 	'backgrounds-retina' => [
 		'items' => [
@@ -66,8 +74,13 @@ $images = [
 		'path' => $createPath.'screen/ios/',
 		'copyPath' => $projectPath.'splash/', // secondary path if you are using phonegap with trailing
 		'scale' => function($size) {
-			return (($size[0] + $size[1]) / 2) * .2;
-		}
+			return (($size[0] + $size[1]) / 2) * .35;
+		},
+		'offset' => function($size) {
+			return '-'.round((($size[0] + $size[1]) / 2) * .05);
+		},
+		'color' => 'fc9a6b',
+		'image' => 'src/res/bg.png'
 	]
 ];
 
@@ -79,9 +92,9 @@ foreach ($images as $type) {
 	}
 
 	foreach ($type['items'] as $item) {
-		$cmd = "convert -define jpeg: '".$icon."' -thumbnail '".$type['scale']($item['size'])."x4000>' \
-			-gravity center -crop ".$item['size'][0]."x".$item['size'][1]."+0+0\! \
-			-background '".$bgColor."' -flatten ".$type['path'].$type['prefix'].$item['name'].".png";
+		$cmd = "convert -define jpeg: '".$type['image']."' -thumbnail '".$type['scale']($item['size'])."x4000>' \
+			-gravity center -crop ".$item['size'][0]."x".$item['size'][1]."+0-".$type['offset']($item['size'])."\! \
+			-background '#".$type['color']."' -flatten ".$type['path'].$type['prefix'].$item['name'].".png";
 		if ($type['copyPath']) {
 			$cmd .= " && cp ".$type['path'].$type['prefix'].$item['name'].".png ".$type['copyPath']
 				.($item['copyName'] ?
