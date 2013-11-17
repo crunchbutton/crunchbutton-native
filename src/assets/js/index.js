@@ -75,7 +75,7 @@ $(function() {
 		// do the ios7 style 3d tilt thing on the location page
 		window.addEventListener('deviceorientation', function(eventData) {
 			try {
-				if (App.rootScope.navigation.page == 'location') {
+				if (App.rootScope.navigation.page == 'location' || App.rootScope.navigation.page == 'splash') {
 					var yTilt = Math.round((-eventData.beta + 90) * (40/180) - 40);
 					var xTilt = Math.round((-eventData.gamma + 90) * (20/180) - 20);
 					var bgOffset = 0;
