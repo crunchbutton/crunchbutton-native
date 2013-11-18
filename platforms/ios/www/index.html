@@ -23,7 +23,7 @@
 			<span class="single-line" ng-switch-when="7">Or three.</span>
 			<span ng-switch-when="8">In fact just buy them a keg.</span>
 			<span class="single-line" ng-switch-when="9">Me?</span>
-			<span class="small" ng-switch-when="10">I'll take a magnum of Veuve Clicquot, thanks.</span>
+			<span class="small" ng-switch-when="10" style="margin-top: .5em;">A bottle of Veuve Clicquot, please.</span>
 			<span class="single-line" ng-switch-when="11">Cheers!</span>
 			<span class="single-line" ng-switch-when="12"><i class="fa fa-glass"></i> <i class="fa fa-glass"></i> <i class="fa fa-glass"></i></span>
 			<span ng-switch-when="1"><b>Hey there!</b><br>Nice to meet you!</span>
@@ -53,7 +53,7 @@
 	<div class="staff">
 		<div class="staff-devin staff-image animated-resize"></div>
 		<h1>Devin Smith</h1>
-		<h2>Head Chef</h2>
+		<h2>Executive Chef</h2>
 		<p class="staff-favorite">
 			Fav<span class="staff-orite">orite</span> food: Toro Sushi
 			<br>Fav<span class="staff-orite">orite</span> beer: Matilda
@@ -1698,7 +1698,7 @@
 				
 					<div title="Menu" class="menu side" ng-click="navigation.menu()" ng-show="navigation.buttons.menu"></div>
 					<div title="Menu" class="menu drop" data-dropdown="#dropdown-menu" ng-show="navigation.buttons.menu"></div>
-					<div title="Back" ng-show="navigation.buttons.back" class="nav-back hide-before-init" ng-instant="back()">back</div>
+					<div title="Back" ng-show="navigation.buttons.back" class="nav-back hide-before-init" ng-instant="back()"></div>
 					
 					<div title="Cart" class="nav-cart hide-before-init" ng-click="cartScroll()" ng-show="order.info.totalItems">
 						<div class="fa fa-shopping-cart"></div>
