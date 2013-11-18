@@ -38,61 +38,29 @@
 * {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);	/* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
-
 html {
 	overflow: hidden;
 }
-
 body {
 	-webkit-touch-callout: none;				/* prevent callout to copy image, etc when tap to hold */
 	-webkit-text-size-adjust: none;				/* prevent webkit from resizing text to fit */
 	-webkit-user-select: none;					/* prevent copy paste, to allow, change 'none' to 'text' */
 	overflow: hidden;							/* no scrolling */
 }
-
-@media (max-width: 768px) {
-/*
-	.ios7 .nav-top {
-
-		background: url(../images/nav-ios7.png);
-		background-size: 62px;
-
-		padding-top: 15px;
-		padding-bottom: 3px;
-
-	}
-
-	.ios7 .main-content {
-		margin-top: 68px;
-	}
-	.ios7.page-restaurant .main-content {
-		margin-top: 103px;
-	}
-*/
-	.bg {
-		-webkit-transform: translate3d(0,0,0);
-		/*-webkit-transition: background-position linear 0.1s; */
-	}
-	.home-top {
-		background: #90562f url(../images/micro/bg-sandwich-phone.jpg);
-		background-position: -321px -83px;
-	}
+.bg {
+	-webkit-transform: translate3d(0,0,0);
+	/*-webkit-transition: background-position linear 0.1s; */
 }
 
 .nav-top .logo {
 	background-position-y: 4px;
 }
-
 .location-detect {
 	display: block !important;
 }
-
 .dialog-message-error {
 	padding-bottom: .7em;
 }
-
-
-
 
 .page-location .snap-content-inner.bg, .location-overpull-preload-one {
 	background: #fffef8 url(../images/micro/location-hidden-orange1.svg) no-repeat;
@@ -104,4 +72,16 @@ body {
 }
 .page-location .snap-content-inner.bg.step-three, .location-overpull-preload-three {
 	background: #fffef8 url(../images/micro/location-hidden-orange3.svg) no-repeat;
+}
+
+@media (max-width: 568px) {
+	.home-top {
+		background: #90562f url(../images/micro/bg-sandwich-phone.jpg);
+		background-position: -321px -83px;
+	}
+}
+@media (min-width: 768px) {
+	.page-location .snap-content-inner.bg{
+		background-position: center 60px !important;
+	}
 }
