@@ -79,6 +79,10 @@ body {
 	}
 }
 
+.nav-top .logo {
+	background-position-y: 4px;
+}
+
 .location-detect {
 	display: block !important;
 }
