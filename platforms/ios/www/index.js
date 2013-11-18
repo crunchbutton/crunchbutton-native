@@ -65,7 +65,6 @@ $(function() {
 			});
 		}, null, 'VersionPlugin', 'version',[]);
 
-
 		function orientationChanged (orientationEvent) {
 			if (!App || !App.parallax.bg || !App.parallax.enabled) {
 				return;
