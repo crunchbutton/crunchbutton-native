@@ -123,9 +123,7 @@ $(function() {
 			if (-yImagePosition > App.parallax.height * .35) {
 				yImagePosition = 0;
 			}
-			
-			console.log('PLX',App.parallax.width,App.parallax.height,yImagePosition,xImagePosition, orientationEvent.beta, orientationEvent.gamma, screenOrientation)
-			
+
 			App.parallax.bg.style.backgroundPosition = xImagePosition + 'px ' + yImagePosition + 'px';
 			//set the backgroundimage position to  xImagePosition yImagePosition
 		}
