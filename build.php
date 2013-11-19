@@ -10,7 +10,7 @@
 
 
 $server = 'http://seven.localhost/';
-$srcPath = './src/';
+$srcPath = './www/';
 //$path = './www/';
 $path = './platforms/ios/www/';
 $live = $argv[1] == 'live' ? true : false;
