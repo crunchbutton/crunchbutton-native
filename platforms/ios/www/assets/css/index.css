@@ -85,3 +85,7 @@ body {
 		background-position: center 60px !important;
 	}
 }
+
+.location-address {
+	height: auto;
+}

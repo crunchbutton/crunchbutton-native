@@ -511,14 +511,14 @@
 <div class="content-padding" ng-controller="SupportCtrl">
 	<br />
 
-	<h4>Marketing Interns</h4>
-	<p>We offer an extensive paid internship program for ambitious candidates, as well as pink gorilla suits.</p>
+	<h4>Community Representative</h4>
+	<p>No one knows more about your college or community than you. Thats why we're going to hire you! You will be responsible for scouting the area to get restaurants signed up, and later be directly involved in end user marketing.</p>
 	<br />
 	<a href="mailto:campusreps@crunchbutton.com" target="_blank"><button class="button green">join up</button></a>
 	<br /><br /><br /><br />
 
 	<h4>Rockstar Developers &amp; Designers</h4>
-	<p>Developer? Rockstar? Perfect.</p>
+	<p>Look at this beautiful website! It's almost perfect! You know how it could be better? If you perfected it! Join our small team of developers located in LA/Brazil, and lets get shit done!</p>
 	<br />
 	<a href="mailto:rockstarsonly@crunchbutton.com" target="_blank"><button class="button lightorange">rock out</button></a>
 </div>
@@ -537,7 +537,7 @@
 			<h4>What's your address?</h4>
 			<table cellpadding="0" cellspacing="0" class="home-location">
 				<tr>
-					<td style="width: 100%;"><input class="location-address" placeholder="e.g. 37 Elm St, New Haven CT 06511" ng-enter="letsEat()" ng-model="location.form.address"></td>
+					<td style="width: 100%;"><input class="location-address" placeholder="e.g. 37 Elm St, New Haven CT 06511" ng-enter="letsEat()" ng-model="location.form.address" geo-complete></td>
 					<td>				
 						<button class="location-detect ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF" ng-click="locEat()">
 							<span class="fa fa-location-arrow "></span>
@@ -1134,8 +1134,17 @@
 		</div>
 		<div class="divider"></div>
 	</div>
+	
+	
+	<div class="divider dots spacer-one-one" ng-show="!account.user.id_user"></div>
+	<div class="content-padding" ng-show="!account.user.id_user">
+		<p>Already signed up? Don't enter all that stuff again!</p>
+		<br>
+		<button class="button green" ng-click="navigation.signin()">Log in</button>
+	</div>
 
 	<div class="divider dots spacer-one-one" ng-show="order.loaded && order.cart.hasItems() && order.showForm"></div>
+	
 
 
 	<!-- payment and user info -->
@@ -1151,37 +1160,47 @@
 						<button ng-click="order.toogleDelivery( 'takeout' )" ng-class="{'toggle-active': order.form.delivery_type=='takeout' }" class="payment-form-toggle">takeout</button>
 					</div>
 				</div>
+				
+				
+				<div class="payment-form-group form-group">
+					<i class="form-icon form-field"> </i>
+					<div class="form-field">
+						<div ng-show="(restaurant.delivery == '1' && restaurant.takeout != '1')">
+							<label class="pay-title-label">Delivery Info</label>
+						</div>
+		
+						<div ng-show="(restaurant.delivery != '1' && restaurant.takeout == '1')">
+							<label class="pay-title-label">Takeout Info </label>
+							<span class="take-out-only">Take out only!</span>
+						</div>
+					</div>
 
-				<div ng-show="(restaurant.delivery == '1' && restaurant.takeout != '1')">
-					<label class="pay-title-label">Delivery Info</label>
+
+
 				</div>
 
-				<div ng-show="(restaurant.delivery != '1' && restaurant.takeout == '1')">
-					<label class="pay-title-label">Takeout Info </label>
-					<span class="take-out-only">Take out only!</span>
-				</div>
 
 				<div class="personal-info field-container">
 					<div class="payment-form-group form-group">
-						<i class="fa fa-user payment-form-icon form-icon"></i>
-						<input type="text" name="pay-name" tabindex="2" ng-model="order.form.name" class="payment-form-input form-input" placeholder="name">
+						<i class="fa fa-user payment-form-icon form-icon form-field"></i>
+						<input type="text" name="pay-name" tabindex="2" ng-model="order.form.name" class="payment-form-input form-input form-field" placeholder="name">
 					</div>
 
 					<div class="payment-form-group form-group">
-						<i class="fa fa-phone payment-form-icon form-icon"></i>
-						<input type="tel" name="pay-phone" tabindex="3" ng-format-phone ng-model="order.form.phone" class="payment-form-input form-input" placeholder="phone number">
+						<i class="fa fa-phone payment-form-icon form-icon form-field"></i>
+						<input type="tel" name="pay-phone" tabindex="3" ng-format-phone ng-model="order.form.phone" class="payment-form-input form-input form-field" placeholder="phone number">
 					</div>
 
 					<div class="payment-form-group form-group">
-						<i class="fa fa-map-marker payment-form-icon form-icon animate-show"></i>
-						<p>Pickup from: {{restaurant.address | nl2br}}</p>
-						<textarea ng-autosize ng-show="order.form.delivery_type=='delivery'" class="payment-form-input form-input" ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5" placeholder="address"></textarea>
+						<i class="fa fa-map-marker payment-form-icon form-icon form-field"></i>
+						<p ng-show="order.form.delivery_type!='delivery'">Pickup from: <span ng-bind-html-unsafe="restaurant.address | nl2br"></span></p>
+						<textarea ng-autosize ng-show="order.form.delivery_type=='delivery'" class="payment-form-input form-input form-field" ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5" placeholder="address"></textarea>
 					</div>
 
 					<div class="payment-form-group form-group">
 
-						<i class="fa fa-bullhorn payment-form-icon form-icon"></i>
-						<textarea ng-autosize name="notes" ng-blur="checkGiftCard()" ng-model="order.form.notes" tabindex="6" class="payment-form-input form-input" placeholder="notes"></textarea>
+						<i class="fa fa-bullhorn payment-form-icon form-icon form-field"></i>
+						<textarea ng-autosize name="notes" ng-blur="checkGiftCard()" ng-model="order.form.notes" tabindex="6" class="payment-form-input form-input form-field" placeholder="notes"></textarea>
 
 						<!-- Gift card messages -->
 						<div class="giftcard-info">
@@ -1237,20 +1256,20 @@
 					</div>
 
 					<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
-						<i class="fa fa-credit-card payment-form-icon form-icon"></i>
-						<input type="tel" name="pay-card-number" tabindex="6" ng-change="order.creditCardChanged();" ng-model="order.form.cardNumber" class="payment-form-input form-input">
+						<i class="fa fa-credit-card payment-form-icon form-icon form-field"></i>
+						<input type="tel" name="pay-card-number" tabindex="6" ng-change="order.creditCardChanged();" ng-model="order.form.cardNumber" class="payment-form-input form-input form-field">
 					</div>
 					
 					<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
-						<i class="fa payment-form-icon form-icon"></i>
-						<select ng-change="order.cardInfoChanged()" ng-model="order.form.cardMonth" ng-options="month.value as month.label for month in order._months()" tabindex="7" class="payment-form-select payment-form-input form-input">{{order.form.card.month}}</select> 
-						<select ng-change="order.cardInfoChanged()" ng-model="order.form.cardYear" ng-options="year.value as year.label for year in order._years()" tabindex="8" class="payment-form-select payment-form-input form-input"></select> 
+						<i class="fa payment-form-icon form-icon form-field"></i>
+						<select ng-change="order.cardInfoChanged()" ng-model="order.form.cardMonth" ng-options="month.value as month.label for month in order._months()" tabindex="7" class="payment-form-select payment-form-input form-input form-field">{{order.form.card.month}}</select> 
+						<select ng-change="order.cardInfoChanged()" ng-model="order.form.cardYear" ng-options="year.value as year.label for year in order._years()" tabindex="8" class="payment-form-select payment-form-input form-input form-field"></select> 
 					</div>
 
 					<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
-						<i class="fa fa-thumbs-up payment-form-icon form-icon"></i>
+						<i class="fa fa-thumbs-up payment-form-icon form-icon form-field"></i>
 						<input type="hidden" name="pay-autotip-value" ng-model="order.form.autotip" value="0">
-						<select ng-model="order.form.tip" ng-options="tip.value as tip.label for tip in order._tips()" ng-change="order.tipChanged();" class="tip payment-form-select payment-form-input form-input" tabindex="9"></select> 
+						<select ng-model="order.form.tip" ng-options="tip.value as tip.label for tip in order._tips()" ng-change="order.tipChanged();" class="tip payment-form-select payment-form-input form-input form-field" tabindex="9"></select> 
 
 					</div>
 				</div>
@@ -1612,7 +1631,7 @@
 
 				<div class="support-form-group form-group">
 					<i class="fa fa-bullhorn support-form-icon form-icon"></i>
-					<textarea ng-model="support.form.message" class="form-input support-form-input" name="support-message" tabindex="3" placeholder="message"></textarea>
+					<textarea ng-autosize ng-model="support.form.message" class="form-input support-form-input" name="support-message" tabindex="3" placeholder="message"></textarea>
 				</div>
 
 			</form>
@@ -1641,6 +1660,14 @@
 		<div>
 			<div class="pushabutton"></div>
 			<ul>
+				<li ng-instant="navigation.link('/splash')" ng-show="!account.user.id_user">
+					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+						<tr>
+							<td class="side-menu-icon"><i class="fa fa-rocket"></i></td>
+							<td class="side-menu-label">Get Started</a></td>
+						</tr>
+					</table>
+				</li>
 				<li ng-instant="navigation.link('/food-delivery')">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
@@ -1678,6 +1705,14 @@
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-lightbulb-o"></i></td>
 							<td class="side-menu-label">About</a></td>
+						</tr>
+					</table>
+				</li>
+				<li ng-instant="navigation.link('/jobs')">
+					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+						<tr>
+							<td class="side-menu-icon"><i class="fa fa-beer"></i></td>
+							<td class="side-menu-label">Free Beer</a></td>
 						</tr>
 					</table>
 				</li>
@@ -1733,27 +1768,28 @@
 		<div class="navs" data-position="fixed" ng-controller="MainHeaderCtrl">
 			<div class="nav nav-top">
 				<div class="content">
-
-					<div id="dropdown-menu" class="dropdown dropdown-tip">
+					<div class="hide-before-init dropdown dropdown-tip" ng-show="menudropdown">
 						<ul class="dropdown-menu">
-							<li><a ng-click="navigation.link('/food-delivery')">Restaurants</a></li>
-							<li><a ng-click="navigation.link('/orders')" ng-show="account.user.id_user">Previous Orders</a></li>
-							<li><a ng-click="navigation.link('/location')">Change Location</a></li>
+							<li><a ng-click="navigation.link('/splash')" ng-show="!account.user.id_user"><i class="fa fa-rocket"></i>Get Started!</a></li>
+							<li><a ng-click="navigation.link('/food-delivery')"><i class="fa fa-cutlery"></i>Restaurants</a></li>
+							<li><a ng-click="navigation.link('/orders')" ng-show="account.user.id_user"><i class="fa fa-truck"></i>Previous Orders</a></li>
+							<li><a ng-click="navigation.link('/location')"><i class="fa fa-map-marker"></i>Change Location</a></li>
 							<li class="dropdown-divider"></li>
-							<li><a ng-click="navigation.link('/help')">Help</a></li>
-							<li><a ng-click="navigation.link('/about')">About</a></li>
-							<li><a ng-click="navigation.signin()" ng-show="!account.user.id_user">Log In</a></li>
-							<li><a ng-click="signout.do()" ng-show="account.user.id_user">Log Out</a></li>
+							<li><a ng-click="navigation.link('/help')"><i class="fa fa-heart"></i>Help</a></li>
+							<li><a ng-click="navigation.link('/about')"><i class="fa fa-lightbulb-o"></i>About</a></li>
+							<li><a ng-click="navigation.link('/jobs')"><i class="fa fa-beero"></i>Free Beer</a></li>
+							<li><a ng-click="navigation.signin()" ng-show="!account.user.id_user"><i class="fa fa-sign-in"></i>Log In</a></li>
+							<li><a ng-click="signout.do()" ng-show="account.user.id_user"><i class="fa fa-sign-out"></i>Log Out</a></li>
 							<li class="dropdown-divider" ng-show="account.user.debug"></li>
-							<li><a ng-click="App.test.card()" ng-show="account.user.debug">TEST: card</a></li>
-							<li><a ng-click="App.test.clearloc()" ng-show="account.user.debug">TEST: clear location</a></li>
-							<li><a ng-click="navigation.link('/')" ng-show="account.user.debug">TEST: go home</a></li>
-							<li><a ng-click="App.test.card()" ng-show="account.user.debug">TEST: card</a></li>
+							<li><a ng-click="App.test.card()" ng-show="account.user.debug"><i class="fa fa-circle-o"></i>TEST: card</a></li>
+							<li><a ng-click="App.test.clearloc()" ng-show="account.user.debug"><i class="fa fa-circle-o"></i>TEST: clear location</a></li>
+							<li><a ng-click="navigation.link('/')" ng-show="account.user.debug"><i class="fa fa-circle-o"></i>TEST: go home</a></li>
+							<li><a ng-click="App.test.card()" ng-show="account.user.debug"><i class="fa fa-circle-o"></i>TEST: card</a></li>
 					    </ul>
 					</div>
 				
 					<div title="Menu" class="menu side" ng-click="navigation.menu()" ng-show="navigation.buttons.menu"></div>
-					<div title="Menu" class="menu drop" data-dropdown="#dropdown-menu" ng-show="navigation.buttons.menu"></div>
+					<div title="Menu" class="menu drop" ng-show="navigation.buttons.menu" ng-toggle="menudropdown"></div>
 					<div title="Back" ng-show="navigation.buttons.back" class="nav-back hide-before-init" ng-instant="back()"></div>
 					
 					<div title="Cart" class="nav-cart hide-before-init" ng-click="cartScroll(order.restaurant.permalink)" ng-show="order.info.totalItems">
@@ -1819,7 +1855,7 @@
 		<source src="assets/audio/crunch.mp3"></source>
 		<source src="assets/audio/crunch.ogg"></source>
 	</audio>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 	<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="angular-1.0.8.min.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
