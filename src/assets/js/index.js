@@ -117,6 +117,14 @@ $(function() {
 			if (xImagePosition >= 0) {
 				xImagePosition = 0;
 			}
+			if (-xImagePosition > App.parallax.width * .65) {
+				xImagePosition = App.parallax.width * .65;
+			}
+			if (-yImagePosition > App.parallax.height * .35) {
+				yImagePosition = 0;
+			}
+			
+			console.log('PLX',App.parallax.width,App.parallax.height,yImagePosition,xImagePosition, orientationEvent.beta, orientationEvent.gamma, screenOrientation)
 			
 			App.parallax.bg.style.backgroundPosition = xImagePosition + 'px ' + yImagePosition + 'px';
 			//set the backgroundimage position to  xImagePosition yImagePosition
@@ -138,6 +146,8 @@ $(function() {
 			//we'll set an onload listener, so that when the image loads, we position the background image of the element
 			theImage.onload = function() {
 				var elRect = App.parallax.bg.getBoundingClientRect();
+				App.parallax.width = this.width;
+				App.parallax.height = this.height;
 				App.parallax.x = -1 * (this.width - elRect.width)/2;
 				App.parallax.y = -1 * (this.height - elRect.height)/2;
 			}
@@ -169,6 +179,10 @@ $(function() {
 		window.addEventListener('statusTap', function() {
 			$('html, body, .snap-content-inner').animate({scrollTop: 0}, 200, $.easing.easeInOutQuart ? 'easeInOutQuart' : null);
 		});
+		
+		$(document).focus(function() {
+			$('body').scrollTop(280-$('.snap-content-inner').scrollTop());
+		}, '.location-address');
 	
 		setTimeout(function(){
 			var facebookService = angular.element('html').injector().get('FacebookService');
