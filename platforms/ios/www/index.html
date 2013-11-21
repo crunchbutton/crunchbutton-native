@@ -982,8 +982,6 @@
 	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/restaurant.html">
-
-
 <div ng-show="!order.loaded">
 	<div class="top-pad"></div>
 
@@ -1699,6 +1697,14 @@
 						</tr>
 					</table>
 				</li>
+				<li ng-instant="navigation.link('/food-delivery')">
+					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+						<tr>
+							<td class="side-menu-icon"><i class="fa fa-cutlery"></i></td>
+							<td class="side-menu-label">Restaurants</a></td>
+						</tr>
+					</table>
+				</li>
 				<li ng-show="account.user.id_user" ng-click="navigation.link('/orders')">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
@@ -1891,7 +1897,8 @@
 	</audio>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 	<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="angular-1.0.8.min.js"></script>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="angular-route.min.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="cdv-plugin-fb-connect.js"></script>
 	<script type="text/javascript" src="facebook-js-sdk.js"></script>

@@ -8,11 +8,14 @@
  *
  */
 
-
+$curpath = getcwd();
+if (preg_match('/platforms\/ios/',$curpath)) {
+	$ap = '../../';
+}
 $server = 'http://seven.localhost/';
-$srcPath = './www/';
+$srcPath = $ap.'./www/';
 //$path = './www/';
-$path = './platforms/ios/www/';
+$path = $ap.'./platforms/ios/www/';
 $live = $argv[1] == 'live' ? true : false;
 
 
@@ -45,20 +48,21 @@ echo "complete.\n";
 echo "Downloading assets bundle...\n";
 
 function download($file, $dst = null, $usegzip = false) {
-	global $server, $path;
+	global $server, $path, $curpath;
 	
-	echo '	'.$file.'... ';
 	$parts = pathinfo($path.'assets/'.$file);
 	$dstpath = $dst !== null ? $path.$dst.$parts['basename'] : $path.'assets/'.$file;
+	
+	echo '	'.$file.'... ';
 
 	if (!file_exists($parts['dirname'])) {
 		mkdir($parts['dirname'], 0755, true);
 	}
 
 	if ($usegzip) {
-		shell_exec('wget -q -O - --header="Accept-Encoding: gzip" "'.$server.'assets/'.$file.($live ? '?__live=1' : '').'" | gunzip > "'.$dstpath.'"');
+		shell_exec('/usr/local/bin/wget -q -O - --header="Accept-Encoding: gzip" "'.$server.'assets/'.$file.($live ? '?__live=1' : '').'" | gunzip > "'.$dstpath.'"');
 	} else {
-		shell_exec('wget -q -O '.$dstpath.' "'.$server.'assets/'.$file.($live ? '?__live=1' : '').'"');
+		shell_exec('/usr/local/bin/wget -q -O '.$dstpath.' "'.$server.'assets/'.$file.($live ? '?__live=1' : '').'"');
 		// file_put_contents($path.'assets/'.$file, file_get_contents($server.$file));
 	}
 	echo "complete.\n";
