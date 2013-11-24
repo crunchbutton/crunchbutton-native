@@ -181,7 +181,7 @@ $(function() {
 		$(document).focus(function() {
 			$('body').scrollTop(280-$('.snap-content-inner').scrollTop());
 		}, '.location-address');
-	
+
 		setTimeout(function(){
 			var facebookService = angular.element('html').injector().get('FacebookService');
 			FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
