@@ -14,7 +14,6 @@ if (preg_match('/platforms\/ios/',$curpath)) {
 }
 $server = 'http://seven.localhost/';
 $srcPath = $ap.'./www/';
-//$path = './www/';
 $path = $ap.'./platforms/ios/www/';
 $live = $argv[1] == 'live' ? true : false;
 
@@ -77,7 +76,7 @@ foreach ($assets as $asset) {
 
 	switch ($type) {
 		case 'view':
-			$content .= '<script type="text/ng-template" id="assets/'.$asset.'">'.file_get_contents($server.$asset).'</script>';
+			$content .= '<script type="text/ng-template" id="assets/'.$asset.'">'.file_get_contents($server.'assets/'.$asset).'</script>';
 			break;
 
 		case 'audio':
@@ -102,7 +101,7 @@ echo "Asset download complete.\n";
 // create the index file
 echo "Building body...\n";
 $index = file_get_contents($path.'assets/view/template.html');
-$body = file_get_contents($server.'view/body.html'.($live ? '?__live=1' : ''));
+$body = file_get_contents($server.'assets/view/body.html'.($live ? '?__live=1' : ''));
 $index = str_replace('<body></body>', '<body bgcolor="#fffef8" class="ios7 no-init">'.$body.'</body>', $index);
 $index = str_replace('<templates></templates>', $content, $index);
 file_put_contents($path.'index.html', $index);
