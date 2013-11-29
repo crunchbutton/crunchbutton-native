@@ -70,6 +70,13 @@ module.exports = [
         "clobbers": [
             "Connection"
         ]
+    },
+    {
+        "file": "plugins/gamecenter/www/gamecenter.js",
+        "id": "gamecenter.GameCenter",
+        "clobbers": [
+            "gamecenter"
+        ]
     }
 ]
 });

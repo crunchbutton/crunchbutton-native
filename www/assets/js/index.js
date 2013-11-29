@@ -21,6 +21,9 @@ if (!window.plugins.tapToScroll) {
 	window.plugins.tapToScroll = new TapToScroll();
 }
 
+var onSuccess = function(){console.log('1',arguments);};
+var onError = function(){console.log('0',arguments);};
+
 balanced = {
 	card: {
 		create: function(args, complete) {
@@ -52,10 +55,26 @@ var login = function() {
 	FB.login(status, {scope: 'email'});
 };
 
+// if the app user isnt logged or this is the first time the app is loaded, hide the main stuff
+if (!localStorage.loggedIn) {
+	var els = document.getElementsByClassName('loggedout-hideable');
+	for (var x in els) {
+		//els[x].style.display = 'none';
+	}
+
+}
+
 
 $(function() {
 	document.addEventListener('deviceready', function() {
+		// if they are logged in, they are going straight to the restaurant page
+		if (localStorage.loggedIn) {
+			navigator.splashscreen.hide();
+		}
 		// set a timeout for when ajax requests timeout
+		
+		//gamecenter.auth( onSuccess, onError );
+
 		cordova.exec(function(response) {
 			$.ajaxSetup({
 				timeout: App.ajaxTimeout,
@@ -129,6 +148,7 @@ $(function() {
 		}
 		
 		App.parallax.setupBackgroundImage = function(el) {
+
 			App.parallax.bg = el;
 		
 			var imgURL = window.getComputedStyle(App.parallax.bg).backgroundImage ;
