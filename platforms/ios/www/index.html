@@ -15,23 +15,22 @@
 <div class="about-bubble-wrap">
 	<div class="bubble-tail bubble-tail-green bubble-animated">
 		<div class="text" ng-switch="pearMessage">
-			<span ng-switch-when="2">I don't actually work here.</span>
-			<span ng-switch-when="3">These guys do though.</span>
-			<span ng-switch-when="4">You should buy them a beer.</span>
-			<span ng-switch-when="5">I'm sure they deserve it.</span>
-			<span class="single-line" ng-switch-when="6">Maybe two.</span>
-			<span class="single-line" ng-switch-when="7">Or three.</span>
-			<span ng-switch-when="8">In fact just buy them a keg.</span>
-			<span class="single-line" ng-switch-when="9">Me?</span>
-			<span class="small" ng-switch-when="10" style="margin-top: .5em;">A bottle of Veuve Clicquot, please.</span>
-			<span class="single-line" ng-switch-when="11">Cheers!</span>
-			<span class="single-line" ng-switch-when="12"><i class="fa fa-glass"></i> <i class="fa fa-glass"></i> <i class="fa fa-glass"></i></span>
-			<span ng-switch-when="1"><b>Hey there!</b><br>Nice to meet you!</span>
+			<span ng-switch-when="1">I don't actually work here.</span>
+			<span ng-switch-when="2">These guys do though.</span>
+			<span ng-switch-when="3">You should buy them a beer.</span>
+			<span ng-switch-when="4">I'm sure they deserve it.</span>
+			<span class="single-line" ng-switch-when="5">Maybe two.</span>
+			<span class="single-line" ng-switch-when="6">Or three.</span>
+			<span ng-switch-when="7">In fact just buy them a keg.</span>
+			<span class="single-line" ng-switch-when="8">Me?</span>
+			<span class="small" ng-switch-when="9" style="margin-top: .5em;">A bottle of Veuve Clicquot, please.</span>
+			<span class="single-line" ng-switch-when="10">Cheers!</span>
+			<span class="single-line" ng-switch-when="11"><i class="fa fa-glass"></i> <i class="fa fa-glass"></i> <i class="fa fa-glass"></i></span>
 			<span ng-switch-default><b>Hey there!</b><br>Nice to meet you!</span>
 		</div>
 		<div class="bubble-tail-spacer"></div>
 	</div>
-	<div class="about-pear animated-resize" ng-instant="pearMessage = (pearMessage > 12 && 1) || pearMessage + 1" instant-pass-thru></div>
+	<div class="about-pear animated-resize" ng-instant="pearMessage = (pearMessage > 10 ? 0 : (pearMessage + 1))" instant-pass-thru></div>
 	<div class="divider"></div>
 </div>
 
@@ -105,24 +104,23 @@
 	<div class="about-join-bubble-wrap">
 		<div class="bubble-curved bubble-curved-green bubble-animated animated-resize">
 			<div class="text" ng-switch="orangeMessage">
-				<span class="small" ng-switch-when="2">So you can write stupid messages like this</span>
-				<span  ng-switch-when="3">That no one will ever read</span>
-				<span ng-switch-when="4">So you could put anything</span>
-				<span class="single-line" ng-switch-when="5">No really.</span>
-				<span class="single-line" ng-switch-when="6">Like...</span>
-				<span class="single-line" ng-switch-when="7">"Hi Crystal!"</span>
-				<span ng-switch-when="8">Did I mention we like beer?</span>
-				<span class="single-line" ng-switch-when="9">Yeah we do.</span>
-				<span ng-switch-when="10">We even brew our own beer</span>
-				<span class="small" ng-switch-when="11">That just screams cool right there</span>
-				<span class="single-line" ng-switch-when="12"><i class="fa fa-beer"></i> <i class="fa fa-beer"></i> <i class="fa fa-beer"></i></span>
-				<span class="single-line" ng-switch-when="1"><b>Join the team!</b></span>
+				<span class="small" ng-switch-when="1">So you can write stupid messages like this</span>
+				<span  ng-switch-when="2">That no one will ever read</span>
+				<span ng-switch-when="3">So you could put anything</span>
+				<span class="single-line" ng-switch-when="4">No really.</span>
+				<span class="single-line" ng-switch-when="5">Like...</span>
+				<span class="single-line" ng-switch-when="6">"Hi Crystal!"</span>
+				<span ng-switch-when="7">Did I mention we like beer?</span>
+				<span class="single-line" ng-switch-when="8">Yeah we do.</span>
+				<span ng-switch-when="9">We even brew our own beer</span>
+				<span class="small" ng-switch-when="10">That just screams cool right there</span>
+				<span class="single-line" ng-switch-when="11"><i class="fa fa-beer"></i> <i class="fa fa-beer"></i> <i class="fa fa-beer"></i></span>
 				<span class="single-line" ng-switch-default><b>Join the team!</b></span>
 			</div>
 		</div>
 		<div class="bubble-curved-spacer"></div>
 	</div>
-	<div class="about-green-orange animated-resize" ng-instant="orangeMessage = (orangeMessage > 12 && 1) || orangeMessage + 1" instant-pass-thru></div>
+	<div class="about-green-orange animated-resize" ng-instant="orangeMessage = (orangeMessage > 10 ? 0 : (orangeMessage + 1))" instant-pass-thru></div>
 	<div class="divider"></div>
 
 	<p>
@@ -342,42 +340,175 @@
 	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/cafe.html">
-<div class="top-pad"></div>
 
 
-<div class="content-padding">
-	<button class="button green" ng-click="start()" ng-show="!running">Start</button>
-	<button class="button lightorange" ng-click="stop()" ng-show="running">Stop</button>
-	<br><br>
+
+
+				
+
+<div class="cafe-top">
+	<div class="top-pad"></div>
+
+		<!-- home -->
+		<div ng-show="home" class="cafe-home">
+			<div class="double-content-padding">
+				<br>
+				<div class="cafe-logo-clean"></div>
+				<br><br><br>
+				<p>These guys are hungry. It’s your job to feed them! Feed enough of them within the allowed time and win!</p>
+				<br><br><br><br>
+				<div class="cafe-start-toons"></div>
+			</div>
+		</div>
+		
+		<! -- game running -->
+		<div ng-show="running" class="cafe-game">
+			<div class="content-padding">
+			
+				<div class="cafe-message">
+					<div class="dialog-message dialog-message-error" ng-show="message.error">
+						<span ng-bind-html-unsafe="message.error"></span>
+					</div>
+					<div class="dialog-message dialog-message-success" ng-show="message.good">
+						<span ng-bind-html-unsafe="message.good"></span>
+					</div>
+				</div>			
+
+				<div class="cafe-request">
+					<div class="cafe-bubble-wrap">
+						<div class="bubble-request bubble-curved bubble-curved-green bubble-animated animated-resize" ng-show="requested.name">
+							<div class="text">
+								<span class="single-line"><b>{{requested.name}}</b></span>
+							</div>
+						</div>
+						<div class="bubble-curved-spacer"></div>
+					</div>
+					<div class="about-green-orange animated-resize" ng-instant="winMessage = (winMessage > 11 ? 0 : (winMessage+1))" instant-pass-thru></div>
+					<div class="divider"></div>
+				</div>
+
+				<div class="cafe-stats">
+					<div class="stat-item">
+						<div class="stat-key">Level:</div>
+						<div class="stat-value">{{stats.round.name}}&nbsp;&nbsp;/&nbsp;&nbsp;{{difficulties[difficulty].name}}</div>
+					</div>
+
+					<div class="stat-item">
+						<div class="stat-key">Orders:</div>
+						<div class="stat-value">{{stats.success}}&nbsp;&nbsp;/&nbsp;&nbsp;{{stats.round.required}}</div>
+					</div>
+					
+					<div class="stat-item">
+						<div class="stat-key">Time:</div>
+						<div class="stat-value"><span class="cafe-time-timer">{{stats.timer}}</span>&nbsp;/&nbsp;&nbsp;{{stats.round.time/1000}}:00</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		
+		<! -- game endded win/lose -->
+		<div ng-show="!running && !home" class="cafe-over">
+			<div class="content-padding">
+			
+				<div class="cafe-stats">
+					<div class="stat-item">
+						<div class="stat-key">Level:</div>
+						<div class="stat-value">{{stats.round.name}}&nbsp;&nbsp;/&nbsp;&nbsp;{{difficulties[difficulty].name}}</div>
+					</div>
+
+					<div class="stat-item">
+						<div class="stat-key">Orders:</div>
+						<div class="stat-value">{{stats.success}}&nbsp;&nbsp;/&nbsp;&nbsp;{{stats.round.required}}</div>
+					</div>
+					
+					<div class="stat-item">
+						<div class="stat-key">Time:</div>
+						<div class="stat-value">{{stats.win ? stats.timer : stats.round.time/1000 + ':00'}}&nbsp;&nbsp;/&nbsp;&nbsp;{{stats.round.time/1000}}:00</div>
+					</div>
+					
+					<div class="stat-item" ng-show="stats.win">
+						<div class="stat-key">Score:</div>
+						<div class="stat-value">{{stats.score}}</div>
+					</div>
+				</div>
+				
+				<br><br>
+				<a href="" class="cafe-brag">Brag on Facebook</a>
+
+				<div ng-show="stats.win">
+					<div class="cafe-bubble-wrap">
+						<div class="bubble-curved bubble-curved-green bubble-animated animated-resize">
+							<div class="text" ng-switch="winMessage">
+								<span class="single-line" ng-switch-when="1">Congratulations!</span>
+								<span class="small" ng-switch-when="2">You win a big hug from a pink gorilla!</span>
+								<span ng-switch-when="3">If you can find one...</span>
+								<span class="small" ng-switch-when="4" style="margin-top: -.3em">You should brag to all your friends on facebook</span>
+								<span class="small" ng-switch-when="5" style="margin-top: -.3em">Because who WOULDN'T want to know</span>
+								<span class="single-line" ng-switch-when="6">Next level!</span>
+								<span class="single-line" ng-switch-when="7">You can do it!</span>
+								<span class="single-line" ng-switch-when="8">I believe in you!</span>
+								<span class="single-line" ng-switch-when="9">You're awesome!</span>
+								<span class="single-line" ng-switch-when="10">Lets do this!</span>
+								<span class="single-line" ng-switch-when="11">...now!</span>
+								<span class="single-line" ng-switch-when="12"><i class="fa fa-gamepad"></i> <i class="fa fa-gamepad"></i> <i class="fa fa-gamepad"></i></span>
+								<span class="single-line" ng-switch-default><b>You win!</b></span>
+							</div>
+						</div>
+						<div class="bubble-curved-spacer"></div>
+					</div>
+					<div class="about-green-orange animated-resize" ng-instant="winMessage = (winMessage > 11 ? 0 : (winMessage+1))" instant-pass-thru></div>
+					<div class="divider"></div>
+					<p><br>Well, that was easy. Let’s try the next level!</p>
+				</div>
+				
+				<div ng-show="!stats.win">
+					<div class="cafe-bubble-wrap">
+						<div class="bubble-curved bubble-curved-red bubble-animated animated-resize">
+							<div class="text" ng-switch="loseMessage">
+								<span class="small" ng-switch-when="1">Well, maybe you don't suck...</span>
+								<span class="small" ng-switch-when="2">But you certainly failed this level</span>
+								<span class="single-line" ng-switch-when="3">I know its hard</span>
+								<span class="small" ng-switch-when="4" style="margin-top: -.3em">But its nothing compare to writing content for this.</span>
+								<span class="single-line" ng-switch-when="5">Honestly.</span>
+								<span ng-switch-when="6">It's like I'm talking to myself</span>
+								<span ng-switch-when="7">I feel like I'm taking crazy pills!</span>
+								<span class="single-line" ng-switch-when="8"><i class="fa fa-frown-o"></i> <i class="fa fa-smile-o"></i> <i class="fa fa-meh-o"></i></span>
+								<span class="single-line" ng-switch-default><b>You suck!</b></span>
+							</div>
+						</div>
+						<div class="bubble-curved-spacer"></div>
+					</div>
+					<div class="faq-tomato-green animated-resize" ng-instant="loseMessage = (loseMessage > 7 ? 0 : (loseMessage+1))" instant-pass-thru></div>
+					<div class="divider"></div>
+					<p><br>Lets try that one again...</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="divider"></div>
+	</div>
 	
-	<div class="cafe-message">
-		<div class="dialog-message dialog-message-error" ng-show="message.error">
-			<span ng-bind-html-unsafe="message.error"></span>
-		</div>
-		<div class="dialog-message dialog-message-success" ng-show="message.good">
-			<span ng-bind-html-unsafe="message.good"></span>
-		</div>
-	</div>
-
-	<div class="cafe-request">
-		<h4>{{requested.name}}</h4>
-	</div>
-	{{score}}
-	<div class="cafe-level">
-		<b>{{stats.round.name}}</b><br>
-		Time: <b>{{stats.timer}}</b> / <b>{{stats.round.time/1000}}:00</b> seconds<br>
-		Errors: <b>{{stats.errors}}</b><br>
-		Success: <b>{{stats.success}}</b><br>
-		Difficulty: <b>{{$scope.difficulties[difficulty].name}}</b><br>
-		Required: <b>{{stats.round.required}}</b><br>
-	</div>
-	<br><br><br>
-	<button class="cafe-button {{button.id}}" ng-repeat="button in items" ng-instant="buttonPress(button.id)">{{button.name && stats.round.descriptions ? button.name : ''}}</button>
 	<div class="divider"></div>
+	
+	<div class="cafe-start" ng-show="!running">
+		<div class="double-content-padding">
+			<button class="pushable button pink pushable big ani-all" ng-click="start()">
+				<span ng-show="home">Start</span>
+				<span ng-show="!home && stats.win">Next Level</span>
+				<span ng-show="!home && !stats.win">Try again</span>
+			</button>
+		</div>
+	</div>
+	
+	<div class="cafe-buttons" ng-show="running">
+		<div class="content-padding">
+			<button class="cafe-button {{button.id}}" ng-repeat="button in items" ng-instant="buttonPress(button.id)">{{button.name && stats.round.descriptions ? button.name : ''}}</button>
+		</div>
+	</div>
+	
+	<div class="cafe-button cafe-preload {{button.id}}" ng-repeat="button in allitems"></div>
 </div>
-
-<div class="cafe-button cafe-preload {{button.id}}" ng-repeat="button in allitems"></div>
-
 </script><script type="text/ng-template" id="assets/view/connection.error.html">
 <div class="connection-error fixed">
 	<div class="connection-error-image">
@@ -548,23 +679,22 @@
 	<div class="jobs-bubble-wrap">
 		<div class="bubble-curved bubble-curved-green bubble-animated animated-resize">
 			<div class="text" ng-switch="orangeMessage">
-				<span class="single-line" ng-switch-when="2">Free delivery food</span>
-				<span ng-switch-when="3">Free pink gorilla suit</span>
-				<span class="single-line" ng-switch-when="4">Free hugs</span>
-				<span ng-switch-when="5">Now THOSE are benefits!</span>
-				<span ng-switch-when="6">What more could you want?</span>
-				<span ng-switch-when="7">Good weather, you say?</span>
-				<span ng-switch-when="8">Great people, you say?</span>
-				<span ng-switch-when="9">Oh yeah, we got that too!</span>
-				<span class="small" ng-switch-when="10">Send us a message and grab a beer with us!</span>
-				<span class="single-line" ng-switch-when="11"><i class="fa fa-beer"></i> <i class="fa fa-beer"></i> <i class="fa fa-beer"></i></span>
-				<span class="single-line" ng-switch-when="1"><b>Free beer!</b></span>
+				<span class="single-line" ng-switch-when="1">Free delivery food</span>
+				<span ng-switch-when="2">Free pink gorilla suit</span>
+				<span class="single-line" ng-switch-when="3">Free hugs</span>
+				<span ng-switch-when="4">Now THOSE are benefits!</span>
+				<span ng-switch-when="5">What more could you want?</span>
+				<span ng-switch-when="6">Good weather, you say?</span>
+				<span ng-switch-when="7">Great people, you say?</span>
+				<span ng-switch-when="8">Oh yeah, we got that too!</span>
+				<span class="small" ng-switch-when="9">Send us a message and grab a beer with us!</span>
+				<span class="single-line" ng-switch-when="10"><i class="fa fa-beer"></i> <i class="fa fa-beer"></i> <i class="fa fa-beer"></i></span>
 				<span class="single-line" ng-switch-default><b>Free beer!</b></span>
 			</div>
 		</div>
 	</div>
 
-	<div class="home-join-us" ng-instant="orangeMessage = (orangeMessage > 11 && 1) || orangeMessage + 1" instant-pass-thru></div>
+	<div class="home-join-us" ng-instant="orangeMessage = (orangeMessage > 9 ? 0 : (orangeMessage + 1))" instant-pass-thru></div>
 	<div class="divider"></div>
 </div>
 
@@ -623,24 +753,23 @@
 	<div class="about-join-bubble-wrap">
 		<div class="bubble-curved bubble-curved-green bubble-animated animated-resize">
 			<div class="text" ng-switch="orangeMessage">
-				<span class="small" ng-switch-when="2">So you can write stupid messages like this</span>
-				<span  ng-switch-when="3">That no one will ever read</span>
-				<span ng-switch-when="4">So you could put anything</span>
-				<span class="single-line" ng-switch-when="5">No really.</span>
-				<span class="single-line" ng-switch-when="6">Like...</span>
-				<span class="single-line" ng-switch-when="7">"Hi Crystal!"</span>
-				<span ng-switch-when="8">Did I mention we like beer?</span>
-				<span class="single-line" ng-switch-when="9">Yeah we do.</span>
-				<span ng-switch-when="10">We even brew our own beer</span>
-				<span class="small" ng-switch-when="11">That just screams cool right there</span>
-				<span class="single-line" ng-switch-when="12"><i class="fa fa-beer"></i> <i class="fa fa-beer"></i> <i class="fa fa-beer"></i></span>
-				<span class="single-line" ng-switch-when="1"><b>Join us!</b></span>
+				<span class="small" ng-switch-when="1">So you can write stupid messages like this</span>
+				<span  ng-switch-when="2">That no one will ever read</span>
+				<span ng-switch-when="3">So you could put anything</span>
+				<span class="single-line" ng-switch-when="4">No really.</span>
+				<span class="single-line" ng-switch-when="5">Like...</span>
+				<span class="single-line" ng-switch-when="6">"Hi Crystal!"</span>
+				<span ng-switch-when="7">Did I mention we like beer?</span>
+				<span class="single-line" ng-switch-when="8">Yeah we do.</span>
+				<span ng-switch-when="9">We even brew our own beer</span>
+				<span class="small" ng-switch-when="10">That just screams cool right there</span>
+				<span class="single-line" ng-switch-when="11"><i class="fa fa-beer"></i> <i class="fa fa-beer"></i> <i class="fa fa-beer"></i></span>
 				<span class="single-line" ng-switch-default><b>Join us!</b></span>
 			</div>
 		</div>
 		<div class="bubble-curved-spacer"></div>
 	</div>
-	<div class="about-green-orange animated-resize" ng-instant="orangeMessage = (orangeMessage > 12 && 1) || orangeMessage + 1" instant-pass-thru></div>
+	<div class="about-green-orange animated-resize" ng-instant="orangeMessage = (orangeMessage > 10 ? 0 : (orangeMessage + 1))" instant-pass-thru></div>
 	<div class="divider"></div>
 	
 	<div class="content-padding">
@@ -931,7 +1060,7 @@
 		</div>
 		<div class="bubble-tail-spacer"></div>
 	</div>
-	<div class="owner-brocoli animated-resize" ng-instant="ownerMessage = (ownerMessage > 14 && 1) || ownerMessage + 1"></div>
+	<div class="owner-brocoli animated-resize" ng-instant="ownerMessage = (ownerMessage > 13 ? 0 : (ownerMessage + 1))"></div>
 	<div class="divider"></div>
 </div>
 
@@ -1149,7 +1278,7 @@
 		<div class="restaurant-items">
 			
 			<div ng-show="fullmenu">
-				<div ng-repeat="category in restaurant.categories()">
+				<div class="restaurant-menu-category" ng-repeat="category in restaurant.categories()">
 				
 					<div class="restaurant-title-wrap">
 						<div class="restaurant-title restaurant-category">{{category.name}}{{category.locName()}}</div>
@@ -1489,26 +1618,25 @@
 <div class="restaurants-bubble-wrap">
 	<div class="bubble-tail bubble-tail-green bubble-animated">
 		<div class="text" ng-switch="pushMessage">
-			<span class="small" ng-switch-when="2">Push one of those restaurants down there.</span>
-			<span ng-switch-when="3">The RESTAURANTS.</span>
-			<span ng-switch-when="4">The AWESOME restaurants.</span>
-			<span class="single-line" ng-switch-when="5">Down there.</span>
-			<span class="single-line" ng-switch-when="6">NOT me!!</span>
-			<span class="single-line" ng-switch-when="7">@#%*@%&!</span>
-			<span class="single-line" ng-switch-when="8">...</span>
-			<span class="single-line" ng-switch-when="9">....</span>
-			<span class="single-line" ng-switch-when="10">.....</span>
-			<span class="single-line" ng-switch-when="11">......</span>
-			<span class="single-line" ng-switch-when="12">.......</span>
-			<span class="single-line" ng-switch-when="13">........</span>
-			<span class="single-line" ng-switch-when="14">I quit.</span>
-			<span class="single-line" ng-switch-when="15"><i class="fa fa-suitcase"></i> <i class="fa fa-suitcase"></i> <i class="fa fa-suitcase"></i></span>
-			<span ng-switch-when="1">Push a button.<br>Get food.&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span class="small" ng-switch-when="1">Push one of those restaurants down there.</span>
+			<span ng-switch-when="2">The RESTAURANTS.</span>
+			<span ng-switch-when="3">The AWESOME restaurants.</span>
+			<span class="single-line" ng-switch-when="4">Down there.</span>
+			<span class="single-line" ng-switch-when="5">NOT me!!</span>
+			<span class="single-line" ng-switch-when="6">@#%*@%&!</span>
+			<span class="single-line" ng-switch-when="7">...</span>
+			<span class="single-line" ng-switch-when="8">....</span>
+			<span class="single-line" ng-switch-when="9">.....</span>
+			<span class="single-line" ng-switch-when="10">......</span>
+			<span class="single-line" ng-switch-when="11">.......</span>
+			<span class="single-line" ng-switch-when="12">........</span>
+			<span class="single-line" ng-switch-when="13">I quit.</span>
+			<span class="single-line" ng-switch-when="14"><i class="fa fa-suitcase"></i> <i class="fa fa-suitcase"></i> <i class="fa fa-suitcase"></i></span>
 			<span ng-switch-default>Push a button.<br>Get food.&nbsp;&nbsp;&nbsp;&nbsp;</span>
 		</div>
 		<div class="bubble-tail-spacer"></div>
 	</div>
-	<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 15 && 1) || pushMessage + 1" instant-pass-thru></div>
+	<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 13 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
 	<div class="divider"></div>
 	<div class="restaurants-tagline">
 		<h1>Order the top local delivery food.</h1>
@@ -1567,22 +1695,22 @@
 	<div class="splash-bubble-wrap">
 		<div class="bubble-curved bubble-curved-white bubble-animated animated-resize">
 			<div class="text" ng-switch="splashMessage">
-				<span class="single-line" ng-switch-when="2">Hey!!</span>
-				<span class="single-line" ng-switch-when="3">Try logging in!</span>
-				<span class="single-line" ng-switch-when="4">No, down THERE!</span>
-				<span ng-switch-when="5">You are in<br>for a treat</span>
-				<span ng-switch-when="6">I can tell you are excited</span>
-				<span class="small" ng-switch-when="7">Perhaps too excited to follow directions</span>
-				<span class="small" ng-switch-when="8">But the next page is even MORE exciting!</span>
-				<span class="single-line" ng-switch-when="9">You can do it!</span>
-				<span class="single-line" ng-switch-when="10">I believe in you!</span>
-				<span class="single-line" ng-switch-when="11">You are awesome!</span>
-				<span class="single-line" ng-switch-when="12">Log in!</span>
-				<span class="single-line" ng-switch-when="13">YA!</span>
-				<span ng-switch-when="14">There is now cow level.</span>
-				<span ng-switch-when="15">Snape kills Dumbledore.</span>
-				<span class="small" ng-switch-when="16">Rubber baby buggy bumpers.</span>
-				<span class="small" ng-switch-when="17" style="margin-top: 1.2em;">
+				<span class="single-line" ng-switch-when="1">Hey!!</span>
+				<span class="single-line" ng-switch-when="2">Try logging in!</span>
+				<span class="single-line" ng-switch-when="3">No, down THERE!</span>
+				<span ng-switch-when="4">You are in<br>for a treat</span>
+				<span ng-switch-when="5">I can tell you are excited</span>
+				<span class="small" ng-switch-when="6">Perhaps too excited to follow directions</span>
+				<span class="small" ng-switch-when="7">But the next page is even MORE exciting!</span>
+				<span class="single-line" ng-switch-when="8">You can do it!</span>
+				<span class="single-line" ng-switch-when="9">I believe in you!</span>
+				<span class="single-line" ng-switch-when="10">You are awesome!</span>
+				<span class="single-line" ng-switch-when="11">Log in!</span>
+				<span class="single-line" ng-switch-when="12">YA!</span>
+				<span ng-switch-when="13">There is now cow level.</span>
+				<span ng-switch-when="14">Snape kills Dumbledore.</span>
+				<span class="small" ng-switch-when="15">Rubber baby buggy bumpers.</span>
+				<span class="small" ng-switch-when="16" style="margin-top: 1.2em;">
 					<i class="fa fa-arrow-circle-up"></i> 
 					<i class="fa fa-arrow-circle-up"></i> 
 					<i class="fa fa-arrow-circle-down"></i> 
@@ -1594,18 +1722,17 @@
 					B 
 					A 
 				</span>
-				<span class="single-line" ng-switch-when="18">@#%*@%&!</span>
+				<span class="single-line" ng-switch-when="17">@#%*@%&!</span>
 				
 				
-				<span class="single-line" ng-switch-when="19"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
-				<span class="single-line" ng-switch-when="1">Oh, Hello!&nbsp;&nbsp;</span>
+				<span class="single-line" ng-switch-when="18"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
 				<span class="single-line" ng-switch-default>Oh, Hello!&nbsp;&nbsp;</span>
 			</div>
 		</div>
 		<div class="bubble-curved-spacer"></div>
 	</div>
 
-	<div class="about-green-orange animated-resize" ng-instant="splashMessage = (splashMessage > 19 && 1) || splashMessage + 1" instant-pass-thru></div>
+	<div class="about-green-orange animated-resize" ng-instant="splashMessage = (splashMessage > 17 ? 0 : (splashMessage + 1))" instant-pass-thru></div>
 	<div class="divider"></div>
 	
 	<div class="splash-bottom fixed-599">
@@ -1615,7 +1742,7 @@
 				<br>We deliver you the best food from the best restaurants in your community.
 			</p>
 			<div class="button-pushable">
-				<button class="button facebook" ng-click="facebook.auth(loggedin)">
+				<button class="button facebook" ng-click="facebook.auth()">
 					<i class="fa fa-facebook-square"></i>&nbsp;
 					<span ng-hide="facebook.facebook.wait">Log in with Facebook</span>
 					<span ng-show="facebook.facebook.wait">Just a sec...</span>
@@ -1841,7 +1968,7 @@ This document was last updated on May 15, 2013.<br />
 	</head>
 	<body bgcolor="#fffef8" class="ios7 no-init">
 
-<div class="snap-drawers static-nav-viewport" ng-controller="SideMenuCtrl">
+<div class="snap-drawers static-nav-viewport loggedout-hideable" ng-controller="SideMenuCtrl">
 	<div class="snap-drawer snap-drawer-left side-menu" id="side-menu">
 		<div>
 			<div class="pushabutton"></div>
@@ -1960,7 +2087,7 @@ This document was last updated on May 15, 2013.<br />
 	<div class="snap-drawer snap-drawer-right side-menu"></div>
 </div>
 
-<div class="wrapper static-nav-viewport">
+<div class="wrapper static-nav-viewport loggedout-hideable">
 	
 	<div id="snap-content" class="snap-content">
 		<div class="navs fixed" data-position="fixed" ng-controller="MainHeaderCtrl">
@@ -2009,7 +2136,7 @@ This document was last updated on May 15, 2013.<br />
 
 		<div class="snap-content-inner bg" ng-scroll-position>
 			<div class="content" ng-scroll-spy>
-				<div ng-view><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1>Push a button.<br />Get food.&nbsp;&nbsp;&nbsp;&nbsp;</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div><div class="restaurants-tagline"><h1>Order the top local delivery food.</h1><h2>Choose one of these awesome restaurants</h2></div><div class="divider"></div></div></div></div>
+				<div ng-view id="ng-view" ng-class="animationClass"><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1>Push a button.<br />Get food.&nbsp;&nbsp;&nbsp;&nbsp;</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div><div class="restaurants-tagline"><h1>Order the top local delivery food.</h1><h2>Choose one of these awesome restaurants</h2></div><div class="divider"></div></div></div></div>
 			</div>
 
 			<div class="divider"></div>
@@ -2050,60 +2177,18 @@ This document was last updated on May 15, 2013.<br />
 
 <div id="fb-root"></div>
 <div class="is-ui2"></div>
+<div class="preload-home"></div>
 
-
-<audio id="cafe-fail">
-	<source src="assets/audio/fail.mp3"></source>
-	<source src="assets/audio/fail.ogg"></source>
-</audio>
-<audio id="cafe-win">
-	<source src="assets/audio/win.mp3"></source>
-	<source src="assets/audio/win.ogg"></source>
-</audio>
-<audio id="cafe-loose">
-	<source src="assets/audio/loose.mp3"></source>
-	<source src="assets/audio/loose.ogg"></source>
-</audio>
-<audio id="cafe-good">
-	<source src="assets/audio/good.mp3"></source>
-	<source src="assets/audio/good.ogg"></source>
-</audio>
-<audio id="cafe-start">
-	<source src="assets/audio/start.mp3"></source>
-	<source src="assets/audio/start.ogg"></source>
-</audio>
 </body>
-	<audio id="get-food-audio">
-		<source src="assets/audio/crunch.mp3"></source>
-		<source src="assets/audio/crunch.ogg"></source>
-	</audio>
-	<audio id="cafe-fail">
-		<source src="assets/audio/fail.mp3"></source>
-		<source src="assets/audio/fail.ogg"></source>
-	</audio>
-	<audio id="cafe-win">
-		<source src="assets/audio/win.mp3"></source>
-		<source src="assets/audio/win.ogg"></source>
-	</audio>
-	<audio id="cafe-loose">
-		<source src="assets/audio/loose.mp3"></source>
-		<source src="assets/audio/loose.ogg"></source>
-	</audio>
-	<audio id="cafe-good">
-		<source src="assets/audio/good.mp3"></source>
-		<source src="assets/audio/good.ogg"></source>
-	</audio>
-	<audio id="cafe-start">
-		<source src="assets/audio/start.mp3"></source>
-		<source src="assets/audio/start.ogg"></source>
-	</audio>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 	<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="angular-route.min.js"></script>
+	<script type="text/javascript" src="angular-animate.min.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="cdv-plugin-fb-connect.js"></script>
 	<script type="text/javascript" src="facebook-js-sdk.js"></script>
+
 	<script type="text/javascript" src="index.js"></script>
 	<script type="text/javascript" src="bundle.js"></script>
 </html>

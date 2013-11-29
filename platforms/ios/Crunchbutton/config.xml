@@ -20,6 +20,9 @@
     <feature name="org.apache.cordova.facebook.Connect">
         <param name="ios-package" value="FacebookConnectPlugin" />
     </feature>
+    <feature name="GameCenterPlugin">
+        <param name="ios-package" value="GameCenterPlugin" />
+    </feature>
     <feature name="TapToScroll">
         <param name="ios-package" value="TapToScroll" />
     </feature>
@@ -46,13 +49,16 @@
         <param name="ios-package" value="CDVConnection" />
     </feature>
     <access origin="*" />
+    
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="FadeSplashScreenDuration" value=".5" />
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
     <preference name="SuppressesIncrementalRendering" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="TopActivityIndicator" value="gray" />
     <preference name="EnableLocation" value="true" />
     <preference name="EnableViewportScale" value="false" />
-    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="AutoHideSplashScreen" value="false" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="MediaPlaybackRequiresUserAction" value="false" />
     <preference name="AllowInlineMediaPlayback" value="false" />
@@ -73,4 +79,7 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
+    <feature name="GameCenter">
+        <param name="ios-package" value="GameCenter" />
+    </feature>
 </widget>

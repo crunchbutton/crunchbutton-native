@@ -77,11 +77,11 @@ body {
 @media (max-width: 568px) {
 	.home-top {
 		background: #90562f url(../images/micro/bg-sandwich-phone.jpg);
-		background-position: -321px -83px;
+		background-position: -321px -113px;
 	}
 }
 @media (min-width: 768px) {
-	.page-location .snap-content-inner.bg{
+	.page-location .snap-content-inner.bg {
 		background-position: center 60px !important;
 	}
 }
@@ -95,4 +95,23 @@ body {
 }
 .snap-drawer li {
 	font-weight: bold;
+}
+
+
+
+.loggedin-hideables {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	background: #fc9a6b;
+	z-index: 100;
+}
+
+.preload-home {
+	height: 0;
+	width: 0;
+	background: url(../images/micro/bg-sandwich-phone.jpg);
 }
