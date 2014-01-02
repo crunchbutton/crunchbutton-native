@@ -15,20 +15,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.vibration/www/vibration.js",
-        "id": "org.apache.cordova.vibration.notification",
-        "merges": [
-            "navigator.notification"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.splashscreen/www/splashscreen.js",
-        "id": "org.apache.cordova.splashscreen.SplashScreen",
-        "clobbers": [
-            "navigator.splashscreen"
-        ]
-    },
-    {
         "file": "plugins/org.apache.cordova.geolocation/www/Coordinates.js",
         "id": "org.apache.cordova.geolocation.Coordinates",
         "clobbers": [
@@ -69,6 +55,27 @@ module.exports = [
         "id": "org.apache.cordova.network-information.Connection",
         "clobbers": [
             "Connection"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.splashscreen/www/splashscreen.js",
+        "id": "org.apache.cordova.splashscreen.SplashScreen",
+        "clobbers": [
+            "navigator.splashscreen"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.vibration/www/vibration.js",
+        "id": "org.apache.cordova.vibration.notification",
+        "merges": [
+            "navigator.notification"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.inappbrowser/www/InAppBrowser.js",
+        "id": "org.apache.cordova.inappbrowser.InAppBrowser",
+        "clobbers": [
+            "window.open"
         ]
     },
     {
