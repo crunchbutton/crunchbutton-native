@@ -171,8 +171,7 @@ $(function() {
 			}
 		}
 		
-		// ### removed parallax for while
-		// window.addEventListener('deviceorientation', orientationChanged, false);
+		window.addEventListener('deviceorientation', orientationChanged, false);
 
 
 		App.server = 'http://beta.crunchr.co/';
@@ -219,5 +218,5 @@ $(function() {
 			FB.getLoginStatus(facebookService.processStatus);
 
 		}, 1000);
-	}, false);
+	}, true);
 });

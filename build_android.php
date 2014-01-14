@@ -35,7 +35,6 @@ foreach ($cleanPaths as $p) {
 // delete all js that isnt the generated plugins file
 shell_exec("rm -rf $(ls ".$path."*.js|grep -v 'cordova_plugins.js')");
 
-
 echo "complete.\n";
 
 
@@ -43,6 +42,12 @@ echo "complete.\n";
 echo "Creating directories";
 shell_exec('cp -R '.$srcPath.'assets '.$path.'assets && mv '.$path.'assets/js/* '.$path);
 echo "complete.\n";
+
+// delete unused/iphone files
+$_remove_js = [ 'cordova.js', 'phonegap.js' ];
+foreach( $_remove_js as $js ){
+	shell_exec("rm -rf $path/$js");
+}
 
 
 // download assets from server
@@ -102,7 +107,7 @@ echo "Asset download complete.\n";
 
 // create the index file
 echo "Building body...\n";
-$index = file_get_contents($path.'assets/view/template.html');
+$index = file_get_contents($path.'assets/view/template_android.html');
 $body = file_get_contents($server.'assets/view/body.html'.($live ? '?__live=1' : ''));
 $index = str_replace('<body></body>', '<body bgcolor="#fffef8" class="ios7 no-init">'.$body.'</body>', $index);
 $index = str_replace('<templates></templates>', $content, $index);
@@ -115,7 +120,6 @@ $index = file_get_contents($path.'index.js');
 $index = str_replace('FACEBOOK_APP_IP', $config->facebook, $index);
 $index = str_replace('APP_SERVER_URL', $live ? 'https://crunchbutton.com/' : 'http://beta.crunchr.co/', $index);
 file_put_contents($path.'index.js', $index);
-
 
 // yay
 echo "\033[32m".($live ? 'LIVE' : 'BETA')." build complete!\033[37m
