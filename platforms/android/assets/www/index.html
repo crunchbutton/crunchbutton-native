@@ -3,14 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no">
-		
+		<!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"> -->
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, width=device-width, height=device-height">
-
 		<title>Crunchbutton</title>
 		<link rel="stylesheet" href="assets/css/bundle.css">
 		<link rel="stylesheet" href="assets/css/fontawesome.css">
 		<link rel="stylesheet" href="assets/css/index.css">
-		<script src="http://192.168.25.7:8080/target/target-script-min.js#anonymous"></script>
+
 		<script type="text/ng-template" id="assets/view/about.html">
 <div class="top-pad"></div>
 
@@ -99,7 +98,7 @@
 			<br>Fav<span class="staff-orite">orite</span> beer: Stella Artois
 		</p>
 		<p class="staff-content">
-			Hes in Brazil. I hear he also likes to <a href="/cafe" ng-click="navigation.link('/cafe')">play games</a>.
+			Hes in Brazil. I hear he also likes to <a ng-click="navigation.link('/cafe')">play games</a>.
 		</p>
 	</div>
 
@@ -144,7 +143,7 @@
 		Just a sec...
 	</div>
 	<div class="error" ng-show="facebook.facebook.error.userExists">
-		Sorry, it seems the facebook user is already related with other user.
+		Sorry, this facebook account is already associated with another user.
 	</div>
 	<div class="error" ng-show="facebook.facebook.error.unknown">
 		Sorry, something bad happened.
@@ -155,71 +154,30 @@
 </div>
 </script><script type="text/ng-template" id="assets/view/account.html">
 <div class="account-container zoom-anim-dialog mfp-hide dialog mfp-hide">
+
 	<div class="dialog-padding">
 	
-				<div ng-controller="AccountModalHeaderCtrl" class="header">
+				<div ng-controller="AccountModalHeaderCtrl" modal-reset="resetModal()" class="header">
+			
 			<div ng-show="modal.header">
 				<span class="account-title-link signin {{ modal.signin && 'active' || 'link' }}" ng-click="modal.toggleSignForm( 'signin' )">Log In</span>
 				<span class="account-title-link signup {{ modal.signup && 'active' || 'link' }}" ng-click="modal.toggleSignForm( 'signup' )">Sign up</span>
 			</div>
+			
 			<div ng-show="!modal.header">
 				<span class="account-title-link signin link" ng-click="help.show(false)">&laquo; back</span>
 			</div>
+			
 			<div class="divider spacer-one-one"></div>
-		</div>
+		
+						<div class="dialog-message dialog-message-error" ng-repeat="error in account.errors">{{error}}</div>
+			<div class="dialog-message dialog-message-error" ng-repeat="error in help.errors">{{error}}</div>	
 
-				<div class="dialog-message dialog-message-error" ng-controller="AccountSignInCtrl">
-
-			<div ng-show="formSignin.$dirty && formSignin.$invalid">
-				<div ng-show="formSignin.email.$error">
-					Please enter a valid email or phone.
-				</div>
-				<div ng-show="formSignin.password.$error">
-					Please enter your password.
-				</div>
-			</div>
-			<div ng-show="account.error.signin" class="error">
-				Your log in information was incorrect.
-			</div>
-	
-			<div ng-show="help.error" class="error">
-				Sorry, that email/phone is not registered with us.
-			</div>
-					
-			<div ng-show="formLoginHelp.$dirty && formLoginHelp.$invalid">
-				Please enter a valid email or phone.
+				
+			<div class="dialog-message dialog-message-success" ng-show="help.success.visible">
+				Please check your email or phone. You will receive a password reset link that will expire in 24 hours.
 			</div>
 
-			<div ng-show="formSignup.$dirty && formSignup.$invalid">
-				<div ng-show="formSignup.email.$error">
-					Please enter a valid email or phone.
-				</div>
-				<div ng-show="formSignup.password.$error">
-					Please enter your password.
-				</div>
-			</div>
-			<div ng-show="account.error.signup" class="error">
-				It seems that the email is already registered!
-			</div>
-			
-
-			<div ng-show="facebook.facebook.error.userExists">
-				Sorry, it seems the facebook user is already related with other user.
-			</div>
-			<div ng-show="facebook.facebook.error.unknown">
-				Sorry, something bad happened.
-			</div>
-			<div ng-show="facebook.facebook.error.login">
-				Sorry, it seems you cancelled login or did not fully authorize.
-			</div>
-	
-		</div>
-
-			
-		<div class="dialog-message dialog-message-success" ng-controller="AccountSignInCtrl">
-			<div ng-show="help.success.visible">
-				<p>Please check your email or phone. You will receive a password reset link that will expire in 24 hours.</p>
-			</div>
 		</div>
 
 				<div ng-controller="AccountSignInCtrl" ng-show="modal.signin">
@@ -297,15 +255,13 @@
 			<h1>Password reset</h1>
 			<input type="text" maxlength="250" id="account-reset-code" value="" ng-enter="reset.validateCode()" ng-model="reset.form.code" placeholder="enter the reset code" tabindex="10" />
 			<div class="divider"></div>
-			<div ng-show="reset.error == 'empty'" class="error">
-				Please enter the reset code.
+			
+			<div class="error">
+				<div ng-repeat="error in reset.errors">
+					{{error}}
+				</div>
 			</div>
-			<div ng-show="reset.error == 'invalid'" class="error">
-				Sorry, this code is invalid.
-			</div>
-			<div ng-show="reset.error == 'expired'" class="error">
-				Sorry, this code is expired.
-			</div>
+
 		</form>
 		<button ng-click="reset.validateCode();">Reset</button>
 		<div class="divider"></div>
@@ -315,11 +271,10 @@
 			<h1>Type your new password</h1>
 			<input type="password" maxlength="250" ng-model="reset.form.password" ng-enter="reset.changePassword()" id="account-reset-password" value="" placeholder="password" tabindex="10" />
 			<div class="divider"></div>
-			<div ng-show="reset.error == 'empty'" class="error">
-				Please enter your new password.
-			</div>
-			<div ng-show="reset.error == 'invalid'" class="error">
-				Sorry, this code is invalid.
+			<div class="error">
+				<div ng-repeat="error in reset.errors">
+					{{error}}
+				</div>
 			</div>
 		</form>
 		<button ng-click="reset.changePassword();" ng-show="!reset.success">Change</button>
@@ -525,30 +480,76 @@
 <div class="bg home-top splash-top fixed">
 	<div class="splash-spacer-two"></div>
 
-	<div class="download-top">
-		<h1>Hey,</h1>
-		<h2>theres an app for that.</h2>
-
-		<div class="button-pushable">
-			<a href="https://itunes.apple.com/app/id721780390" target="_blank">
-				<button class="button orange download ani-all" ng-click="letsEat()" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF">
-					Download
-				</button>
-			</a>
+	<div class="download-mobile">
+		<div class="download-top">
+			<h1>Hey,</h1>
+			<h2>there's an app for that.</h2>
+	
+			<div class="button-pushable">
+				<a href="https://itunes.apple.com/app/id721780390" target="_blank">
+					<button class="button orange download ani-all" ng-click="letsEat()" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF">
+						Download
+					</button>
+				</a>
+			</div>
+			<div class="divider"></div>
+			<p class="center-text"><a href="" class="splash-continue" ng-instant="cancelDownload()">Continue to mobile site</a></p>
 		</div>
+	
 		<div class="divider"></div>
 		
-
-		<p>
-			<a href="" class="splash-continue" ng-instant="cancelDownload()">Continue to mobile site</a>
-		</p>
-
+		<div class="download-bottom fixed-699">
+			<a href="https://itunes.apple.com/app/id721780390" target="_blank"><div class="download-phone image-animated"></div></a>
+		</div>
 	</div>
-
-	<div class="divider"></div>
 	
-	<div class="download-bottom fixed-699">
-		<a href="https://itunes.apple.com/app/id721780390" target="_blank"><div class="download-phone image-animated"></div></a>
+	<div class="download-desktop">
+		<div class="content">
+			<a href="https://itunes.apple.com/app/id721780390" target="_blank"><div class="download-phone image-animated"></div></a>
+
+			<div class="download-top">
+				<!-- dont hate. -->
+				<table cellpadding="0" cellspacing="0" class="download-top-grid">
+					<tr><td class="download-top-grid-head">
+						<h1>Hey,</h1>
+						<h2>there's an app for that.</h2>
+					</td></tr>
+					<tr><td class="download-top-grid-act">
+
+						<div ng-show="text.sent">
+							<p>To one click log into the app, link your account with facebook here.
+							</p>
+							<br><br>
+
+							<div class="button-pushable" ng-show="!account.user.facebook">
+								<button class="button facebook ani-all" ng-click="facebook()"><i class="fa fa-facebook-square"></i> Connect with Facebook</button>
+							</div>
+							
+						</div>
+						
+						<div ng-show="!text.sent">
+							<br><br>
+							<div ng-show="!account.user.phone">
+								<input type="tel" class="location-recommend" placeholder="e.g. 646-783-1444" ng-format-phone autocapitalize="off" autocorrect="off" ng-enter="text.send()" ng-model="text.number">
+							</div>
+							<div class="button-pushable">
+								<button class="button download ani-all" ng-click="text.send()">Text me the link</button>
+							</div>
+						</div>
+					</td></tr>
+					<tr><td class="download-top-grid-foot">
+			
+						<a href="https://itunes.apple.com/app/id721780390" target="_blank"><div class="app-store"></div></a>
+						
+						<br>
+						
+						<a href="" class="splash-continue" ng-click="navigation.link('/food-delivery')">Return to desktop site</a>
+					</td></tr>
+				</table>
+			</div>
+
+		</div>
+		
 	</div>
 
 </div>
@@ -617,7 +618,7 @@
 	<p>We highlight the top food from the top restaurants in a community. Place an order, and we save it for next time, along with your delivery and payment info. Reorder your favorites with a single tap :)</p>
 	<br /><br />
 	<h4>Hey! I need help with my order!</h4>
-	<p>Please visit your <a href="/orders" ng-click="navigation.link('/orders')">Previous Orders</a> and contact the restaurant you ordered from.</p>
+	<p>Please visit your <a ng-click="navigation.link('/orders')">Previous Orders</a> and contact the restaurant you ordered from.</p>
 	<br /><br />
 	<h4>Need to contact Crunchbutton?</h4>
 	<p>Call or text us at <a href="tel:+16467831444">(646) 783-1444</a> or email us at <a href="mailto:{{customers}}">{{customers}}</a>.</p>
@@ -654,7 +655,7 @@
 	<p>We thought this might happen. Luckily, Crunchbutton saves your address, phone, and payment info, so all you have to do is click what you want and hit the big, red "Get Food" button. Try to be awake when the delivery guy calls.</p>
 	<br /><br />
 	<h4>I want to put a restaurant on Crunchbutton.</h4>
-	<p>Good idea! <a href="/owners" ng-click="navigation.link('/owners')">Get more info and contact us.</a></p>
+	<p>Good idea! <a ng-click="navigation.link('/owners')">Get more info and contact us.</a></p>
 	<br /><br />
 	<h4>I know I can order food online, but can I order by US mail?</h4>
 	<p>Why yes you can! Give us one week's notice, and we will get you your food! Send a check or money order to:<br /><br />
@@ -662,7 +663,7 @@
 	13701 Marina Pointe Dr. #344<br />
 	Marina Del Rey, CA 90292</p>
 	<br /><br /><br /><br />
-	Visit our <a href="/legal" ng-click="navigation.link('/legal')">legal page</a> for legal and privacy information.
+	Visit our <a ng-click="navigation.link('/legal')">legal page</a> for legal and privacy information.
 	<br /><br /><br /><br /><br /><br /><br />
 	<center><div class="fa fa-heart faq-heart"></div></center>
 	<br /><br /><br /><br />
@@ -704,7 +705,9 @@
 	<br />
 
 	<h4>Community Representative</h4>
-	<p>No one knows more about your college or community than you. Thats why we're going to hire you! You will be responsible for scouting the area to get restaurants signed up, and later be directly involved in end user marketing.</p>
+	<p>
+		No one knows more about your college or community than you. You know whats "cool", and that's why we’re going to hire you! You'll be responsible for scouting the area to get restaurants signed up, and later work directly with us to orchestrate awesome marketing campaigns.
+	</p>
 	<br />
 	<a href="mailto:{{reps}}"><button class="button lightorange">join up</button></a>
 	<br /><br /><br /><br />
@@ -719,26 +722,104 @@
 <div class="bg">
 	<div class="home-top">
 		<div class="top-pad"></div>
-		<div class="pushabutton"></div>
-		<div class="home-inputs">
-			<h4>What's your address?</h4>
-			<table cellpadding="0" cellspacing="0" class="home-location">
-				<tr>
-					<td style="width: 100%;"><input class="location-address" autocapitalize="off" autocorrect="off" placeholder="e.g. 37 Elm St, New Haven CT 06511" ng-enter="letsEat()" ng-model="location.form.address" geo-complete></td>
-					<td>				
-						<button class="location-detect ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF" ng-click="locEat()">
-							<span class="fa fa-location-arrow "></span>
-							<div class="ladda-spinner"></div>
-						</button>
-					</td>
-				</tr>
-			</table>
-			<div class="button-pushable find-restaurants">
-				<button class="button orange find-restaurants button-letseat-form ladda-button" ng-click="letsEat()" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF">
-					<div class="ladda-label">Find Restaurants!</div>
-					<span class="ladda-spinner"></span>
-				</button>
+	
+		<div ng-if="!locationError">
+			<div class="pushabutton"></div>
+			<div class="home-inputs">
+				<h4 class="action">What's your address?</h4>
+				<table cellpadding="0" cellspacing="0" class="home-location">
+					<tr>
+						<td style="width: 100%;"><input class="location-address" autocapitalize="off" autocorrect="off" placeholder="e.g. 37 Elm St, New Haven CT 06511" geo-complete-enter="letsEat()" id="input-location-address" ng-model="location.form.address" geo-complete >
+						</td>
+						<td>				
+							<button class="location-detect ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF" ng-click="locEat()">
+								<span class="fa fa-location-arrow "></span>
+								<div class="ladda-spinner"></div>
+							</button>
+						</td>
+					</tr>
+				</table>
+				<div class="button-pushable find-restaurants">
+					<button class="button orange find-restaurants button-letseat-form ladda-button" ng-click="letsEat()" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF">
+						<div class="ladda-label">Find Restaurants!</div>
+						<span class="ladda-spinner"></span>
+					</button>
+				</div>
 			</div>
+		</div>
+		
+		<div ng-if="locationError">
+			<div class="home-inputs">
+			<div class="splash-inputs">
+
+				<div class="cafe-bubble-wrap">
+					<div class="bubble-curved bubble-curved-white bubble-animated animated-resize">
+						<div class="text" ng-switch="loseMessage">
+							<div ng-if="!account.user.id_user && !recommend.greetings">
+								<span class="single-line" ng-switch-when="1">Don't worry</span>
+								<span class="small" ng-switch-when="2">Just let us know that you want crunchbutton</span>
+								<span class="small" ng-switch-when="3">and we will be there<br> as soon as we can!</span>
+								<span class="single-line" ng-switch-when="4"><i class="fa fa-cutlery"></i> <i class="fa fa-cutlery"></i> <i class="fa fa-cutlery"></i></span>
+								<span class="single-line" ng-switch-default><b>Oh, no!</b></span>
+							</div>
+							<div ng-if="account.user.id_user && !recommend.greetings">
+								<span class="single-line" ng-switch-when="1">What's the best?</span>
+								<span ng-switch-when="2">We listen to our users</span>
+								<span class="small" ng-switch-when="3">Let us know <br>and we will add it!</span>
+								<span class="single-line" ng-switch-when="4"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
+								<span ng-switch-default><b>What's your<br>favorite?</b></span>
+							</div>
+							<div ng-if="recommend.greetings">
+								<span class="small" ng-switch-when="1">We check this<br> stuff daily!</span>
+								<span class="small" ng-switch-when="2">We will get back to you as soon as we can!</span>
+								<span class="single-line" ng-switch-when="3"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
+								<span class="single-line" ng-switch-when="4"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
+								<span class="single-line" ng-switch-default><b>Thanks!</b></span>
+							</div>
+						</div>
+					</div>
+					<div class="bubble-curved-spacer"></div>
+				</div>
+				<div class="faq-tomato-green animated-resize" ng-instant="loseMessage = (loseMessage > 3 ? 0 : (loseMessage+1))" instant-pass-thru></div>
+				<div class="divider spacer-one-two"></div>
+				
+				<div ng-if="!account.user.id_user && !recommend.greetings">
+					<h4>We don't serve that address yet.</h4>
+					<p>But you can get notified when we are in your area. We are always expanding and looking for that next popular sandwich. Log in and let us know what you want to see on crunchbutton!</p>
+					<div class="divider spacer-one-two"></div>
+
+					<div class="button-pushable">
+						<button class="button facebook" ng-click="facebook.auth()">
+							<i class="fa fa-facebook-square"></i>&nbsp;
+							<span ng-hide="facebook.facebook.wait">Log in with Facebook</span>
+							<span ng-if="facebook.facebook.wait">Just a sec...</span>
+						</button>
+					</div>
+				</div>
+				
+				<div ng-if="account.user.id_user && !recommend.greetings">
+					<h4>We don't serve that address yet.</h4>
+					<p>But you can recommend something. Let us know what you want to see on crunchbutton!</p>
+					<div class="divider spacer-one-two"></div>
+
+					<input class="location-recommend" autocapitalize="off" autocorrect="off" placeholder="e.g. Alpha Delta Pizza" ng-enter="recommend.send()" ng-model="recommend.form.restaurant">
+					
+					<div class="button-pushable">
+						<button class="button orange" ng-click="recommend.send()"><b>Recommend</b></button>
+					</div>
+				</div>
+				
+				<div ng-if="recommend.greetings">
+					<h4>Sent to our brains!</h4>
+					<p>We will let you know soon! Thanks for trying crunchbutton!</p>
+				</div>
+	
+				<p class="center-text">
+					<a href="" class="splash-continue" ng-instant="resetFormLocation()">Try another location</a>
+				</p>
+			</div>
+		</div>
+
 		</div>
 	</div>
 	
@@ -756,7 +837,7 @@
 		<div class="bubble-curved bubble-curved-green bubble-animated animated-resize">
 			<div class="text" ng-switch="orangeMessage">
 				<span class="small" ng-switch-when="1">So you can write stupid messages like this</span>
-				<span  ng-switch-when="2">That no one will ever read</span>
+				<span ng-switch-when="2">That no one will ever read</span>
 				<span ng-switch-when="3">So you could put anything</span>
 				<span class="single-line" ng-switch-when="4">No really.</span>
 				<span class="single-line" ng-switch-when="5">Like...</span>
@@ -824,7 +905,7 @@
 </script><script type="text/ng-template" id="assets/view/order.html">
 <div class="top-pad"></div>
 
-<div ng-show="!order.id">
+<div ng-if="!order.id">
 	<div class="content-padding">
 		<h4>One sec!</h4>
 		<p>I know its here somewhere...</p>
@@ -833,14 +914,14 @@
 	</div>
 </div>
 
-<div ng-show="order.id">
+<div ng-if="order.id">
 
 	<div class="content-padding">
 	
 		<button class="button green" ng-click="support.dialog()">Reorder</button>
 	
 		<div class="content-padder main-content-readable">
-			<span class="order-thanks-message" ng-show="order.new">
+			<span class="order-thanks-message" ng-if="order.new">
 				<div class="toon-cherry"></div>
 				<span class="order-thanks-message-crunched">Crunched!</span>
 				<span class="order-thanks-message-block"> Your order is placed</span>
@@ -856,11 +937,11 @@
 					<div class="divider dots"></div>
 				</div>
 				
-				<div ng-show="account.user.has_auth">
+				<div ng-if="account.user.has_auth">
 	
 					<button class="button facebook" ng-click="facebook();"><i class="fa fa-facebook-square"></i> share your order</button>
 	
-					<div ng-show="order.new && referral.invite_url && referral.enabled">
+					<div ng-if="order.new && referral.invite_url && referral.enabled">
 						Earn <b>Crunch Credit</b> for every new friend who orders with your shared link!
 						<br /><br />
 					</div>
@@ -916,7 +997,7 @@
 				<div class="order-icon"><div class="icon-clock"></div></div>
 				<div class="order-info order-info-oneline">
 					<p>
-						Ordered at {{order.date}}
+						Ordered at {{order.date_formated}}
 					</p>
 				</div>
 				<div class="divider"></div>
@@ -925,8 +1006,8 @@
 				<div class="order-info order-info-oneline">
 					<p>
 						Expected by&nbsp;
-						<span ng-show="(order.delivery_type == 'delivery')">{{order._restaurant_delivery_estimated_time}}</span>
-						<span ng-hide="(order.delivery_type == 'delivery')">{{order._restaurant_pickup_estimated_time}}</span>
+						<span ng-show="(order.delivery_type == 'delivery')">{{order._restaurant_delivery_estimated_time_formated}}</span>
+						<span ng-hide="(order.delivery_type == 'delivery')">{{order._restaurant_pickup_estimated_time_formated}}</span>
 					</p>
 				</div>
 				<div class="divider"></div>
@@ -942,7 +1023,7 @@
 				</div>
 				<div class="divider"></div>
 				
-				<div ng-show="order.notes">
+				<div ng-if="order.notes">
 					<div class="order-comment-arrow"></div>
 					<div class="order-comment">
 						<p ng-bind-html-unsafe="order.notes | nl2br"></p>
@@ -979,14 +1060,19 @@
 				</p>
 				
 
-				<div class="credit" ng-show="(order.credit && order.credit > 0)">( ${{order._final_price}} - ${{order._credit}} credit )</div>
+				<div class="credit" ng-if="(order.credit && order.credit > 0)">( ${{order._final_price}} - ${{order._credit}} credit )</div>
 
 			</div>
 		</div>
 		
 		<br>
 		
-			
+
+		<br><br>
+		<a href="{{server}}/printorder/{{ order.uuid }}" target="_blank" class="print-icon"><button class="button lightorange"><i class="fa fa-print"></i>&nbsp;&nbsp;&nbsp;Print Receipt</button></a>
+		<br />
+
+		
 		<div class="divider"></div>
 	</div>
 </div>
@@ -1002,7 +1088,15 @@
 	</div>
 </div>
 
-<div ng-show="orders.list">
+<div ng-show="orders.list.length == 0">
+	<div class="content-padding">
+		<h4>Nothing here</h4>
+		<p>We should place a message here when the user doesn't have any order yet!</p>
+		<br /><br />
+	</div>
+</div>
+
+<div ng-show="orders.list && orders.list.length > 0">
 	
 	<div class="content-padding">
 		<h4>Noms.</h4>
@@ -1122,7 +1216,7 @@
 			<i class="fa fa-clock-o"></i>
 		</span>
 		<span class="restaurant-box-content">
-			<div class="restaurant-box-title">Opens in X hours</div>
+			<div class="restaurant-box-title">Opens in {{restaurant._opensIn_formatted}}</div>
 			<div class="restaurant-box-text">
 				Hours of operation (<span ng-bind="restaurant._tzabbr"></span>):<br> 
 				<span ng-bind-html-unsafe="restaurant.closedMessage() | nl2br"></span>
@@ -1136,7 +1230,7 @@
 		<h1 ng-bind="restaurant.name"></h1>
 		<div class="dialog-egg animated-resize"></div>
 		<p>is currently closed. It will be open during the following hours (<span ng-bind="restaurant._tzabbr"></span>):<br /><br />
-		<p ng-bind-html-unsafe="restaurant.closedMessage()" class="dialog-hours"></p>
+		<p ng-bind-html-unsafe="closedMessage" class="dialog-hours"></p>
 		<div class="divider"></div>
 	</div>
 	<div class="dialog-divider"></div>
@@ -1150,18 +1244,18 @@
 
 	</div>
 
-<div ng-show="order.loaded">
+<div ng-show="restaurant">
 
 	<div class="restaurant-pad"></div>
 	
-	<div ng-show="restaurant.image">
+	<div ng-if="restaurant.image">
 
 		<div class="restaurant-pic" style="background: url({{restaurant.img}});"><div class="restaurant-pic-overlay"></div></div>
 		<div class="restaurant-name">
 			<h1>{{restaurant.name}}</h1>
 			<h2>{{restaurant.message || restaurant.short_description}}</h2>
 		</div>
-		<div class="restaurant-comment" ng-show="restaurant.comment">
+		<div class="restaurant-comment" ng-if="restaurant.comment">
 			<div class="restaurant-comment-wrap">
 				<div class="restaurant-comment-image">
 					<div class="restaurant-comment-image-img" style="background: url(http://graph.facebook.com/{{restaurant.comment.fb}}/picture?type=normal)"></div>
@@ -1172,7 +1266,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="giftcard-badge" ng-show="credit.hasValue">
+		<div class="giftcard-badge" ng-if="credit.hasValue">
 			<i class="fa fa-certificate"></i>
 			<div class="giftcard-badge-value"><sup>$</sup>{{Math.round(credit.value)}}</div>
 			<div class="giftcard-badge-text">gift card</div>
@@ -1214,11 +1308,12 @@
 					</div>
 				</div>
 
-
 				<!-- Cart's basket -->
 				<div ng-repeat="item in order.cart.items">
 
 					<div class="cart-item">
+
+						<div ng-if="item.details.customization.customizable" ng-click="item.details.customization.expanded=!item.details.customization.expanded" class="cart-item-config">Customize</div>
 
 						<div class="cart-button cart-button-remove" ng-click="order.cart.remove(item.details.id);"><span class="fa fa-times-circle"></span></div>
 
@@ -1227,7 +1322,6 @@
 							<span class="cart-item-description">{{item.details.description}}</span>
 						</div>
 
-						<div ng-show="item.details.customization.customizable" ng-click="item.details.customization.expanded=!item.details.customization.expanded" class="cart-item-config">Customize</div>
 						
 						<div class="divider"></div>
 
@@ -1243,13 +1337,13 @@
 								<div ng-switch on="option.type">
 								
 									<!-- Customizable - select -->
-									<div ng-switch-when="select">
+									<div ng-switch-when="select" class="cart-item-customize-item-select">
 										<label class="cart-item-customize-select-name">{{option.name}}</label>
 										<select ng-change="order.cart.customizeItem(option, item)" ng-model="option.selected" ng-options="opt.id_option as opt.name for opt in option.options" class="cart-customize-select"></select>
 									</div>
 
 									<!-- Customizable - checkbox -->
-									<div ng-switch-when="check">
+									<div ng-switch-when="check" class="cart-item-customize-item-check">
 										<input type="checkbox" custom-checkbox ng-change="order.cart.customizeItem(option, item)" ng-model="option.checked" class="cart-customize-check">
 										<span ng-click="option.checked = !option.checked; order.cart.customizeItem(option, item);" class="cart-item-customize-name">{{option.name}}</span>
 										<span ng-click="option.checked = !option.checked; order.cart.customizeItem(option, item);" class="cart-item-customize-price">{{option.priceFormated}}</span>
@@ -1280,7 +1374,7 @@
 		<div class="restaurant-items">
 			
 			<div ng-show="fullmenu">
-				<div class="restaurant-menu-category" ng-repeat="category in restaurant.categories()">
+				<div ng-bind-once class="restaurant-menu-category" ng-repeat="category in restaurant.categories()">
 				
 					<div class="restaurant-title-wrap">
 						<div class="restaurant-title restaurant-category">{{category.name}}{{category.locName()}}</div>
@@ -1288,8 +1382,8 @@
 					</div>
 
 					<ul class="resturant-dishes resturant-dish-container" date-id_category="{{category.id_category}}">
-						<li ng-repeat="dish in category.dishes()" class="dish-item" data-id_dish="{{dish.id_dish}}" add-to-cart>
-							<span class="dish-item-name"><i class="fa fa-star" ng-show="dish.top"></i> {{dish.name}}</span><span class="dish-item-price">(${{dish.price}}<span ng-show="dish.changeable_price">+</span>)</span><br />
+						<li ng-bind-once ng-repeat="dish in category.dishes()" class="dish-item" data-id_dish="{{dish.id_dish}}" add-to-cart>
+							<span class="dish-item-name"><i class="fa fa-star" ng-if="dish.top"></i> {{dish.name}}</span><span class="dish-item-price">(${{dish.price}}<span ng-if="dish.changeable_price">+</span>)</span><br />
 							<span class="dish-item-description">{{dish.description}}</span>
 						</li>
 					</ul>
@@ -1322,16 +1416,14 @@
 	</div>
 	
 	
-	<div class="divider dots spacer-one-one" ng-show="!account.user.id_user"></div>
-	<div class="content-padding" ng-show="!account.user.id_user">
+	<div class="divider dots spacer-one-one" ng-if="!account.user.id_user"></div>
+	<div class="content-padding" ng-if="!account.user.id_user">
 		<p>Already signed up? Don't enter all that stuff again! Not signed up yet? Don't worry, you don't have to sign up to order, but we <b><i>highly</i></b> recommend it!</p>
 		<br>
 		<button class="button facebook" ng-click="navigation.signin()">Log in / Sign up</button>
 	</div>
 
-	<div class="divider dots spacer-one-one" ng-show="order.loaded && order.cart.hasItems() && order.showForm"></div>
-	
-
+	<div class="divider dots spacer-one-one" ng-if="order.loaded && order.cart.hasItems() && order.showForm"></div>
 
 	<!-- payment and user info -->
 	<form class="payment-form content-padding" ng-show="order.loaded && order.cart.hasItems() && order.showForm">
@@ -1379,7 +1471,7 @@
 
 					<div class="payment-form-group form-group">
 						<i class="fa fa-map-marker payment-form-icon form-icon form-field"></i>
-						<p ng-show="order.form.delivery_type!='delivery'">Pickup from: <span ng-bind-html-unsafe="restaurant.address | nl2br"></span></p>
+						<p ng-if="order.form.delivery_type!='delivery'">Pickup from: <span ng-bind-html-unsafe="restaurant.address | nl2br"></span></p>
 						<textarea ng-autosize ng-show="order.form.delivery_type=='delivery'" class="payment-form-input form-input form-field" ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5" placeholder="address"></textarea>
 					</div>
 
@@ -1391,19 +1483,19 @@
 						<!-- Gift card messages -->
 						<div class="giftcard-info">
 
-							<div class="warning" ng-show="giftcard.removed">
+							<div class="warning" ng-if="giftcard.removed">
 								You just removed a gift card. If you still want to use that gift card, you must put it back in the notes field.
 							</div>
 
-							<div ng-show="restaurant.giftcard == 0 && giftcard.hasGiftCards">
+							<div ng-if="restaurant.giftcard == 0 && giftcard.hasGiftCards">
 								This restaurant does not accept gift card.
 							</div>
 
-							<div ng-show="giftcard.hasValue && order.form.pay_type == 'cash' ">
+							<div ng-if="giftcard.hasValue && order.form.pay_type == 'cash' ">
 								Pay with a card, NOT CASH, to use your ${{giftcard.value}} gift card!</span>
 							</div>
 
-							<div ng-show="restaurant.giftcard == 1 && order.form.pay_type == 'card' ">
+							<div ng-if="restaurant.giftcard == 1 && order.form.pay_type == 'card' ">
 								<!-- Gift card success -->
 								<div ng-repeat="success in giftcard.giftcards.success">
 									<div ng-show="!success.error">
@@ -1422,7 +1514,7 @@
 									</div>
 								</div>
 							</div>
-							<spa ng-show="giftcard.justOneGiftCardError">
+							<spa ng-if="giftcard.justOneGiftCardError">
 								You can only use one gift card at a time!
 							</span>
 						</div>
@@ -1468,7 +1560,7 @@
 
 	<!-- stored user info -->
 	
-	<div class="delivery-payment-info main-content-readable" ng-show="restaurant._open && !order.showForm && order.cart.hasItems()">
+	<div class="delivery-payment-info main-content-readable" ng-if="restaurant._open && !order.showForm && order.cart.hasItems()">
 		
 		<div class="divider dots spacer-one-one"></div>
 			<div class="content-padding">
@@ -1485,9 +1577,7 @@
 				</p>
 			</div>
 			<div class="divider"></div>
-			
 			<div class="order-icon">
-				<div class="icon-card"></div>
 					<div class="icon-credit" ng-show="order.form.pay_type=='card' && order.total() <= credit.number"></div>
 					<div class="icon-card" ng-show="order.form.pay_type=='card' && order.total() > credit.number"></div>
 					<div class="icon-cash" ng-show="order.form.pay_type=='cash'"></div>
@@ -1495,8 +1585,8 @@
 			<div class="order-info order-info-oneline">
 				<p>
 					<span ng-show="order.form.pay_type=='card' && order.total() <= credit.number">Gift card balance</span>
-					<span ng-show="order.form.pay_type=='card' && credit.number && order.total() > credit.number">Card ending in 9999 &amp; - {{credit.value}} credit</span>
-					<span ng-show="order.form.pay_type=='card' && !credit.number">Card ending in 9999</span>
+					<span ng-show="order.form.pay_type=='card' && credit.number && order.total() > credit.number">Card ending in {{user.card_ending}} &amp; - {{credit.value}} credit</span>
+					<span ng-show="order.form.pay_type=='card' && !credit.number">Card ending in {{user.card_ending}}</span>
 					<span ng-show="order.form.pay_type=='cash'">Pay and tip with <b>cash</b></span>
 				</p>
 			</div>
@@ -1541,13 +1631,10 @@
 </div>
 
 
-
-
-
 <!-- total breakdown -->
 <div class="divider dots spacer-one-two" ng-show="order.info.subtotal && order.info.subtotal!='0.00'"></div>
 
-<div class="payment-total content-padding" ng-show="order.info.subtotal && order.info.subtotal!='0.00'">
+<div class="payment-total content-padding" ng-if="order.info.subtotal && order.info.subtotal!='0.00'">
 	<div class="restaurant-banana animated-resize"></div>
 	
 	<div class="payment-wrap">
@@ -1570,16 +1657,10 @@
 	</div>
 	<div class="divider"></div>
 
-	<div ng-show="credit.hasValue && order.form.pay_type == 'cash' ">
+	<div ng-if="credit.hasValue && order.form.pay_type == 'cash' && order.total() >= credit.number">
 		<div class="giftcard-payment-message">Pay with a card, NOT CASH, to use your ${{credit.value}} gift card</div>
 	</div>
 </div>
-
-
-
-
-
-
 
 <div class="divider bottom-spacer"></div>
 
@@ -1647,21 +1728,25 @@
 	<div class="divider"></div>
 </div>
 
-
-
-<div ng-show="restaurants">
+<div ng-if="restaurants">
 
 	<div class="restaurants-items">
+		
 		<div ng-click="display($event)" ng-class="{'meal-item-closed': restaurant._open==false}" class="restaurants-item" data-id_restaurant="{{restaurant.id_restaurant}}" data-permalink="{{restaurant.permalink}}" ng-repeat="restaurant in restaurants | limitTo:restaurantsToShow">
 
-			<div class="restaurants-closed" ng-show="restaurant._tag == 'closed'">
+			<div class="restaurants-closed" ng-if="restaurant._tag == 'closed'">
 				<h2 class="restaurants-name">{{restaurant.name}}</h2>
-				<div class="restaurants-opensin">Opens in 4 hours</div>			
+				<div class="restaurants-opensin" ng-if="restaurant._openIn > 0" >Opens in {{restaurant._openIn_formated}}</div>
 			</div>
 
+			<div class="restaurants-closed" ng-if="restaurant._tag == 'force_close'">
+				<h2 class="restaurants-name">{{restaurant.name}}</h2>
+				<div class="restaurants-opensin">Temporarily closed {{restaurant._closedDueTo}}</div>			
+			</div>
 
-			<div class="restaurants-open" ng-hide="restaurant._tag == 'closed'">
-				<div class="restaurants-item-content ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#333333" data-spinner-autostart="true">
+			<div class="restaurants-open" ng-hide="restaurant._tag == 'closed' || restaurant._tag == 'force_close'">
+				
+				<div class="restaurants-item-content ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#333333" data-spinner-autostart="{{restaurant._open}}">
 					<div class="ladda-label">
 						<div class="restaurants-pic meal-pic" style="background: url({{restaurant.img64}});"></div>
 						<h2 class="restaurants-name">{{restaurant.name}}</h2>
@@ -1670,9 +1755,10 @@
 						<div ng-switch on="restaurant._tag">
 							<div class="meal-item-tag" ng-switch-when="takeout">Take out only</div>
 							<div class="meal-item-tag about-to-close" ng-switch-when="closing">Hurry, closes in {{restaurant._closesIn}} min!</div>
+							<div class="meal-item-tag about-to-open" ng-switch-when="opening">Opens in {{restaurant._opensIn_formatted}} </div>
 						</div>
 						
-						<div class="meal-item-tag-bottom" ng-show="restaurant._tag == 'closing' || restaurant._tag == 'takeout'"></div>
+						<div class="meal-item-tag-bottom" ng-if="restaurant._tag == 'closing' || restaurant._tag == 'takeout' || restaurant._tag == 'force_close'"></div>
 
 					</div>
 					<span class="ladda-spinner"></span>
@@ -1682,7 +1768,7 @@
 
 		<div class="divider"></div>
 
-		<button class="button green restaurants-more" ng-show="restaurantsToShow < restaurants.length" ng-click="showMoreRestaurants()">
+		<button class="button green restaurants-more" ng-if="restaurantsToShow < restaurants.length" ng-click="showMoreRestaurants()">
 			More awesome Restaurants
 		</button>
 
@@ -1751,8 +1837,8 @@
 				</button>
 			</div>
 	
-			<p>
-				<a href="" class="splash-continue" ng-instant="navigation.link('/location')">Continue without logging in</a>
+			<p class="center-text">
+				<a href="" class="splash-continue" ng-instant="navigation.link('/location','fade')">Continue without logging in</a>
 			</p>
 		</div>
 	</div>
@@ -1791,16 +1877,16 @@
 </script><script type="text/ng-template" id="assets/view/support.html">
 <div class="support-container zoom-anim-dialog mfp-hide dialog" ng-controller="SupportCtrl">
 	<div class="dialog-padding">
-		<h1 ng-show="!support.error && !support.thanks">Send us a message</h1>
+		<h1 ng-if="!support.error && !support.thanks">Send us a message</h1>
 
-		<p ng-show="support.thanks && !support.error">Thanks, we'll get back to you as fast as we can.</p>
+		<p ng-if="support.thanks && !support.error">Thanks, we'll get back to you as fast as we can.</p>
 		
-		<div class="dialog-message dialog-message-error" ng-show="support.error && !support.thanks">
+		<div class="dialog-message dialog-message-error" ng-if="support.error && !support.thanks">
 			<i class="fa fa-frown-o"></i>&nbsp;&nbsp;
 			<span ng-bind-html-unsafe="support.error"></span>
 		</div>
 
-		<div ng-show="!support.thanks">
+		<div ng-if="!support.thanks">
 			<form>
 				<div class="support-form-group form-group">
 					<i class="fa fa-user support-form-icon form-icon form-field"></i>
@@ -1824,12 +1910,12 @@
 	</div>
 	<div class="dialog-divider"></div>
 
-	<div class="dialog-padding dialog-bottom-buttons" ng-show="!support.thanks">
-		<button class="button lightorange pushable" ng-show="!support.isSending" ng-click="support.send();" tabindex="4">send</button>
-		<i ng-show="support.isSending" class=" fa fa-spinner fa-spin"></i>
+	<div class="dialog-padding dialog-bottom-buttons" ng-if="!support.thanks">
+		<button class="button lightorange pushable" ng-if="!support.isSending" ng-click="support.send();" tabindex="4">send</button>
+		<i ng-if="support.isSending" class=" fa fa-spinner fa-spin"></i>
 	</div>
 	
-	<div class="dialog-padding dialog-bottom-buttons" ng-show="support.thanks">
+	<div class="dialog-padding dialog-bottom-buttons" ng-if="support.thanks">
 		<button class="button lightorange pushable" ng-click="closePopup()">you're welcome</button>
 	</div>
 
@@ -1983,7 +2069,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-click="navigation.link('/food-delivery')">
+				<li ng-click="navigation.link('/food-delivery')" ng-show="account.user.id_user">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-cutlery"></i></td>
@@ -1991,7 +2077,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-show="account.user.id_user" ng-click="navigation.link('/orders')">
+				<li ng-show="account.user.id_user && account.user.name" ng-click="navigation.link('/orders')">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-truck"></i></td>
@@ -1999,7 +2085,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-click="navigation.link('/location')">
+				<li ng-click="navigation.link('/location')" ng-show="account.user.id_user">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-map-marker"></i></td>
@@ -2020,14 +2106,6 @@ This document was last updated on May 15, 2013.<br />
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-lightbulb-o"></i></td>
 							<td class="side-menu-label">About</a></td>
-						</tr>
-					</table>
-				</li>
-				<li ng-click="navigation.link('/jobs')">
-					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
-						<tr>
-							<td class="side-menu-icon"><i class="fa fa-beer"></i></td>
-							<td class="side-menu-label">Free Beer</a></td>
 						</tr>
 					</table>
 				</li>
@@ -2059,7 +2137,7 @@ This document was last updated on May 15, 2013.<br />
 					</a>
 				</li>
 
-				<li ng-click="test.card()" ng-show="account.user.debug">
+				<li ng-click="test.card()" ng-show="debug()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-circle-o"></i></td>
@@ -2067,7 +2145,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-click="test.clearloc()" ng-show="account.user.debug">
+				<li ng-click="test.clearloc()" ng-show="debug()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-circle-o"></i></td>
@@ -2075,7 +2153,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-click="test.reload()" ng-show="account.user.debug">
+				<li ng-click="test.reload()" ng-show="debug()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-circle-o"></i></td>
@@ -2097,21 +2175,24 @@ This document was last updated on May 15, 2013.<br />
 				<div class="content">
 					<div class="hide-before-init dropdown dropdown-tip" ng-show="menudropdown">
 						<ul class="dropdown-menu">
-							<li><a href="/splash" ng-click="navigation.link('/splash')" ng-show="!account.user.id_user"><i class="fa fa-rocket"></i>Get Started!</a></li>
-							<li><a href="/food-delivery" ng-click="navigation.link('/food-delivery')"><i class="fa fa-cutlery"></i>Restaurants</a></li>
-							<li><a href="/orders" ng-click="navigation.link('/orders')" ng-show="account.user.id_user"><i class="fa fa-truck"></i>Previous Orders</a></li>
-							<li><a href="/location" ng-click="navigation.link('/location')"><i class="fa fa-map-marker"></i>Change Location</a></li>
+							<li><a ng-click="navigation.link('/splash')" ng-show="!account.user.id_user"><i class="fa fa-rocket"></i>Get Started!</a></li>
+							<li><a ng-click="navigation.link('/food-delivery')" ng-show="account.user.id_user"><i class="fa fa-cutlery"></i>Restaurants</a></li>
+							<li><a ng-click="navigation.link('/orders')" ng-show="account.user.id_user && account.user.name"><i class="fa fa-truck"></i>Previous Orders</a></li>
+							<li><a ng-click="navigation.link('/location')" ng-show="account.user.id_user"><i class="fa fa-map-marker"></i>Change Location</a></li>
 							<li class="dropdown-divider"></li>
-							<li><a href="/help" ng-click="navigation.link('/help')"><i class="fa fa-heart"></i>Help</a></li>
-							<li><a href="/about" ng-click="navigation.link('/about')"><i class="fa fa-lightbulb-o"></i>About</a></li>
-							<li><a href="/jobs" ng-click="navigation.link('/jobs')"><i class="fa fa-beer"></i>Free Beer</a></li>
+							<li><a ng-click="navigation.link('/help')"><i class="fa fa-heart"></i>Help</a></li>
+							<li><a ng-click="navigation.link('/about')"><i class="fa fa-lightbulb-o"></i>About</a></li>
 							<li><a ng-click="navigation.signin()" ng-show="!account.user.id_user"><i class="fa fa-sign-in"></i>Log In</a></li>
 							<li><a ng-click="signout.do()" ng-show="account.user.id_user"><i class="fa fa-sign-out"></i>Log Out</a></li>
+
+							<li class="dropdown-divider"></li>
+							<li><a ng-click="navigation.link('/download')"><i class="fa fa-mobile-phone"></i>Download for iPhone</a></li>
+
 							<li class="dropdown-divider" ng-show="account.user.debug"></li>
-							<li><a ng-click="App.test.card()" ng-show="account.user.debug"><i class="fa fa-circle-o"></i>TEST: card</a></li>
-							<li><a ng-click="App.test.clearloc()" ng-show="account.user.debug"><i class="fa fa-circle-o"></i>TEST: clear location</a></li>
-							<li><a ng-click="navigation.link('/')" ng-show="account.user.debug"><i class="fa fa-circle-o"></i>TEST: go home</a></li>
-							<li><a ng-click="App.test.card()" ng-show="account.user.debug"><i class="fa fa-circle-o"></i>TEST: card</a></li>
+							<li><a ng-click="App.test.card()" ng-show="debug()"><i class="fa fa-circle-o"></i>TEST: card</a></li>
+							<li><a ng-click="App.test.clearloc()" ng-show="debug()"><i class="fa fa-circle-o"></i>TEST: clear location</a></li>
+							<li><a ng-click="navigation.link('/')" ng-show="debug()"><i class="fa fa-circle-o"></i>TEST: go home</a></li>
+							<li><a ng-click="App.test.card()" ng-show="debug()"><i class="fa fa-circle-o"></i>TEST: card</a></li>
 					    </ul>
 					</div>
 				
@@ -2152,9 +2233,11 @@ This document was last updated on May 15, 2013.<br />
 						<a href="twitter.com/crunchbutton" target="_blank" class="fa fa-twitter"></a>
 						<a href="http://www.linkedin.com/company/crunchbutton" target="_blank" class="fa fa-linkedin"></a>
 					</div>
-					<div class="divider"></div>
-					<div class="copyright">&copy; 2013 <a href="/legal">Crunchbutton</a></div>
-					<div class="divider"></div>
+					<span ng-controller="BottomCtrl">
+						<div class="divider"></div>
+						<div class="copyright">&copy; 2014 <a ng-click="navigation.link('/legal')">Crunchbutton</a></div>
+						<div class="divider"></div>
+					</span>
 					<br>
 				</div>
 			</div>
@@ -2187,7 +2270,7 @@ This document was last updated on May 15, 2013.<br />
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="angular-route.min.js"></script>
 	<script type="text/javascript" src="angular-animate.min.js"></script>
-	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="cordova.3.1.0-android.js"></script>
 	<script type="text/javascript" src="cdv-plugin-fb-connect.js"></script>
 	<script type="text/javascript" src="facebook-js-sdk.js"></script>
 
