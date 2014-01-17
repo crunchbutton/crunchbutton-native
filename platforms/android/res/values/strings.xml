@@ -1,4 +1,4 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Crunchbutton</string>
+    <string translatable="false" name="app_name">Crunchbutton</string>
 </resources>

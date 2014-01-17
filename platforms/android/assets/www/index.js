@@ -210,13 +210,13 @@ $(function() {
 				appId: '***REMOVED***',
 				//cookie: true,
 				xfbml: true,
-				//oauth: true,
+				oauth: true,
 				nativeInterface: CDV.FB,
 				useCachedDialogs: false
 			});
 			
 			FB.getLoginStatus(facebookService.processStatus);
 
-		}, 1000);
+		}, 3000);
 	}, true);
 });

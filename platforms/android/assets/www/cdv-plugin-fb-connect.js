@@ -59,10 +59,5 @@ CDV.FB = {
     cordova.exec(function(e) { // login
       if (cb) cb(e);
                   }, (fail?fail:null), 'org.apache.cordova.facebook.Connect', 'showDialog', [params] );
-  },
-  share: function(params, cb, fail) {
-    cordova.exec(function(e) { // login
-      if (cb) { cb(e); }
-    }, (fail?fail:null), 'org.apache.cordova.facebook.Connect', 'share', params);
   }
 };
