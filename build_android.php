@@ -1,12 +1,20 @@
 #!/usr/bin/env php
 <?php
-
 /**
  * Download and build local assets for phonegap
  * 
  * requires php, wget, gunzip
  *
  */
+
+echo "Are you building for live? Type 'yes' if you are. ";
+$handle = fopen ("php://stdin","r");
+$line = fgets( $handle );
+$live = false;
+if( trim( $line ) == 'yes'){
+	$live = true;
+}
+echo "Building for ".($live ? 'LIVE' : 'BETA')."\n";
 
 $curpath = getcwd();
 if (preg_match('/platforms\/android/',$curpath)) {
@@ -15,10 +23,7 @@ if (preg_match('/platforms\/android/',$curpath)) {
 $server = 'http://seven.localhost/';
 $srcPath = $ap.'./www/';
 $path = $ap.'./platforms/android/assets/www/';
-$live = $argv[1] == 'live' ? true : false;
 
-
-echo "Building for ".($live ? 'LIVE' : 'BETA')."\n";
 
 // clean assets
 echo "Cleaning assets...";
@@ -39,16 +44,27 @@ echo "complete.\n";
 
 
 // create and copy template dirs
-echo "Creating directories";
+echo "Creating directories...";
 shell_exec('cp -R '.$srcPath.'assets '.$path.'assets && mv '.$path.'assets/js/* '.$path);
 echo "complete.\n";
 
 // delete unused/iphone files
+echo "Deleting files...";
 $_remove_js = [ 'cordova.js', 'phonegap.js' ];
 foreach( $_remove_js as $js ){
 	shell_exec("rm -rf $path/$js");
 }
+echo "complete.\n";
 
+// rename files
+echo "Renaming files...";
+$_rename = [ [ 'from' => 'cordova.3.1.0-android.js', 'to' => 'cordova.js' ] ];
+foreach( $_rename as $key => $value ){
+	$from = $value[ 'from' ];
+	$to = $value[ 'to' ];
+	shell_exec("mv $path/$from $path/$to");
+}
+echo "complete.\n";
 
 // download assets from server
 echo "Downloading assets bundle...\n";
@@ -118,7 +134,7 @@ file_put_contents($path.'index.html', $index);
 echo "Building index js...\n";
 $index = file_get_contents($path.'index.js');
 $index = str_replace('FACEBOOK_APP_IP', $config->facebook, $index);
-$index = str_replace('APP_SERVER_URL', $live ? 'https://crunchbutton.com/' : 'http://192.168.25.7/', $index);
+$index = str_replace('APP_SERVER_URL', $live ? 'https://crunchbutton.com/' : 'http://beta.crunchr.co/', $index);
 file_put_contents($path.'index.js', $index);
 
 // yay
