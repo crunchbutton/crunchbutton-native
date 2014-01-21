@@ -207,16 +207,16 @@ $(function() {
 			FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
 	
 			FB.init({
-				appId: '535176279848900',
+				appId: '330512547054803',
 				//cookie: true,
 				xfbml: true,
-				oauth: true,
+				//oauth: true,
 				nativeInterface: CDV.FB,
 				useCachedDialogs: false
 			});
 			
 			FB.getLoginStatus(facebookService.processStatus);
-
-		}, 3000);
+			// 5 secs
+		}, 5000);
 	}, true);
 });

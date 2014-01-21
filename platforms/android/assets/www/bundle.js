@@ -610,12 +610,12 @@ self.preset=function(){return self['_preset'];}
 self.finished=function(data){for(x in data){self[x]=data[x];}
 self.categories();if(App.isPhoneGap){var img=self.image.replace(/^.*\/|\.[^.]*$/g,'');self.img=App.imgServer+'630x280/'+img+'.jpg?crop=1';self.img64=App.imgServer+'596x596/'+img+'.jpg';}
 if(typeof complete=='function'){complete.call(self);}}
-self.tagfy=function(tag){if(tag){self._tag=tag;return;if(tag=='opening'){if(self._opensIn&&self._opensIn_formatted!=''){self._tag=tag;}else{self._tag='closed';}}else{self._tag=tag;}
+self.tagfy=function(tag){if(tag){self._tag=tag;if(tag=='opening'){if(self._opensIn&&self._opensIn_formatted!=''){self._tag=tag;}else{self._tag='closed';}}else{self._tag=tag;}
 return;}
 self._tag='';if(!self._open){self._tag='closed';if(self._closedDueTo){self._tag='force_close';}}
 if(self._open&&self._closesIn!=='false'&&self._closesIn<=15){self._tag='closing';}
 if(self.closed_message==''){self._tag='force_close';}}
-self.open=function(now,ignoreOpensClosesInCalc){self._hasHours=false;var now=(now)?now:dateTime.getNow();self.processHours();var now_time=now.getTime();self._open=false;for(x in self.hours){self._hasHours=true;if(now_time>=self.hours[x]._from_time&&now_time<=self.hours[x]._to_time){if(self.hours[x].status=='open'){self._open=true;if(ignoreOpensClosesInCalc){return self._open;}
+self.open=function(now,ignoreOpensClosesInCalc){self.tagfy('opening');self._hasHours=false;var now=(now)?now:dateTime.getNow();self.processHours();var now_time=now.getTime();self._open=false;for(x in self.hours){self._hasHours=true;if(now_time>=self.hours[x]._from_time&&now_time<=self.hours[x]._to_time){if(self.hours[x].status=='open'){self._open=true;if(ignoreOpensClosesInCalc){return self._open;}
 self.closesIn(now);self.tagfy();return self._open;}else if(self.hours[x].status=='close'){self._closedDueTo=(self.hours[x].notes)?self.hours[x].notes:false;if(ignoreOpensClosesInCalc){return self._open;}
 self.opensIn(now);self.tagfy();return self._open;}}}
 self.opensIn(now);self.tagfy();return self._open;}
@@ -955,7 +955,7 @@ service.referral=ReferralService;service.account=AccountService;service.preLoadO
 service.postOrder=function(){if(service.orderStatus){var status=service.orderStatus;status.link=service.referral.cleaned_url();App.share({url:'http://'+status.link,name:status.name,caption:status.caption,description:status.description,picture:status.picture});}else{service.preLoadOrderStatus();App.alert('Oops, please try again!');return;}}
 service.postInvite=function(url){App.share({url:url,name:'Noms',caption:' ',description:url});}
 service.requestPermission=function(callback){callback=typeof callback==='function'?callback:function(){};FB.ui({method:'permissions.request',perms:serviceScope,display:'iframe'},callback);}
-service.processStatus=function(status){if(status.status==='connected'&&status.authResponse){service.logged=true;service.error.unknown=false;service.error.userExists=false;service.error.login=false;service.token=status.authResponse.accessToken;$.totalStorage('fbtoken',service.token);if(App.config.user.id_user&&App.config.user.facebook){return;}
+service.processStatus=function(status){console.log('status:',(new Date()),status);if(status.status==='connected'&&status.authResponse){service.logged=true;service.error.unknown=false;service.error.userExists=false;service.error.login=false;service.token=status.authResponse.accessToken;$.totalStorage('fbtoken',service.token);if(App.config.user.id_user&&App.config.user.facebook){return;}
 if(status.authResponse.userID){App.log.account({'userID':status.authResponse.userID},'facebook login');if(!service.running){service.running=true;App.log.account({'userID':status.authResponse.userID,'running':service.running},'facebook running');var data={};url=App.service+'user/facebook?fbrtoken='+service.token;$http({method:'GET',url:url,cache:false}).success(function(data){App.log.account({'userID':status.authResponse.userID,'running':service.running,'data':data},'facebook ajax');if(data.error){if(data.error=='facebook id already in use'){App.log.account({'error':data.error},'facebook error');service.error.userExists=true;}
 service.running=false;return;}else{service.account.updateInfo();service.account.user=data;if(service.account.callback){service.account.callback();service.account.callback=false;}else{try{$.magnificPopup.close();}catch(e){}}}
 App.log.account({'userID':status.authResponse.userID},'facebook currentPage');$rootScope.$broadcast('userAuth',service.account.user);service.running=false;service.wait=false;});}}}else{service.logged=false;service.error.unknown=false;service.error.userExists=false;service.error.login=false;service.token=null;$.totalStorage('fbtoken',null);}}

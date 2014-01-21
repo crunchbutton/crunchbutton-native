@@ -216,7 +216,7 @@ $(function() {
 			});
 			
 			FB.getLoginStatus(facebookService.processStatus);
-
-		}, 1000);
+			// 5 secs
+		}, 5000);
 	}, true);
 });
