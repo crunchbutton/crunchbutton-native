@@ -7,14 +7,35 @@
  *
  */
 
-echo "Are you building for live? Type 'yes' if you are. ";
+echo "Are you building for live? Type 'yes' if you are: ";
 $handle = fopen ("php://stdin","r");
 $line = fgets( $handle );
 $live = false;
-if( trim( $line ) == 'yes'){
+if( trim( $line ) == 'yes' ){
 	$live = true;
 }
-echo "Building for ".($live ? 'LIVE' : 'BETA')."\n";
+echo "Building for ".($live ? 'LIVE' : 'BETA')."\n"."\n";
+
+$weinre = false;
+
+if( !$live ){
+	echo "Do you want to use weinre debub? Type 'yes' if you do: ";
+	$handle = fopen ("php://stdin","r");
+	$line = fgets( $handle );
+	if( trim( $line ) == 'yes'){
+		$weinre = true;
+		$command = "ifconfig | grep 'broadcast'";
+		$serverInfo = exec( $command );
+		$serverInfo = explode( ' ' , $serverInfo );
+		$serverIP = $serverInfo[1];
+		echo "Is your IP $serverIP?\nType 'yes' or <enter> if it is or the correct IP: ";
+		$handle = fopen ("php://stdin","r");
+		$line = fgets( $handle );
+		if( trim( $line ) != 'yes' && trim( $line ) != '' ){
+			$serverIP = trim( $line );
+		}
+	}
+}
 
 $curpath = getcwd();
 if (preg_match('/platforms\/android/',$curpath)) {
@@ -127,6 +148,14 @@ $index = file_get_contents($path.'assets/view/template_android.html');
 $body = file_get_contents($server.'assets/view/body.html'.($live ? '?__live=1' : ''));
 $index = str_replace('<body></body>', '<body bgcolor="#fffef8" class="ios7 no-init">'.$body.'</body>', $index);
 $index = str_replace('<templates></templates>', $content, $index);
+
+if( $weinre ){
+	$weinreURL = '<script src="http://' . $serverIP . ':8080/target/target-script-min.js#anonymous"></script>';
+	$index = str_replace( '<!--weinre-->', $weinreURL, $index );
+} else {
+	$index = str_replace( '<!--weinre-->', '', $index );
+}
+
 file_put_contents($path.'index.html', $index);
 
 
