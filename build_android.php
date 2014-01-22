@@ -166,6 +166,8 @@ $index = str_replace('FACEBOOK_APP_IP', $config->facebook, $index);
 $index = str_replace('APP_SERVER_URL', $live ? 'https://crunchbutton.com/' : 'http://beta.crunchr.co/', $index);
 file_put_contents($path.'index.js', $index);
 
+date_default_timezone_set( 'UTC' );
+
 // yay
-echo "\033[32m".($live ? 'LIVE' : 'BETA')." build complete!\033[37m
+echo "\033[32m".($live ? 'LIVE' : 'BETA')." build complete! " . date( 'Y-m-d H:i:s' ) . " (UTC) \033[37m
 ";
