@@ -202,24 +202,32 @@ $(function() {
 			$('body').scrollTop(280-$('.snap-content-inner').scrollTop());
 		}, '.location-address');
 
-		setTimeout(function(){
-			var facebookService = angular.element('html').injector().get('FacebookService');
-			FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
-	
-			FB.init({
-				appId: '330512547054803',
-				//cookie: true,
-				xfbml: true,
-				//oauth: true,
-				nativeInterface: CDV.FB,
-				useCachedDialogs: false
-			});
-			
-			FB.getLoginStatus(facebookService.processStatus);
-			// 5 secs
-		}, 5000);
+			var facebookInit = function(){
+			// Verify if angular is already started
+			if( angular && angular.element('html') && angular.element('html').injector() && angular.element('html').injector().get('FacebookService') ){
+				var facebookService = angular.element('html').injector().get('FacebookService');
+				FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
+
+				FB.init({
+					appId: '330512547054803',
+					//cookie: true,
+					xfbml: true,
+					//oauth: true,
+					nativeInterface: CDV.FB,
+					useCachedDialogs: false
+				});
+
+				FB.getLoginStatus(facebookService.processStatus);
+			} else {
+				setTimeout( function(){
+					facebookInit();
+				}, 1500 );
+			}
+		}
+		facebookInit();
+
 	}, true);
-});
+} );
 
 
 if ( !window.console ){
