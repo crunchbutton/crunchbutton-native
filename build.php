@@ -13,7 +13,7 @@ if (preg_match('/platforms\/ios/',$curpath)) {
 	$ap = '../../';
 }
 $server = 'http://seven.localhost/';
-$srcPath = $ap.'./www/';
+$srcPath = $ap.'./www_source/';
 $path = $ap.'./platforms/ios/www/';
 $live = $argv[1] == 'live' ? true : false;
 
