@@ -7,31 +7,32 @@
  *
  */
 
-echo "Are you building for live? Type 'yes' if you are: ";
+echo "Are you building for live? Type 'y' if you are: ";
 $handle = fopen ("php://stdin","r");
 $line = fgets( $handle );
 $live = false;
-if( trim( $line ) == 'yes' ){
+if( trim( $line ) == 'yes' || trim( $line ) == 'y' ){
 	$live = true;
 }
 echo "Building for ".($live ? 'LIVE' : 'BETA')."\n"."\n";
 
 $weinre = false;
+$serverIP = '';
 
 if( !$live ){
-	echo "Do you want to use weinre debub? Type 'yes' if you do: ";
+	echo "Do you want to use weinre debub? Type 'y' if you do: ";
 	$handle = fopen ("php://stdin","r");
 	$line = fgets( $handle );
-	if( trim( $line ) == 'yes'){
+	if( trim( $line ) == 'yes' || trim( $line ) == 'y' ){
 		$weinre = true;
 		$command = "ifconfig | grep 'broadcast'";
 		$serverInfo = exec( $command );
 		$serverInfo = explode( ' ' , $serverInfo );
 		$serverIP = $serverInfo[1];
-		echo "Is your IP $serverIP?\nType 'yes' or <enter> if it is or the correct IP: ";
+		echo "Is your IP $serverIP?\nType 'y' or <enter> if it is or the correct IP: ";
 		$handle = fopen ("php://stdin","r");
 		$line = fgets( $handle );
-		if( trim( $line ) != 'yes' && trim( $line ) != '' ){
+		if( trim( $line ) != 'yes' && trim( $line ) != 'y' && trim( $line ) != '' ){
 			$serverIP = trim( $line );
 		}
 	}
