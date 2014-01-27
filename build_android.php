@@ -157,10 +157,10 @@ date_default_timezone_set( 'UTC' );
 echo "\033[32m".( $live ? 'LIVE' : 'BETA' )." build complete! " . date( 'Y-m-d H:i:s' ) . " (UTC) \033[37m
 ";
 
-if( $deploy ){
-	echo "Deploying to device ... ";
-	shell_exec( "cordova run android" );
-}
+
+echo "Building with cordova ... ";
+shell_exec( "cordova build android" );
+
 echo "complete.\n";
 
 function download($file, $dst = null, $usegzip = false) {
