@@ -25,9 +25,19 @@ var onSuccess = function(){console.log('1',arguments);};
 var onError = function(){console.log('0',arguments);};
 
 balanced = {
+	init: function(){},
 	card: {
 		create: function(args, complete) {
-			cordova.exec(function(response) {
+			
+
+			cordova.exec( function( response ){ 
+				alert( 's' );
+				console.log( response ) },
+				function( response ){ alert( 'e' );console.log( response ) }, 
+				'BalancedPlugin', 'tokenizeCard', [ '4242424242424242', 9, 2014, '123' ]
+			);
+
+		/*	cordova.exec(function(response) {
 
 				if (response.data && response.status) {
 					// we have a balanced.js compatable response
@@ -46,7 +56,7 @@ balanced = {
 				complete({
 					status: 999
 				});
-			}, 'BalancedPlugin', 'tokenizeCard',[args.card_number, args.expiration_month, args.expiration_year, args.security_code || '']);
+			}, 'BalancedPlugin', 'tokenizeCard',[args.card_number, args.expiration_month, args.expiration_year, args.security_code || '']);*/
 		}
 	}
 };

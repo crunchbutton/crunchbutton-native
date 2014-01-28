@@ -1,0 +1,12 @@
+{
+    "version": "0.1.0",
+    "name": "org.apache.cordova.balanced",
+    "cordova_name": "balanced",
+    "description": "Cordova Balanced Plugin",
+    "license": "No idea",
+    "keywords": [
+        "cordova",
+        "balanced"
+    ],
+    "engines": []
+}

@@ -84,6 +84,13 @@ module.exports = [
         "clobbers": [
             "gamecenter"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.balanced/www/vibration.js",
+        "id": "org.apache.cordova.balanced.notification",
+        "merges": [
+            "navigator.notification"
+        ]
     }
 ]
 });

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="org.apache.cordova.balanced"
+    version="0.1.0">
+
+    <name>Balanced</name>
+    <description>Cordova Balanced Plugin</description>
+    <license>No idea</license>
+    <keywords>cordova,balanced</keywords>
+    
+    <js-module src="www/vibration.js" name="notification">
+        <merges target="navigator.notification" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BalancedPlugin">
+                <param name="android-package" value="org.apache.cordova.vibration.BalancedPlugin"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/BalancedPlugin.java" target-dir="src/org/apache/cordova/balanced" />
+
+    </platform>
+
+</plugin>
