@@ -25,38 +25,49 @@ var onSuccess = function(){console.log('1',arguments);};
 var onError = function(){console.log('0',arguments);};
 
 balanced = {
+
 	init: function(){},
+
 	card: {
-		create: function(args, complete) {
-			
 
-			cordova.exec( function( response ){ 
-				alert( 's' );
-				console.log( response ) },
-				function( response ){ alert( 'e' );console.log( response ) }, 
-				'BalancedPlugin', 'tokenizeCard', [ '4242424242424242', 9, 2014, '123' ]
+		create: function( args, complete ) {
+
+			navigator.balanced.tokenizeCard( 
+				// Success
+				function( response ){ 
+
+					if( typeof( response ) == 'string' ){
+						response = JSON.parse( response );
+					}
+
+					if (response.data && response.status) {
+						// we have a balanced.js compatable response
+						response.status = parseInt(response.status);
+
+					} else {
+						// format the response properly
+						response = {
+							status: response.uri ? 201 : (response.status_code || 666),
+							data: response
+						};
+					}
+
+					// callback
+					complete( response );
+
+				},
+				// Error
+				function( response ){ 
+					console.log( response );
+				},
+				// Args
+				[	
+					args.card_number, 
+					args.expiration_month, 
+					args.expiration_year, 
+					args.security_code || ''
+				]
 			);
-
-		/*	cordova.exec(function(response) {
-
-				if (response.data && response.status) {
-					// we have a balanced.js compatable response
-					response.status = parseInt(response.status);
-
-				} else {
-					// format the response properly
-					response = {
-						status: response.uri ? 201 : (response.status_code || 666),
-						data: response
-					};
-				}
-				complete(response);
-
-			}, function() {
-				complete({
-					status: 999
-				});
-			}, 'BalancedPlugin', 'tokenizeCard',[args.card_number, args.expiration_month, args.expiration_year, args.security_code || '']);*/
 		}
 	}
 };

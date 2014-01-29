@@ -5,20 +5,24 @@
     id="org.apache.cordova.balanced"
     version="0.1.0">
 
-    <name>Balanced</name>
+    <name>BalancedPlugin</name>
     <description>Cordova Balanced Plugin</description>
-    <license>No idea</license>
+    <license>Apache 2.0</license>
     <keywords>cordova,balanced</keywords>
-    
-    <js-module src="www/vibration.js" name="notification">
-        <merges target="navigator.notification" />
+
+    <repo></repo>
+    <issue></issue>
+
+    <js-module src="www/balanced.js" name="balanced">
+        <merges target="navigator.balanced" />
     </js-module>
+
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="BalancedPlugin">
-                <param name="android-package" value="org.apache.cordova.vibration.BalancedPlugin"/>
+                <param name="android-package" value="org.apache.cordova.balanced.BalancedPlugin"/>
             </feature>
         </config-file>
 
