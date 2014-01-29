@@ -32,14 +32,14 @@ balanced = {
 
 		create: function( args, complete ) {
 
-			cordova.exec( 
+			navigator.balanced.tokenizeCard( 
 				// Success
 				function( response ){ 
 
 					if( typeof( response ) == 'string' ){
 						response = JSON.parse( response );
 					}
-					console.log( response );
+
 					if (response.data && response.status) {
 						// we have a balanced.js compatable response
 						response.status = parseInt(response.status);
@@ -52,6 +52,7 @@ balanced = {
 						};
 					}
 
+					// callback
 					complete( response );
 
 				},
@@ -59,10 +60,6 @@ balanced = {
 				function( response ){ 
 					console.log( response );
 				},
-				// Plugin 
-				'BalancedPlugin', 
-				// Action
-				'tokenizeCard', 
 				// Args
 				[	
 					args.card_number, 
