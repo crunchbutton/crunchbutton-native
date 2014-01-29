@@ -6,6 +6,7 @@
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/libs/commons-lang3-3.1.jar \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/libs/fluent-hc-4.2.5.jar \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/libs/cordova-3.1.0.jar \
+/Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/libs/stripe-java-1.1.15.jar \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/libs/httpcore-4.2.4.jar \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/libs/httpclient-cache-4.2.5.jar \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/libs/commons-codec-1.6.jar \

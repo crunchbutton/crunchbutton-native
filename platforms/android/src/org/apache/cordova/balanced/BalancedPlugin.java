@@ -32,19 +32,27 @@ public class BalancedPlugin extends CordovaPlugin {
          		expiration_month != null && expiration_month.length() > 0 &&
          				expiration_year != null && expiration_year.length() > 0 ) {
          	String response = "";
-             
-             try {
-             	Balanced balanced = new Balanced(marketplaceURI, cordova.getActivity().getApplicationContext());
-                 Card card = new Card( card_number, Integer.parseInt(expiration_month), Integer.parseInt(expiration_year), security_code);
-             	response = balanced.tokenizeCard(card);
-             	callbackContext.success( response );
-             }
-             catch (Exception e) {
-             	callbackContext.error("Err 1");
-             }
+            
+         	Card card = new Card( card_number, Integer.parseInt(expiration_month), Integer.parseInt(expiration_year), security_code);
+         	
+         	if( card.isValid() ){
+         		try {
+                 	Balanced balanced = new Balanced(marketplaceURI, cordova.getActivity().getApplicationContext());
+                 	response = balanced.tokenizeCard(card);
+                 	callbackContext.success( response );
+                 }
+                 catch (Exception e) {
+                	 callbackContext.error( "409" );
+                 }
+
+         	} else {
+         		// Error 402 = Unable to authorize
+         		callbackContext.error( "402" );
+         	}
 
          } else {
-         	callbackContext.error("Err 2");
+        	 // Error 400 = Missing fields
+        	 callbackContext.error( "400" );
          }
      }      
 
