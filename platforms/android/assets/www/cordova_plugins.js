@@ -86,10 +86,10 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.balanced/www/vibration.js",
-        "id": "org.apache.cordova.balanced.notification",
+        "file": "plugins/org.apache.cordova.balanced/www/balanced.js",
+        "id": "org.apache.cordova.balanced.balanced",
         "merges": [
-            "navigator.notification"
+            "navigator.balanced"
         ]
     }
 ]

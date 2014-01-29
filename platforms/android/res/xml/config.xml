@@ -12,6 +12,9 @@
     <feature name="org.apache.cordova.facebook.Connect">
         <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
     </feature>
+    <feature name="BalancedPlugin">
+        <param name="android-package" value="org.apache.cordova.balanced.BalancedPlugin" />
+    </feature>
     <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
     </feature>
