@@ -68,46 +68,6 @@ balanced = {
 					args.security_code || ''
 				]
 			);
-/*
-			cordova.exec( 
-				// Success
-				function( response ){ 
-
-					if( typeof( response ) == 'string' ){
-						response = JSON.parse( response );
-					}
-					console.log( response );
-					if (response.data && response.status) {
-						// we have a balanced.js compatable response
-						response.status = parseInt(response.status);
-
-					} else {
-						// format the response properly
-						response = {
-							status: response.uri ? 201 : (response.status_code || 666),
-							data: response
-						};
-					}
-
-					complete( response );
-
-				},
-				// Error
-				function( response ){ 
-					console.log( response );
-				},
-				// Plugin 
-				'BalancedPlugin', 
-				// Action
-				'tokenizeCard', 
-				// Args
-				[	
-					args.card_number, 
-					args.expiration_month, 
-					args.expiration_year, 
-					args.security_code || ''
-				]
-			);*/
 		}
 	}
 };
@@ -235,7 +195,7 @@ $(function() {
 		window.addEventListener('deviceorientation', orientationChanged, false);
 
 
-		App.server = 'http://192.168.25.7/';
+		App.server = 'http://beta.crunchr.co/';
 		App.service = App.server + 'api/';
 		App.imgServer = 'http://i.crunchbutton.com/';
 	
