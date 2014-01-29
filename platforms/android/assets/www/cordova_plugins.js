@@ -91,6 +91,13 @@ module.exports = [
         "merges": [
             "navigator.balanced"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.stripe/www/stripe.js",
+        "id": "org.apache.cordova.stripe.stripe",
+        "merges": [
+            "navigator.stripe"
+        ]
     }
 ]
 });

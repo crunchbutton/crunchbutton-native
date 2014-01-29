@@ -24,6 +24,45 @@ if (!window.plugins.tapToScroll) {
 var onSuccess = function(){console.log('1',arguments);};
 var onError = function(){console.log('0',arguments);};
 
+// Stripe
+Stripe = {
+	setPublishableKey : function(){},
+	card : { 
+		createToken : function( args, complete ){
+
+			navigator.stripe.tokenizeCard( 
+				// Success
+				function( response ){ 
+
+					if( typeof( response ) == 'string' ){
+						response = JSON.parse( response );
+					}
+
+					if ( response.id ) {
+						console.log('response',response);
+						complete( true, response );
+					} else {
+						complete( false, { 'error' : { 'code' : '' } } );	
+					}
+				},
+				// Error
+				function( response ){
+					complete( false, { 'error' : { 'code' : response } } );	
+				},
+				// Args
+				[	
+					args.number, 
+					args.exp_month, 
+					args.exp_year, 
+					''
+				]
+			);
+		} 
+	}
+}
+
+
+// Balanced
 balanced = {
 
 	init: function(){},
@@ -41,8 +80,9 @@ balanced = {
 					}
 
 					if (response.data && response.status) {
+						
 						// we have a balanced.js compatable response
-						response.status = parseInt(response.status);
+						response.status = parseInt( response.status );
 
 					} else {
 						// format the response properly
@@ -51,14 +91,15 @@ balanced = {
 							data: response
 						};
 					}
-
+					console.log('success',response);
 					// callback
 					complete( response );
 
 				},
 				// Error
 				function( response ){ 
-					console.log( response );
+					console.log('error',response);
+					complete( { 'status' : response } );	
 				},
 				// Args
 				[	
@@ -71,6 +112,8 @@ balanced = {
 		}
 	}
 };
+
+
 
 var login = function() {
 	FB.login(status, {scope: 'email'});

@@ -351,6 +351,7 @@
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/org.apache.cordova.network-information \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/org.apache.cordova.splashscreen \
+/Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/org.apache.cordova.stripe \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/org.apache.cordova.vibration \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/gamecenter/www \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/gamecenter/www/gamecenter.js \
@@ -372,6 +373,8 @@
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www/network.js \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/org.apache.cordova.splashscreen/www \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/org.apache.cordova.splashscreen/www/splashscreen.js \
+/Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/org.apache.cordova.stripe/www \
+/Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/org.apache.cordova.stripe/www/stripe.js \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/org.apache.cordova.vibration/www \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/plugins/org.apache.cordova.vibration/www/vibration.js \
 /Users/pererinha/Sites/Jobs/crunch_pg/platforms/android/assets/www/res/bg.png \

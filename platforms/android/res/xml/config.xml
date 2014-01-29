@@ -30,6 +30,9 @@
     <feature name="SplashScreen">
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
     </feature>
+    <feature name="StripePlugin">
+        <param name="android-package" value="org.apache.cordova.stripe.StripePlugin" />
+    </feature>
     <feature name="Vibration">
         <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
     </feature>
