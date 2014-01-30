@@ -202,6 +202,7 @@ public class ConnectPlugin extends CordovaPlugin {
     public JSONObject getResponse() {
         String response;
         if (facebook.isSessionValid()) {
+        	Log.d(TAG, "Call Facebook Method and the session is valid");
             long expiresTimeInterval = facebook.getAccessExpires() - System.currentTimeMillis();
             long expiresIn = (expiresTimeInterval > 0) ? expiresTimeInterval : 0;
             response = "{"+
@@ -211,10 +212,12 @@ public class ConnectPlugin extends CordovaPlugin {
               "\"expiresIn\": \""+expiresIn+"\","+
               "\"session_key\": true,"+
               "\"sig\": \"...\","+
-              "\"userId\": \""+this.userId+"\""+
+              "\"userID\": \""+this.userId+"\""+
             "}"+
           "}";
+            Log.d(TAG,response);
         } else {
+        	Log.d(TAG, "Call Facebook Method and the session is NOT valid");
             response = "{"+
             "\"status\": \"unknown\""+
           "}";

@@ -1,13 +1,13 @@
 #!/usr/bin/env php
 <?php
 /**
- * Download and build local assets for phonegap
- * 
- * requires php, wget, gunzip
+ * This script just download and copy the stuff to the platform/android/assets folder
+ * it does not run the cordova build
  *
  */
 
 $weinre = true;
+// weinre
 $serverIP = '192.168.25.7';
 
 $curpath = getcwd();

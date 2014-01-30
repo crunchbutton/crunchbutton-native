@@ -29,7 +29,7 @@ CDV.FB = {
       console.log('Cordova Facebook Connect plugin initialized successfully.');
     }, (fail?fail:null), 'org.apache.cordova.facebook.Connect', 'init', [apiKey]);
   },
-  login: function(params, cb, fail) {
+  login: function( cb, params, fail) {
     params = params || { scope: '' };
     cordova.exec(function(e) { // login
         if (e.authResponse && e.authResponse.expiresIn) {

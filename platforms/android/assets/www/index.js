@@ -238,7 +238,7 @@ $(function() {
 		window.addEventListener('deviceorientation', orientationChanged, false);
 
 
-		App.server = 'http://192.168.25.7/';
+		App.server = 'http://beta.crunchr.co/';
 		App.service = App.server + 'api/';
 		App.imgServer = 'http://i.crunchbutton.com/';
 	
