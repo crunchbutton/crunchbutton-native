@@ -817,7 +817,7 @@ $rootScope.$on('NewLocationAdded',function(e,data){service.forceLoad=true;restau
 return false;}
 return service;});NGApp.factory('RestaurantService',function($http,$routeParams,$rootScope,CommunityService){var service={basicInfo:null,loadedList:{}};service.alreadyLoaded=function(){return(service.loadedList[$routeParams.id]?true:false);}
 service.init=function(){App.cache('Restaurant',$routeParams.id,function(){var restaurant=this;service.loadedList[$routeParams.id]=true;var community=CommunityService.getById(restaurant.id_community);$rootScope.$broadcast('restaurantLoaded',{restaurant:restaurant,community:community});});}
-return service;});;NGApp.factory('CommunityAliasService',function(PositionsService){var service={};service.position=PositionsService;service.route=function(id,success,error){var parts=id.toLowerCase().split('/');var alias=false;var restaurant=false;for(x in parts){if(parts[x]!=''){if(App.aliases[parts[x]]){alias=App.aliases[parts[x]];}else{restaurant=parts[x];}}}
+return service;});;NGApp.factory('CommunityAliasService',function(PositionsService){var service={};service.position=PositionsService;service.route=function(id,success,error){var parts=id.toLowerCase().split('/');var alias=false;var restaurant=false;if(App&&App.aliases){for(x in parts){if(parts[x]!=''){if(App.aliases[parts[x]]){alias=App.aliases[parts[x]];}else{restaurant=parts[x];}}}}
 success=success||function(){};error=error||function(){};if(alias){var loc=App.locations[alias.id_community];if(loc.loc_lat&&loc.loc_lon){var res=new Location({lat:loc.loc_lat,lon:loc.loc_lon,type:'alias',verified:true,prep:alias.prep,city:alias.name_alt,address:alias.name_alt});success({alias:res},restaurant);return;}}
 error();};return service;});;NGApp.factory('RecommendRestaurantService',function($http,PositionsService,AccountService){var service={form:{restaurant:''},greetings:false};service.position=PositionsService;service.account=AccountService;var recommendations=[];service.addRecommendation=function(id){recommendations.push(id);}
 service.send=function(){if(service.form.restaurant==''){App.alert("Please enter the restaurant\'s name.");$('.recommend-restaurant').focus();return;}
@@ -900,6 +900,8 @@ var errors={};if(!order.name){errors['name']='Please enter your name.';}
 if(!App.phone.validate(order.phone)){errors['phone']='Please enter a valid phone #.';}
 if(order.delivery_type=='delivery'&&!order.address){errors['address']='Please enter an address.';}
 if(order.pay_type=='card'&&((service._cardInfoHasChanged&&!service.form.cardNumber)||(!service.account.user.id_user&&!service.form.cardNumber))){errors['card']='Please enter a valid card #.';}
+console.log('service.form',service.form);if(order.pay_type=='card'&&((service._cardInfoHasChanged&&!service.form.cardMonth)||(!service.account.user.id_user&&!service.form.cardMonth))){errors['card_month']='Please enter the card expiration month.';}
+if(order.pay_type=='card'&&((service._cardInfoHasChanged&&!service.form.cardYear)||(!service.account.user.id_user&&!service.form.cardYear))){errors['card_year']='Please enter the card expiration year.';}
 if(!service.cart.hasItems()){errors['noorder']='Please add something to your order.';}
 var _total=service.restaurant.delivery_min_amt=='subtotal'?service.subtotal():service.total();if(service.restaurant.meetDeliveryMin(_total)&&service.form.delivery_type=='delivery'){errors['delivery_min']='Please meet the delivery minimum of '+service.info.dollarSign+service.restaurant.delivery_min+'.';}
 var er=displayErrors(errors);if(er){return;}
