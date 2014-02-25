@@ -2,7 +2,7 @@
 //  GameCenter.m
 //  Copyright (c) 2013 Lee Crossley - http://ilee.co.uk
 //
-
+/*
 #import "Cordova/CDV.h"
 #import "Cordova/CDVViewController.h"
 #import "GameCenter.h"
@@ -136,3 +136,4 @@
 }
 
 @end
+*/

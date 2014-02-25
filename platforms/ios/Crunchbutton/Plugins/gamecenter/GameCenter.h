@@ -2,7 +2,7 @@
 //  GameCenter.h
 //  Copyright (c) 2013 Lee Crossley - http://ilee.co.uk
 //
-
+/*
 #import "Foundation/Foundation.h"
 #import "Cordova/CDV.h"
 #import "GameCenter.h"
@@ -15,3 +15,4 @@
 - (void) showLeaderboard:(CDVInvokedUrlCommand*)command;
 
 @end
+*/
