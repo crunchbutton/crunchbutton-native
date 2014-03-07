@@ -45,7 +45,7 @@
 			<br>Fav<span class="staff-orite">orite</span> beer: Oatmeal Stout
 		</p>
 		<p class="staff-content">
-			Entrepreneur, Yale grad, and other words go here. I dont have anything to say because im too busy trying to make things look pretty right now. Maybe you should think of some shit. Or maybe close ur mouth.
+			Entrepreneur, Yale grad, and other impresive stuff. He’s the boss, so he bosses us around.
 		</p>
 	</div>
 
@@ -58,7 +58,7 @@
 			<br>Fav<span class="staff-orite">orite</span> beer: Matilda
 		</p>
 		<p class="staff-content">
-			Building stuff. Thats what he does. Since Devin was a kid he has been building software and websites. Devin brings his passion for design and development to Crunchbutton paired with a strong belgian ale. 
+			He builds stuff. Devin’s engineering background stems from his extensive lego building as a child. Best education ever. 
 		</p>
 	</div>
 	
@@ -71,7 +71,7 @@
 			<br>Fav<span class="staff-orite">orite</span> beer: Root Beer
 		</p>
 		<p class="staff-content">
-			We're not really sure what he does. But without him we're pretty sure that we would be thrown into a state of chaos.
+			Root Beer. We're not really sure what he does. But without him we're pretty sure we would be thrown into a state of chaos.
 		</p>
 	</div>
 	
@@ -80,11 +80,11 @@
 		<h1>Nick Hunter</h1>
 		<h2>Garbage Disposal</h2>
 		<p class="staff-favorite">
-			Fav<span class="staff-orite">orite</span> food: Mexican
+			Fav<span class="staff-orite">orite</span> food: Chicken Nachos
 			<br>Fav<span class="staff-orite">orite</span> beer: Hefeweizen
 		</p>
 		<p class="staff-content">
-			He like miso soup too much. And I honestly cant even tell if this is a pic of nick or not.
+			Nick will eat just about anything and everything. Hide your miso soup.
 		</p>
 	</div>
 	
@@ -97,7 +97,7 @@
 			<br>Fav<span class="staff-orite">orite</span> beer: Stella Artois
 		</p>
 		<p class="staff-content">
-			Hes in Brazil. I hear he also likes to <a ng-click="navigation.link('/cafe')">play games</a>.
+			Part Brazilian, part super hero. When the day needs saving he saves it.
 		</p>
 	</div>
 
@@ -128,7 +128,7 @@
 		Like food? Like fun? Like beer? Then we want you! Join our young ambitious team in sunny LA!
 	</p>
 	<br>
-	<button class="button lightorange" ng-click="navigation.link('/jobs')">Jobs</button>
+	<button class="button lightorange" ng-click="navigation.link('/jobs','push')">Jobs</button>
 </div>
 
 </script><script type="text/ng-template" id="assets/view/account.facebook.html">
@@ -617,7 +617,8 @@
 	<p>We highlight the top food from the top restaurants in a community. Place an order, and we save it for next time, along with your delivery and payment info. Reorder your favorites with a single tap :)</p>
 	<br /><br />
 	<h4>Hey! I need help with my order!</h4>
-	<p>Please visit your <a ng-click="navigation.link('/orders')">Previous Orders</a> and contact the restaurant you ordered from.</p>
+	<p ng-show="!account.user.id_user"><a ng-click="navigation.signin()">Sign in to see your previous orders</a> and contact the restaurant you ordered from.</p>
+	<p ng-show="account.user.id_user">Please visit your <a ng-click="navigation.link('/orders','push')">Previous Orders</a> and contact the restaurant you ordered from.</p>
 	<br /><br />
 	<h4>Need to contact Crunchbutton?</h4>
 	<p>Call or text us at <a href="tel:+16467831444">(646) 783-1444</a> or email us at <a href="mailto:{{customers}}">{{customers}}</a>.</p>
@@ -654,7 +655,7 @@
 	<p>We thought this might happen. Luckily, Crunchbutton saves your address, phone, and payment info, so all you have to do is click what you want and hit the big, red "Get Food" button. Try to be awake when the delivery guy calls.</p>
 	<br /><br />
 	<h4>I want to put a restaurant on Crunchbutton.</h4>
-	<p>Good idea! <a ng-click="navigation.link('/owners')">Get more info and contact us.</a></p>
+	<p>Good idea! <a ng-click="navigation.link('/owners','push')">Get more info and contact us.</a></p>
 	<br /><br />
 	<h4>I know I can order food online, but can I order by US mail?</h4>
 	<p>Why yes you can! Give us one week's notice, and we will get you your food! Send a check or money order to:<br /><br />
@@ -662,18 +663,45 @@
 	1120 Princeton Dr STE 7<br />
 	Marina Del Rey, CA 90292</p>
 	<br /><br /><br /><br />
-	Visit our <a ng-click="navigation.link('/legal')">legal page</a> for legal and privacy information.
+	Visit our <a ng-click="navigation.link('/legal','push')">legal page</a> for legal and privacy information.
 	<br /><br /><br /><br /><br /><br /><br />
 	<center><div class="fa fa-heart faq-heart"></div></center>
 	<br /><br /><br /><br />
 </div>
 
 </script><script type="text/ng-template" id="assets/view/home.html">
-<div class="main-content-readable home-greeting">
-	<div class="home-welcome">
-		<h1>Finding you the best food...</h1>
+<div class="top-pad"></div>
+
+<div class="restaurants-bubble-wrap">
+	<div class="bubble-tail bubble-tail-green bubble-animated">
+		<div class="text" ng-switch="pushMessage">
+			<span class="small" ng-switch-when="1">Push one of those restaurants down there.</span>
+			<span ng-switch-when="2">The RESTAURANTS.</span>
+			<span ng-switch-when="3">The AWESOME restaurants.</span>
+			<span class="single-line" ng-switch-when="4">Down there.</span>
+			<span class="single-line" ng-switch-when="5">NOT me!!</span>
+			<span class="single-line" ng-switch-when="6">@#%*@%&!</span>
+			<span class="single-line" ng-switch-when="7">...</span>
+			<span class="single-line" ng-switch-when="8">....</span>
+			<span class="single-line" ng-switch-when="9">.....</span>
+			<span class="single-line" ng-switch-when="10">......</span>
+			<span class="single-line" ng-switch-when="11">.......</span>
+			<span class="single-line" ng-switch-when="12">........</span>
+			<span class="single-line" ng-switch-when="13">I quit.</span>
+			<span class="single-line" ng-switch-when="14"><i class="fa fa-suitcase"></i> <i class="fa fa-suitcase"></i> <i class="fa fa-suitcase"></i></span>
+			<span ng-switch-default>Push a button.<br>Get food.&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		</div>
+		<div class="bubble-tail-spacer"></div>
 	</div>
+	<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 13 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
+	<div class="divider"></div>
+	<div class="restaurants-tagline">
+		<h1>Order the top local delivery food.</h1>
+		<h2>Choose one of these awesome restaurants</h2>
+	</div>
+	<div class="divider"></div>
 </div>
+
 </script><script type="text/ng-template" id="assets/view/jobs.html">
 
 
@@ -859,7 +887,7 @@
 		<h4>Are you a delivery foodie?</h4>
 		<p>Join our marketing intern program and get a free pink gorilla suit! Also maybe some money too. We are always looking for great people. Developer? Designer? Give us a ring!</p>
 		<br />
-		<button class="button lightorange" ng-click="navigation.link('/jobs')">Work with us</button>
+		<button class="button lightorange" ng-click="navigation.link('/jobs','push')">Work with us</button>
 	</div>
 	
 	<div class="content-padding">
@@ -867,7 +895,7 @@
 		<h4>Restaurant owner?</h4>
 		<p>We are always looking for the next popular sandwich. Apply today and reach campuses nationwide!</p>
 		<br />
-		<button class="button green" ng-click="navigation.link('/owners')">Add your restaurant</button>
+		<button class="button green" ng-click="navigation.link('/owners','push')">Add your restaurant</button>
 	</div>
 	
 	<div class="divider dots spacer-two-two"></div>
@@ -916,9 +944,8 @@
 <div ng-if="order.id">
 
 	<div class="content-padding">
-	
-		<button class="button green" ng-click="support.dialog()">Reorder</button>
-	
+		
+			
 		<div class="content-padder main-content-readable">
 			<span class="order-thanks-message" ng-if="order._new">
 				<div class="toon-cherry"></div>
@@ -1089,8 +1116,8 @@
 
 <div ng-show="orders.list.length == 0">
 	<div class="content-padding">
-		<h4>Nothing here</h4>
-		<p>We should place a message here when the user doesn't have any order yet!</p>
+		<p>After you place orders, you'll see them all right here. </p>
+		<h4><a href="/food-delivery" ng-click="navigation.link('/food-delivery')">Place an order</a></h4>
 		<br /><br />
 	</div>
 </div>
@@ -1099,7 +1126,7 @@
 	
 	<div class="content-padding">
 		<h4>Noms.</h4>
-		<p>Look at all that great food! You know, you can reorder any of your previous orders by taping on one of them, then reordering from the next page. Try it!</p>
+		<p>Look at all that great food!</p>
 		<br /><br />
 	</div>
 
@@ -1112,7 +1139,7 @@
 						<div class="order-day">{{order._date.getDate().pad(2)}}</div>
 					</div>
 					<div class="order-details">
-						<div class="order-name" ng-click="orders.restaurant(order._restaurant_permalink)">
+						<div class="order-name" ng-click="$event.preventDefault(); $event.stopPropagation(); orders.restaurant(order._restaurant_permalink);">
 							{{order._restaurant_name}}
 						</div>
 						<div class="divider"></div>
@@ -1239,8 +1266,6 @@
 </div>
 </script><script type="text/ng-template" id="assets/view/restaurant.html">
 <div ng-show="!order.loaded">
-	<div class="top-pad"></div>
-
 	</div>
 
 <div ng-show="restaurant">
@@ -1254,17 +1279,7 @@
 			<h1>{{restaurant.name}}</h1>
 			<h2>{{restaurant.message || restaurant.short_description}}</h2>
 		</div>
-		<div class="restaurant-comment" ng-if="restaurant.comment">
-			<div class="restaurant-comment-wrap">
-				<div class="restaurant-comment-image">
-					<div class="restaurant-comment-image-img" style="background: url(http://graph.facebook.com/{{restaurant.comment.fb}}/picture?type=normal)"></div>
-				</div>
-				<div class="restaurant-comment-content">
-					<h4>{{restaurant.comment.user}} says</h4>
-					<p>{{restaurant.comment.content}}</p>
-				</div>
-			</div>
-		</div>
+
 		<div class="giftcard-badge" ng-if="credit.hasValue">
 			<i class="fa fa-certificate"></i>
 			<div class="giftcard-badge-value"><sup>$</sup>{{Math.round(credit.value)}}</div>
@@ -1277,6 +1292,18 @@
 
 	<!-- main-content-readable-margin -->
 	<div class="content-padding">
+	
+		<div class="restaurant-comment" ng-if="restaurant.comment">
+			<div class="restaurant-comment-wrap">
+				<div class="restaurant-comment-image">
+					<div class="restaurant-comment-image-img" style="background: url(http://graph.facebook.com/{{restaurant.comment.fb}}/picture?type=normal)"></div>
+				</div>
+				<div class="restaurant-comment-content">
+					<h4>{{restaurant.comment.user}} says</h4>
+					<p>{{restaurant.comment.content}}</p>
+				</div>
+			</div>
+		</div>
 	
 		<div restaurant-is-closed></div>
 
@@ -1435,6 +1462,7 @@
 					<div class="toggle-wrapper clearfix">
 						<button ng-click="order.toogleDelivery( 'delivery' )" ng-class="{'toggle-active': order.form.delivery_type=='delivery' }" class="payment-form-toggle">delivery</button>
 						<button ng-click="order.toogleDelivery( 'takeout' )" ng-class="{'toggle-active': order.form.delivery_type=='takeout' }" class="payment-form-toggle">takeout</button>
+						<div class="divider"></div>
 					</div>
 				</div>
 				
@@ -1451,10 +1479,9 @@
 							<span class="take-out-only">Take out only!</span>
 						</div>
 					</div>
-
-
-
 				</div>
+				
+				<div class="divider spacer-one-two"></div>
 
 
 				<div class="personal-info field-container">
@@ -1470,7 +1497,7 @@
 
 					<div class="payment-form-group form-group">
 						<i class="fa fa-map-marker payment-form-icon form-icon form-field"></i>
-						<p ng-if="order.form.delivery_type!='delivery'">Pickup from: <span ng-bind-html-unsafe="restaurant.address | nl2br"></span></p>
+						<p class="pickup-info" ng-if="order.form.delivery_type!='delivery'">Pickup from:<br><span ng-bind-html-unsafe="restaurant.address | nl2br"></span></p>
 						<textarea ng-autosize ng-show="order.form.delivery_type=='delivery'" class="payment-form-input form-input form-field" ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5" placeholder="address"></textarea>
 					</div>
 
@@ -1521,16 +1548,22 @@
 	
 				</div>
 			</div>
-
 			
 			<!-- payment info -->
 			<div class="payment-info-container">
+			
+
+				<div class="divider spacer-two-two"></div>
+				<div class="divider spacer-one-one"></div>
 		
 				<div class="payment-info field-container">
 					<div class="toggle-wrapper clearfix">
 						<button ng-click="order.tooglePayment( 'card' )" ng-show="(restaurant.credit == '1')" ng-class="{'toggle-active': order.form.pay_type=='card' }" class="payment-form-toggle">card</button> 
 						<button ng-click="order.tooglePayment( 'cash' )" ng-show="(restaurant.cash == '1')"  ng-class="{'toggle-active': order.form.pay_type=='cash' }" class="payment-form-toggle">cash</button>
+						<div class="divider"></div>
 					</div>
+					
+					<div class="divider spacer-two-two"></div>
 
 					<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
 						<i class="fa fa-credit-card payment-form-icon form-icon form-field"></i>
@@ -1539,18 +1572,21 @@
 					
 					<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
 						<i class="fa payment-form-icon form-icon form-field"></i>
-						<select ng-change="order.cardInfoChanged()" ng-model="order.form.cardMonth" ng-options="month.value as month.label for month in order._months()" tabindex="7" class="payment-form-select payment-form-input form-input form-field">{{order.form.card.month}}</select> 
-						<select ng-change="order.cardInfoChanged()" ng-model="order.form.cardYear" ng-options="year.value as year.label for year in order._years()" tabindex="8" class="payment-form-select payment-form-input form-input form-field"></select> 
+						<div class="form-input-select"><select ng-change="order.cardInfoChanged()" ng-model="order.form.cardMonth" ng-options="month.value as month.label for month in order._months()" tabindex="7" class="payment-form-select payment-form-input form-input form-field">{{order.form.card.month}}</select></div>
+						<div class="form-input-select"><select ng-change="order.cardInfoChanged()" ng-model="order.form.cardYear" ng-options="year.value as year.label for year in order._years()" tabindex="8" class="payment-form-select payment-form-input form-input form-field payment-form-select-year"></select></div>
 					</div>
 
 					<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
 						<i class="fa fa-thumbs-up payment-form-icon form-icon form-field"></i>
 						<input type="hidden" name="pay-autotip-value" ng-model="order.form.autotip" value="0">
-						<select ng-model="order.form.tip" ng-options="tip.value as tip.label for tip in order._tips()" ng-change="order.tipChanged();" class="tip payment-form-select payment-form-input form-input form-field" tabindex="9"></select> 
+						<div class="form-input-select"><select ng-model="order.form.tip" ng-options="tip.value as tip.label for tip in order._tips()" ng-change="order.tipChanged();" class="tip payment-form-select payment-form-input form-input form-field" tabindex="9"></select></div>
 
 					</div>
 				</div>
+
 			</div>
+
+
 			
 
 		</div>
@@ -1631,9 +1667,9 @@
 
 
 <!-- total breakdown -->
-<div class="divider dots spacer-one-two" ng-show="order.info.subtotal && order.info.subtotal!='0.00'"></div>
+<div class="divider dots spacer-one-two" ng-show="order.info.subtotal && order.info.subtotal!='0.00' && restaurant._open"></div>
 
-<div class="payment-total content-padding" ng-if="order.info.subtotal && order.info.subtotal!='0.00'">
+<div class="payment-total content-padding" ng-if="order.info.subtotal && order.info.subtotal!='0.00' && restaurant._open">
 	<div class="restaurant-banana animated-resize"></div>
 	
 	<div class="payment-wrap">
@@ -2060,7 +2096,7 @@ This document was last updated on May 15, 2013.<br />
 		<div>
 			<div class="pushabutton"></div>
 			<ul>
-				<li ng-click="navigation.link('/splash')" ng-show="!account.user.id_user">
+				<li ng-click="navigation.link('/splash')" ng-if="!account.user.id_user" ng-class="{'nav-active': (navigation.page == 'splash')}">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-rocket"></i></td>
@@ -2068,7 +2104,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-click="navigation.link('/food-delivery')" ng-show="account.user.id_user">
+				<li ng-click="navigation.link('/food-delivery')" ng-if="account.user.id_user" ng-class="{'nav-active': (navigation.page == 'restaurants')}">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-cutlery"></i></td>
@@ -2076,7 +2112,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-show="account.user.id_user && account.user.name" ng-click="navigation.link('/orders')">
+				<li ng-if="account.user.id_user && account.user.name" ng-click="navigation.link('/orders')" ng-class="{'nav-active': (navigation.page == 'orders')}">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-truck"></i></td>
@@ -2084,7 +2120,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-click="navigation.link('/location')" ng-show="account.user.id_user">
+				<li ng-click="navigation.link('/location')" ng-if="account.user.id_user" ng-class="{'nav-active': (navigation.page == 'location')}">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-map-marker"></i></td>
@@ -2092,7 +2128,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-click="navigation.link('/help')">
+				<li ng-click="navigation.link('/help')" ng-class="{'nav-active': (navigation.page == 'help')}">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-heart"></i></td>
@@ -2100,7 +2136,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-click="navigation.link('/about')">
+				<li ng-click="navigation.link('/about')" ng-class="{'nav-active': (navigation.page == 'about')}">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-lightbulb-o"></i></td>
@@ -2108,7 +2144,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-show="!account.user.id_user" ng-click="navigation.signin()">
+				<li ng-if="!account.user.id_user" ng-click="navigation.signin()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-sign-in"></i></td>
@@ -2116,7 +2152,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-show="account.user.id_user" ng-click="signout.signout()">
+				<li ng-if="account.user.id_user" ng-click="signout.signout()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-sign-out"></i></td>
@@ -2136,7 +2172,7 @@ This document was last updated on May 15, 2013.<br />
 					</a>
 				</li>
 
-				<li ng-click="test.card()" ng-show="debug()">
+				<li ng-click="test.card()" ng-if="debug()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-circle-o"></i></td>
@@ -2144,7 +2180,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-click="test.clearloc()" ng-show="debug()">
+				<li ng-click="test.clearloc()" ng-if="debug()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-circle-o"></i></td>
@@ -2152,7 +2188,7 @@ This document was last updated on May 15, 2013.<br />
 						</tr>
 					</table>
 				</li>
-				<li ng-click="test.reload()" ng-show="debug()">
+				<li ng-click="test.reload()" ng-if="debug()">
 					<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 						<tr>
 							<td class="side-menu-icon"><i class="fa fa-circle-o"></i></td>
@@ -2199,7 +2235,7 @@ This document was last updated on May 15, 2013.<br />
 					<div title="Menu" class="menu drop" ng-show="navigation.buttons.menu" ng-toggle="menudropdown"></div>
 					<div title="Back" ng-show="navigation.buttons.back" class="nav-back hide-before-init" ng-click="back()"></div>
 					
-					<div title="Cart" class="nav-cart hide-before-init" ng-click="cartScroll(order.restaurant.permalink)" ng-show="order.info.totalItems">
+					<div title="Cart" class="nav-cart hide-before-init" ng-click="cartScroll(order.restaurant.permalink)" ng-show="order.info.totalItems && ((navigation.page == 'restaurant' && order.restaurant._open) || navigation.page != 'restaurant')">
 						<div class="fa fa-shopping-cart"></div>
 						<div class="nav-cart-count">{{order.info.totalItems}}</div>
 					</div>

@@ -64,7 +64,12 @@
  */
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
-	[TestFlight takeOff:@"76c51a1b-4d46-4c73-ae0a-174959a5359d"];
+    
+
+// [TestFlight takeOff:@"76c51a1b-4d46-4c73-ae0a-174959a5359d"];
+
+    
+
 
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
 

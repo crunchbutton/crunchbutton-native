@@ -612,7 +612,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=${PATH}:/opt/local/bin\n/Users/arzynik/Development/ios/crunchbutton/build.php\n\n\n\n\n\n";
+			shellScript = "#PATH=${PATH}:/opt/local/bin\n#/Users/arzynik/Development/ios/crunchbutton/build.php\n\n\n\n\n\n";
 		};
 		304B58A110DAC018002A0835 /* Copy www directory */ = {
 			isa = PBXShellScriptBuildPhase;
