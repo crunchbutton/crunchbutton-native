@@ -120,3 +120,8 @@ body {
 	width: 0;
 	background: url(../images/micro/bg-sandwich-phone.jpg);
 }
+
+.animation-fade.ng-leave .splash-top .logo {
+	-webkit-transition: .2s ease-out;
+	-webkit-transform: translateY(-25px);
+}
