@@ -52,6 +52,11 @@ body {
 	/*-webkit-transition: background-position linear 0.1s; */
 }
 
+.nav-top {
+	padding-top: 21px;
+	padding-bottom: 3px;
+}
+
 .nav-top .logo {
 	background-position-y: 4px;
 }

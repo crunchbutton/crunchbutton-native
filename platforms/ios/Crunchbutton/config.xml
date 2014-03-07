@@ -16,9 +16,11 @@
     <feature name="org.apache.cordova.facebook.Connect">
         <param name="ios-package" value="FacebookConnectPlugin" />
     </feature>
+    <!--
     <feature name="GameCenterPlugin">
         <param name="ios-package" value="GameCenterPlugin" />
     </feature>
+     -->
     <feature name="TapToScroll">
         <param name="ios-package" value="TapToScroll" />
     </feature>
@@ -53,7 +55,7 @@
     <preference name="TopActivityIndicator" value="gray" />
     <preference name="EnableLocation" value="true" />
     <preference name="EnableViewportScale" value="false" />
-    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="AutoHideSplashScreen" value="true" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="MediaPlaybackRequiresUserAction" value="false" />
     <preference name="AllowInlineMediaPlayback" value="false" />
