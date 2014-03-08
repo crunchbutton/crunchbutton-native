@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0267847EC79F4CF69444E164 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4ABD7881774E8D91F84C0D /* libsqlite3.dylib */; };
+		081D505618CA79D60023EBE4 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 081D505218CA79D60023EBE4 /* libTestFlight.a */; };
 		0822347D17AC32B4009F2FC5 /* TapToScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 0822347C17AC32B4009F2FC5 /* TapToScroll.m */; };
 		082371E51835A14B00F04A1E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5B8109A6A2B0062928A /* AudioToolbox.framework */; };
 		082371E61835A1EB00F04A1E /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = C27FDD1B78CA482AB28BCE5E /* CDVSplashScreen.m */; };
 		082371ED1835A31E00F04A1E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85206CA98ACC4578BC1BAA55 /* SystemConfiguration.framework */; };
-		082371F21836917900F04A1E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 082371EE1836917900F04A1E /* libTestFlight.a */; };
 		082881AA1848EE5200F85CB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		082881AB1848EE6500F85CB5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F8416217F4D2550020D069 /* CoreTelephony.framework */; };
 		083F34F918BD353F00B45CD4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083F34F818BD353F00B45CD4 /* FacebookSDK.framework */; };
@@ -103,12 +103,12 @@
 /* Begin PBXFileReference section */
 		03B3C437EB64412783868802 /* CDVSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSplashScreen.h; path = org.apache.cordova.splashscreen/CDVSplashScreen.h; sourceTree = "<group>"; };
 		08168BF817E920A500347F67 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		081D505218CA79D60023EBE4 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		081D505318CA79D60023EBE4 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		081D505418CA79D60023EBE4 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		081D505518CA79D60023EBE4 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		0822347B17AC32B4009F2FC5 /* TapToScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapToScroll.h; sourceTree = "<group>"; };
 		0822347C17AC32B4009F2FC5 /* TapToScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapToScroll.m; sourceTree = "<group>"; };
-		082371EE1836917900F04A1E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		082371EF1836917900F04A1E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		082371F01836917900F04A1E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		082371F11836917900F04A1E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		082881A81848E33C00F85CB5 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		083F34F818BD353F00B45CD4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		083F34FA18BD38B500B45CD4 /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookConnectPlugin.h; sourceTree = "<group>"; };
@@ -223,6 +223,7 @@
 				082881AA1848EE5200F85CB5 /* CoreGraphics.framework in Frameworks */,
 				082371ED1835A31E00F04A1E /* SystemConfiguration.framework in Frameworks */,
 				082371E51835A14B00F04A1E /* AudioToolbox.framework in Frameworks */,
+				081D505618CA79D60023EBE4 /* libTestFlight.a in Frameworks */,
 				085C86B317B3288500A40B53 /* libz.dylib in Frameworks */,
 				08AB49B6181A124A0084A835 /* balanced.a in Frameworks */,
 				085E2CA717A85D14007A9847 /* Accounts.framework in Frameworks */,
@@ -234,7 +235,6 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				301BF5B5109A6A2B0062928A /* AddressBook.framework in Frameworks */,
 				301BF5B7109A6A2B0062928A /* AddressBookUI.framework in Frameworks */,
-				082371F21836917900F04A1E /* libTestFlight.a in Frameworks */,
 				301BF5BB109A6A2B0062928A /* AVFoundation.framework in Frameworks */,
 				301BF5BD109A6A2B0062928A /* CFNetwork.framework in Frameworks */,
 				301BF5C1109A6A2B0062928A /* MediaPlayer.framework in Frameworks */,
@@ -252,11 +252,11 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				082371EE1836917900F04A1E /* libTestFlight.a */,
-				082371EF1836917900F04A1E /* TestFlight.h */,
-				082371F01836917900F04A1E /* TestFlight+AsyncLogging.h */,
-				082371F11836917900F04A1E /* TestFlight+ManualSessions.h */,
 				302D95EE14D2391D003F00A1 /* MainViewController.h */,
+				081D505218CA79D60023EBE4 /* libTestFlight.a */,
+				081D505318CA79D60023EBE4 /* TestFlight.h */,
+				081D505418CA79D60023EBE4 /* TestFlight+AsyncLogging.h */,
+				081D505518CA79D60023EBE4 /* TestFlight+ManualSessions.h */,
 				302D95EF14D2391D003F00A1 /* MainViewController.m */,
 				302D95F014D2391D003F00A1 /* MainViewController.xib */,
 				1D3623240D0F684500981E51 /* AppDelegate.h */,
