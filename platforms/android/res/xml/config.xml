@@ -86,4 +86,7 @@
         <param name="APP_NAME" value="Crunchbutton" />
     </gap:plugin>
     <content src="index.html" />
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
 </widget>
