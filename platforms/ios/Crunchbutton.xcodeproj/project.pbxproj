@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0267847EC79F4CF69444E164 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4ABD7881774E8D91F84C0D /* libsqlite3.dylib */; };
 		081D505618CA79D60023EBE4 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 081D505218CA79D60023EBE4 /* libTestFlight.a */; };
@@ -81,6 +80,7 @@
 		EB7700DD0C1A45C8ACA172D8 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 73A461AA452241199A2B0FC5 /* FBUserSettingsViewResources.bundle */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 		FE6B096147BA405CAD0B363F /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C00CDBC49D584448A624A021 /* CDVNotification.bundle */; };
+		7CB510757803462B9D15ACA7 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B0E83E37714E129332A8AE /* CDVDevice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +211,8 @@
 		DA526E4372FB4FA7BCDA9404 /* CDVVibration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVVibration.m; path = org.apache.cordova.vibration/CDVVibration.m; sourceTree = "<group>"; };
 		EBEE5442D30C4AD19093F07B /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CDVNotification.bundle; path = Crunchbutton/Resources/CDVNotification.bundle; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Crunchbutton/config.xml; sourceTree = "<group>"; };
+		C1B0E83E37714E129332A8AE /* CDVDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVDevice.m"; path = "org.apache.cordova.device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		F25357B2BEAC440A8141FE59 /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "org.apache.cordova.device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +413,8 @@
 				9BEF4EBEB5C945E3A020B2C0 /* GameCenter.m */,
 				62B78D3A97B745BF8707A191 /* GameCenter.h */,
 				C3908C661454461D8D7701E7 /* NSError+FBError.h */,
+				C1B0E83E37714E129332A8AE /* CDVDevice.m */,
+				F25357B2BEAC440A8141FE59 /* CDVDevice.h */,
 			);
 			name = Plugins;
 			path = Crunchbutton/Plugins;
@@ -649,6 +653,7 @@
 				4C4425B3B73547C29D58004A /* CDVConnection.m in Sources */,
 				60D18C3F8AB244F19BC33488 /* CDVReachability.m in Sources */,
 				1BD77A9EB2F04E66A9BB5DA0 /* GameCenter.m in Sources */,
+				7CB510757803462B9D15ACA7 /* CDVDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

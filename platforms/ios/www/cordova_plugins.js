@@ -63,7 +63,15 @@ module.exports = [
         "clobbers": [
             "Connection"
         ]
-    }/*,
+    },
+    {
+        "file": "plugins/org.apache.cordova.device/www/device.js",
+        "id": "org.apache.cordova.device.Device",
+        "clobbers": [
+            "Device"
+        ]
+    }
+    /*,
     {
         "file": "plugins/gamecenter/www/gamecenter.js",
         "id": "gamecenter.GameCenter",

@@ -16,11 +16,6 @@
     <feature name="org.apache.cordova.facebook.Connect">
         <param name="ios-package" value="FacebookConnectPlugin" />
     </feature>
-    <!--
-    <feature name="GameCenterPlugin">
-        <param name="ios-package" value="GameCenterPlugin" />
-    </feature>
-     -->
     <feature name="TapToScroll">
         <param name="ios-package" value="TapToScroll" />
     </feature>
@@ -45,6 +40,9 @@
     </feature>
     <feature name="NetworkStatus">
         <param name="ios-package" value="CDVConnection" />
+    </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
     </feature>
     <access origin="*" />
     <preference name="FadeSplashScreen" value="true" />
