@@ -296,8 +296,10 @@
 - (void) logout:(CDVInvokedUrlCommand*)command
 {
     if (!FBSession.activeSession.isOpen) {
-        return;
+        // @wtf. commented this out and things started logging out
+        //return;
     }
+
     
     // Close the session and clear the cache
     [FBSession.activeSession closeAndClearTokenInformation];
