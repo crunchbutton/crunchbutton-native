@@ -44,6 +44,9 @@
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
     </feature>
+    <feature name="KeyboardToolbarRemover">
+        <param name="ios-package" value="KeyboardToolbarRemover" />
+    </feature>
     <access origin="*" />
     <preference name="FadeSplashScreen" value="true" />
     <preference name="FadeSplashScreenDuration" value=".5" />
