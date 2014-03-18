@@ -70,6 +70,13 @@ module.exports = [
         "clobbers": [
             "Device"
         ]
+    },
+    {
+        "file": "plugins/keyboard_toolbar_remover/www/keyboard_toolbar_remover.js",
+        "id": "keyboard_toolbar_remover.KeyboardToolbarRemover",
+        "clobbers": [
+            "navigator.keyboard"
+        ]
     }
     /*,
     {

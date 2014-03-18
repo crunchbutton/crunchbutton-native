@@ -105,6 +105,13 @@ module.exports = [
         "clobbers": [
             "device"
         ]
+    },
+    {
+        "file": "plugins/com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover/www/keyboard_toolbar_remover.js",
+        "id": "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover.KeyboardToolbarRemover",
+        "clobbers": [
+            "toolbar"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -120,7 +127,8 @@ module.exports.metadata =
     "com.phonegap.plugins.facebookconnect": "0.4.0",
     "org.apache.cordova.balanced": "0.1.0",
     "org.apache.cordova.stripe": "0.1.0",
-    "org.apache.cordova.device": "0.2.8"
+    "org.apache.cordova.device": "0.2.8",
+    "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover": "0.0.2"
 }
 // BOTTOM OF METADATA
 });
