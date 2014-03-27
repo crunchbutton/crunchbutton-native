@@ -61,12 +61,20 @@ Stripe = {
 	}
 }
 
+
+// Balanced
 balanced = {
+
+	init: function(){},
+
 	card: {
-		create: function(args, complete) {
-			cordova.exec(
-				function( response ) {
-					
+
+		create: function( args, complete ) {
+
+			navigator.balanced.tokenizeCard( 
+				// Success
+				function( response ){ 
+
 					if( typeof( response ) == 'string' ){
 						response = JSON.parse( response );
 					}
@@ -83,16 +91,29 @@ balanced = {
 							data: response
 						};
 					}
+					console.log('success',response);
 					// callback
 					complete( response );
-				}, 
+
+				},
+				// Error
 				function( response ){ 
+					console.log('error',response);
 					complete( { 'status' : response } );	
-				}, 
-			'BalancedPlugin', 'tokenizeCard',[ args.card_number, args.expiration_month, args.expiration_year, args.security_code || '' ] );
+				},
+				// Args
+				[	
+					args.card_number, 
+					args.expiration_month, 
+					args.expiration_year, 
+					args.security_code || ''
+				]
+			);
 		}
 	}
 };
+
+
 
 var login = function() {
 	FB.login(status, {scope: 'email'});
@@ -217,8 +238,7 @@ $(function() {
 		window.addEventListener('deviceorientation', orientationChanged, false);
 
 
-		// App.server = 'http://beta.crunchr.co/';
-        App.server = 'http://192.168.1.3/';
+		App.server = 'http://beta.crunchr.co/';
 		App.service = App.server + 'api/';
 		App.imgServer = 'http://i.crunchbutton.com/';
 	

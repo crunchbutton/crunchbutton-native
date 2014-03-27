@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0267847EC79F4CF69444E164 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4ABD7881774E8D91F84C0D /* libsqlite3.dylib */; };
 		081D505618CA79D60023EBE4 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 081D505218CA79D60023EBE4 /* libTestFlight.a */; };
@@ -76,12 +77,12 @@
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		60D18C3F8AB244F19BC33488 /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DD8F7B72924D439FEBD4C5 /* CDVReachability.m */; };
+		7CB510757803462B9D15ACA7 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B0E83E37714E129332A8AE /* CDVDevice.m */; };
 		9EB0408006364EECA37E52FC /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0623DE15B4E7CAB8B9495 /* CDVLocation.m */; };
+		A4D2FF13EA524DBD9ABF25DB /* KeyboardToolbarRemover.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0757B8DCA1444996B98EAE /* KeyboardToolbarRemover.m */; };
 		EB7700DD0C1A45C8ACA172D8 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 73A461AA452241199A2B0FC5 /* FBUserSettingsViewResources.bundle */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 		FE6B096147BA405CAD0B363F /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C00CDBC49D584448A624A021 /* CDVNotification.bundle */; };
-		7CB510757803462B9D15ACA7 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B0E83E37714E129332A8AE /* CDVDevice.m */; };
-		A4D2FF13EA524DBD9ABF25DB /* KeyboardToolbarRemover.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0757B8DCA1444996B98EAE /* KeyboardToolbarRemover.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +194,7 @@
 		30A0434714DC770100060A13 /* se */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = se; path = Localizable.strings; sourceTree = "<group>"; };
 		30E5649113A7FCAF007403D8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* Crunchbutton-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Crunchbutton-Prefix.pch"; sourceTree = "<group>"; };
+		4CC2501DB34A4305AE99BE15 /* KeyboardToolbarRemover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyboardToolbarRemover.h; path = com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover/KeyboardToolbarRemover.h; sourceTree = "<group>"; };
 		5AA0E66C1729F45B000DC89A /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -205,17 +207,16 @@
 		8D1107310486CEB800E47090 /* Crunchbutton-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Crunchbutton-Info.plist"; path = "../Crunchbutton-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9BEF4EBEB5C945E3A020B2C0 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCenter.m; path = gamecenter/GameCenter.m; sourceTree = "<group>"; };
 		A0E1053115AA42098E783AD8 /* CDVLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLocation.h; path = org.apache.cordova.geolocation/CDVLocation.h; sourceTree = "<group>"; };
+		AF0757B8DCA1444996B98EAE /* KeyboardToolbarRemover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyboardToolbarRemover.m; path = com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover/KeyboardToolbarRemover.m; sourceTree = "<group>"; };
 		C00CDBC49D584448A624A021 /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CDVNotification.bundle; sourceTree = "<group>"; };
+		C1B0E83E37714E129332A8AE /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
 		C241885B581D4C8593957C25 /* CDVVibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVVibration.h; path = org.apache.cordova.vibration/CDVVibration.h; sourceTree = "<group>"; };
 		C27FDD1B78CA482AB28BCE5E /* CDVSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVSplashScreen.m; path = org.apache.cordova.splashscreen/CDVSplashScreen.m; sourceTree = "<group>"; };
 		C3908C661454461D8D7701E7 /* NSError+FBError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+FBError.h"; path = "com.phonegap.plugins.facebookconnect/facebook/NSError+FBError.h"; sourceTree = "<group>"; };
 		DA526E4372FB4FA7BCDA9404 /* CDVVibration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVVibration.m; path = org.apache.cordova.vibration/CDVVibration.m; sourceTree = "<group>"; };
 		EBEE5442D30C4AD19093F07B /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CDVNotification.bundle; path = Crunchbutton/Resources/CDVNotification.bundle; sourceTree = "<group>"; };
+		F25357B2BEAC440A8141FE59 /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = org.apache.cordova.device/CDVDevice.h; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Crunchbutton/config.xml; sourceTree = "<group>"; };
-		C1B0E83E37714E129332A8AE /* CDVDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVDevice.m"; path = "org.apache.cordova.device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		F25357B2BEAC440A8141FE59 /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "org.apache.cordova.device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		AF0757B8DCA1444996B98EAE /* KeyboardToolbarRemover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "KeyboardToolbarRemover.m"; path = "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover/KeyboardToolbarRemover.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		4CC2501DB34A4305AE99BE15 /* KeyboardToolbarRemover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "KeyboardToolbarRemover.h"; path = "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover/KeyboardToolbarRemover.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
