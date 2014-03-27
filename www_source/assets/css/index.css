@@ -122,3 +122,8 @@ body {
 	-webkit-transition: .2s ease-out;
 	-webkit-transform: translateY(-25px);
 }
+
+textarea.form-input {
+	padding-left: .31em;
+	padding-right: .31em;
+}
