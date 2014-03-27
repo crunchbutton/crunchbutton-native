@@ -61,20 +61,12 @@ Stripe = {
 	}
 }
 
-
-// Balanced
 balanced = {
-
-	init: function(){},
-
 	card: {
-
-		create: function( args, complete ) {
-
-			navigator.balanced.tokenizeCard( 
-				// Success
-				function( response ){ 
-
+		create: function(args, complete) {
+			cordova.exec(
+				function( response ) {
+					
 					if( typeof( response ) == 'string' ){
 						response = JSON.parse( response );
 					}
@@ -91,28 +83,16 @@ balanced = {
 							data: response
 						};
 					}
-					console.log('success',response);
 					// callback
 					complete( response );
-
-				},
-				// Error
+				}, 
 				function( response ){ 
-					console.log('error',response);
 					complete( { 'status' : response } );	
-				},
-				// Args
-				[	
-					args.card_number, 
-					args.expiration_month, 
-					args.expiration_year, 
-					args.security_code || ''
-				]
-			);
+				}, 
+			'BalancedPlugin', 'tokenizeCard',[ args.card_number, args.expiration_month, args.expiration_year, args.security_code || '' ] );
 		}
 	}
 };
-
 
 
 var login = function() {
