@@ -61,12 +61,20 @@ Stripe = {
 	}
 }
 
+
+// Balanced
 balanced = {
+
+	init: function(){},
+
 	card: {
-		create: function(args, complete) {
-			cordova.exec(
-				function( response ) {
-					
+
+		create: function( args, complete ) {
+
+			navigator.balanced.tokenizeCard( 
+				// Success
+				function( response ){ 
+
 					if( typeof( response ) == 'string' ){
 						response = JSON.parse( response );
 					}
@@ -83,16 +91,28 @@ balanced = {
 							data: response
 						};
 					}
+					console.log('success',response);
 					// callback
 					complete( response );
-				}, 
+
+				},
+				// Error
 				function( response ){ 
+					console.log('error',response);
 					complete( { 'status' : response } );	
-				}, 
-			'BalancedPlugin', 'tokenizeCard',[ args.card_number, args.expiration_month, args.expiration_year, args.security_code || '' ] );
+				},
+				// Args
+				[	
+					args.card_number, 
+					args.expiration_month, 
+					args.expiration_year, 
+					args.security_code || ''
+				]
+			);
 		}
 	}
 };
+
 
 
 var login = function() {
@@ -241,7 +261,17 @@ $(function() {
 		window.addEventListener('statusTap', function() {
 			$('html, body, .snap-content-inner').animate({scrollTop: 0}, 200, $.easing.easeInOutQuart ? 'easeInOutQuart' : null);
 		});
-		
+
+		setTimeout(function() {
+			try {
+				ga('create', 'UA-36135548-1', {
+					'storage': 'none',
+					'clientId': device.uuid
+				});
+				ga('send', 'event','appload');
+			} catch (e) {}
+		});
+
 		$(document).focus(function() {
 			$('body').scrollTop(280-$('.snap-content-inner').scrollTop());
 		}, '.location-address');

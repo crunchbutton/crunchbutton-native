@@ -98,6 +98,45 @@ module.exports = [
         "merges": [
             "navigator.stripe"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.device/www/device.js",
+        "id": "org.apache.cordova.device.device",
+        "clobbers": [
+            "device"
+        ]
+    },
+    {
+        "file": "plugins/com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover/www/keyboard_toolbar_remover.js",
+        "id": "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover.KeyboardToolbarRemover",
+        "clobbers": [
+            "toolbar"
+        ]
+    },
+    {
+        "file": "plugins/com.testflightapp.cordova-plugin/www/testflightNavigator.js",
+        "id": "com.testflightapp.cordova-plugin.TestFlight",
+        "merges": [
+            "navigator.testFlight"
+        ]
     }
-]
+];
+module.exports.metadata = 
+// TOP OF METADATA
+{
+    "org.apache.cordova.dialogs": "0.2.3",
+    "org.apache.cordova.geolocation": "0.3.3",
+    "org.apache.cordova.network-information": "0.2.4",
+    "org.apache.cordova.splashscreen": "0.2.4",
+    "org.apache.cordova.vibration": "0.3.4",
+    "org.apache.cordova.inappbrowser": "0.2.4",
+    "gamecenter": "0.2.0",
+    "com.phonegap.plugins.facebookconnect": "0.4.0",
+    "org.apache.cordova.balanced": "0.1.0",
+    "org.apache.cordova.stripe": "0.1.0",
+    "org.apache.cordova.device": "0.2.8",
+    "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover": "0.0.2",
+    "com.testflightapp.cordova-plugin.TestFlight" : "0.1.0"
+}
+// BOTTOM OF METADATA
 });
