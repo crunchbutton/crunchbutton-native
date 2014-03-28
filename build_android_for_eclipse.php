@@ -6,9 +6,9 @@
  *
  */
 
-$weinre = false;
+$weinre = true;
 // weinre
-$serverIP = '192.168.25.7';
+$serverIP = '192.168.1.4';
 
 $curpath = getcwd();
 if (preg_match('/platforms\/android/',$curpath)) {
