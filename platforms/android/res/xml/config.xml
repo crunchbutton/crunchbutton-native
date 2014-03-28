@@ -12,8 +12,14 @@
     <feature name="org.apache.cordova.facebook.Connect">
         <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
     </feature>
+    <feature name="TestFlightSDK">
+        <param name="android-package" value="jp.wizcorp.phonegap.plugin.testflight.TestFlightPlugin" />
+    </feature>
     <feature name="BalancedPlugin">
         <param name="android-package" value="org.apache.cordova.balanced.BalancedPlugin" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
     <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
@@ -86,7 +92,4 @@
         <param name="APP_NAME" value="Crunchbutton" />
     </gap:plugin>
     <content src="index.html" />
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
-    </feature>
 </widget>
