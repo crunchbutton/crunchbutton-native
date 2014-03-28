@@ -6,7 +6,7 @@
  *
  */
 
-$weinre = true;
+$weinre = false;
 // weinre
 $serverIP = '192.168.25.7';
 
@@ -136,7 +136,7 @@ file_put_contents($path.'index.html', $index);
 echo "Building index js...\n";
 $index = file_get_contents($path.'index.js');
 $index = str_replace('FACEBOOK_APP_IP', $config->facebook, $index);
-$index = str_replace('APP_SERVER_URL', $live ? 'https://crunchbutton.com/' : 'http://192.168.25.7/', $index);
+$index = str_replace('APP_SERVER_URL', $live ? 'https://crunchbutton.com/' : 'http://beta.crunchr.co/', $index);
 file_put_contents($path.'index.js', $index);
 
 date_default_timezone_set( 'UTC' );
