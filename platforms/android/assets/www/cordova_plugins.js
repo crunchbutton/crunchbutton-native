@@ -112,13 +112,6 @@ module.exports = [
         "clobbers": [
             "toolbar"
         ]
-    },
-    {
-        "file": "plugins/com.testflightapp.cordova-plugin/www/testflightNavigator.js",
-        "id": "com.testflightapp.cordova-plugin.TestFlight",
-        "merges": [
-            "navigator.testFlight"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -135,8 +128,7 @@ module.exports.metadata =
     "org.apache.cordova.balanced": "0.1.0",
     "org.apache.cordova.stripe": "0.1.0",
     "org.apache.cordova.device": "0.2.8",
-    "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover": "0.0.2",
-    "com.testflightapp.cordova-plugin.TestFlight" : "0.1.0"
+    "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover": "0.0.2"
 }
 // BOTTOM OF METADATA
 });

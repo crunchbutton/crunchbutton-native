@@ -71,16 +71,55 @@ balanced = {
 
 		create: function( args, complete ) {
 
-			navigator.balanced.tokenizeCard( 
-				// Success
-				function( response ){ 
+			if( navigator && navigator.balanced && navigator.balanced.tokenizeCard ) {
+				navigator.balanced.tokenizeCard( 
+					// Success
+					function( response ){ 
+
+						if( typeof( response ) == 'string' ){
+							response = JSON.parse( response );
+						}
+
+						if (response.data && response.status) {
+							
+							// we have a balanced.js compatable response
+							response.status = parseInt( response.status );
+
+						} else {
+							// format the response properly
+							response = {
+								status: response.uri ? 201 : (response.status_code || 666),
+								data: response
+							};
+						}
+						console.log('success',response);
+						// callback
+						complete( response );
+
+					},
+					// Error
+					function( response ){ 
+						console.log('error',response);
+						complete( { 'status' : response } );	
+					},
+					// Args
+					[	
+						args.card_number, 
+						args.expiration_month, 
+						args.expiration_year, 
+						args.security_code || ''
+					]
+				);
+			} else {
+				cordova.exec(
+				function( response ) {
 
 					if( typeof( response ) == 'string' ){
 						response = JSON.parse( response );
 					}
 
 					if (response.data && response.status) {
-						
+
 						// we have a balanced.js compatable response
 						response.status = parseInt( response.status );
 
@@ -91,24 +130,14 @@ balanced = {
 							data: response
 						};
 					}
-					console.log('success',response);
 					// callback
 					complete( response );
-
-				},
-				// Error
+				}, 
 				function( response ){ 
-					console.log('error',response);
 					complete( { 'status' : response } );	
-				},
-				// Args
-				[	
-					args.card_number, 
-					args.expiration_month, 
-					args.expiration_year, 
-					args.security_code || ''
-				]
-			);
+				}, 
+				'BalancedPlugin', 'tokenizeCard',[ args.card_number, args.expiration_month, args.expiration_year, args.security_code || '' ] );
+			}
 		}
 	}
 };
@@ -138,6 +167,16 @@ $(function() {
 		// set a timeout for when ajax requests timeout
 		
 		//gamecenter.auth( onSuccess, onError );
+
+		// testFlight takeOff
+		if( navigator && navigator.testFlight && navigator.testFlight.takeOff ){
+			navigator.testFlight.takeOff( 
+				function(){ console.log( 'success' ); }, 
+				function(){ console.log( 'error' ); }, 
+				'a1a55449-8f4c-431b-be2b-a238ef117083' 
+			);	
+		}
+		
 
 		cordova.exec(function(response) {
 			$.ajaxSetup({
