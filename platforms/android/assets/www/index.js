@@ -70,7 +70,7 @@ balanced = {
 	card: {
 
 		create: function( args, complete ) {
-
+			// Plugin for android
 			if( navigator && navigator.balanced && navigator.balanced.tokenizeCard ) {
 				navigator.balanced.tokenizeCard( 
 					// Success
@@ -167,16 +167,6 @@ $(function() {
 		// set a timeout for when ajax requests timeout
 		
 		//gamecenter.auth( onSuccess, onError );
-
-		// testFlight takeOff - Android
-		if( navigator && navigator.testFlight && navigator.testFlight.takeOff ){
-			navigator.testFlight.takeOff( 
-				function(){ console.log( 'testFlight:success' ); }, 
-				function(){ console.log( 'testFlight:error' ); }, 
-				'a1a55449-8f4c-431b-be2b-a238ef117083' 
-			);	
-		}
-		
 
 		cordova.exec(function(response) {
 			$.ajaxSetup({

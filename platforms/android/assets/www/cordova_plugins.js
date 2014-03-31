@@ -112,13 +112,6 @@ module.exports = [
         "clobbers": [
             "toolbar"
         ]
-    },
-    {
-        "file": "plugins/com.testflightapp.cordova-plugin/www/testflightNavigator.js",
-        "id": "com.testflightapp.cordova-plugin.TestFlight",
-        "merges": [
-            "navigator.testFlight"
-        ]
     }
 ];
 module.exports.metadata = 
