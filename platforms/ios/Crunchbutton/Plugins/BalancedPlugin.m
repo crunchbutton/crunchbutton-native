@@ -8,7 +8,7 @@
 
 - (void) tokenizeCard:(CDVInvokedUrlCommand*)command
 {
-	NSString* balancedId = @"/v1/marketplaces/TEST-MP87deQgmIr46omxRRF4KGO";
+	NSString* balancedId = @"/v1/marketplaces/MP2BldrjHz0NLH3st95JbeR0";
 	NSString* num = [command argumentAtIndex:0];
 	NSString* expmonth = [command argumentAtIndex:1];
     NSString* expyear = [command argumentAtIndex:2];
