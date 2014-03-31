@@ -12,9 +12,6 @@
     <feature name="org.apache.cordova.facebook.Connect">
         <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
     </feature>
-    <feature name="TestFlightSDK">
-        <param name="android-package" value="jp.wizcorp.phonegap.plugin.testflight.TestFlightPlugin" />
-    </feature>
     <feature name="BalancedPlugin">
         <param name="android-package" value="org.apache.cordova.balanced.BalancedPlugin" />
     </feature>
