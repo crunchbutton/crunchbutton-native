@@ -166,98 +166,97 @@
 </script><script type="text/ng-template" id="assets/view/account.html">
 <div class="account-container zoom-anim-dialog mfp-hide dialog mfp-hide">
 
-	<div class="dialog-padding account-modal">
+
+	<div ng-controller="AccountSevenCtrl" modal-reset="resetModal()">
 	
-		<div ng-controller="AccountSevenCtrl" modal-reset="resetModal()">
-		
-			<div ng-show="tab == 'facebook'">
+		<div ng-show="tab == 'facebook'" class="dialog-padding account-modal">
+			<p ng-show="account.user">
+				We got your account right here! Link your account with facebook here so you never have to enter your info again!
+			</p>
 
-				<div ng-show="account.user">
-					We got your account right here! Link your account with facebook here so you never have to enter your info again!
-				</div>
+			<p ng-show="!account.user">
+				<b class="account-modal-bold">Get your Crunchbutton account!</b><br>
+				Log in or sign up using the same awesome button.
+			</p>
+			
+			<div class="divider spacer-one-two"></div>
 
-				<div ng-show="!account.user">
-					Get your crunchbutton account! Its all the rage theses days. Log in or sign up using the same awesome button.
-				</div>
-
+			<div class="button-pushable">
 				<button class="button facebook" ng-click="facebook.auth()">
-					<span ng-hide="facebook.facebook.wait">HOP ON IN USING FACEBOOK</span>
+					<span ng-hide="facebook.facebook.wait">Hop in using Facebook</span>
 					<span ng-show="facebook.facebook.wait">Just a sec...</span>
 				</button>
-
-				<a href="#" class="bottom-link" ng-click="showTab( 'form' )">OTHER OPTIONS</a>
-
 			</div>
 
-			<div ng-show="tab == 'form'">
+			<span class="bottom-link cursor" ng-click="changeTab( 'form' )">Other Options</span>
+		</div>
 
-				<a href="#" ng-click="showTab( 'facebook' )" class="back-link"><span>&laquo;</span> BACK</a>
+
+		<div ng-show="tab == 'form'">
+			<div class="dialog-padding account-modal">
+				<span ng-click="changeTab( 'facebook' )" class="back-link cursor"><span>&laquo;</span> BACK</span>
+				<p>Not a fan of facebook? Don’t worry. We won't tell anyone. Log in or sign up below.</p>
 				
-				<div ng-show="account.user">
-					We got your account right here! Either go back and link it with a social network, or add a password right here. The choice is yours.
-				</div>
+				<div class="divider spacer-one-two"></div>
 
-				<div ng-show="!account.user">
-					Not a fan of facebook? Don’t worry. We wont tell anyone. Log in or sign up below.
-				</div>
-
-				<div>
-
-					<form name="accountForm" class="form">
-						<input type="email" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" placeholder="email address" class="input" ng-enter="account.enter()">
-						
-						<input type="password" class="input" maxlength="250" ng-model="account.form.password" name="password" tabindex="11" placeholder="password" ng-enter="account.enter()">
-					</form>
-				
-					<div class="dialog-message dialog-message-error" ng-repeat="error in account.errors">{{error}}</div>
-
-					<a ng-show="!account.user" href="#" class="help" ng-click="showTab( 'reset' )">FORGOT PASSWORD</a>
-
-					<div class="divisor"></div>
-
-					<div class="button-pushable">
-						<button class="button account-submit" ng-click="account.enter()">Join the cool kids club</button>
+				<form name="accountForm">
+					<div class="support-form-group form-group">
+						<input type="email" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" placeholder="email address" class="form-input form-field" ng-enter="account.enter()">
 					</div>
-				</div>
-				
+					
+					<div class="support-form-group form-group">
+						<input type="password" class="form-input form-field" maxlength="250" ng-model="account.form.password" name="password" tabindex="11" placeholder="password" ng-enter="account.enter()">
+					</div>
+				</form>
+			
+				<div class="dialog-message dialog-message-error" ng-repeat="error in account.errors">{{error}}</div>
 
+				<span ng-show="!account.user" class="help cursor" ng-click="changeTab( 'reset' )">Forgot Password</span>
+				<div class="divider"></div>
 			</div>
-
-			<div ng-show="tab == 'reset'">
-				
-				<a href="#" ng-click="showTab('form')" class="back-link"><span>&laquo;</span> BACK</a>
-
-				<div>
-					Password help?
+			<div class="dialog-divider"></div>
+			<div class="dialog-padding dialog-bottom-buttons" ng-if="!support.thanks">
+				<div class="button-pushable">
+					<button class="button account-submit lightorange" ng-click="account.enter()">Join the cool kids club</button>
 				</div>
+			</div>
+		</div>
 
-				<div>
+
+		<div ng-show="tab == 'reset'">
+			<div class="dialog-padding account-modal">
+				<span ng-click="changeTab('form')" class="back-link cursor"><span>&laquo;</span> BACK</span>
+				
+				<div ng-show="!help.success.visible">
+					<p>Forgot your password? Let's get you a new one!</p>
+				
+					<div class="divider spacer-one-onehalf"></div>
 
 					<form name="accountReset" class="form">
-						<input type="email" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" placeholder="email address" class="input" ng-enter="help.sendForm()">
+						<div class="support-form-group form-group">
+							<input type="email" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" placeholder="email address" class="form-input form-field" ng-enter="help.sendForm()">
+						</div>
 					</form>
-
-					<div class="dialog-message dialog-message-error" ng-repeat="error in help.errors">{{error}}</div>	
-
-					<div class="divisor"></div>
-
-					<div class="button-pushable" ng-show="!help.success.visible">
-						<button ng-click="help.sendForm()" class="button account-submit">Reset</button>
-					</div>
-
-					<div class="dialog-message dialog-message-success" ng-show="help.success.visible">
-						Please check your email or phone. 
-						<br/>
-						You will receive a password reset link that will expire in 24 hours.
-					</div>
-
 				</div>
 
+				<div class="dialog-message dialog-message-error" ng-repeat="error in help.errors">{{error}}</div>	
+				<div class="dialog-message dialog-message-success" ng-show="help.success.visible">
+					Please check your email or phone. 
+					<br/>
+					You will receive a password reset link that will expire in 24 hours.
+				</div>
 			</div>
 
+			<div class="dialog-divider" ng-show="!help.success.visible"></div>
+			<div class="dialog-padding dialog-bottom-buttons" ng-show="!help.success.visible">
+				<div class="button-pushable">
+					<button class="button account-submit lightorange" ng-click="help.sendForm()">Reset Password</button>
+				</div>
+			</div>
 		</div>
 
 	</div>
+
 
 </div>
 </script><script type="text/ng-template" id="assets/view/account.reset.html">
@@ -591,16 +590,15 @@
 </script><script type="text/ng-template" id="assets/view/giftcard.html">
 <div class="giftcard-container zoom-anim-dialog mfp-hide dialog mfp-hide" ng-controller="GiftCardCtrl">
 
-	<div class="dialog-padding account-modal">
 
-		<div ng-show="modal.intro">
-			<div class="wait">Just a sec.</div>
-		</div>
 
-		<!-- Error -->
-		<div ng-show="modal.error && !modal.success">
-			<div>Oops, error!</div>
-			<br/>
+	<div ng-show="modal.intro" class="dialog-padding account-modal">
+		<p>Doin' stuff. Just a sec...</p>
+	</div>
+
+	<!-- Error -->
+	<div ng-show="modal.error && !modal.success">
+		<div class="dialog-padding account-modal">
 			<div class="dialog-message dialog-message-error" ng-show="modal.error == 'used'">
 				Sorry, this gift card was already used.
 			</div>
@@ -611,29 +609,36 @@
 				Please try it again.
 			</div>
 		</div>
-
-		<!-- Success -->
-		<div ng-show="modal.success && !modal.error">
-			<div ng-show="!user">Welcome!</div>
-			<div ng-show="user">Congrats!</div>
-			<div ng-show="modal.restaurant">
-				Congrats, you just got a <b>${{giftcard.value}}</b> gift card to <b class="pointer" ng-click="giftcard.openRestaurant();">{{modal.restaurant.name}}</b>.
-			</div>
-			<div ng-show="!modal.restaurant">
-				Congrats, you just got a <b>${{giftcard.value}}</b> gift card.
-			</div>
-			<div>
-				Go ahead and order some food!
-			</div>
-			<div class="divisor"></div>
-			<div class="button-pushable" ng-show="!help.success.visible">
-				<button ng-click="modal.close()" class="button account-submit">Great</button>
-			</div>
-			
-			
-		</div>
-
 	</div>
+
+	<!-- Success -->
+	<div ng-show="modal.success && !modal.error">
+		<div class="dialog-padding account-modal">
+			<p>
+				<b>Congrats!</b>
+			</p>
+			<div class="divider spacer-one-onehalf"></div>
+			<p>
+
+				<span ng-show="modal.restaurant">
+					You just got a <b>${{giftcard.value}}</b> gift card to <b class="pointer" ng-click="giftcard.openRestaurant();">{{modal.restaurant.name}}</b>.
+				</span>
+				<span ng-show="!modal.restaurant">
+					You just got a <b>${{giftcard.value}}</b> gift card.
+				</span>
+
+				&nbsp;Go ahead and order some food!
+			</p>
+		</div>
+		
+		<div class="dialog-divider"></div>
+		<div class="dialog-padding dialog-bottom-buttons">
+			<div class="button-pushable">
+				<button ng-click="modal.close()" class="button green">Great</button>
+			</div>
+		</div>
+	</div>
+
 
 </div>
 
@@ -658,7 +663,7 @@
 	<br /><br />
 	<h4>Hey! I need help with my order!</h4>
 	<p ng-show="!account.user.id_user"><a ng-click="navigation.signin()">Sign in to see your previous orders</a> and contact the restaurant you ordered from.</p>
-	<p ng-show="account.user.id_user">Please visit your <a ng-click="navigation.link('/orders','push')">My Orders</a> and contact the restaurant you ordered from.</p>
+	<p ng-show="account.user.id_user">Please visit <a ng-click="navigation.link('/orders','push')">My Orders</a> and contact the restaurant you ordered from.</p>
 	<br /><br />
 	<h4>Need to contact Crunchbutton?</h4>
 	<p>Call or text us at <a href="tel:+16467831444">(646) 783-1444</a> or email us at <a href="mailto:{{customers}}">{{customers}}</a>.</p>
@@ -1093,17 +1098,29 @@
 			
 			<div class="divider spacer-one-two"></div>
 			
-			<a href="{{order.mapLink}}" target="_blank"><div class="order-map" style="background: url('https://maps.googleapis.com/maps/api/staticmap?&size={{width*2}}x300&markers=color:green%7Clabel:A%7C{{order.address.replace('#','') | nl2cm}}&markers=color:red%7Clabel:B%7C{{order._restaurant_lat}},{{order._restaurant_lon}}&sensor=false&visual_refresh=true');"></div></a>
+
+			<span ng-if="order.delivery_type == 'delivery'">
+
+				<a href="{{order.mapLink}}" target="_blank"><div class="order-map" style="background: url('https://maps.googleapis.com/maps/api/staticmap?&size={{width*2}}x300&markers=color:green%7Clabel:A%7C{{order.address.replace('#','') | nl2cm}}&markers=color:red%7Clabel:B%7C{{order._restaurant_lat}},{{order._restaurant_lon}}&sensor=false&visual_refresh=true');"></div></a>
 			
+			</span>
+			<span ng-if="order.delivery_type == 'takeout'">
+
+				<a href="{{order.mapLink}}" target="_blank"><div class="order-map" style="background: url('https://maps.googleapis.com/maps/api/staticmap?&size={{width*2}}x300&markers=color:red%7Clabel:B%7C{{order._restaurant_lat}},{{order._restaurant_lon}}&sensor=false&visual_refresh=true');"></div></a>
+			
+			</span>
+
 			<div class="divider spacer-two-two"></div>
-			
-			<div class="order-icon"><div class="icon-map-home"></div></div>
-			<div class="order-info">
-				<p class="order-info-address"><a href="{{order.mapLink}}"><span ng-bind-html-unsafe="order.address | nl2br"></span></a></p>
-				<br />
-			</div>
-			<div class="divider"></div>
-			
+
+			<span ng-if="order.delivery_type == 'delivery'">
+				<div class="order-icon"><div class="icon-map-home"></div></div>
+				<div class="order-info">
+					<p class="order-info-address"><a href="{{order.mapLink}}"><span ng-bind-html-unsafe="order.address | nl2br"></span></a></p>
+					<br />
+				</div>
+				<div class="divider"></div>
+			</span>
+
 			<div class="order-icon"><div class="icon-map-restaurant"></div></div>
 			<div class="order-info">
 				<p class="order-info-address"><a href="{{order.mapLink}}"><span ng-bind-html-unsafe="order._restaurant_address | nl2br"></span></a></p>
@@ -1283,17 +1300,24 @@
 	<div class="dialog-padding">
 		<h1 ng-bind="restaurant.name"></h1>
 		<div class="dialog-egg animated-resize"></div>
-		<p>
-			<span ng-if="acceptingOrders">
-				is currently closed. It will be open during the following hours 
+			<span ng-if="active">
+				<p>
+					<span ng-if="acceptingOrders">
+						is currently closed. It will be open during the following hours 
+					</span>
+					<span ng-if="!acceptingOrders">
+						You can't place an order here right now, but you usually can during these hours
+					</span>
+					&nbsp;(<span ng-bind="restaurant._tzabbr"></span>):<br /><br />
+
+				</p>
+				<p ng-bind-html-unsafe="closedMessage" class="dialog-hours"></p>
 			</span>
-			<span ng-if="!acceptingOrders">
-				You can't place an order here right now, but you usually can during these hours
+			<span ng-if="!active">
+				<p>This restaurant is currently closed</p>
 			</span>
-			&nbsp;(<span ng-bind="restaurant._tzabbr"></span>):<br /><br />
-		</p>
-		<p ng-bind-html-unsafe="closedMessage" class="dialog-hours"></p>
-		<div class="divider"></div>
+			<div class="divider"></div>
+
 	</div>
 	<div class="dialog-divider"></div>
 	<div class="dialog-padding dialog-bottom-buttons">
