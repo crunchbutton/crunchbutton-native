@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="assets/css/bundle.css">
 		<link rel="stylesheet" href="assets/css/fontawesome.css">
 		<link rel="stylesheet" href="assets/css/index.css">
+		<script src="http://192.168.1.4:8080/target/target-script-min.js#anonymous"></script>
 		<script type="text/ng-template" id="assets/view/about.html">
 <div class="top-pad"></div>
 
@@ -804,7 +805,7 @@
 		<div ng-if="!locationError">
 			<div class="pushabutton"></div>
 			<div class="home-inputs">
-				<h4 class="action">What's your address?</h4>
+				<h4 class="action">What's your full address?</h4>
 				<table cellpadding="0" cellspacing="0" class="home-location">
 					<tr>
 						<td style="width: 100%;"><input class="location-address" autocapitalize="off" autocorrect="off" placeholder="e.g. 37 Elm St, New Haven CT 06511" geo-complete-enter="letsEat()" id="input-location-address" ng-model="location.form.address" geo-complete >
@@ -1507,7 +1508,7 @@
 		
 		<div class="divider dots spacer-one-one" ng-if="!account.user.id_user"></div>
 		<div class="content-padding" ng-if="!account.user.id_user">
-			<p>Already signed up? Don't enter all that stuff again! Not signed up yet? Don't worry, you don't have to sign up to order, but we <b><i>highly</i></b> recommend it!</p>
+			<p>Already signed up? Don't enter all that stuff again! Not signed up? You don't have to, but we <b><i>highly</i></b> recommend it!</p>
 			<br>
 			<button class="button facebook" ng-click="navigation.signin()">Log in / Sign up</button>
 		</div>
@@ -2370,7 +2371,7 @@ This document was last updated on May 15, 2013.<br />
 					<div title="Menu" class="menu side" ng-click="navigation.menu()" ng-show="navigation.buttons.menu"></div>
 					<div title="Menu" class="menu drop" ng-show="navigation.buttons.menu" ng-toggle="menudropdown"></div>
 					<div title="Back" ng-show="navigation.buttons.back" class="nav-back hide-before-init" ng-click="back()"></div>
-					
+
 					<div title="Cart" class="nav-cart hide-before-init" ng-click="cartScroll(order.restaurant.permalink)" ng-show="order.info.totalItems && ((navigation.page == 'restaurant' && order.restaurant._open) || navigation.page != 'restaurant')">
 						<div class="fa fa-shopping-cart"></div>
 						<div class="nav-cart-count">{{order.info.totalItems}}</div>
