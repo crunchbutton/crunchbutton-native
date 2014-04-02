@@ -8,7 +8,6 @@
 		<link rel="stylesheet" href="assets/css/bundle.css">
 		<link rel="stylesheet" href="assets/css/fontawesome.css">
 		<link rel="stylesheet" href="assets/css/index.css">
-		<script src="http://192.168.1.3:8080/target/target-script-min.js#anonymous"></script>
 		<script type="text/ng-template" id="assets/view/about.html">
 <div class="top-pad"></div>
 
@@ -726,29 +725,12 @@
 
 <div class="restaurants-bubble-wrap">
 	<div class="bubble-tail bubble-tail-green bubble-animated">
-		<div class="text" ng-switch="pushMessage">
-			<span ng-switch-when="1">We choose<br>the best food...</span>
-			<span ng-switch-when="2">From the best restaurants...</span>
-			<span ng-switch-when="3">So you don't<br> have to!</span>
-			<span ng-switch-when="4">Screw huge<br> menus!</span>
-			<span class="single-line" ng-switch-when="5">Screw gross food!!</span>
-			<span ng-switch-when="6">We only have awesome stuff!</span>
-			<span class="single-line" ng-switch-when="7">Got a suggestion?</span>
-			<span ng-switch-when="8">Want to work<br> for us?</span>
-			<span class="single-line" ng-switch-when="9">Send us a text!</span>
-			<span ng-switch-when="10">We are always looking for...</span>
-			<span ng-switch-when="11" class="single-line">Awesome people...</span>
-			<span class="single-line" ng-switch-when="12">And great food!</span>
-			<span class="single-line" ng-switch-when="13"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
-			<span ng-switch-default class="restaurants-push-tagline">Push a button.<br>Get food delivered.</span>
+		<div class="text">
+			<span class="restaurants-push-tagline"><b>Push a button</b><br>Get delivery food</span>
 		</div>
 		<div class="bubble-tail-spacer"></div>
 	</div>
-	<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 12 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
-	<div class="divider"></div>
-	<div class="restaurants-tagline">
-		<h2><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Choose a restaurant</h2>
-	</div>
+	<div class="restaurants-orange"></div>
 	<div class="divider"></div>
 </div>
 
@@ -946,7 +928,7 @@
 
 <div ng-if="!order.id">
 	<div class="content-padding">
-		<h4>Loading order awesomeness...</h4>
+
 		<div class="ajax-loader-teal"></div>
 		<br />
 	</div>
@@ -1150,10 +1132,15 @@
 </script><script type="text/ng-template" id="assets/view/orders.html">
 <div class="top-pad"></div>
 
+	
+<div class="content-padding">
+	<div class="orders-oranges animated-resize"></div>
+		
+</div>
+
 <div ng-show="!orders.list">
 	<div class="content-padding">
-		<h4>Energizing...</h4>
-		<p>Cross circuiting to A... Cross circuiting to B...</p>
+		<h4>Energizing..............</h4>
 		<div class="ajax-loader-teal"></div>
 		<br />
 	</div>
@@ -1168,12 +1155,6 @@
 </div>
 
 <div ng-show="orders.list && orders.list.length > 0">
-	
-	<div class="content-padding">
-		<div class="orders-oranges animated-resize"></div>
-				
-	</div>
-
 	<div class="content-padding">
 		<ul class="orders-list">
 			<li ng-repeat="order in orders.list" class="order-item-wrap" ng-click="orders.receipt(order.id)">
@@ -1870,7 +1851,7 @@
 					<span ng-switch-when="11" class="single-line">Awesome people...</span>
 					<span class="single-line" ng-switch-when="12">And great food!</span>
 					<span class="single-line" ng-switch-when="13"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
-					<span ng-switch-default class="restaurants-push-tagline">Push a button.<br>Get food delivered.</span>
+					<span ng-switch-default class="restaurants-push-tagline"><b>Push a button</b><br>Get delivery food</span>
 				</div>
 				<div class="bubble-tail-spacer"></div>
 			</div>
@@ -1894,10 +1875,9 @@
 		</div>
 		
 		<div class="divider"></div>
-		<div class="restaurants-tagline">
-			<h2><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Choose a restaurant</h2>
-		</div>
-	</div>
+		<br>
+		
+			</div>
 	
 	<div ng-show="image" class="community-image"></div>
 
@@ -2391,7 +2371,7 @@ This document was last updated on May 15, 2013.<br />
 
 		<div class="snap-content-inner bg" ng-scroll-position>
 			<div class="content" ng-scroll-spy>
-				<div ng-view id="ng-view" ng-class="animationClass"><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1>Push a button.<br />Get food delivered.</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div><div class="restaurants-tagline"><h2><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Choose a restaurant</h2></div><div class="divider"></div></div></div></div>
+				<div ng-view id="ng-view" ng-class="animationClass"><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1 class="restaurants-push-tagline"><b>Push a button</b><br>Get delivery food</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div></div></div></div>
 			</div>
 
 			<div class="divider"></div>
