@@ -218,7 +218,7 @@
 			<div class="dialog-divider"></div>
 			<div class="dialog-padding dialog-bottom-buttons" ng-if="!support.thanks">
 				<div class="button-pushable">
-					<button class="button account-submit lightorange" ng-click="account.enter()">Join the cool kids club</button>
+					<button class="button account-submit lightorange" ng-click="account.enter()">Enter the cool kids club</button>
 				</div>
 			</div>
 		</div>
@@ -727,29 +727,27 @@
 <div class="restaurants-bubble-wrap">
 	<div class="bubble-tail bubble-tail-green bubble-animated">
 		<div class="text" ng-switch="pushMessage">
-			<span class="small" ng-switch-when="1">Push one of those restaurants down there.</span>
-			<span ng-switch-when="2">The RESTAURANTS.</span>
-			<span ng-switch-when="3">The AWESOME restaurants.</span>
-			<span class="single-line" ng-switch-when="4">Down there.</span>
-			<span class="single-line" ng-switch-when="5">NOT me!!</span>
-			<span class="single-line" ng-switch-when="6">@#%*@%&!</span>
-			<span class="single-line" ng-switch-when="7">...</span>
-			<span class="single-line" ng-switch-when="8">....</span>
-			<span class="single-line" ng-switch-when="9">.....</span>
-			<span class="single-line" ng-switch-when="10">......</span>
-			<span class="single-line" ng-switch-when="11">.......</span>
-			<span class="single-line" ng-switch-when="12">........</span>
-			<span class="single-line" ng-switch-when="13">I quit.</span>
-			<span class="single-line" ng-switch-when="14"><i class="fa fa-suitcase"></i> <i class="fa fa-suitcase"></i> <i class="fa fa-suitcase"></i></span>
-			<span ng-switch-default>Push a button.<br>Get food.&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span ng-switch-when="1">We choose<br>the best food...</span>
+			<span ng-switch-when="2">From the best restaurants...</span>
+			<span ng-switch-when="3">So you don't<br> have to!</span>
+			<span ng-switch-when="4">Screw huge<br> menus!</span>
+			<span class="single-line" ng-switch-when="5">Screw gross food!!</span>
+			<span ng-switch-when="6">We only have awesome stuff!</span>
+			<span class="single-line" ng-switch-when="7">Got a suggestion?</span>
+			<span ng-switch-when="8">Want to work<br> for us?</span>
+			<span class="single-line" ng-switch-when="9">Send us a text!</span>
+			<span ng-switch-when="10">We are always looking for...</span>
+			<span ng-switch-when="11" class="single-line">Awesome people...</span>
+			<span class="single-line" ng-switch-when="12">And great food!</span>
+			<span class="single-line" ng-switch-when="13"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
+			<span ng-switch-default class="restaurants-push-tagline">Push a button.<br>Get food delivered.</span>
 		</div>
 		<div class="bubble-tail-spacer"></div>
 	</div>
-	<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 13 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
+	<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 12 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
 	<div class="divider"></div>
 	<div class="restaurants-tagline">
-		<h1>Order the top local delivery food.</h1>
-		<h2>Choose one of these awesome restaurants</h2>
+		<h2><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Choose a restaurant</h2>
 	</div>
 	<div class="divider"></div>
 </div>
@@ -785,14 +783,14 @@
 
 	<h4>Community Representative</h4>
 	<p>
-		No one knows more about your college or community than you. You know whats "cool", and that's why we’re going to hire you! You'll be responsible for scouting the area to get restaurants signed up, and later work directly with us to orchestrate awesome marketing campaigns.
+		No one knows more about your college or community than you. You know whats "cool", and that's why we’re going to hire you! Scout for local awesome restaurants to sign up, and play a significant role in orchestrating marketing campaings.
 	</p>
 	<br />
 	<a href="mailto:{{reps}}"><button class="button lightorange">join up</button></a>
 	<br /><br /><br /><br />
 
 	<h4>Rockstar Developers &amp; Designers</h4>
-	<p>Look at this beautiful website! It's almost perfect! You know what would make it better? Your magical touch! Join our small team of developers located in LA/Brazil and lets get shit done!</p>
+	<p>Look at this beautiful website! It's almost perfect! You know what would make it better? Your magical touch! Join our small team of developers located in Los Angeles and lets get shit done!</p>
 	<br />
 	<a href="mailto:{{devs}}"><button class="button green">rock out</button></a>
 </div>
@@ -853,11 +851,9 @@
 				<p>Crunchbutton is currently in a limited area trial featuring only a select few colleges. Interested in helping to bring Crunchbutton to your area? Become a marketing rep or driver!</p>
 								<div class="divider spacer-one-two"></div>
 
-				<a href="mailto:{{reps}}">
-					<div class="button-pushable">
-						<button class="button orange" ng-click="facebook.auth()"><b>bring crunchbutton to you!</b></button>
-					</div>
-				</a>
+				<div class="button-pushable">
+					<button class="button orange" ng-click="navigation.link('/jobs','push')"><b>bring crunchbutton to you!</b></button>
+				</div>
 
 				
 					
@@ -1216,7 +1212,7 @@
 			<span ng-switch-when="4">You really should use Crunchbutton</span>
 			<span ng-switch-when="5">Our customers are awesome</span>
 			<span class="single-line" ng-switch-when="6">They love us</span>
-			<span class="small" ng-switch-when="7">And we are more than willing to share that love</span>
+			<span class="small" ng-switch-when="7">And we are more<br>than willing to share<br> that love</span>
 			<span ng-switch-when="8">For a small fee of course</span>
 			<span ng-switch-when="9">I mean nothing is free</span>
 			<span class="single-line" ng-switch-when="10">Not even love</span>
@@ -1858,30 +1854,30 @@
 
 <div class="restaurants-bubble-wrap">
 
-	<div ng-if="!allClosed">
+	<div ng-if="!allClosed && !image">
 		<div class="bubble-tail bubble-tail-green bubble-animated">
 			<div class="text" ng-switch="pushMessage">
-				<span ng-switch-when="1">We choose the best food...</span>
+				<span ng-switch-when="1">We choose<br>the best food...</span>
 				<span ng-switch-when="2">From the best restaurants...</span>
-				<span ng-switch-when="3">So you don't have to!</span>
-				<span ng-switch-when="4">Screw huge menus!</span>
+				<span ng-switch-when="3">So you don't<br> have to!</span>
+				<span ng-switch-when="4">Screw huge<br> menus!</span>
 				<span class="single-line" ng-switch-when="5">Screw gross food!!</span>
 				<span ng-switch-when="6">We only have awesome stuff!</span>
 				<span class="single-line" ng-switch-when="7">Got a suggestion?</span>
-				<span ng-switch-when="8">Want to work for us?</span>
+				<span ng-switch-when="8">Want to work<br> for us?</span>
 				<span class="single-line" ng-switch-when="9">Send us a text!</span>
 				<span ng-switch-when="10">We are always looking for...</span>
-				<span ng-switch-when="11">Awesome people...</span>
+				<span ng-switch-when="11" class="single-line">Awesome people...</span>
 				<span class="single-line" ng-switch-when="12">And great food!</span>
 				<span class="single-line" ng-switch-when="13"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
-				<span ng-switch-default>Push a button.<br>Get food.&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span ng-switch-default class="restaurants-push-tagline">Push a button.<br>Get food delivered.</span>
 			</div>
 			<div class="bubble-tail-spacer"></div>
 		</div>
 		<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 12 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
 	</div>
 	
-	<div ng-if="allClosed">
+	<div ng-if="allClosed && !image">
 		<div class="bubble-tail bubble-tail-green bubble-animated">
 			<div class="text" ng-switch="pushMessage">
 				<span ng-switch-when="2">There are no open restaurants</span>
@@ -1897,10 +1893,11 @@
 		<div class="restaurants-orange restaurants-orange-sad" ng-instant="pushMessage = (pushMessage > 6 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
 	</div>
 	
+	<div ng-show="image" class="community-image" style="background-image:url('/assets/images/community/{{image}}');"></div>
+
 	<div class="divider"></div>
 	<div class="restaurants-tagline">
-		<h1>Order the top local delivery food.</h1>
-		<h2>Choose one of these awesome restaurants</h2>
+		<h2><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Choose a restaurant</h2>
 	</div>
 	<div class="divider"></div>
 </div>
@@ -2391,7 +2388,7 @@ This document was last updated on May 15, 2013.<br />
 
 		<div class="snap-content-inner bg" ng-scroll-position>
 			<div class="content" ng-scroll-spy>
-				<div ng-view id="ng-view" ng-class="animationClass"><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1>Push a button.<br />Get food.&nbsp;&nbsp;&nbsp;&nbsp;</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div><div class="restaurants-tagline"><h1>Order the top local delivery food.</h1><h2>Choose one of these awesome restaurants</h2></div><div class="divider"></div></div></div></div>
+				<div ng-view id="ng-view" ng-class="animationClass"><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1>Push a button.<br />Get food delivered.</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div><div class="restaurants-tagline"><h2><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Choose a restaurant</h2></div><div class="divider"></div></div></div></div>
 			</div>
 
 			<div class="divider"></div>
