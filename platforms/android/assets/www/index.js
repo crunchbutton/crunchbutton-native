@@ -256,6 +256,9 @@ $(function() {
 			
 			//we'll set an onload listener, so that when the image loads, we position the background image of the element
 			theImage.onload = function() {
+				if (!App.parallax.bg) {
+					return;
+				}
 				var elRect = App.parallax.bg.getBoundingClientRect();
 				App.parallax.width = this.width;
 				App.parallax.height = this.height;
