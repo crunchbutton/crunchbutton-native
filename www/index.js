@@ -231,7 +231,12 @@ $(function() {
 				App.parallax.width = this.width;
 				App.parallax.height = this.height;
 				App.parallax.x = -1 * (this.width - elRect.width)/2;
-				App.parallax.y = -1 * (this.height - elRect.height)/2;
+				// Android does not work well with the y change
+				if( App.isAndroid() ){
+					App.parallax.y = 0;
+				} else {
+					App.parallax.y = -1 * (this.height - elRect.height)/2;
+				}
 			}
 		}
 		
