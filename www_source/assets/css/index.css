@@ -131,3 +131,9 @@ textarea.form-input {
 .community-image {
 	margin-top: 1.3em;
 }
+
+@media screen and (max-height: 480px) {
+	.splash-bottom {
+		bottom: 8em !important;
+	}
+}
