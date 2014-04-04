@@ -52,6 +52,10 @@ body {
 	/*-webkit-transition: background-position linear 0.1s; */
 }
 
+.parallax-bg {
+	background-position: -321px -83px;
+}
+
 .nav-top {
 	padding-top: 21px;
 	padding-bottom: 3px;
