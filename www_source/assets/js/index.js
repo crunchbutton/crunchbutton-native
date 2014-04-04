@@ -261,12 +261,15 @@ $(function() {
 				}
 				
 				var elRect = App.parallax.bg.getBoundingClientRect();
-				if( elRect.width > 0 && elRect.height > 0 ){
-					App.parallax.elRect = elRect;
-				} else {
-					// hack to fix the android paralax problem #2305
-					elRect = App.parallax.elRect;
-					angular.element( '.home-top' ).height( App.parallax.elRect.height );
+
+				// hack to fix the android paralax problem #2305
+				if( App.isAndroid() ){
+					if( elRect.width > 0 && elRect.height > 0 ){
+						App.parallax.elRect = elRect;
+					} else {
+						elRect = App.parallax.elRect;
+						angular.element( '.home-top' ).height( App.parallax.elRect.height );
+					}
 				}
 
 				App.parallax.width = this.width;

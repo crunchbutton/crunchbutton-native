@@ -62,11 +62,56 @@ Stripe = {
 }
 
 
-
+// Balanced
 balanced = {
+
+	init: function(){},
+
 	card: {
-		create: function(args, complete) {
-			cordova.exec(
+
+		create: function( args, complete ) {
+			// Plugin for android
+			if( navigator && navigator.balanced && navigator.balanced.tokenizeCard ) {
+				navigator.balanced.tokenizeCard( 
+					// Success
+					function( response ){ 
+
+						if( typeof( response ) == 'string' ){
+							response = JSON.parse( response );
+						}
+
+						if (response.data && response.status) {
+							
+							// we have a balanced.js compatable response
+							response.status = parseInt( response.status );
+
+						} else {
+							// format the response properly
+							response = {
+								status: response.uri ? 201 : (response.status_code || 666),
+								data: response
+							};
+						}
+						console.log('success',response);
+						// callback
+						complete( response );
+
+					},
+					// Error
+					function( response ){ 
+						console.log('error',response);
+						complete( { 'status' : response } );	
+					},
+					// Args
+					[	
+						args.card_number, 
+						args.expiration_month, 
+						args.expiration_year, 
+						args.security_code || ''
+					]
+				);
+			} else {
+				cordova.exec(
 				function( response ) {
 
 					if( typeof( response ) == 'string' ){
@@ -91,7 +136,8 @@ balanced = {
 				function( response ){ 
 					complete( { 'status' : response } );	
 				}, 
-			'BalancedPlugin', 'tokenizeCard',[ args.card_number, args.expiration_month, args.expiration_year, args.security_code || '' ] );
+				'BalancedPlugin', 'tokenizeCard',[ args.card_number, args.expiration_month, args.expiration_year, args.security_code || '' ] );
+			}
 		}
 	}
 };
@@ -210,11 +256,33 @@ $(function() {
 			
 			//we'll set an onload listener, so that when the image loads, we position the background image of the element
 			theImage.onload = function() {
+				if (!App.parallax.bg) {
+					return;
+				}
+				
 				var elRect = App.parallax.bg.getBoundingClientRect();
+
+				// hack to fix the android paralax problem #2305
+				if( App.isAndroid() ){
+					if( elRect.width > 0 && elRect.height > 0 ){
+						App.parallax.elRect = elRect;
+					} else {
+						elRect = App.parallax.elRect;
+						angular.element( '.home-top' ).height( App.parallax.elRect.height );
+					}
+				}
+
 				App.parallax.width = this.width;
 				App.parallax.height = this.height;
 				App.parallax.x = -1 * (this.width - elRect.width)/2;
 				App.parallax.y = -1 * (this.height - elRect.height)/2;
+
+				// hack to fix the android paralax problem #2305
+				if( App.isAndroid() ){
+					App.parallax.bg.style.backgroundSize = App.parallax.width + 'px ' + App.parallax.height + 'px';
+					App.parallax.bg.style.backgroundRepeat = 'no-repeat';	
+					App.parallax.height
+				}
 			}
 		}
 		
