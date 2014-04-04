@@ -227,15 +227,29 @@ $(function() {
 			
 			//we'll set an onload listener, so that when the image loads, we position the background image of the element
 			theImage.onload = function() {
+				if (!App.parallax.bg) {
+					return;
+				}
+				
 				var elRect = App.parallax.bg.getBoundingClientRect();
+				if( App.isAndroid() && elRect.width > 0 && elRect.height > 0 ){
+					App.parallax.elRect = elRect;
+				} else {
+					// hack to fix the android paralax problem #2305
+					elRect = App.parallax.elRect;
+					angular.element( '.home-top' ).height( App.parallax.elRect.height );
+				}
+
 				App.parallax.width = this.width;
 				App.parallax.height = this.height;
 				App.parallax.x = -1 * (this.width - elRect.width)/2;
-				// Android does not work well with the y change
+				App.parallax.y = -1 * (this.height - elRect.height)/2;
+
+				// hack to fix the android paralax problem #2305
 				if( App.isAndroid() ){
-					App.parallax.y = 0;
-				} else {
-					App.parallax.y = -1 * (this.height - elRect.height)/2;
+					App.parallax.bg.style.backgroundSize = App.parallax.width + 'px ' + App.parallax.height + 'px';
+					App.parallax.bg.style.backgroundRepeat = 'no-repeat';	
+					App.parallax.height
 				}
 			}
 		}
