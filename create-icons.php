@@ -36,13 +36,13 @@ $images = [
 		'copyPath' => $projectPath.'icons/', // secondary path if you are using phonegap with trailing
 		'prefix' => 'icon-',
 		'scale' => function($size) {
-			return $size[0] * .65;
+			return $size[0];
 		},
 		'offset' => function($size) {
 			return '+0';
 		},
-		'color' => 'f98f5c',
-		'image' => 'www/res/logo.png'
+		'color' => '242424',
+		'image' => 'www_source/res/icon.png'
 	],
 	'backgrounds' => [
 		'items' => [
@@ -61,7 +61,7 @@ $images = [
 			return '-'.round((($size[0] + $size[1]) / 2) * .05);
 		},
 		'color' => 'fc9a6b',
-		'image' => 'www/res/bg.png'
+		'image' => 'www_source/res/bg.png'
 	],
 	'backgrounds-retina' => [
 		'items' => [
@@ -80,7 +80,7 @@ $images = [
 			return '-'.round((($size[0] + $size[1]) / 2) * .05);
 		},
 		'color' => 'fc9a6b',
-		'image' => 'www/res/bg.png'
+		'image' => 'www_source/res/bg.png'
 	]
 ];
 
