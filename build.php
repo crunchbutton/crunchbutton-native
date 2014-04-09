@@ -115,16 +115,30 @@ $index = str_replace('APP_SERVER_URL', $live ? 'https://crunchbutton.com/' : 'ht
 file_put_contents($path.'index.js', $index);
 
 
-// add facebook to info plst
+// replace playlist values
 echo "Building info plist...\n";
+$replaces = [
+	'FacebookAppID' => $config->facebook,
+	'CFBundleDisplayName' => $live ? '${PRODUCT_NAME}' : 'Beta',
+	'CFBundleIdentifier' => $live ? 'com.crunchbutton' : 'com.crunchbutton.beta',
+	'CFBundleURLSchemes' => 'fb'.$config->facebook
+];
+
 $plst = file($path.'../Crunchbutton/Crunchbutton-Info.plist');
-foreach ($plst as $l => $line) {
-	if (preg_match('/FacebookAppID/i', $line)) {
-		$correct = $l+1;
-		break;
+
+foreach ($replaces as $find => $replace) {
+	$correct = 0;
+	foreach ($plst as $l => $line) {
+		if (preg_match('/'.$find.'/i', $line)) {
+			$correct = $l+1;
+			break;
+		}
 	}
+	if (trim($plst[$correct]) == '<array>') {
+		$correct++;
+	}
+	$plst[$correct] = '	<string>'.$replace."</string>\n";
 }
-$plst[$correct] = '	<string>'.$config->facebook."</string>\n";
 $plst = join("",$plst);
 file_put_contents($path.'../Crunchbutton/Crunchbutton-Info.plist', $plst);
 
