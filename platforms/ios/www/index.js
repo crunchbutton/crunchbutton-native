@@ -178,7 +178,7 @@ $(function() {
 		}, null, 'VersionPlugin', 'version',[]);
 
 		function orientationChanged (orientationEvent) {
-			if (!App || !App.parallax.bg || !App.parallax.enabled) {
+			if (!App || !App.parallax.enabled || !App.parallax.x || !App.parallax.width) {
 				return;
 			}
 		
@@ -236,8 +236,10 @@ $(function() {
 				yImagePosition = 0;
 			}
 
-			App.parallax.bg.style.backgroundPosition = xImagePosition + 'px ' + yImagePosition + 'px';
-			//set the backgroundimage position to  xImagePosition yImagePosition
+			$('.parallax-bg').css({
+				'background-position-x': xImagePosition,
+				'background-position-y': yImagePosition
+			});
 		}
 		
 		App.parallax.setupBackgroundImage = function(el) {
