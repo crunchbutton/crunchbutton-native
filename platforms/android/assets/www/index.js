@@ -178,7 +178,7 @@ $(function() {
 		}, null, 'VersionPlugin', 'version',[]);
 
 		function orientationChanged (orientationEvent) {
-			if (!App || !App.parallax.bg || !App.parallax.enabled) {
+			if (!App || !App.parallax.enabled || !App.parallax.x || !App.parallax.width) {
 				return;
 			}
 		
@@ -236,8 +236,10 @@ $(function() {
 				yImagePosition = 0;
 			}
 
-			App.parallax.bg.style.backgroundPosition = xImagePosition + 'px ' + yImagePosition + 'px';
-			//set the backgroundimage position to  xImagePosition yImagePosition
+			$('.parallax-bg').css({
+				'background-position-x': xImagePosition,
+				'background-position-y': yImagePosition
+			});
 		}
 		
 		App.parallax.setupBackgroundImage = function(el) {
@@ -261,24 +263,26 @@ $(function() {
 				}
 				
 				var elRect = App.parallax.bg.getBoundingClientRect();
-				if( elRect.width > 0 && elRect.height > 0 ){
-					App.parallax.elRect = elRect;
-				} else {
-					// hack to fix the android paralax problem #2305
-					elRect = App.parallax.elRect;
-					angular.element( '.home-top' ).height( App.parallax.elRect.height );
+				// hack to fix the android paralax problem #2305
+				if( App.isAndroid() ){
+					if( elRect.width > 0 && elRect.height > 0 ){
+						App.parallax.elRect = elRect;
+					} else {
+						elRect = App.parallax.elRect;
+						angular.element( '.home-top' ).height( App.parallax.elRect.height );
+					}
 				}
 
 				App.parallax.width = this.width;
 				App.parallax.height = this.height;
 				App.parallax.x = -1 * (this.width - elRect.width)/2;
 				App.parallax.y = -1 * (this.height - elRect.height)/2;
-
 				// hack to fix the android paralax problem #2305
 				if( App.isAndroid() ){
+					App.parallax.x = App.parallax.x / 2;
+					App.parallax.y = - ( App.parallax.y / 2 );
 					App.parallax.bg.style.backgroundSize = App.parallax.width + 'px ' + App.parallax.height + 'px';
 					App.parallax.bg.style.backgroundRepeat = 'no-repeat';	
-					App.parallax.height
 				}
 			}
 		}
