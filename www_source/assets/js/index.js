@@ -281,9 +281,10 @@ $(function() {
 
 				// hack to fix the android paralax problem #2305
 				if( App.isAndroid() ){
+					App.parallax.x = App.parallax.x / 2;
+					App.parallax.y = - ( App.parallax.y / 2 );
 					App.parallax.bg.style.backgroundSize = App.parallax.width + 'px ' + App.parallax.height + 'px';
 					App.parallax.bg.style.backgroundRepeat = 'no-repeat';	
-					App.parallax.height
 				}
 			}
 		}
