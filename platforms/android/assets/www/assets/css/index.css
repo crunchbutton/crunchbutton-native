@@ -52,6 +52,10 @@ body {
 	/*-webkit-transition: background-position linear 0.1s; */
 }
 
+.parallax-bg {
+	background-position: -321px -83px;
+}
+
 .nav-top {
 	padding-top: 21px;
 	padding-bottom: 3px;
@@ -130,4 +134,10 @@ textarea.form-input {
 
 .community-image {
 	margin-top: 1.3em;
+}
+
+@media screen and (max-height: 480px) {
+	.splash-bottom {
+		bottom: 8em !important;
+	}
 }

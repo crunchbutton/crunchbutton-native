@@ -263,6 +263,7 @@ $(function() {
 				}
 				
 				var elRect = App.parallax.bg.getBoundingClientRect();
+
 				// hack to fix the android paralax problem #2305
 				if( App.isAndroid() ){
 					if( elRect.width > 0 && elRect.height > 0 ){
@@ -277,6 +278,7 @@ $(function() {
 				App.parallax.height = this.height;
 				App.parallax.x = -1 * (this.width - elRect.width)/2;
 				App.parallax.y = -1 * (this.height - elRect.height)/2;
+
 				// hack to fix the android paralax problem #2305
 				if( App.isAndroid() ){
 					App.parallax.x = App.parallax.x / 2;

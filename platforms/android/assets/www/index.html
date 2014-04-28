@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="assets/css/bundle.css">
 		<link rel="stylesheet" href="assets/css/fontawesome.css">
 		<link rel="stylesheet" href="assets/css/index.css">
+		
 		<script type="text/ng-template" id="assets/view/about.html">
 <div class="top-pad"></div>
 
@@ -143,26 +144,6 @@
 	<button class="button lightorange" ng-click="navigation.link('/jobs','push')">Jobs</button>
 </div>
 
-</script><script type="text/ng-template" id="assets/view/account.facebook.html">
-<div class="facebook">
-	<div class="social-button facebook-button" ng-click="facebook.auth()">
-		<i class="fa fa-facebook"></i>
-		<span class="social-button-text">{{title}}</span>
-		<div class="divider"></div>
-	</div>
-	<div class="wait" ng-show="facebook.facebook.wait && !facebook.facebook.error.userExists && !facebook.facebook.error.unknown && !facebook.facebook.error.login">
-		Just a sec...
-	</div>
-	<div class="error" ng-show="facebook.facebook.error.userExists">
-		Sorry, this facebook account is already associated with another user.
-	</div>
-	<div class="error" ng-show="facebook.facebook.error.unknown">
-		Sorry, something bad happened.
-	</div>
-	<div class="error" ng-show="facebook.facebook.error.login">
-		Sorry, it seems you cancelled login or did not fully authorize.
-	</div>
-</div>
 </script><script type="text/ng-template" id="assets/view/account.html">
 <div class="account-container zoom-anim-dialog mfp-hide dialog mfp-hide">
 
@@ -195,17 +176,17 @@
 		<div ng-show="tab == 'form'">
 			<div class="dialog-padding account-modal">
 				<span ng-click="changeTab( 'facebook' )" class="back-link cursor"><span>&laquo;</span> BACK</span>
-				<p>Not a fan of facebook? Don’t worry. We won't tell anyone. Log in or sign up below.</p>
+				<p>Not a fan of facebook? Don’t worry. We won't tell anyone. <b>Log in</b> or <b>sign up</b> below.</p>
 				
 				<div class="divider spacer-one-two"></div>
 
 				<form name="accountForm">
 					<div class="support-form-group form-group">
-						<input type="email" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" placeholder="email address" class="form-input form-field" ng-enter="account.enter()">
+						<input type="email" ng-focus="softKeyboardModal($event)" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" placeholder="email address" class="form-input form-field" ng-enter="account.enter()">
 					</div>
 					
 					<div class="support-form-group form-group">
-						<input type="password" class="form-input form-field" maxlength="250" ng-model="account.form.password" name="password" tabindex="11" placeholder="password" ng-enter="account.enter()">
+						<input type="password" ng-focus="softKeyboardModal($event)" class="form-input form-field" maxlength="250" ng-model="account.form.password" name="password" tabindex="11" placeholder="password" ng-enter="account.enter()">
 					</div>
 				</form>
 			
@@ -234,7 +215,7 @@
 
 					<form name="accountReset" class="form">
 						<div class="support-form-group form-group">
-							<input type="email" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" placeholder="email address" class="form-input form-field" ng-enter="help.sendForm()">
+							<input type="email"  ng-focus="softKeyboardModal($event)" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" placeholder="email address" class="form-input form-field" ng-enter="help.sendForm()">
 						</div>
 					</form>
 				</div>
@@ -318,15 +299,6 @@
 			</div>
 
 		</div>
-	</div>
-</div>
-</script><script type="text/ng-template" id="assets/view/bycity.html">
-<div class="content-item-locations crunchbutton-by-city">
-	<h1>Crunchbutton by city:</h1> 
-	<div class="content-item-locations-cities">
-		<% _.each(topCommunities, function(alias) { %>
-			<span class="content-item-locations-city" permalink="<%= alias.alias %>"><%= alias.name %></span>&nbsp;&nbsp;&nbsp;&nbsp;
-		<% }); %>
 	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/cafe.html">
@@ -659,14 +631,14 @@
 <div class="content-padding" ng-controller="SupportCtrl">
 	<br />
 	<h4>So, what exactly do you do?</h4>
-	<p>We highlight the top food from the top restaurants in a community. Place an order, and we save it for next time, along with your delivery and payment info. Reorder your favorites with a single tap :)</p>
+	<p>We get the best food in your community delivered straight to your door. Place an order, and we save it for next time, along with your delivery and payment info. Reorder your favorites with a single tap :)</p>
 	<br /><br />
 	<h4>Hey! I need help with my order!</h4>
 	<p ng-show="!account.user.id_user"><a ng-click="navigation.signin()">Sign in to see your previous orders</a> and contact the restaurant you ordered from.</p>
 	<p ng-show="account.user.id_user">Please visit <a ng-click="navigation.link('/orders','push')">My Orders</a> and contact the restaurant you ordered from.</p>
 	<br /><br />
 	<h4>Need to contact Crunchbutton?</h4>
-	<p>Call or text us at <a href="tel:+16467831444">(646) 783-1444</a> or email us at <a href="mailto:{{customers}}">{{customers}}</a>.</p>
+	<p>Call or text us at <a href="sms:+16467831444">(646) 783-1444</a> or email us at <a href="mailto:{{customers}}">{{customers}}</a>.</p>
 	<br /><br />
 	<button class="button green" ng-click="support.dialog()">Send us a message</button>
 </div>
@@ -726,7 +698,7 @@
 <div class="restaurants-bubble-wrap">
 	<div class="bubble-tail bubble-tail-green bubble-animated">
 		<div class="text">
-			<span class="restaurants-push-tagline"><b>Push a button</b><br>Get delivery food</span>
+			<span class="restaurants-push-tagline"><b>Push a button</b><br>Get food delivered</span>
 		</div>
 		<div class="bubble-tail-spacer"></div>
 	</div>
@@ -772,14 +744,14 @@
 	<br /><br /><br /><br />
 
 	<h4>Rockstar Developers &amp; Designers</h4>
-	<p>Look at this beautiful website! It's almost perfect! You know what would make it better? Your magical touch! Join our small team of developers located in Los Angeles and lets get shit done!</p>
+	<p>Look at this beautiful website! It's almost perfect! You know what would make it better? Your magical touch! Join our small team of developers located in Los Angeles and let's get shit done!</p>
 	<br />
 	<a href="mailto:{{devs}}"><button class="button green">rock out</button></a>
 </div>
 
 </script><script type="text/ng-template" id="assets/view/location.html">
 <div class="bg">
-	<div class="home-top">
+	<div class="home-top parallax-bg">
 		<div class="top-pad"></div>
 	
 		<div ng-if="!locationError">
@@ -788,7 +760,7 @@
 				<h4 class="action">What's your full address?</h4>
 				<table cellpadding="0" cellspacing="0" class="home-location">
 					<tr>
-						<td style="width: 100%;"><input class="location-address" autocapitalize="off" autocorrect="off" placeholder="e.g. 37 Elm St, New Haven CT 06511" geo-complete-enter="letsEat()" id="input-location-address" ng-model="location.form.address" geo-complete >
+						<td style="width: 100%;"><input class="location-address" autocapitalize="off" autocorrect="off" placeholder="e.g. 37 Elm St, New Haven CT 06511" ng-focus="softKeyboard($event);" geo-complete-enter="letsEat()" id="input-location-address" ng-model="location.form.address" geo-complete >
 						</td>
 						<td>				
 							<button class="location-detect ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF" ng-click="locEat()">
@@ -1030,7 +1002,7 @@
 			</div>
 			<div class="order-info order-info-oneline">
 				<p>
-					<span ng-show="(order.pay_type == 'card')">Paid by card ending in <b>{{order.card.lastfour}}</b></span>
+					<span ng-show="(order.pay_type == 'card')">Paid by card <span ng-show="order.card_ending">ending in <b>{{order.card_ending}}</b></span></span>
 					<span ng-hide="(order.pay_type == 'card')">Pay<span ng-show="(order.delivery_type == 'delivery')"> and tip</span> with <b>cash</b></span>
 				</p>
 			</div>
@@ -1317,10 +1289,10 @@
 	
 			<div class="restaurant-pic" style="background: url({{restaurant.img}});"><div class="restaurant-pic-overlay"></div></div>
 			<div class="restaurant-name">
-				<h1>{{restaurant.name}}</h1>
+				<h1 ng-resize-text>{{restaurant.name}}</h1>
 				<h2>{{restaurant.message || restaurant.short_description}}</h2>
 			</div>
-	
+
 			<div class="giftcard-badge" ng-if="credit.hasValue">
 				<i class="fa fa-certificate"></i>
 				<div class="giftcard-badge-value"><sup>$</sup>{{Math.round(credit.value)}}</div>
@@ -1365,7 +1337,7 @@
 					
 				
 					<div ng-show="order.info.deliveryMinDiff && order.cart.hasItems()" class="dialog-message dialog-message-error delivery-minimum-error">
-						Add <sup>$</sup><span class="delivery-min-diff">{{order.info.deliveryMinDiff}}</span> more to meet the delivery min.
+						Add <sup>$</sup><span class="delivery-min-diff">{{order.info.deliveryMinDiff}}</span> more to meet the delivery min
 					</div>
 	
 					<div ng-show="order.cart.hasItems()">
@@ -1462,7 +1434,7 @@
 				<div ng-show="!fullmenu">
 	
 					<div class="restaurant-title-wrap">
-						<div class="restaurant-title">The Menu</div>
+						<div class="restaurant-title">The Highlights</div>
 						<div class="restaurant-title-bar"><div class="restaurant-title-bar-inner">&nbsp;</div></div>
 					</div>
 	
@@ -1528,24 +1500,24 @@
 					<div class="personal-info field-container">
 						<div class="payment-form-group form-group">
 							<i class="fa fa-user payment-form-icon form-icon form-field"></i>
-							<input type="text" name="pay-name" tabindex="2" ng-model="order.form.name" class="payment-form-input form-input form-field" placeholder="name">
+							<input ng-focus="softKeyboard($event);" type="text" name="pay-name" tabindex="2" ng-model="order.form.name" class="payment-form-input form-input form-field" placeholder="name">
 						</div>
 	
 						<div class="payment-form-group form-group">
 							<i class="fa fa-phone payment-form-icon form-icon form-field"></i>
-							<input type="tel" name="pay-phone" tabindex="3" ng-format-phone ng-model="order.form.phone" class="payment-form-input form-input form-field" placeholder="phone number">
+							<input ng-focus="softKeyboard($event);" type="tel" name="pay-phone" tabindex="3" ng-format-phone ng-model="order.form.phone" class="payment-form-input form-input form-field" placeholder="phone number">
 						</div>
 	
 						<div class="payment-form-group form-group">
 							<i class="fa fa-map-marker payment-form-icon form-icon form-field"></i>
 							<p class="pickup-info" ng-if="order.form.delivery_type!='delivery'">Pickup from:<br><span ng-bind-html-unsafe="restaurant.address | nl2br"></span></p>
-							<textarea ng-autosize ng-show="order.form.delivery_type=='delivery'" class="payment-form-input form-input form-field" ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5" placeholder="address"></textarea>
+							<textarea ng-focus="softKeyboard($event);" ng-autosize ng-show="order.form.delivery_type=='delivery'" class="payment-form-input form-input form-field" ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5" placeholder="address"></textarea>
 						</div>
 	
 						<div class="payment-form-group form-group">
 	
 							<i class="fa fa-bullhorn payment-form-icon form-icon form-field"></i>
-							<textarea ng-autosize name="notes" ng-blur="checkGiftCard()" ng-model="order.form.notes" tabindex="6" class="payment-form-input form-input form-field" placeholder="notes"></textarea>
+							<textarea ng-focus="softKeyboard($event);" ng-autosize name="notes" ng-blur="checkGiftCard()" ng-model="order.form.notes" tabindex="6" class="payment-form-input form-input form-field" placeholder="notes"></textarea>
 	
 							<!-- Gift card messages -->
 							<div class="giftcard-info">
@@ -1608,7 +1580,7 @@
 	
 						<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
 							<i class="fa fa-credit-card payment-form-icon form-icon form-field"></i>
-							<input type="tel" name="pay-card-number" tabindex="6" ng-change="order.creditCardChanged();" ng-model="order.form.cardNumber" class="payment-form-input form-input form-field">
+							<input ng-focus="softKeyboard($event);" type="tel" name="pay-card-number" tabindex="6" ng-change="order.creditCardChanged();" ng-model="order.form.cardNumber" class="payment-form-input form-input form-field">
 						</div>
 						
 						<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
@@ -1636,7 +1608,7 @@
 	
 		<!-- stored user info -->
 		
-		<div class="delivery-payment-info main-content-readable" ng-if="restaurant._open && !order.showForm && order.cart.hasItems()">
+		<div class="delivery-payment-info main-content-readable" ng-if="order.loaded && restaurant._open && !order.showForm && order.cart.hasItems()">
 			
 			<div class="divider dots spacer-one-one"></div>
 				<div class="content-padding">
@@ -1659,6 +1631,7 @@
 						<div class="icon-cash" ng-show="order.form.pay_type=='cash'"></div>
 				</div>
 				<div class="order-info order-info-oneline">
+				
 					<p>
 						<span ng-show="order.form.pay_type=='card' && order.total() <= credit.number">Gift card balance</span>
 						<span ng-show="order.form.pay_type=='card' && credit.number && order.total() > credit.number">Card ending in {{user.card_ending}} &amp; - {{credit.value}} credit</span>
@@ -1682,9 +1655,6 @@
 					</p>
 				</div>
 				<div class="order-info" ng-show="restaurant.takeout == '1' && order.form.delivery_type=='takeout'">
-					<p>
-						Deliver to:<br />
-					</p>
 					<p class="restaurant-info-address">
 						Pick up from:<br />
 						<span ng-bind-html-unsafe="restaurant.address | nl2br"></span>
@@ -1714,7 +1684,7 @@
 		<div class="restaurant-banana animated-resize"></div>
 		
 		<div class="payment-wrap">
-			<div class="payment-ribbon">
+			<div class="payment-ribbon" ng-class="{'backface':!isIOs}">
 				<div class="payment-ribbon-content">
 					<span class="restaurant-payment-item">Subtotal: <span ng-show="order.form.pay_type=='cash'">~</span>${{order.info.subtotal}}</span>
 					<span class="restaurant-payment-item">Tax: ${{order.info.taxes}}</span>
@@ -1768,68 +1738,70 @@
 	
 
 
-
-<div class="address-not-found-warning order-warning modal zoom-anim-dialog small-container mfp-hide">
-	<h1>Confirm your address?</h1>
-	<p><strong>We could not find the address:<br/>{{order.form.address}}</strong></p>
-	<ul>
-		<li>
-			<div ng-click="addressPlaceAnyway();">Continue</div>
-		</li>
-		<li>
-			<div ng-click="addressLetMeChangeIt();">Add a City or Zip Code</div>
-		</li>
-	</ul>
-</div>
-
-
-
-
-<div class="address-not-found-warning zoom-anim-dialog mfp-hide dialog" ng-controller="RestaurantClosedCtrl">
+<div class="address-incomplete-warning order-warning  zoom-anim-dialog mfp-hide dialog mfp-hide">
 	<div class="dialog-padding">
-		<h1>One sec!</h1>
-		<p><strong>We could not find the address:<br/>{{order.form.address}}</strong></p>
-	</div>
-	<div class="dialog-divider"></div>
-	<div class="dialog-padding dialog-bottom-buttons">
-		<div class="button-pushable"><button class="button lightorange" ng-click="addressLetMeChangeIt();">Add a City or Zip Code</button></div>
-		<a href="" ng-click="addressPlaceAnyway();" class="dialog-alternate-link">Place Order Anyway</a>
-		<div class="divider"></div>
+		<b class="order-warning-bold">Confirm your address?</b>
+		<p>It looks like your address is incomplete: <br/> {{order.form.address}}</p>
+		<div class="divider spacer-one-two"></div>
+		<ul>
+			<li>
+				<div class="button-pushable">
+					<button class="button lightorange" ng-click="addressLetMeChangeIt()">
+						Add a City or Zip Code
+					</button>
+				</div>
+			</li>
+			<li>
+				<div class="cursor link" ng-click="addressPlaceAnyway();">Place Order Anyway</div>
+			</li>
+		</ul>
 	</div>
 </div>
 
 
 
 
-<div class="address-out-of-range-warning zoom-anim-dialog mfp-hide dialog" ng-controller="RestaurantClosedCtrl">
+<div class="address-not-found-warning order-warning  zoom-anim-dialog mfp-hide dialog mfp-hide">
 	<div class="dialog-padding">
-		<h1>One sec!</h1>
-		<p>The address <strong>{{order.form.address}}</strong> is out of delivery range, or you have entered an invalid address.<br/><br/>Please check your address, or order takeout.</p>
-	</div>
-	<div class="dialog-divider"></div>
-	<div class="dialog-padding dialog-bottom-buttons">
-		<div class="button-pushable"><button class="button lightorange" ng-click="addressLetMeChangeIt();">Modify Address</button></div>
-		<a href="" ng-click="addressOutOfRangePlaceAnyway();" class="dialog-alternate-link">Place Order Anyway</a>
-		<div class="divider"></div>
+		<b class="order-warning-bold">Confirm your address?</b>
+		<p>We could not find the address: <br/> {{order.form.address}}</p>
+		<div class="divider spacer-one-two"></div>
+		<ul>
+			<li>
+				<div class="button-pushable">
+					<button class="button lightorange" ng-click="addressLetMeChangeIt()">
+						Add a City or Zip Code
+					</button>
+				</div>
+			</li>
+			<li>
+				<div class="cursor link" ng-click="addressPlaceAnyway();">Continue</div>
+			</li>
+		</ul>
 	</div>
 </div>
-</script><script type="text/ng-template" id="assets/view/restaurant.suggestion.tooltip.html">
-<span class="tooltip-help-{{type}}-container">
+	
 
-	<span ng-show="type == 'mobile'" class="tooltip-help-mobile-touchable">
-		<span class="tooltip-help tooltip-help-mobile" ng-click="show=!show">
-			<span>?</span>
-		</span>
-	</span>
-
-	<span ng-show="type == 'desktop'" class="tooltip-help tooltip-help-desktop" ng-click="show=!show">
-		<span>?</span>
-	</span>
-
-	<div ng-show="show" class="tooltip-help-content tooltip-help-content-{{type}}">
-		We've highlighted the top food from this restaurant below. Suggest something else? Text or call us at <a href="tel:+16467831444">(646) 783-1444</a>.
+<div class="address-out-of-range-warning order-warning  zoom-anim-dialog mfp-hide dialog mfp-hide">
+	<div class="dialog-padding">
+		<b class="order-warning-bold">One sec!</b>
+		<p>The address <b>{{order.form.address}}</b> is out of delivery range, or you have entered an invalid address.<br/><br/>Please check your address, or order takeout.</p>
+		<div class="divider spacer-one-two"></div>
+		<ul>
+			<li>
+				<div class="button-pushable">
+					<button class="button lightorange" ng-click="addressLetMeChangeIt()">
+						Modify Address
+					</button>
+				</div>
+			</li>
+			<li>
+				<div class="cursor link" ng-click="addressPlaceAnyway();">Place Order Anyway</div>
+			</li>
+		</ul>
 	</div>
-</span>
+</div>
+
 </script><script type="text/ng-template" id="assets/view/restaurants.html">
 <div class="top-pad"></div>
 
@@ -1851,7 +1823,7 @@
 					<span ng-switch-when="11" class="single-line">Awesome people...</span>
 					<span class="single-line" ng-switch-when="12">And great food!</span>
 					<span class="single-line" ng-switch-when="13"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
-					<span ng-switch-default class="restaurants-push-tagline"><b>Push a button</b><br>Get delivery food</span>
+					<span ng-switch-default class="restaurants-push-tagline"><b>Push a button</b><br>Get food delivered</span>
 				</div>
 				<div class="bubble-tail-spacer"></div>
 			</div>
@@ -1937,7 +1909,7 @@
 	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/splash.html">
-<div class="bg home-top splash-top fixed">
+<div class="bg home-top splash-top fixed parallax-bg">
 	<div class="splash-spacer-one"></div>
 	<div title="Crunchbutton" class="logo animated-resize" ng-click="navigation.home()"></div>
 	<div class="splash-spacer-two"></div>
@@ -2007,35 +1979,6 @@
 
 </div>
 
-</script><script type="text/ng-template" id="assets/view/suggestion.html">
-<div class="suggest-food-container modal zoom-anim-dialog small-container mfp-hide" ng-controller="RecommendFoodCtrl">
-
-	<div ng-show="!recommend.thanks">
-		<form name="formSuggest">
-			<h1>What do you suggest?</h1>
-			<input type="text" maxlength="250" ng-model="recommend.form.name" ng-enter="recommend.send()" id="suggestion-name" tabindex="10" />
-			<div class="divider"></div>
-		</form>
-		<button ng-show="!recommend.isSending" ng-click="recommend.send();">Suggest</button>
-		<div class="divider"></div>
-		<i ng-show="recommend.isSending" class="fa fa-spinner fa-spin"></i>
-		<br/>
-		<div class="divider dots"></div>
-		<div class="message">
-			Crunchbutton curates menus. <br/>
-			We've curated just the top food here. <br/>
-			You can suggest food, and, if it's really good, you'll see it on the menu soon.
-		</div>
-	</div>
-
-	<div ng-show="recommend.thanks">
-		<div class="success">
-			<h1>Awesome, thanks!!</h1>
-			If you really really wanna order it RIGHT NOW, call us at <b>646-783-1444</b>
-		</div>
-	</div>
-
-</div>
 </script><script type="text/ng-template" id="assets/view/support.html">
 <div class="support-container zoom-anim-dialog mfp-hide dialog" ng-controller="SupportCtrl">
 	<div class="dialog-padding">
@@ -2363,15 +2306,14 @@ This document was last updated on May 15, 2013.<br />
 			</div>
 		</div>
 
-
-		<div ng-class="{'button-bottom-show': (navigation.page == 'restaurant' && navigation.restaurant._open && navigation.order.cart.hasItems() && !notificationBarStatus ), 'button-bottom-show-notification-bar-on': (navigation.page == 'restaurant' && navigation.restaurant._open && navigation.order.cart.hasItems() && notificationBarStatus )}" class="button-bottom-wrapper fixed">
+		<div class="button-bottom-wrapper fixed">
 			<div class="button-pushable" ng-show="navigation.order.form.name || navigation.order.form.phone"><button class="button orange get-food ani-all" ng-click="navigation.order.submit();"><div>Get Food</div></button></div>
 			<div class="button-pushable" ng-show="!navigation.order.form.name && !navigation.order.form.phone"><button class="button orange get-food ani-all" ng-click="navigation.order.checkout();"><div>Checkout</div></button></div>
 		</div>
 
 		<div class="snap-content-inner bg" ng-scroll-position>
 			<div class="content" ng-scroll-spy>
-				<div ng-view id="ng-view" ng-class="animationClass"><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1 class="restaurants-push-tagline"><b>Push a button</b><br>Get delivery food</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div></div></div></div>
+				<div ng-view id="ng-view" ng-class="animationClass"><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1 class="restaurants-push-tagline"><b>Push a button</b><br>Get food delivered</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div></div></div></div>
 			</div>
 
 			<div class="divider"></div>

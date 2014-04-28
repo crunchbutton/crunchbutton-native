@@ -6,7 +6,7 @@
  *
  */
 
-$weinre = true;
+$weinre = false;
 // weinre
 $serverIP = '192.168.1.3';
 
@@ -22,8 +22,8 @@ $path = $ap.'./platforms/android/assets/www/';
 // clean assets
 echo "Cleaning assets...";
 $cleanPaths = array(
-	'/Users/pererinha/Sites/Jobs/crunchbutton/cache/data/*',
-	'/Users/pererinha/Sites/Jobs/crunchbutton/cache/min/*',
+	'~/Dev/crunch/app/cache/data/*',
+	'~/Dev/crunch/app/cache/min/*',
 	// '/Users/arzynik/Sites/crunchbutton/cache/data/*',
 	// '/Users/arzynik/Sites/crunchbutton/cache/min/*',
 	$path.'assets'
