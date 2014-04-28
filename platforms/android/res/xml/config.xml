@@ -39,6 +39,9 @@
     <feature name="Vibration">
         <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
     </feature>
+    <feature name="HockeyAppPlugin">
+        <param name="android-package" value="com.flt.hockeyapp.HockeyAppPlugin" />
+    </feature>
     <author email="dev@crunchbutton.com" href="http://crunchbutton.com">
         Devin Smith, Crunchbutton
     </author>

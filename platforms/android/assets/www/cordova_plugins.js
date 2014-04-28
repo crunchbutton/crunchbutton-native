@@ -112,6 +112,13 @@ module.exports = [
         "clobbers": [
             "toolbar"
         ]
+    },
+    {
+        "file": "plugins/com.flt.hockeyapp/www/hockeyapp.js",
+        "id": "com.flt.hockeyapp.HockeyAppPlugin",
+        "merges": [
+            "navigator.hockeyapp"
+        ]
     }
 ];
 module.exports.metadata = 

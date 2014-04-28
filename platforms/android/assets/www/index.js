@@ -177,6 +177,16 @@ $(function() {
 			});
 		}, null, 'VersionPlugin', 'version',[]);
 
+
+		if( navigator && navigator.hockeyapp && navigator.hockeyapp.init ){
+			navigator.hockeyapp.init(
+			    function(){},
+			    function(){},
+			    // Hockey App ID
+			    [ '432e5a86d0cb50461cc65e1bd32e016d', true, true ]
+			);
+		}
+
 		function orientationChanged (orientationEvent) {
 			if (!App || !App.parallax.enabled || !App.parallax.x || !App.parallax.width) {
 				return;
