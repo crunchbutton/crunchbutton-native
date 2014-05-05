@@ -6,15 +6,15 @@
  *
  */
 
-$weinre = false;
+$weinre = true;
 // weinre
-$serverIP = '192.168.1.3';
+$serverIP = '192.168.0.13';
 
 $curpath = getcwd();
 if (preg_match('/platforms\/android/',$curpath)) {
 	$ap = '../../';
 }
-$server = 'http://seven.localhost/';
+$server = 'http://crunchbutton.localhost/';
 $srcPath = $ap.'./www_source/';
 $path = $ap.'./platforms/android/assets/www/';
 
