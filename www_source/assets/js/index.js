@@ -191,7 +191,6 @@ $(function() {
 		if( App.isAndroid() ){
 			if( window && window.device && window.device.version ){
 				App.parallax.enabled = App.isVersionCompatible( '4.4', window.device.version );
-				alert(App.parallax.enabled)
 			}	
 		}
 
