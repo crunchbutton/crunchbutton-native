@@ -183,8 +183,16 @@ $(function() {
 			    function(){},
 			    function(){},
 			    // Hockey App ID
-			    [ '432e5a86d0cb50461cc65e1bd32e016d', true, true ]
+			    [ '83f69a1317bff05dbf6c97d0e43e204f', true, true ]
 			);
+		}
+
+		// Disable paralax for android old versions - #3105
+		if( App.isAndroid() ){
+			if( window && window.device && window.device.version ){
+				App.parallax.enabled = App.isVersionCompatible( '4.4', window.device.version );
+			}	
+			App.transitionAnimationEnabled = App.isVersionCompatible( '4', window.device.version );
 		}
 
 		function orientationChanged (orientationEvent) {

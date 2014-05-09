@@ -169,6 +169,8 @@
 				</button>
 			</div>
 
+			<div class="dialog-message dialog-message-error" ng-repeat="error in account.errors">{{error}}</div>
+
 			<span class="bottom-link cursor" ng-click="changeTab( 'form' )">Other Options</span>
 		</div>
 
@@ -1711,31 +1713,7 @@
 	<div class="divider bottom-spacer"></div>
 	
 	
-	
-	
-	
-	
 </div>
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 
 <div class="address-incomplete-warning order-warning  zoom-anim-dialog mfp-hide dialog mfp-hide">
@@ -1757,9 +1735,6 @@
 		</ul>
 	</div>
 </div>
-
-
-
 
 <div class="address-not-found-warning order-warning  zoom-anim-dialog mfp-hide dialog mfp-hide">
 	<div class="dialog-padding">
@@ -2350,7 +2325,6 @@ This document was last updated on May 15, 2013.<br />
 <div ng-include="'assets/view/account.reset.html'"></div>
 <div ng-include="'assets/view/restaurant.closed.inline.html'"></div>
 <div ng-include="'assets/view/giftcard.html'"></div>
-<div ng-include="'assets/view/suggestion.html'"></div>
 <div ng-include="'assets/view/support.html'"></div>
 <div ng-include="'assets/view/connection.error.html'"></div>
 
