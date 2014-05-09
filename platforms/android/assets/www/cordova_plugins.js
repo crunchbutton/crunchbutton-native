@@ -119,6 +119,13 @@ module.exports = [
         "merges": [
             "navigator.hockeyapp"
         ]
+    },
+    {
+        "file": "plugins/com.ankamagames.plugins.sysinfo/www/Sysinfo.js",
+        "id": "com.ankamagames.plugins.sysinfo.Sysinfo",
+        "merges": [
+            "navigator.Sysinfo"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -135,7 +142,8 @@ module.exports.metadata =
     "org.apache.cordova.balanced": "0.1.0",
     "org.apache.cordova.stripe": "0.1.0",
     "org.apache.cordova.device": "0.2.8",
-    "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover": "0.0.2"
+    "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover": "0.0.2",
+    "com.ankamagames.plugins.sysinfo": "0.0.2"
 }
 // BOTTOM OF METADATA
 });
