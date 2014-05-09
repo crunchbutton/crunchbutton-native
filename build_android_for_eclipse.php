@@ -6,7 +6,7 @@
  *
  */
 
-$weinre = true;
+$weinre = false;
 // weinre
 $serverIP = '192.168.0.13';
 
