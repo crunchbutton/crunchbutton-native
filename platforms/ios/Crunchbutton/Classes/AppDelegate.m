@@ -27,7 +27,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-#import "TestFlight.h"
+#import <HockeySDK/HockeySDK.h>
 
 #import <Cordova/CDVPlugin.h>
 
@@ -65,10 +65,10 @@
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
     
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"432e5a86d0cb50461cc65e1bd32e016d"];
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
 
- [TestFlight takeOff:@"76c51a1b-4d46-4c73-ae0a-174959a5359d"];
-
-    
 
 
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
