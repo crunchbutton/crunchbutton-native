@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0267847EC79F4CF69444E164 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4ABD7881774E8D91F84C0D /* libsqlite3.dylib */; };
-		081D505618CA79D60023EBE4 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 081D505218CA79D60023EBE4 /* libTestFlight.a */; };
 		0822347D17AC32B4009F2FC5 /* TapToScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 0822347C17AC32B4009F2FC5 /* TapToScroll.m */; };
 		082371E51835A14B00F04A1E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5B8109A6A2B0062928A /* AudioToolbox.framework */; };
 		082371E61835A1EB00F04A1E /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = C27FDD1B78CA482AB28BCE5E /* CDVSplashScreen.m */; };
@@ -17,6 +16,12 @@
 		082881AB1848EE6500F85CB5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F8416217F4D2550020D069 /* CoreTelephony.framework */; };
 		083F34F918BD353F00B45CD4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083F34F818BD353F00B45CD4 /* FacebookSDK.framework */; };
 		083F34FC18BD38B500B45CD4 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 083F34FB18BD38B500B45CD4 /* FacebookConnectPlugin.m */; };
+		0844A88118F4CEB700D8058A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082881A81848E33C00F85CB5 /* CoreText.framework */; };
+		0844A88218F4CEBC00D8058A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF5C2109A6A2B0062928A /* QuartzCore.framework */; };
+		0844A88318F4CEC100D8058A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085E2CAA17A85D2B007A9847 /* Security.framework */; };
+		0844A88918F4CEF300D8058A /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0844A88518F4CEF300D8058A /* HockeySDK.framework */; };
+		0844A88A18F4CEF300D8058A /* HockeySDK.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0844A88718F4CEF300D8058A /* HockeySDK.xcconfig */; };
+		0844A88B18F4CEF300D8058A /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0844A88818F4CEF300D8058A /* HockeySDKResources.bundle */; };
 		085C86B317B3288500A40B53 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 085C86B217B3288500A40B53 /* libz.dylib */; };
 		085E2C3317A84E47007A9847 /* icon-57-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 085E2C2C17A84E47007A9847 /* icon-57-2x.png */; };
 		085E2C3417A84E47007A9847 /* icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 085E2C2D17A84E47007A9847 /* icon-57.png */; };
@@ -105,16 +110,15 @@
 /* Begin PBXFileReference section */
 		03B3C437EB64412783868802 /* CDVSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSplashScreen.h; path = org.apache.cordova.splashscreen/CDVSplashScreen.h; sourceTree = "<group>"; };
 		08168BF817E920A500347F67 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		081D505218CA79D60023EBE4 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		081D505318CA79D60023EBE4 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		081D505418CA79D60023EBE4 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		081D505518CA79D60023EBE4 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		0822347B17AC32B4009F2FC5 /* TapToScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapToScroll.h; sourceTree = "<group>"; };
 		0822347C17AC32B4009F2FC5 /* TapToScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapToScroll.m; sourceTree = "<group>"; };
 		082881A81848E33C00F85CB5 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		083F34F818BD353F00B45CD4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		083F34FA18BD38B500B45CD4 /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookConnectPlugin.h; sourceTree = "<group>"; };
 		083F34FB18BD38B500B45CD4 /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookConnectPlugin.m; sourceTree = "<group>"; };
+		0844A88518F4CEF300D8058A /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
+		0844A88718F4CEF300D8058A /* HockeySDK.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
+		0844A88818F4CEF300D8058A /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
 		085C86B017B3285D00A40B53 /* lazydylib1.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = lazydylib1.o; path = usr/lib/lazydylib1.o; sourceTree = SDKROOT; };
 		085C86B217B3288500A40B53 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		085C86B617B32F7D00A40B53 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -224,12 +228,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0844A88318F4CEC100D8058A /* Security.framework in Frameworks */,
+				0844A88218F4CEBC00D8058A /* QuartzCore.framework in Frameworks */,
+				0844A88118F4CEB700D8058A /* CoreText.framework in Frameworks */,
 				08BDDD7618BD342D00F99371 /* AdSupport.framework in Frameworks */,
 				082881AB1848EE6500F85CB5 /* CoreTelephony.framework in Frameworks */,
 				082881AA1848EE5200F85CB5 /* CoreGraphics.framework in Frameworks */,
 				082371ED1835A31E00F04A1E /* SystemConfiguration.framework in Frameworks */,
 				082371E51835A14B00F04A1E /* AudioToolbox.framework in Frameworks */,
-				081D505618CA79D60023EBE4 /* libTestFlight.a in Frameworks */,
 				085C86B317B3288500A40B53 /* libz.dylib in Frameworks */,
 				08AB49B6181A124A0084A835 /* balanced.a in Frameworks */,
 				085E2CA717A85D14007A9847 /* Accounts.framework in Frameworks */,
@@ -242,6 +248,7 @@
 				301BF5B5109A6A2B0062928A /* AddressBook.framework in Frameworks */,
 				301BF5B7109A6A2B0062928A /* AddressBookUI.framework in Frameworks */,
 				301BF5BB109A6A2B0062928A /* AVFoundation.framework in Frameworks */,
+				0844A88918F4CEF300D8058A /* HockeySDK.framework in Frameworks */,
 				301BF5BD109A6A2B0062928A /* CFNetwork.framework in Frameworks */,
 				301BF5C1109A6A2B0062928A /* MediaPlayer.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
@@ -259,10 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				302D95EE14D2391D003F00A1 /* MainViewController.h */,
-				081D505218CA79D60023EBE4 /* libTestFlight.a */,
-				081D505318CA79D60023EBE4 /* TestFlight.h */,
-				081D505418CA79D60023EBE4 /* TestFlight+AsyncLogging.h */,
-				081D505518CA79D60023EBE4 /* TestFlight+ManualSessions.h */,
 				302D95EF14D2391D003F00A1 /* MainViewController.m */,
 				302D95F014D2391D003F00A1 /* MainViewController.xib */,
 				1D3623240D0F684500981E51 /* AppDelegate.h */,
@@ -271,6 +274,25 @@
 			name = Classes;
 			path = Crunchbutton/Classes;
 			sourceTree = SOURCE_ROOT;
+		};
+		0844A88418F4CEF300D8058A /* HockeySDK.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				0844A88518F4CEF300D8058A /* HockeySDK.framework */,
+				0844A88618F4CEF300D8058A /* Resources */,
+			);
+			name = HockeySDK.embeddedframework;
+			path = "HockeySDK-iOS/HockeySDK.embeddedframework";
+			sourceTree = "<group>";
+		};
+		0844A88618F4CEF300D8058A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0844A88718F4CEF300D8058A /* HockeySDK.xcconfig */,
+				0844A88818F4CEF300D8058A /* HockeySDKResources.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
@@ -344,6 +366,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0844A88418F4CEF300D8058A /* HockeySDK.embeddedframework */,
 				083F34F818BD353F00B45CD4 /* FacebookSDK.framework */,
 				082881A81848E33C00F85CB5 /* CoreText.framework */,
 				08AB49B5181A124A0084A835 /* balanced.a */,
@@ -496,6 +519,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				0844A88018F4CE8200D8058A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -596,9 +620,11 @@
 				085E2C7217A851F9007A9847 /* Default@2x~iphone.png in Resources */,
 				085E2C6E17A851F9007A9847 /* Default-Landscape@2x~ipad.png in Resources */,
 				085E2C4A17A8504E007A9847 /* icon-57-2x.png in Resources */,
+				0844A88B18F4CEF300D8058A /* HockeySDKResources.bundle in Resources */,
 				085E2C6F17A851F9007A9847 /* Default-Landscape~ipad.png in Resources */,
 				085E2C5017A8504E007A9847 /* icon-80.png in Resources */,
 				085E2C3817A84E47007A9847 /* icon-120.png in Resources */,
+				0844A88A18F4CEF300D8058A /* HockeySDK.xcconfig in Resources */,
 				085E2C4C17A8504E007A9847 /* icon-58.png in Resources */,
 				085E2C4B17A8504E007A9847 /* icon-57.png in Resources */,
 				FE6B096147BA405CAD0B363F /* CDVNotification.bundle in Resources */,
@@ -610,6 +636,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0844A88018F4CE8200D8058A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FILE=\"${SRCROOT}/HockeySDK-iOS/BuildAgent\"\nif [ -f \"$FILE\" ]; then\n\"$FILE\"\nfi";
+		};
 		089A1CCD183C09A1003216C1 /* Build.php */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -723,6 +762,7 @@
 					"$(inherited)",
 					/Users/arzynik/Development/ios/crunchbutton/platforms/ios,
 					/Users/arzynik/Documents/FacebookSDK,
+					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -774,6 +814,7 @@
 					"$(inherited)",
 					/Users/arzynik/Development/ios/crunchbutton/platforms/ios,
 					/Users/arzynik/Documents/FacebookSDK,
+					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Crunchbutton/Crunchbutton-Prefix.pch";
