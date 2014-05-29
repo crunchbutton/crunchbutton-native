@@ -164,12 +164,12 @@ $(function() {
 		if (localStorage.loggedIn) {
 			navigator.splashscreen.hide();
 		}
-		
+
+		// 3d menu effects slow on older devices #3106
 		if( navigator && navigator.Sysinfo && navigator.Sysinfo.getInfo ){
 			navigator.Sysinfo.getInfo( function( info ){
 				if( info && info.cpuInfo && info.cpuInfo.mhz ){
 					var mhz = parseInt( info.cpuInfo.mhz );
-					// 3d menu effects slow on older devices #3106
 					if( mhz <= 1200 || !App.isVersionCompatible( '2', window.device.version ) ){
 						App.useTransform = false;
 						console.log('navigator.Sysinfo.getInfo: ' + mhz );
