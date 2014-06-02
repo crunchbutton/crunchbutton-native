@@ -10,7 +10,7 @@ import com.balancedpayments.android.Card;
 
 public class BalancedPlugin extends CordovaPlugin {
 
-	private String marketplaceURI = "/v1/marketplaces/TEST-MP87deQgmIr46omxRRF4KGO";
+	private String marketplaceURI = "/1.1/marketplaces/TEST-MP6kDcB0F9VsdCGOwYMicIz";
 	
     public BalancedPlugin() {}
 
