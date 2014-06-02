@@ -6,3 +6,5 @@ build
 www/phonegap.js
 _old
 *.xcuserstate
+*.phar*
+platforms/ios/www/*
