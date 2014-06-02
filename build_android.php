@@ -6,6 +6,7 @@
  * requires php, wget, gunzip
  *
  */
+die('messy! messy! messy! messy!');
 
 echo "Are you building for live? Type 'y' if you are: ";
 $handle = fopen ("php://stdin","r");

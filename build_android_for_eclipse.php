@@ -1,4 +1,4 @@
-#!/usr/bin/env php
+#!/usr/bin/php
 <?php
 /**
  * This script just download and copy the stuff to the platform/android/assets folder
@@ -65,10 +65,10 @@ echo "Downloading assets bundle...\n";
 
 function download($file, $dst = null, $usegzip = false) {
 	global $server, $path, $curpath;
-	
+
 	$parts = pathinfo($path.'assets/'.$file);
 	$dstpath = $dst !== null ? $path.$dst.$parts['basename'] : $path.'assets/'.$file;
-	
+
 	echo '	'.$file.'... ';
 
 	if (!file_exists($parts['dirname'])) {
