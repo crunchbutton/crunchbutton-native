@@ -204,6 +204,20 @@ $(function() {
 				return;
 			}
 
+			// Run it at first to when the animation is enable it doesnt jump the image backgroup
+			if( App.isAndroid() ){
+				if( App.parallax.pause ){
+					return;
+				}
+				if( App.parallax.first ){
+					App.parallax.first = false;
+					App.parallax.pause = true;
+					setTimeout( function(){
+						App.parallax.pause = false;
+					}, 3500 );
+				}
+			}
+
 			var beta = orientationEvent.beta;
 			var gamma = orientationEvent.gamma;
 			//get the rotation around the x and y axes from the orientation event
@@ -258,13 +272,19 @@ $(function() {
 				yImagePosition = 0;
 			}
 
-			$('.parallax-bg').css({
+			// stop previous animation
+			$('.parallax-bg').stop();
+
+			$('.parallax-bg').animate({
 				'background-position-x': xImagePosition,
 				'background-position-y': yImagePosition
 			});
 		}
 
 		App.parallax.setupBackgroundImage = function(el) {
+
+			App.parallax.pause = false;
+			App.parallax.first = true;
 
 			App.parallax.bg = el;
 
