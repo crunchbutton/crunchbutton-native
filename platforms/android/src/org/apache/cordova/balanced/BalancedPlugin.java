@@ -20,10 +20,13 @@ import java.util.Map;
 public class BalancedPlugin extends CordovaPlugin {
 
 	private static String TAG = "BalancedPlugin";
+	//	beta	
+//	private String marketplaceURI = "/1.1/marketplaces/TEST-MP6kDcB0F9VsdCGOwYMicIz";
 	
-	private String marketplaceURI = "/1.1/marketplaces/TEST-MP6kDcB0F9VsdCGOwYMicIz";
+	//	live
+	private String marketplaceURI = "/1.1/marketplaces/MP2BldrjHz0NLH3st95JbeR0";
 	
-    public BalancedPlugin() {}
+	public BalancedPlugin() {}
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
