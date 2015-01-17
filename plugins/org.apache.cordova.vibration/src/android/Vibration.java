@@ -48,12 +48,27 @@ public class Vibration extends CordovaPlugin {
         if (action.equals("vibrate")) {
             this.vibrate(args.getLong(0));
         }
+        else if (action.equals("vibrateWithPattern")) {
+            JSONArray pattern = args.getJSONArray(0);
+            int repeat = args.getInt(1);
+            //add a 0 at the beginning of pattern to align with w3c
+            long[] patternArray = new long[pattern.length()+1];
+            patternArray[0] = 0;
+            for (int i = 0; i < pattern.length(); i++) {
+                patternArray[i+1] = pattern.getLong(i);
+            }
+            this.vibrateWithPattern(patternArray, repeat);
+        }
+        else if (action.equals("cancelVibration")) {
+            this.cancelVibration();
+        }
         else {
             return false;
         }
 
         // Only alert and confirm are async.
         callbackContext.success();
+
         return true;
     }
 
@@ -62,7 +77,7 @@ public class Vibration extends CordovaPlugin {
     //--------------------------------------------------------------------------
 
     /**
-     * Vibrates the device for the specified amount of time.
+     * Vibrates the device for a given amount of time.
      *
      * @param time      Time to vibrate in ms.
      */
@@ -73,5 +88,39 @@ public class Vibration extends CordovaPlugin {
         }
         Vibrator vibrator = (Vibrator) this.cordova.getActivity().getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(time);
+    }
+
+    /**
+     * Vibrates the device with a given pattern.
+     *
+     * @param pattern     Pattern with which to vibrate the device.
+     *                    Pass in an array of longs that
+     *                    are the durations for which to
+     *                    turn on or off the vibrator in
+     *                    milliseconds. The first value
+     *                    indicates the number of milliseconds
+     *                    to wait before turning the vibrator
+     *                    on. The next value indicates the
+     *                    number of milliseconds for which
+     *                    to keep the vibrator on before
+     *                    turning it off. Subsequent values
+     *                    alternate between durations in
+     *                    milliseconds to turn the vibrator
+     *                    off or to turn the vibrator on.
+     *
+     * @param repeat      Optional index into the pattern array at which
+     *                    to start repeating, or -1 for no repetition (default).
+     */
+    public void vibrateWithPattern(long[] pattern, int repeat) {
+        Vibrator vibrator = (Vibrator) this.cordova.getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.vibrate(pattern, repeat);
+    }
+
+    /**
+     * Immediately cancels any currently running vibration.
+     */
+    public void cancelVibration() {
+        Vibrator vibrator = (Vibrator) this.cordova.getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.cancel();
     }
 }

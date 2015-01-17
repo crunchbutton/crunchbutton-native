@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+      id="net.bgta.phonegap.plugin.appversion"
+      version="1.1.1">
+
+    <name>AppVersion</name>
+    <description>Application Version</description>
+    <keywords>application,versions</keywords>
+    <author>Raúl Romero García</author>
+    <license>MIT</license>
+	
+    <engines>
+         <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    
+    <js-module src="www/AppVersion.js" name="AppVersion">
+    	<clobbers target="window.getAppVersion" />
+    </js-module>
+    
+    <platform name="android">
+	<source-file src="src/android/AppVersion.java" target-dir="src/net/bgta/phonegap/plugins"/>
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AppVersion"> 
+                <param name="android-package" value="net.bgta.phonegap.plugins.AppVersion"/>
+            </feature>
+        </config-file>
+    </platform>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+          <feature name="AppVersion">
+            <param name="ios-package" value="AppVersion"/>
+          </feature>
+        </config-file>
+	<source-file src="src/ios/AppVersion.m" />
+	<header-file src="src/ios/AppVersion.h" />
+	<framework src="Foundation.framework" />
+	<framework src="QuickLook.framework" />
+    </platform>
+</plugin>

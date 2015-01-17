@@ -31,20 +31,16 @@ function InAppBrowser() {
         'loaderror' : channel.create('loaderror'),
         'exit' : channel.create('exit')
    };
-   this._alive = true;
 }
 
 InAppBrowser.prototype = {
     _eventHandler: function (event) {
-        if (event.type in this.channels) {
+        if (event && (event.type in this.channels)) {
             this.channels[event.type].fire(event);
         }
     },
     close: function (eventname) {
-        if (this._alive) {
-            this._alive = false;
-            exec(null, null, "InAppBrowser", "close", []);
-        }
+        exec(null, null, "InAppBrowser", "close", []);
     },
     show: function (eventname) {
       exec(null, null, "InAppBrowser", "show", []);
@@ -81,7 +77,7 @@ InAppBrowser.prototype = {
     }
 };
 
-module.exports = function(strUrl, strWindowName, strWindowFeatures) {
+module.exports = function(strUrl, strWindowName, strWindowFeatures, callbacks) {
     // Don't catch calls that write to existing frames (e.g. named iframes).
     if (window.frames && window.frames[strWindowName]) {
         var origOpenFunc = modulemapper.getOriginalSymbol(window, 'open');
@@ -90,9 +86,17 @@ module.exports = function(strUrl, strWindowName, strWindowFeatures) {
 
     strUrl = urlutil.makeAbsolute(strUrl);
     var iab = new InAppBrowser();
+
+    callbacks = callbacks || {};
+    for (var callbackName in callbacks) {
+        iab.addEventListener(callbackName, callbacks[callbackName]);
+    }
+
     var cb = function(eventname) {
        iab._eventHandler(eventname);
     };
+
+    strWindowFeatures = strWindowFeatures || "";
 
     exec(cb, cb, "InAppBrowser", "open", [strUrl, strWindowName, strWindowFeatures]);
     return iab;

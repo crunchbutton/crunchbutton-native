@@ -9,12 +9,10 @@
  */
 
 $curpath = getcwd();
-if (preg_match('/platforms\/ios/',$curpath)) {
-	$ap = '../../';
-}
+
 $server = 'http://seven.localhost/';
-$srcPath = $ap.'./www_source/';
-$path = $ap.'./platforms/ios/www/';
+$srcPath = $curpath.'/www_source/';
+$path = $curpath.'/www/';
 $live = $argv[1] == 'live' ? true : false;
 
 
@@ -116,6 +114,7 @@ file_put_contents($path.'index.js', $index);
 
 
 // replace playlist values
+/*
 echo "Building info plist...\n";
 $replaces = [
 	'FacebookAppID' => $config->facebook,
@@ -148,7 +147,7 @@ echo "Building balanced plugin...\n";
 $bal = file_get_contents($path.'../Crunchbutton/Plugins/BalancedPlugin.m');
 $bal = preg_replace('/(NSString\* balancedId = @").*("\;)/','\\1'.$config->balanced.'\\2',$bal);
 file_put_contents($path.'../Crunchbutton/Plugins/BalancedPlugin.m', $bal);
-
+*/
 
 // yay
 echo "\033[32m".($live ? 'LIVE' : 'BETA')." build complete!\033[37m

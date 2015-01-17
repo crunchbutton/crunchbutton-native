@@ -52,7 +52,7 @@
 @synthesize webView, supportedOrientations;
 @synthesize pluginObjects, pluginsMap, whitelist, startupPluginNames;
 @synthesize configParser, settings, loadFromString;
-@synthesize wwwFolderName, startPage, initialized, openURL;
+@synthesize wwwFolderName, startPage, initialized, openURL, baseUserAgent;
 @synthesize commandDelegate = _commandDelegate;
 @synthesize commandQueue = _commandQueue;
 
@@ -72,14 +72,16 @@
                                                      name:UIApplicationWillEnterForegroundNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidEnterBackground:)
                                                      name:UIApplicationDidEnterBackgroundNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleOpenURL:) name:CDVPluginHandleOpenURLNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPageDidLoad:)
+                                                     name:CDVPageDidLoadNotification object:nil];
 
         // read from UISupportedInterfaceOrientations (or UISupportedInterfaceOrientations~iPad, if its iPad) from -Info.plist
         self.supportedOrientations = [self parseInterfaceOrientations:
             [[[NSBundle mainBundle] infoDictionary] objectForKey:@"UISupportedInterfaceOrientations"]];
 
+        [self printVersion];
         [self printMultitaskingInfo];
-        [self printDeprecationNotice];
+        [self printPlatformVersionWarning];
         self.initialized = YES;
 
         // load config.xml settings
@@ -116,100 +118,17 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-
-    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
-    [nc removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [nc removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
-CGFloat gAccessoryBarHeight = 0.0;
-- (void)hideKeyboardFormAccessoryBarStart:(NSNotification*)notif
+- (void)printVersion
 {
-    NSArray* windows = [[UIApplication sharedApplication] windows];
-
-    for (UIWindow* window in windows) {
-        for (UIView* view in window.subviews) {
-            if ([[view description] hasPrefix:@"<UIPeripheralHostView"]) {
-                for (UIView* peripheralView in view.subviews) {
-                    // hides the backdrop (iOS 7)
-                    if ([[peripheralView description] hasPrefix:@"<UIKBInputBackdropView"]) {
-                        [[peripheralView layer] setOpacity:0.0];
-                    }
-
-                    // hides the accessory bar
-                    if ([[peripheralView description] hasPrefix:@"<UIWebFormAccessory"]) {
-                        // remove the extra scroll space for the form accessory bar
-                        CGRect newFrame = self.webView.scrollView.frame;
-                        newFrame.size.height += peripheralView.frame.size.height;
-                        self.webView.scrollView.frame = newFrame;
-
-                        gAccessoryBarHeight = peripheralView.frame.size.height;
-
-                        // remove the form accessory bar
-                        [peripheralView removeFromSuperview];
-                    }
-                    // hides the thin grey line used to adorn the bar (iOS 6)
-                    if ([[peripheralView description] hasPrefix:@"<UIImageView"]) {
-                        [[peripheralView layer] setOpacity:0.0];
-                    }
-                }
-            }
-        }
-    }
+    NSLog(@"Apache Cordova native platform version %@ is starting.", CDV_VERSION);
 }
 
-- (void)hideKeyboardFormAccessoryBarEnd:(NSNotification*)notif
+- (void)printPlatformVersionWarning
 {
-    // restore the scrollview frame
-    self.webView.scrollView.frame = self.webView.frame;
-}
-
-- (void)keyboardWillShow:(NSNotification*)notif
-{
-    if (![@"true" isEqualToString :[self settingForKey:@"KeyboardShrinksView"]]) {
-        return;
-    }
-
-    CGRect keyboardFrame = [notif.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    keyboardFrame = [self.view convertRect:keyboardFrame fromView:nil];
-
-    CGRect newFrame = self.view.bounds;
-    CGFloat accessoryHeight = gAccessoryBarHeight;
-    CGFloat actualKeyboardHeight = (keyboardFrame.size.height - accessoryHeight);
-    newFrame.size.height -= actualKeyboardHeight;
-
-    self.webView.frame = newFrame;
-    self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-
-    BOOL disableScrollingWhenKeyboardShrinksView = [@"true" isEqualToString :[self settingForKey:@"DisableScrollingWhenKeyboardShrinksView"]];
-    if (disableScrollingWhenKeyboardShrinksView) {
-        self.webView.scrollView.scrollEnabled = NO;
-    }
-}
-
-- (void)keyboardWillHide:(NSNotification*)notif
-{
-    if (![@"true" isEqualToString :[self settingForKey:@"KeyboardShrinksView"]]) {
-        return;
-    }
-
-    BOOL disableScrollingWhenKeyboardShrinksView = [@"true" isEqualToString :[self settingForKey:@"DisableScrollingWhenKeyboardShrinksView"]];
-    if (disableScrollingWhenKeyboardShrinksView) {
-        self.webView.scrollView.scrollEnabled = YES;
-    }
-
-    CGRect keyboardFrame = [notif.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    keyboardFrame = [self.view convertRect:keyboardFrame fromView:nil];
-
-    CGRect newFrame = self.view.bounds;
-    self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    self.webView.frame = newFrame;
-}
-
-- (void)printDeprecationNotice
-{
-    if (!IsAtLeastiOSVersion(@"5.0")) {
-        NSLog(@"CRITICAL: For Cordova 2.0, you will need to upgrade to at least iOS 5.0 or greater. Your current version of iOS is %@.",
+    if (!IsAtLeastiOSVersion(@"6.0")) {
+        NSLog(@"CRITICAL: For Cordova 3.5.0 and above, you will need to upgrade to at least iOS 6.0 or greater. Your current version of iOS is %@.",
             [[UIDevice currentDevice] systemVersion]
             );
     }
@@ -280,13 +199,9 @@ CGFloat gAccessoryBarHeight = 0.0;
     self.pluginObjects = [[NSMutableDictionary alloc] initWithCapacity:20];
 }
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
+- (NSURL*)appUrl
 {
-    [super viewDidLoad];
-
     NSURL* appURL = nil;
-    NSString* loadErr = nil;
 
     if ([self.startPage rangeOfString:@"://"].location != NSNotFound) {
         appURL = [NSURL URLWithString:self.startPage];
@@ -298,17 +213,49 @@ CGFloat gAccessoryBarHeight = 0.0;
         NSString* startFilePath = [self.commandDelegate pathForResource:[startURL path]];
 
         if (startFilePath == nil) {
-            loadErr = [NSString stringWithFormat:@"ERROR: Start Page at '%@/%@' was not found.", self.wwwFolderName, self.startPage];
-            NSLog(@"%@", loadErr);
             self.loadFromString = YES;
             appURL = nil;
         } else {
-            // CB-3005 we know that the page exists : reconstruct full path from bundle
-            NSURL* relativeURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
-            NSString* localURL = [NSString stringWithFormat:@"%@/%@", self.wwwFolderName, self.startPage];
-            appURL = [NSURL URLWithString:localURL relativeToURL:relativeURL];
+            appURL = [NSURL fileURLWithPath:startFilePath];
+            // CB-3005 Add on the query params or fragment.
+            NSString* startPageNoParentDirs = self.startPage;
+            NSRange r = [startPageNoParentDirs rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"?#"] options:0];
+            if (r.location != NSNotFound) {
+                NSString* queryAndOrFragment = [self.startPage substringFromIndex:r.location];
+                appURL = [NSURL URLWithString:queryAndOrFragment relativeToURL:appURL];
+            }
         }
     }
+
+    return appURL;
+}
+
+- (NSURL*)errorUrl
+{
+    NSURL* errorURL = nil;
+
+    id setting = [self settingForKey:@"ErrorUrl"];
+
+    if (setting) {
+        NSString* errorUrlString = (NSString*)setting;
+        if ([errorUrlString rangeOfString:@"://"].location != NSNotFound) {
+            errorURL = [NSURL URLWithString:errorUrlString];
+        } else {
+            NSURL* url = [NSURL URLWithString:(NSString*)setting];
+            NSString* errorFilePath = [self.commandDelegate pathForResource:[url path]];
+            if (errorFilePath) {
+                errorURL = [NSURL fileURLWithPath:errorFilePath];
+            }
+        }
+    }
+
+    return errorURL;
+}
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
 
     // // Fix the iOS 5.1 SECURITY_ERR bug (CB-347), this must be before the webView is instantiated ////
 
@@ -326,7 +273,16 @@ CGFloat gAccessoryBarHeight = 0.0;
 
     // // Instantiate the WebView ///////////////
 
-    [self createGapView];
+    if (!self.webView) {
+        [self createGapView];
+    }
+
+    // Configure WebView
+    _webViewDelegate = [[CDVWebViewDelegate alloc] initWithDelegate:self];
+    self.webView.delegate = _webViewDelegate;
+
+    // register this viewcontroller with the NSURLProtocol, only after the User-Agent is set
+    [CDVURLProtocol registerViewController:self];
 
     // /////////////////
 
@@ -336,46 +292,8 @@ CGFloat gAccessoryBarHeight = 0.0;
     if ([self settingForKey:@"MediaPlaybackRequiresUserAction"]) {
         mediaPlaybackRequiresUserAction = [(NSNumber*)[self settingForKey:@"MediaPlaybackRequiresUserAction"] boolValue];
     }
-    BOOL hideKeyboardFormAccessoryBar = NO;  // default value
-    if ([self settingForKey:@"HideKeyboardFormAccessoryBar"]) {
-        hideKeyboardFormAccessoryBar = [(NSNumber*)[self settingForKey:@"HideKeyboardFormAccessoryBar"] boolValue];
-    }
 
     self.webView.scalesPageToFit = [enableViewportScale boolValue];
-
-    /*
-     * Fire up the GPS Service right away as it takes a moment for data to come back.
-     */
-    __weak CDVViewController* weakSelf = self;
-
-    if (hideKeyboardFormAccessoryBar) {
-        [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification
-                                                          object:nil
-                                                           queue:[NSOperationQueue mainQueue]
-                                                      usingBlock:^(NSNotification* notification) {
-            // we can't hide it here because the accessory bar hasn't been created yet, so we delay on the queue
-            [weakSelf performSelector:@selector(hideKeyboardFormAccessoryBarStart:) withObject:notification afterDelay:0];
-        }];
-        [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillHideNotification
-                                                          object:nil
-                                                           queue:[NSOperationQueue mainQueue]
-                                                      usingBlock:^(NSNotification* notification) {
-                                                          [weakSelf hideKeyboardFormAccessoryBarEnd:notification];
-        }];
-    }
-
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification
-                                                      object:nil
-                                                       queue:[NSOperationQueue mainQueue]
-                                                  usingBlock:^(NSNotification* notification) {
-        [weakSelf performSelector:@selector(keyboardWillShow:) withObject:notification afterDelay:0];
-    }];
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillHideNotification
-                                                      object:nil
-                                                       queue:[NSOperationQueue mainQueue]
-                                                  usingBlock:^(NSNotification* notification) {
-        [weakSelf performSelector:@selector(keyboardWillHide:) withObject:notification afterDelay:0];
-    }];
 
     /*
      * Fire up CDVLocalStorage to work-around WebKit storage limitations: on all iOS 5.1+ versions for local-only backups, but only needed on iOS 5.1 for cloud backup.
@@ -418,6 +336,11 @@ CGFloat gAccessoryBarHeight = 0.0;
                 }
             }
         }
+    }
+
+    NSString* decelerationSetting = [self settingForKey:@"UIWebViewDecelerationSpeed"];
+    if (![@"fast" isEqualToString:decelerationSetting]) {
+        [self.webView.scrollView setDecelerationRate:UIScrollViewDecelerationRateNormal];
     }
 
     /*
@@ -538,15 +461,27 @@ CGFloat gAccessoryBarHeight = 0.0;
     }
 
     // /////////////////
+    NSURL* appURL = [self appUrl];
+
     [CDVUserAgentUtil acquireLock:^(NSInteger lockToken) {
         _userAgentLockToken = lockToken;
         [CDVUserAgentUtil setUserAgent:self.userAgent lockToken:lockToken];
-        if (!loadErr) {
+        if (appURL) {
             NSURLRequest* appReq = [NSURLRequest requestWithURL:appURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
             [self.webView loadRequest:appReq];
         } else {
-            NSString* html = [NSString stringWithFormat:@"<html><body> %@ </body></html>", loadErr];
-            [self.webView loadHTMLString:html baseURL:nil];
+            NSString* loadErr = [NSString stringWithFormat:@"ERROR: Start Page at '%@/%@' was not found.", self.wwwFolderName, self.startPage];
+            NSLog(@"%@", loadErr);
+
+            NSURL* errorUrl = [self errorUrl];
+            if (errorUrl) {
+                errorUrl = [NSURL URLWithString:[NSString stringWithFormat:@"?error=%@", [loadErr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] relativeToURL:errorUrl];
+                NSLog(@"%@", [errorUrl absoluteString]);
+                [self.webView loadRequest:[NSURLRequest requestWithURL:errorUrl]];
+            } else {
+                NSString* html = [NSString stringWithFormat:@"<html><body> %@ </body></html>", loadErr];
+                [self.webView loadHTMLString:html baseURL:nil];
+            }
         }
     }];
 }
@@ -614,8 +549,8 @@ CGFloat gAccessoryBarHeight = 0.0;
 {
     // First, ask the webview via JS if it supports the new orientation
     NSString* jsCall = [NSString stringWithFormat:
-        @"window.shouldRotateToOrientation && window.shouldRotateToOrientation(%d);"
-        , [self mapIosOrientationToJsOrientation:interfaceOrientation]];
+        @"window.shouldRotateToOrientation && window.shouldRotateToOrientation(%ld);"
+        , (long)[self mapIosOrientationToJsOrientation:interfaceOrientation]];
     NSString* res = [webView stringByEvaluatingJavaScriptFromString:jsCall];
 
     if ([res length] > 0) {
@@ -664,9 +599,14 @@ CGFloat gAccessoryBarHeight = 0.0;
 - (NSString*)userAgent
 {
     if (_userAgent == nil) {
-        NSString* originalUserAgent = [CDVUserAgentUtil originalUserAgent];
+        NSString* localBaseUserAgent;
+        if (self.baseUserAgent != nil) {
+            localBaseUserAgent = self.baseUserAgent;
+        } else {
+            localBaseUserAgent = [CDVUserAgentUtil originalUserAgent];
+        }
         // Use our address as a unique number to append to the User-Agent.
-        _userAgent = [NSString stringWithFormat:@"%@ (%lld)", originalUserAgent, (long long)self];
+        _userAgent = [NSString stringWithFormat:@"%@ (%lld)", localBaseUserAgent, (long long)self];
     }
     return _userAgent;
 }
@@ -677,19 +617,11 @@ CGFloat gAccessoryBarHeight = 0.0;
 
     webViewBounds.origin = self.view.bounds.origin;
 
-    if (!self.webView) {
-        self.webView = [self newCordovaViewWithFrame:webViewBounds];
-        self.webView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    self.webView = [self newCordovaViewWithFrame:webViewBounds];
+    self.webView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 
-        [self.view addSubview:self.webView];
-        [self.view sendSubviewToBack:self.webView];
-
-        _webViewDelegate = [[CDVWebViewDelegate alloc] initWithDelegate:self];
-        self.webView.delegate = _webViewDelegate;
-
-        // register this viewcontroller with the NSURLProtocol, only after the User-Agent is set
-        [CDVURLProtocol registerViewController:self];
-    }
+    [self.view addSubview:self.webView];
+    [self.view sendSubviewToBack:self.webView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -725,6 +657,8 @@ CGFloat gAccessoryBarHeight = 0.0;
     self.webView.delegate = nil;
     self.webView = nil;
     [CDVUserAgentUtil releaseLock:&_userAgentLockToken];
+
+    [super viewDidUnload];
 }
 
 #pragma mark UIWebViewDelegate
@@ -754,8 +688,6 @@ CGFloat gAccessoryBarHeight = 0.0;
      */
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
-    [self processOpenUrl];
-
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:CDVPageDidLoadNotification object:self.webView]];
 }
 
@@ -763,7 +695,15 @@ CGFloat gAccessoryBarHeight = 0.0;
 {
     [CDVUserAgentUtil releaseLock:&_userAgentLockToken];
 
-    NSLog(@"Failed to load webpage with error: %@", [error localizedDescription]);
+    NSString* message = [NSString stringWithFormat:@"Failed to load webpage with error: %@", [error localizedDescription]];
+    NSLog(@"%@", message);
+
+    NSURL* errorUrl = [self errorUrl];
+    if (errorUrl) {
+        errorUrl = [NSURL URLWithString:[NSString stringWithFormat:@"?error=%@", [message stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] relativeToURL:errorUrl];
+        NSLog(@"%@", [errorUrl absoluteString]);
+        [theWebView loadRequest:[NSURLRequest requestWithURL:errorUrl]];
+    }
 }
 
 - (BOOL)webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
@@ -776,6 +716,33 @@ CGFloat gAccessoryBarHeight = 0.0;
      */
     if ([[url scheme] isEqualToString:@"gap"]) {
         [_commandQueue fetchCommandsFromJs];
+        // The delegate is called asynchronously in this case, so we don't have to use
+        // flushCommandQueueWithDelayedJs (setTimeout(0)) as we do with hash changes.
+        [_commandQueue executePending];
+        return NO;
+    }
+
+    if ([[url fragment] hasPrefix:@"%01"] || [[url fragment] hasPrefix:@"%02"]) {
+        // Delegate is called *immediately* for hash changes. This means that any
+        // calls to stringByEvaluatingJavascriptFromString will occur in the middle
+        // of an existing (paused) call stack. This doesn't cause errors, but may
+        // be unexpected to callers (exec callbacks will be called before exec() even
+        // returns). To avoid this, we do not do any synchronous JS evals by using
+        // flushCommandQueueWithDelayedJs.
+        NSString* inlineCommands = [[url fragment] substringFromIndex:3];
+        if ([inlineCommands length] == 0) {
+            // Reach in right away since the WebCore / Main thread are already synchronized.
+            [_commandQueue fetchCommandsFromJs];
+        } else {
+            inlineCommands = [inlineCommands stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            [_commandQueue enqueueCommandBatch:inlineCommands];
+        }
+        // Switch these for minor performance improvements, and to really live on the wild side.
+        // Callbacks will occur in the middle of the location.hash = ... statement!
+        [(CDVCommandDelegateImpl*)_commandDelegate flushCommandQueueWithDelayedJs];
+        // [_commandQueue executePending];
+
+        // Although we return NO, the hash change does end up taking effect.
         return NO;
     }
 
@@ -786,7 +753,7 @@ CGFloat gAccessoryBarHeight = 0.0;
         CDVPlugin* plugin = [pluginObjects objectForKey:pluginName];
         SEL selector = NSSelectorFromString(@"shouldOverrideLoadWithRequest:navigationType:");
         if ([plugin respondsToSelector:selector]) {
-            if ((BOOL)objc_msgSend(plugin, selector, request, navigationType) == YES) {
+            if (((BOOL (*)(id, SEL, id, int))objc_msgSend)(plugin, selector, request, navigationType) == YES) {
                 return NO;
             }
         }
@@ -857,27 +824,10 @@ CGFloat gAccessoryBarHeight = 0.0;
     [self.commandDelegate evalJs:jsString];
 }
 
-+ (NSString*)resolveImageResource:(NSString*)resource
-{
-    NSString* systemVersion = [[UIDevice currentDevice] systemVersion];
-    BOOL isLessThaniOS4 = ([systemVersion compare:@"4.0" options:NSNumericSearch] == NSOrderedAscending);
-
-    // the iPad image (nor retina) differentiation code was not in 3.x, and we have to explicitly set the path
-    if (isLessThaniOS4) {
-        if (CDV_IsIPad()) {
-            return [NSString stringWithFormat:@"%@~ipad.png", resource];
-        } else {
-            return [NSString stringWithFormat:@"%@.png", resource];
-        }
-    }
-
-    return resource;
-}
-
 + (NSString*)applicationDocumentsDirectory
 {
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSString* basePath = (([paths count] > 0) ? ([paths objectAtIndex : 0]) : nil);
 
     return basePath;
 }
@@ -1048,19 +998,35 @@ CGFloat gAccessoryBarHeight = 0.0;
 
 // ///////////////////////
 
-- (void)handleOpenURL:(NSNotification*)notification
-{
-    self.openURL = notification.object;
-}
-
-- (void)processOpenUrl
+- (void)onPageDidLoad:(NSNotification*)notification
 {
     if (self.openURL) {
-        // calls into javascript global function 'handleOpenURL'
-        NSString* jsString = [NSString stringWithFormat:@"handleOpenURL(\"%@\");", [self.openURL description]];
-        [self.webView stringByEvaluatingJavaScriptFromString:jsString];
+        [self processOpenUrl:self.openURL pageLoaded:YES];
         self.openURL = nil;
     }
+}
+
+- (void)processOpenUrl:(NSURL*)url pageLoaded:(BOOL)pageLoaded
+{
+    if (!pageLoaded) {
+        // query the webview for readystate
+        NSString* readyState = [webView stringByEvaluatingJavaScriptFromString:@"document.readyState"];
+        pageLoaded = [readyState isEqualToString:@"loaded"] || [readyState isEqualToString:@"complete"];
+    }
+
+    if (pageLoaded) {
+        // calls into javascript global function 'handleOpenURL'
+        NSString* jsString = [NSString stringWithFormat:@"if (typeof handleOpenURL === 'function') { handleOpenURL(\"%@\");}", url];
+        [self.webView stringByEvaluatingJavaScriptFromString:jsString];
+    } else {
+        // save for when page has loaded
+        self.openURL = url;
+    }
+}
+
+- (void)processOpenUrl:(NSURL*)url
+{
+    [self processOpenUrl:url pageLoaded:NO];
 }
 
 // ///////////////////////

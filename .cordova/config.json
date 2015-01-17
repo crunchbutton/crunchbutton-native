@@ -1,1 +1,10 @@
-{"lib":{"www":{"id":"phonegap","version":"3.1.0","uri":"https://github.com/phonegap/phonegap-app-hello-world/archive/3.1.0.tar.gz"}},"id":"com.crunchbutton","name":"Crunchbutton","phonegap":{"id":504515}}
+{
+    "lib": {
+        "www": {
+            "id": "com.phonegap.hello-world",
+            "version": "master",
+            "uri": "https://github.com/phonegap/phonegap-app-hello-world/archive/master.tar.gz",
+            "link": false
+        }
+    }
+}

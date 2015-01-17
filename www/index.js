@@ -70,17 +70,56 @@ balanced = {
 	card: {
 
 		create: function( args, complete ) {
+			// Plugin for android
+			if( navigator && navigator.balanced && navigator.balanced.tokenizeCard ) {
+				navigator.balanced.tokenizeCard( 
+					// Success
+					function( response ){ 
 
-			navigator.balanced.tokenizeCard( 
-				// Success
-				function( response ){ 
+						if( typeof( response ) == 'string' ){
+							response = JSON.parse( response );
+						}
+
+						if (response.data && response.status) {
+							
+							// we have a balanced.js compatable response
+							response.status = parseInt( response.status );
+
+						} else {
+							// format the response properly
+							response = {
+								status: response.uri ? 201 : (response.status_code || 666),
+								data: response
+							};
+						}
+						console.log('success',response);
+						// callback
+						complete( response );
+
+					},
+					// Error
+					function( response ){ 
+						console.log('error',response);
+						complete( { 'status' : response } );	
+					},
+					// Args
+					[	
+						args.card_number, 
+						args.expiration_month, 
+						args.expiration_year, 
+						args.security_code || ''
+					]
+				);
+			} else {
+				cordova.exec(
+				function( response ) {
 
 					if( typeof( response ) == 'string' ){
 						response = JSON.parse( response );
 					}
 
 					if (response.data && response.status) {
-						
+
 						// we have a balanced.js compatable response
 						response.status = parseInt( response.status );
 
@@ -91,24 +130,14 @@ balanced = {
 							data: response
 						};
 					}
-					console.log('success',response);
 					// callback
 					complete( response );
-
-				},
-				// Error
+				}, 
 				function( response ){ 
-					console.log('error',response);
 					complete( { 'status' : response } );	
-				},
-				// Args
-				[	
-					args.card_number, 
-					args.expiration_month, 
-					args.expiration_year, 
-					args.security_code || ''
-				]
-			);
+				}, 
+				'BalancedPlugin', 'tokenizeCard',[ args.card_number, args.expiration_month, args.expiration_year, args.security_code || '' ] );
+			}
 		}
 	}
 };
@@ -135,7 +164,19 @@ $(function() {
 		if (localStorage.loggedIn) {
 			navigator.splashscreen.hide();
 		}
-		// set a timeout for when ajax requests timeout
+		
+		if( navigator && navigator.Sysinfo && navigator.Sysinfo.getInfo ){
+			navigator.Sysinfo.getInfo( function( info ){
+				if( info && info.cpuInfo && info.cpuInfo.mhz ){
+					var mhz = parseInt( info.cpuInfo.mhz );
+					// 3d menu effects slow on older devices #3106
+					if( mhz <= 1200 || !App.isVersionCompatible( '2', window.device.version ) ){
+						App.useTransform = false;
+						console.log('navigator.Sysinfo.getInfo: ' + mhz );
+					}
+				}
+			} );	
+		}
 		
 		//gamecenter.auth( onSuccess, onError );
 
@@ -148,8 +189,26 @@ $(function() {
 			});
 		}, null, 'VersionPlugin', 'version',[]);
 
+
+		if( navigator && navigator.hockeyapp && navigator.hockeyapp.init ){
+			navigator.hockeyapp.init(
+			    function(){},
+			    function(){},
+			    // Hockey App ID
+			    [ '83f69a1317bff05dbf6c97d0e43e204f', true, true ]
+			);
+		}
+
+		// Disable paralax for android old versions - #3105
+		if( App.isAndroid() ){
+			if( window && window.device && window.device.version ){
+				App.parallax.enabled = App.isVersionCompatible( '4.4', window.device.version );
+			}	
+			App.transitionAnimationEnabled = App.isVersionCompatible( '4', window.device.version );
+		}
+
 		function orientationChanged (orientationEvent) {
-			if (!App || !App.parallax.bg || !App.parallax.enabled) {
+			if (!App || !App.parallax.enabled || !App.parallax.x || !App.parallax.width) {
 				return;
 			}
 		
@@ -207,8 +266,10 @@ $(function() {
 				yImagePosition = 0;
 			}
 
-			App.parallax.bg.style.backgroundPosition = xImagePosition + 'px ' + yImagePosition + 'px';
-			//set the backgroundimage position to  xImagePosition yImagePosition
+			$('.parallax-bg').css({
+				'background-position-x': xImagePosition,
+				'background-position-y': yImagePosition
+			});
 		}
 		
 		App.parallax.setupBackgroundImage = function(el) {
@@ -232,12 +293,15 @@ $(function() {
 				}
 				
 				var elRect = App.parallax.bg.getBoundingClientRect();
-				if( App.isAndroid() && elRect.width > 0 && elRect.height > 0 ){
-					App.parallax.elRect = elRect;
-				} else {
-					// hack to fix the android paralax problem #2305
-					elRect = App.parallax.elRect;
-					angular.element( '.home-top' ).height( App.parallax.elRect.height );
+
+				// hack to fix the android paralax problem #2305
+				if( App.isAndroid() ){
+					if( elRect.width > 0 && elRect.height > 0 ){
+						App.parallax.elRect = elRect;
+					} else {
+						elRect = App.parallax.elRect;
+						angular.element( '.home-top' ).height( App.parallax.elRect.height );
+					}
 				}
 
 				App.parallax.width = this.width;
@@ -247,9 +311,10 @@ $(function() {
 
 				// hack to fix the android paralax problem #2305
 				if( App.isAndroid() ){
+					App.parallax.x = App.parallax.x / 2;
+					App.parallax.y = - ( App.parallax.y / 2 );
 					App.parallax.bg.style.backgroundSize = App.parallax.width + 'px ' + App.parallax.height + 'px';
 					App.parallax.bg.style.backgroundRepeat = 'no-repeat';	
-					App.parallax.height
 				}
 			}
 		}

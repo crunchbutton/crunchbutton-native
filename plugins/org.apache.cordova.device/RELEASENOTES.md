@@ -55,3 +55,38 @@
 
 ### 0.2.8 (Feb 05, 2014)
 * Tizen support added
+
+### 0.2.9 (Apr 17, 2014)
+* CB-5105: [Android, windows8, WP, BlackBerry10] Removed dead code for device.version
+* CB-6422: [windows8] use cordova/exec/proxy
+* CB-6460: Update license headers
+* Add NOTICE file
+
+### 0.2.10 (Jun 05, 2014)
+* CB-6127 Spanish and French Translations added. Github close #12
+* Changing 1.5 to 2.0
+* added firefoxos version - conversion
+* added firefoxos version
+* CB-6800 Add license
+* CB-6491 add CONTRIBUTING.md
+
+### 0.2.11 (Aug 06, 2014)
+* [FFOS] update DeviceProxy.js
+* CB-6127 Updated translations for docs
+* Use Windows system calls to get better info
+
+### 0.2.12 (Sep 17, 2014)
+* CB-7471 cordova-plugin-device documentation translation
+* CB-7552 device.name docs have not been removed
+* [fxos] Fix cordova version
+* added status box and documentation to manual tests
+* [fxos] Fix cordova version
+* added status box and documentation to manual tests
+* Added plugin support for the browser
+* CB-7262 Adds support for universal windows apps.
+
+### 0.2.13 (Dec 02, 2014)
+* Changing `device.platform` to always report the platform as "browser".
+* CB-5892 - Remove deprecated `window.Settings`
+* CB-7700 cordova-plugin-device documentation translation: cordova-plugin-device
+* CB-7571 Bump version of nested plugin to match parent plugin
