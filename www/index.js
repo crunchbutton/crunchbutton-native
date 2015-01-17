@@ -7,7 +7,7 @@ var now = new Date();
 var _gmtServer = now.getUTCFullYear() + '/' + (now.getUTCMonth()+1) + '/' + now.getUTCDate() + '/' + now.getUTCHours() + '/' + now.getUTCMinutes() + '/' + now.getUTCSeconds();
 
 var TapToScroll = function() {
-	
+
 };
 
 TapToScroll.prototype.initListener = function() {
@@ -27,12 +27,12 @@ var onError = function(){console.log('0',arguments);};
 // Stripe
 Stripe = {
 	setPublishableKey : function(){},
-	card : { 
+	card : {
 		createToken : function( args, complete ){
 
-			navigator.stripe.tokenizeCard( 
+			navigator.stripe.tokenizeCard(
 				// Success
-				function( response ){ 
+				function( response ){
 
 					if( typeof( response ) == 'string' ){
 						response = JSON.parse( response );
@@ -42,22 +42,22 @@ Stripe = {
 						console.log('response',response);
 						complete( true, response );
 					} else {
-						complete( false, { 'error' : { 'code' : '' } } );	
+						complete( false, { 'error' : { 'code' : '' } } );
 					}
 				},
 				// Error
 				function( response ){
-					complete( false, { 'error' : { 'code' : response } } );	
+					complete( false, { 'error' : { 'code' : response } } );
 				},
 				// Args
-				[	
-					args.number, 
-					args.exp_month, 
-					args.exp_year, 
+				[
+					args.number,
+					args.exp_month,
+					args.exp_year,
 					''
 				]
 			);
-		} 
+		}
 	}
 }
 
@@ -72,41 +72,33 @@ balanced = {
 		create: function( args, complete ) {
 			// Plugin for android
 			if( navigator && navigator.balanced && navigator.balanced.tokenizeCard ) {
-				navigator.balanced.tokenizeCard( 
+				navigator.balanced.tokenizeCard(
 					// Success
-					function( response ){ 
+					function( response ){
 
 						if( typeof( response ) == 'string' ){
 							response = JSON.parse( response );
 						}
 
-						if (response.data && response.status) {
-							
-							// we have a balanced.js compatable response
-							response.status = parseInt( response.status );
-
-						} else {
-							// format the response properly
-							response = {
-								status: response.uri ? 201 : (response.status_code || 666),
-								data: response
-							};
+						if( response.id && response.uri ){
+							response.cards = [];
+							response.cards[0] = { 'id' : response.id, 'href' : response.uri };
 						}
-						console.log('success',response);
+
+						response.status_code = response.uri ? 201 : (response.status_code || 666);
 						// callback
 						complete( response );
 
 					},
 					// Error
-					function( response ){ 
-						console.log('error',response);
-						complete( { 'status' : response } );	
+					function( response ){
+						complete( { 'status' : response } );
 					},
 					// Args
-					[	
-						args.card_number, 
-						args.expiration_month, 
-						args.expiration_year, 
+					[
+						args.card_number,
+						args.expiration_month,
+						args.expiration_year,
 						args.security_code || ''
 					]
 				);
@@ -132,10 +124,10 @@ balanced = {
 					}
 					// callback
 					complete( response );
-				}, 
-				function( response ){ 
-					complete( { 'status' : response } );	
-				}, 
+				},
+				function( response ){
+					complete( { 'status' : response } );
+				},
 				'BalancedPlugin', 'tokenizeCard',[ args.card_number, args.expiration_month, args.expiration_year, args.security_code || '' ] );
 			}
 		}
@@ -164,7 +156,7 @@ $(function() {
 		if (localStorage.loggedIn) {
 			navigator.splashscreen.hide();
 		}
-		
+
 		if( navigator && navigator.Sysinfo && navigator.Sysinfo.getInfo ){
 			navigator.Sysinfo.getInfo( function( info ){
 				if( info && info.cpuInfo && info.cpuInfo.mhz ){
@@ -175,9 +167,9 @@ $(function() {
 						console.log('navigator.Sysinfo.getInfo: ' + mhz );
 					}
 				}
-			} );	
+			} );
 		}
-		
+
 		//gamecenter.auth( onSuccess, onError );
 
 		cordova.exec(function(response) {
@@ -203,7 +195,7 @@ $(function() {
 		if( App.isAndroid() ){
 			if( window && window.device && window.device.version ){
 				App.parallax.enabled = App.isVersionCompatible( '4.4', window.device.version );
-			}	
+			}
 			App.transitionAnimationEnabled = App.isVersionCompatible( '4', window.device.version );
 		}
 
@@ -211,47 +203,61 @@ $(function() {
 			if (!App || !App.parallax.enabled || !App.parallax.x || !App.parallax.width) {
 				return;
 			}
-		
+
+			// Run it at first to when the animation is enable it doesnt jump the image backgroup
+			if( App.isAndroid() ){
+				if( App.parallax.pause ){
+					return;
+				}
+				if( App.parallax.first ){
+					App.parallax.first = false;
+					App.parallax.pause = true;
+					setTimeout( function(){
+						App.parallax.pause = false;
+					}, 3500 );
+				}
+			}
+
 			var beta = orientationEvent.beta;
 			var gamma = orientationEvent.gamma;
 			//get the rotation around the x and y axes from the orientation event
-			
+
 			if (window.orientation !== null) {
 				//don't check for truthiness as window.orientation can be 0!
 				var screenOrientation = window.orientation;
-			
+
 				if (screenOrientation === -90) {
 					//rotated to the left 90 degrees
 					beta = orientationEvent.gamma;
 					gamma = -1 * orientationEvent.beta;
 				}
-		
+
 				if (screenOrientation === 90) {
 					beta = -1 * orientationEvent.gamma;
 					gamma = orientationEvent.beta;
-		
+
 				}
-			
+
 				if (screenOrientation === 180) {
 					beta = -1 * orientationEvent.beta;
 					gamma = -1 * orientationEvent.gamma;
 				}
 			}
-			
+
 			var tanOfGamma = Math.tan(gamma*(Math.PI/180));
 			var tanOfBeta = Math.tan((beta -45)*(Math.PI/180));
 			//calculate the tan of the rotation around the X and Y axes
 			//we treat beta = 45degrees as neutral
 			//Math.tan takes radians, not degrees, as the argument
-			
+
 			var backgroundDistance = 50;
 			//set the distance of the background from the foreground
 			//the smaller, the 'closer' an object appears
-			
+
 			var xImagePosition = (-1 * tanOfGamma * backgroundDistance) + App.parallax.x;
 			var yImagePosition = (-1 * tanOfBeta * backgroundDistance) + App.parallax.y;
 			//calculate the distance to shift the background image horizontally
-			
+
 			//prevent wrap
 			if (yImagePosition >= 0) {
 				yImagePosition = 0;
@@ -266,32 +272,38 @@ $(function() {
 				yImagePosition = 0;
 			}
 
-			$('.parallax-bg').css({
+			// stop previous animation
+			$('.parallax-bg').stop();
+
+			$('.parallax-bg').animate({
 				'background-position-x': xImagePosition,
 				'background-position-y': yImagePosition
 			});
 		}
-		
+
 		App.parallax.setupBackgroundImage = function(el) {
 
+			App.parallax.pause = false;
+			App.parallax.first = true;
+
 			App.parallax.bg = el;
-		
+
 			var imgURL = window.getComputedStyle(App.parallax.bg).backgroundImage ;
 			//get the current background-image
-				
+
 			//bg image format is url(' + url + ') so we strip the url() bit
 			imgURL = imgURL.replace(/"/g,'').replace(/url\(|\)$/ig, '');
-			
+
 			//now we make a new image element and set this as its source
 			var theImage = new Image();
 			theImage.src = imgURL;
-			
+
 			//we'll set an onload listener, so that when the image loads, we position the background image of the element
 			theImage.onload = function() {
 				if (!App.parallax.bg) {
 					return;
 				}
-				
+
 				var elRect = App.parallax.bg.getBoundingClientRect();
 
 				// hack to fix the android paralax problem #2305
@@ -314,18 +326,18 @@ $(function() {
 					App.parallax.x = App.parallax.x / 2;
 					App.parallax.y = - ( App.parallax.y / 2 );
 					App.parallax.bg.style.backgroundSize = App.parallax.width + 'px ' + App.parallax.height + 'px';
-					App.parallax.bg.style.backgroundRepeat = 'no-repeat';	
+					App.parallax.bg.style.backgroundRepeat = 'no-repeat';
 				}
 			}
 		}
-		
+
 		window.addEventListener('deviceorientation', orientationChanged, false);
 
 
 		App.server = 'http://beta.crunchr.co/';
 		App.service = App.server + 'api/';
 		App.imgServer = 'http://i.crunchbutton.com/';
-	
+
 		// @todo: add fail handler
 		App.request(App.service + 'config/extended', function(r) {
 			var extract = ['aliases','locations','facebookScope','communities','topCommunities'];
