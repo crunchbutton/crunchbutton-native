@@ -184,18 +184,5 @@
     </array>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string></string>
-    <key>FacebookAppID</key>
-    <string>***REMOVED***</string>
-    <key>FacebookDisplayName</key>
-    <string>Crunchbutton</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb***REMOVED***</string>
-        </array>
-      </dict>
-    </array>
   </dict>
 </plist>

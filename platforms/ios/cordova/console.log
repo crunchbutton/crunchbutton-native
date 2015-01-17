@@ -1,8 +1,8 @@
-2015-01-16 17:06:06.717 Crunchbutton[20245:3028885] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/arzynik/Library/Developer/CoreSimulator/Devices/CB2C7068-C290-44BC-9A6A-5767604F969E/data/Containers/Data/Application/ED35E33B-185E-49A3-877D-2A422FFD3779/Library/Cookies/Cookies.binarycookies
-2015-01-16 17:06:06.778 Crunchbutton[20245:3028885] Apache Cordova native platform version 3.7.0 is starting.
-2015-01-16 17:06:06.778 Crunchbutton[20245:3028885] Multi-tasking -> Device: YES, App: YES
-2015-01-16 17:06:06.779 Crunchbutton[20245:3028885] Unlimited access to network resources
-2015-01-16 17:06:06.781 Crunchbutton[20245:3028885] 
+2015-01-16 17:22:59.146 Crunchbutton[27256:3046411] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/arzynik/Library/Developer/CoreSimulator/Devices/CB2C7068-C290-44BC-9A6A-5767604F969E/data/Containers/Data/Application/25327FDA-FA89-4328-8069-194E04E67DF9/Library/Cookies/Cookies.binarycookies
+2015-01-16 17:22:59.205 Crunchbutton[27256:3046411] Apache Cordova native platform version 3.7.0 is starting.
+2015-01-16 17:22:59.206 Crunchbutton[27256:3046411] Multi-tasking -> Device: YES, App: YES
+2015-01-16 17:22:59.207 Crunchbutton[27256:3046411] Unlimited access to network resources
+2015-01-16 17:22:59.209 Crunchbutton[27256:3046411] 
 
 Started backup to iCloud! Please be careful.
 Your application might be rejected by Apple if you store too much data.
@@ -10,99 +10,70 @@ For more information please read "iOS Data Storage Guidelines" at:
 https://developer.apple.com/icloud/documentation/data-storage/
 To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
 
-2015-01-16 17:06:06.897 Crunchbutton[20245:3028885] CDVPlugin class CDVFile (pluginName: file) does not exist.
-2015-01-16 17:06:06.897 Crunchbutton[20245:3028885] [CDVTimer][file] 0.124991ms
-2015-01-16 17:06:06.897 Crunchbutton[20245:3028885] CDVPlugin class CDVSplashScreen (pluginName: splashscreen) does not exist.
-2015-01-16 17:06:06.897 Crunchbutton[20245:3028885] [CDVTimer][splashscreen] 0.081956ms
-2015-01-16 17:06:06.898 Crunchbutton[20245:3028885] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
-2015-01-16 17:06:06.898 Crunchbutton[20245:3028885] [CDVTimer][statusbar] 0.100017ms
-2015-01-16 17:06:06.898 Crunchbutton[20245:3028885] CDVPlugin class FacebookConnectPlugin (pluginName: facebookconnectplugin) does not exist.
-2015-01-16 17:06:06.898 Crunchbutton[20245:3028885] [CDVTimer][facebookconnectplugin] 0.135005ms
-2015-01-16 17:06:06.898 Crunchbutton[20245:3028885] [CDVTimer][TotalPluginStartup] 0.886023ms
-2015-01-16 17:06:06.936 Crunchbutton[20245:3028885] Resetting plugins due to page load.
+2015-01-16 17:22:59.325 Crunchbutton[27256:3046411] [CDVTimer][file] 2.012014ms
+2015-01-16 17:22:59.336 Crunchbutton[27256:3046411] [CDVTimer][splashscreen] 11.183977ms
+2015-01-16 17:22:59.339 Crunchbutton[27256:3046411] [CDVTimer][statusbar] 3.287017ms
+2015-01-16 17:22:59.340 Crunchbutton[27256:3046411] [CDVTimer][TotalPluginStartup] 16.849995ms
+2015-01-16 17:22:59.398 Crunchbutton[27256:3046411] Resetting plugins due to page load.
+2015-01-16 17:22:59.537 Crunchbutton[27256:3046411] active
+2015-01-16 17:22:59.539 Crunchbutton[27256:3046411] Attempting to badge the application icon but haven't received permission from the user to badge the application
 >>>> frameSizeChanged = 4096
 >>>> frameSizeChanged = 4096
-2015-01-16 17:06:07.392 Crunchbutton[20245:3028885] Finished load of: file:///Users/arzynik/Library/Developer/CoreSimulator/Devices/CB2C7068-C290-44BC-9A6A-5767604F969E/data/Containers/Bundle/Application/182BF282-1D0D-4E52-A7DB-030785FBF471/Crunchbutton.app/www/index.html
-2015-01-16 17:06:07.429 Crunchbutton[20245:3028885] CDVPlugin class CDVStatusBar (pluginName: StatusBar) does not exist.
-2015-01-16 17:06:07.429 Crunchbutton[20245:3028885] ERROR: Plugin 'StatusBar' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
-2015-01-16 17:06:07.429 Crunchbutton[20245:3028885] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
-  "StatusBar360447747",
-  "StatusBar",
-  "_ready",
+2015-01-16 17:22:59.784 Crunchbutton[27256:3046411] Finished load of: file:///Users/arzynik/Library/Developer/CoreSimulator/Devices/CB2C7068-C290-44BC-9A6A-5767604F969E/data/Containers/Bundle/Application/502170A3-64FD-447A-AE07-55CDBA347469/Crunchbutton.app/www/index.html
+2015-01-16 17:22:59.836 Crunchbutton[27256:3046411] ERROR: Plugin 'VersionPlugin' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2015-01-16 17:22:59.837 Crunchbutton[27256:3046411] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "VersionPlugin1401101612",
+  "VersionPlugin",
+  "version",
   [
 
   ]
 ]
-2015-01-16 17:06:07.432 Crunchbutton[20245:3028885] CDVPlugin class CDVDevice (pluginName: Device) does not exist.
-2015-01-16 17:06:07.432 Crunchbutton[20245:3028885] ERROR: Plugin 'Device' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
-2015-01-16 17:06:07.432 Crunchbutton[20245:3028885] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
-  "Device360447748",
-  "Device",
-  "getDeviceInfo",
+2015-01-16 17:22:59.837 Crunchbutton[27256:3046411] ERROR: Plugin 'TapToScroll' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2015-01-16 17:22:59.837 Crunchbutton[27256:3046411] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "TapToScroll",
+  "initListener",
   [
 
   ]
 ]
-2015-01-16 17:06:07.432 Crunchbutton[20245:3028885] CDVPlugin class CDVConnection (pluginName: NetworkStatus) does not exist.
-2015-01-16 17:06:07.432 Crunchbutton[20245:3028885] ERROR: Plugin 'NetworkStatus' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
-2015-01-16 17:06:07.433 Crunchbutton[20245:3028885] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
-  "NetworkStatus360447749",
-  "NetworkStatus",
-  "getConnectionInfo",
-  [
+2015-01-16 17:23:12.467 Crunchbutton[27836:3047382] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/arzynik/Library/Developer/CoreSimulator/Devices/CB2C7068-C290-44BC-9A6A-5767604F969E/data/Containers/Data/Application/55FECCC8-51FC-4969-A76D-BCC9DAE8FE44/Library/Cookies/Cookies.binarycookies
+2015-01-16 17:23:12.531 Crunchbutton[27836:3047382] Apache Cordova native platform version 3.7.0 is starting.
+2015-01-16 17:23:12.532 Crunchbutton[27836:3047382] Multi-tasking -> Device: YES, App: YES
+2015-01-16 17:23:12.533 Crunchbutton[27836:3047382] Unlimited access to network resources
+2015-01-16 17:23:12.534 Crunchbutton[27836:3047382] 
 
-  ]
-]
-2015-01-16 17:06:07.433 Crunchbutton[20245:3028885] CDVPlugin class CDVFile (pluginName: File) does not exist.
-2015-01-16 17:06:07.433 Crunchbutton[20245:3028885] ERROR: Plugin 'File' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
-2015-01-16 17:06:07.433 Crunchbutton[20245:3028885] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
-  "File360447750",
-  "File",
-  "requestAllPaths",
-  [
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
 
-  ]
-]
-2015-01-16 17:06:22.496 Crunchbutton[20245:3028885] Resetting plugins due to page load.
+2015-01-16 17:23:12.652 Crunchbutton[27836:3047382] [CDVTimer][file] 1.713037ms
+2015-01-16 17:23:12.663 Crunchbutton[27836:3047382] [CDVTimer][splashscreen] 11.184990ms
+2015-01-16 17:23:12.667 Crunchbutton[27836:3047382] [CDVTimer][statusbar] 3.145993ms
+2015-01-16 17:23:12.667 Crunchbutton[27836:3047382] [CDVTimer][TotalPluginStartup] 16.356051ms
+2015-01-16 17:23:12.725 Crunchbutton[27836:3047382] Resetting plugins due to page load.
+2015-01-16 17:23:12.863 Crunchbutton[27836:3047382] active
+2015-01-16 17:23:12.864 Crunchbutton[27836:3047382] Attempting to badge the application icon but haven't received permission from the user to badge the application
 >>>> frameSizeChanged = 4096
 >>>> frameSizeChanged = 4096
-2015-01-16 17:06:22.844 Crunchbutton[20245:3028885] Finished load of: file:///Users/arzynik/Library/Developer/CoreSimulator/Devices/CB2C7068-C290-44BC-9A6A-5767604F969E/data/Containers/Bundle/Application/182BF282-1D0D-4E52-A7DB-030785FBF471/Crunchbutton.app/www/index.html
-2015-01-16 17:06:22.920 Crunchbutton[20245:3028885] CDVPlugin class CDVStatusBar (pluginName: StatusBar) does not exist.
-2015-01-16 17:06:22.920 Crunchbutton[20245:3028885] ERROR: Plugin 'StatusBar' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
-2015-01-16 17:06:22.920 Crunchbutton[20245:3028885] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
-  "StatusBar1319750869",
-  "StatusBar",
-  "_ready",
+2015-01-16 17:23:13.160 Crunchbutton[27836:3047382] Finished load of: file:///Users/arzynik/Library/Developer/CoreSimulator/Devices/CB2C7068-C290-44BC-9A6A-5767604F969E/data/Containers/Bundle/Application/21435911-E3DE-4F54-B149-2CF694A0EEDE/Crunchbutton.app/www/index.html
+2015-01-16 17:23:13.213 Crunchbutton[27836:3047382] ERROR: Plugin 'VersionPlugin' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2015-01-16 17:23:13.213 Crunchbutton[27836:3047382] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "VersionPlugin852945544",
+  "VersionPlugin",
+  "version",
   [
 
   ]
 ]
-2015-01-16 17:06:22.932 Crunchbutton[20245:3028885] CDVPlugin class CDVDevice (pluginName: Device) does not exist.
-2015-01-16 17:06:22.932 Crunchbutton[20245:3028885] ERROR: Plugin 'Device' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
-2015-01-16 17:06:22.932 Crunchbutton[20245:3028885] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
-  "Device1319750870",
-  "Device",
-  "getDeviceInfo",
-  [
-
-  ]
-]
-2015-01-16 17:06:22.933 Crunchbutton[20245:3028885] CDVPlugin class CDVConnection (pluginName: NetworkStatus) does not exist.
-2015-01-16 17:06:22.933 Crunchbutton[20245:3028885] ERROR: Plugin 'NetworkStatus' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
-2015-01-16 17:06:22.933 Crunchbutton[20245:3028885] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
-  "NetworkStatus1319750871",
-  "NetworkStatus",
-  "getConnectionInfo",
-  [
-
-  ]
-]
-2015-01-16 17:06:22.933 Crunchbutton[20245:3028885] CDVPlugin class CDVFile (pluginName: File) does not exist.
-2015-01-16 17:06:22.933 Crunchbutton[20245:3028885] ERROR: Plugin 'File' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
-2015-01-16 17:06:22.933 Crunchbutton[20245:3028885] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
-  "File1319750872",
-  "File",
-  "requestAllPaths",
+2015-01-16 17:23:13.213 Crunchbutton[27836:3047382] ERROR: Plugin 'TapToScroll' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2015-01-16 17:23:13.213 Crunchbutton[27836:3047382] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "TapToScroll",
+  "initListener",
   [
 
   ]
