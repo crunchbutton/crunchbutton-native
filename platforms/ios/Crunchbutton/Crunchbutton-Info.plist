@@ -184,5 +184,18 @@
     </array>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string></string>
+    <key>FacebookAppID</key>
+    <string>411729638889643</string>
+    <key>FacebookDisplayName</key>
+    <string>Crunchbutton</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb411729638889643</string>
+        </array>
+      </dict>
+    </array>
   </dict>
 </plist>
