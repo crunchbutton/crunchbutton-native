@@ -67,51 +67,60 @@ module.exports = {
 
         isAlertShowing = true;
 
-        var message = args[0];
-        var _title = args[1];
-        var _buttonLabels = args[2];
+        try {
+            var message = args[0];
+            var _title = args[1];
+            var buttons = args[2];
 
-        var btnList = [];
-        function commandHandler (command) {
-            win && win(btnList[command.label]);
-        }
+            var md = new Windows.UI.Popups.MessageDialog(message, _title);
 
-        var md = new Windows.UI.Popups.MessageDialog(message, _title);
-        var button = _buttonLabels.split(',');
+            buttons.forEach(function(buttonLabel) {
+                md.commands.append(new Windows.UI.Popups.UICommand(buttonLabel));
+            });
 
-        for (var i = 0; i<button.length; i++) {
-            btnList[button[i]] = i+1;
-            md.commands.append(new Windows.UI.Popups.UICommand(button[i],commandHandler));
-        }
-        md.showAsync().then(function() {
+            md.showAsync().then(function(res) {
+                isAlertShowing = false;
+                var result = res ? buttons.indexOf(res.label) + 1 : 0;
+                win && win(result);
+                if (alertStack.length) {
+                    setTimeout(alertStack.shift(), 0);
+                }
+
+            });
+        } catch (e) {
+            // set isAlertShowing flag back to false in case of exception
             isAlertShowing = false;
             if (alertStack.length) {
                 setTimeout(alertStack.shift(), 0);
             }
-
-        });
+            // rethrow exception
+            throw e;
+        }
     },
 
     beep:function(winX, loseX, args) {
-        var count = args[0];
-        /*
-        var src = //filepath//
-        var playTime = 500; // ms
-        var quietTime = 1000; // ms
-        var media = new Media(src, function(){});
-        var hit = 1;
-        var intervalId = window.setInterval( function () {
-            media.play();
-            sleep(playTime);
-            media.stop();
-            media.seekTo(0);
-            if (hit < count) {
-                hit++;
+
+        // set a default args if it is not set
+        args = args && args.length ? args : ["1"];
+
+        var snd = new Audio('ms-winsoundevent:Notification.Default');
+        var count = parseInt(args[0]) || 1;
+        snd.msAudioCategory = "Alerts";
+
+        var onEvent = function () {
+            if (count > 0) {
+                snd.play();
             } else {
-                window.clearInterval(intervalId);
+                snd.removeEventListener("ended", onEvent);
+                snd = null;
+                winX && winX(); // notification.js just sends null, but this is future friendly
             }
-        }, playTime + quietTime); */
+            count--;
+        };
+        snd.addEventListener("ended", onEvent);
+        onEvent();
+
     }
 };
 
-require("cordova/windows8/commandProxy").add("Notification",module.exports);
+require("cordova/exec/proxy").add("Notification",module.exports);

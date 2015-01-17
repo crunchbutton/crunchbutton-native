@@ -35,3 +35,57 @@
 ### 0.2.4 (Oct 28, 2013)
 * CB-5128: add repo + issue tag to plugin.xml for network information plugin
 * [CB-4915] Incremented plugin version on dev branch.
+
+### 0.2.5 (Dec 4, 2013)
+* [ubuntu] specify policy_group
+* add ubuntu platform
+* Added amazon-fireos platform. Change to use amazon-fireos as the platform if user agent string contains 'cordova-amazon-fireos'
+
+### 0.2.6 (Jan 02, 2014)
+* CB-5658 Add doc/index.md for netinfo plugin
+
+### 0.2.7 (Feb 05, 2014)
+* Initial implementation of Tizen plugin.
+
+### 0.2.8 (Apr 17, 2014)
+* CB-6342: [iOS] iOS reports a cellular connection even when in Airplane mode
+* CB-6422: [windows8] use cordova/exec/proxy
+* CB-6460: Update license headers
+* CB-6465: Add license headers to Tizen code
+* Add NOTICE file
+
+### 0.2.9 (Jun 05, 2014)
+* updated notice file to include missing license
+* Cached extra info to better detect changes.
+* CB-6809 Add license to CONTRIBUTING.md
+* CB-6491 add CONTRIBUTING.md
+* CB-6350 - Fix networkStatusForFlags return value type to work with 64-bit iOS (closes #8)
+* Initial version of firefox os network information plugin
+* there was an error in the object definition
+
+### 0.2.10 (Jun 24, 2014)
+* CB-6907: [android] Don't crash on startup if no networks available
+
+### 0.2.11 (Aug 06, 2014)
+* **FFOS** update NetworkProxy.js
+* CB-6127 Updated translations for docs
+* CB-7019 Updated version and RELEASENOTES.md for release 0.2.10
+* Fixed docs for online/offline event being backwards
+
+### 0.2.12 (Sep 17, 2014)
+* CB-7471 cordova-plugin-network-information documentation translation
+* Fix network information type exception on fxos 2
+* Added support for the browser
+* CB-6724 added documentation for manual tests
+* remove reference to test assets, they are optional
+* Renamed test dir and added nested plugin.xml
+* CB-6964 ported manual tests
+* Port network tests to plugin-test-framework
+* Fix naviagtor typo
+
+### 0.2.13 (Oct 03, 2014)
+* CB-7595: Android L changes the type from Mobile to Cellular, I'm pretty sure this isn't documented
+
+### 0.2.14 (Dec 02, 2014)
+* CB-7976 **Android**: Use webView's context rather than Activity's context for intent receiver
+* CB-7700 cordova-plugin-network-information documentation translation: cordova-plugin-network-information

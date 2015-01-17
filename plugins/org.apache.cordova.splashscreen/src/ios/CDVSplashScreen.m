@@ -18,8 +18,11 @@
  */
 
 #import "CDVSplashScreen.h"
+#import <Cordova/CDVViewController.h>
+#import <Cordova/CDVScreenOrientationDelegate.h>
 
 #define kSplashScreenDurationDefault 0.25f
+
 
 @implementation CDVSplashScreen
 
@@ -115,36 +118,93 @@
     [self.viewController.view removeObserver:self forKeyPath:@"bounds"];
 }
 
-// Sets the view's frame and image.
-- (void)updateImage
+- (CDV_iOSDevice) getCurrentDevice
 {
-    UIInterfaceOrientation orientation = self.viewController.interfaceOrientation;
+    CDV_iOSDevice device;
+    
+    UIScreen* mainScreen = [UIScreen mainScreen];
+    CGFloat mainScreenHeight = mainScreen.bounds.size.height;
+    CGFloat mainScreenWidth = mainScreen.bounds.size.width;
+    
+    int limit = MAX(mainScreenHeight,mainScreenWidth);
+    
+    device.iPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+    device.iPhone = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone);
+    device.retina = ([mainScreen scale] == 2.0);
+    device.iPhone5 = (device.iPhone && limit == 568.0);
+    // note these below is not a true device detect, for example if you are on an
+    // iPhone 6/6+ but the app is scaled it will prob set iPhone5 as true, but
+    // this is appropriate for detecting the runtime screen environment
+    device.iPhone6 = (device.iPhone && limit == 667.0);
+    device.iPhone6Plus = (device.iPhone && limit == 736.0);
+    
+    return device;
+}
 
+- (NSString*)getImageName:(UIInterfaceOrientation)currentOrientation delegate:(id<CDVScreenOrientationDelegate>)orientationDelegate device:(CDV_iOSDevice)device
+{
     // Use UILaunchImageFile if specified in plist.  Otherwise, use Default.
     NSString* imageName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"UILaunchImageFile"];
-
+    
+    NSUInteger supportedOrientations = [orientationDelegate supportedInterfaceOrientations];
+    
+    // Checks to see if the developer has locked the orientation to use only one of Portrait or Landscape
+    BOOL supportsLandscape = (supportedOrientations & UIInterfaceOrientationMaskLandscape);
+    BOOL supportsPortrait = (supportedOrientations & UIInterfaceOrientationMaskPortrait || supportedOrientations & UIInterfaceOrientationMaskPortraitUpsideDown);
+    // this means there are no mixed orientations in there
+    BOOL isOrientationLocked = !(supportsPortrait && supportsLandscape);
+    
     if (imageName) {
         imageName = [imageName stringByDeletingPathExtension];
     } else {
         imageName = @"Default";
     }
-
-    if (CDV_IsIPhone5()) {
+    
+    if (device.iPhone5) { // does not support landscape
         imageName = [imageName stringByAppendingString:@"-568h"];
-    } else if (CDV_IsIPad()) {
-        switch (orientation) {
-            case UIInterfaceOrientationLandscapeLeft:
-            case UIInterfaceOrientationLandscapeRight:
-                imageName = [imageName stringByAppendingString:@"-Landscape"];
-                break;
+    } else if (device.iPhone6) { // does not support landscape
+        imageName = [imageName stringByAppendingString:@"-667h"];
+    } else if (device.iPhone6Plus) { // supports landscape
+        if (isOrientationLocked) {
+            imageName = [imageName stringByAppendingString:(supportsLandscape ? @"-Landscape" : @"")];
+        } else {
+            switch (currentOrientation) {
+                case UIInterfaceOrientationLandscapeLeft:
+                case UIInterfaceOrientationLandscapeRight:
+                        imageName = [imageName stringByAppendingString:@"-Landscape"];
+                    break;
+                default:
+                    break;
+            }
+        }
+        imageName = [imageName stringByAppendingString:@"-736h"];
 
-            case UIInterfaceOrientationPortrait:
-            case UIInterfaceOrientationPortraitUpsideDown:
-            default:
-                imageName = [imageName stringByAppendingString:@"-Portrait"];
-                break;
+    } else if (device.iPad) { // supports landscape
+        if (isOrientationLocked) {
+            imageName = [imageName stringByAppendingString:(supportsLandscape ? @"-Landscape" : @"-Portrait")];
+        } else {
+            switch (currentOrientation) {
+                case UIInterfaceOrientationLandscapeLeft:
+                case UIInterfaceOrientationLandscapeRight:
+                    imageName = [imageName stringByAppendingString:@"-Landscape"];
+                    break;
+                    
+                case UIInterfaceOrientationPortrait:
+                case UIInterfaceOrientationPortraitUpsideDown:
+                default:
+                    imageName = [imageName stringByAppendingString:@"-Portrait"];
+                    break;
+            }
         }
     }
+    
+    return imageName;
+}
+
+// Sets the view's frame and image.
+- (void)updateImage
+{
+    NSString* imageName = [self getImageName:self.viewController.interfaceOrientation delegate:(id<CDVScreenOrientationDelegate>)self.viewController device:[self getCurrentDevice]];
 
     if (![imageName isEqualToString:_curImageName]) {
         UIImage* img = [UIImage imageNamed:imageName];
@@ -163,17 +223,29 @@
 - (void)updateBounds
 {
     UIImage* img = _imageView.image;
-    CGRect imgBounds = CGRectMake(0, 0, img.size.width, img.size.height);
+    CGRect imgBounds = (img) ? CGRectMake(0, 0, img.size.width, img.size.height) : CGRectZero;
 
     CGSize screenSize = [self.viewController.view convertRect:[UIScreen mainScreen].bounds fromView:nil].size;
+    UIInterfaceOrientation orientation = self.viewController.interfaceOrientation;
+    CGAffineTransform imgTransform = CGAffineTransformIdentity;
+
+    /* If and only if an iPhone application is landscape-only as per
+     * UISupportedInterfaceOrientations, the view controller's orientation is
+     * landscape. In this case the image must be rotated in order to appear
+     * correctly.
+     */
+    if (UIInterfaceOrientationIsLandscape(orientation) && !CDV_IsIPad()) {
+        imgTransform = CGAffineTransformMakeRotation(M_PI / 2);
+        imgBounds.size = CGSizeMake(imgBounds.size.height, imgBounds.size.width);
+    }
 
     // There's a special case when the image is the size of the screen.
     if (CGSizeEqualToSize(screenSize, imgBounds.size)) {
         CGRect statusFrame = [self.viewController.view convertRect:[UIApplication sharedApplication].statusBarFrame fromView:nil];
         if (!(IsAtLeastiOSVersion(@"7.0"))) {
             imgBounds.origin.y -= statusFrame.size.height;
-        }        
-    } else {
+        }
+    } else if (imgBounds.size.width > 0) {
         CGRect viewBounds = self.viewController.view.bounds;
         CGFloat imgAspect = imgBounds.size.width / imgBounds.size.height;
         CGFloat viewAspect = viewBounds.size.width / viewBounds.size.height;
@@ -188,6 +260,7 @@
         imgBounds.size.width *= ratio;
     }
 
+    _imageView.transform = imgTransform;
     _imageView.frame = imgBounds;
 }
 
@@ -219,13 +292,15 @@
                           duration:fadeDuration
                            options:UIViewAnimationOptionTransitionNone
                         animations:^(void) {
-            [_imageView setAlpha:0];
-            [_activityView setAlpha:0];
-        }
-
+                            [_imageView setAlpha:0];
+                            [_activityView setAlpha:0];
+                        }
                         completion:^(BOOL finished) {
-            [self destroyViews];
-        }];
+                            if (finished) {
+                                [self destroyViews];
+                            }
+                        }
+        ];
     }
 }
 

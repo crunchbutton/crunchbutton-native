@@ -1,1 +1,1 @@
-{"source":{"type":"local","path":"/var/folders/6x/frp6kgmj24b3cwp1ll2k3kb80000gn/T/org.apache.cordova.dialogs/package"}}
+{"source":{"type":"git","url":"https://github.com/apache/cordova-plugin-dialogs","subdir":"."}}

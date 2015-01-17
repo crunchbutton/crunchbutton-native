@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="format-detection" content="telephone=no">
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
 		<title>Crunchbutton</title>
 		<link rel="stylesheet" href="assets/css/bundle.css">
 		<link rel="stylesheet" href="assets/css/fontawesome.css">
 		<link rel="stylesheet" href="assets/css/index.css">
-		
+
 		<script type="text/ng-template" id="assets/view/about.html">
 <div class="top-pad"></div>
 
@@ -45,7 +45,7 @@
 			<br>Fav<span class="staff-orite">orite</span> beer: Oatmeal Stout
 		</p>
 		<p class="staff-content">
-			Entrepreneur, Yale grad, and other impressive stuff. He’s the boss, so he bosses us around.
+			Ate a lot of Wenzels at Yale, now settles for gluten free buffalo chicken tacos in LA. He's the boss, so he bosses us around.
 		</p>
 	</div>
 
@@ -100,19 +100,6 @@
 			Part Brazilian, part super hero. When the day needs saving he saves it.
 		</p>
 	</div>
-	
-	<div class="staff">
-		<div class="staff-tyler staff-image animated-resize"></div>
-		<h1>Tyler Wallace</h1>
-		<h2>Chief Condiments Officer</h2>
-		<p class="staff-favorite">
-			Fav<span class="staff-orite">orite</span> food: Bacon
-			<br>Fav<span class="staff-orite">orite</span> beer: Heineken
-		</p>
-		<p class="staff-content">
-			Actor, member of the national ski patrol and can drive cross country in 72 hours. Many talents. Lots to do.
-		</p>
-	</div>
 
 	<div class="about-join-bubble-wrap">
 		<div class="bubble-curved bubble-curved-green bubble-animated animated-resize">
@@ -144,121 +131,102 @@
 	<button class="button lightorange" ng-click="navigation.link('/jobs','push')">Jobs</button>
 </div>
 
-</script><script type="text/ng-template" id="assets/view/account.facebook.html">
-<div class="facebook">
-	<div class="social-button facebook-button" ng-click="facebook.auth()">
-		<i class="fa fa-facebook"></i>
-		<span class="social-button-text">{{title}}</span>
-		<div class="divider"></div>
-	</div>
-	<div class="wait" ng-show="facebook.facebook.wait && !facebook.facebook.error.userExists && !facebook.facebook.error.unknown && !facebook.facebook.error.login">
-		Just a sec...
-	</div>
-	<div class="error" ng-show="facebook.facebook.error.userExists">
-		Sorry, this facebook account is already associated with another user.
-	</div>
-	<div class="error" ng-show="facebook.facebook.error.unknown">
-		Sorry, something bad happened.
-	</div>
-	<div class="error" ng-show="facebook.facebook.error.login">
-		Sorry, it seems you cancelled login or did not fully authorize.
-	</div>
-</div>
 </script><script type="text/ng-template" id="assets/view/account.html">
 <div class="account-container zoom-anim-dialog mfp-hide dialog mfp-hide">
 
-	<div class="dialog-padding account-modal">
+
+	<div ng-controller="AccountSevenCtrl" modal-reset="resetModal()">
 	
-		<div ng-controller="AccountSevenCtrl" modal-reset="resetModal()">
-		
-			<div ng-show="tab == 'facebook'">
+		<div ng-show="tab == 'facebook'" class="dialog-padding account-modal">
+			<p ng-show="account.user">
+				We got your account right here! Link your account with facebook here so you never have to enter your info again!
+			</p>
 
-				<div ng-show="account.user">
-					We got your account right here! Link your account with facebook here so you never have to enter your info again!
-				</div>
+			<p ng-show="!account.user">
+				<b class="account-modal-bold">Get your Crunchbutton account!</b><br>
+				Log in or sign up using the same awesome button.
+			</p>
+			
+			<div class="divider spacer-one-two"></div>
 
-				<div ng-show="!account.user">
-					Get your crunchbutton account! Its all the rage theses days. Log in or sign up using the same awesome button.
-				</div>
-
+			<div class="button-pushable">
 				<button class="button facebook" ng-click="facebook.auth()">
-					<span ng-hide="facebook.facebook.wait">HOP ON IN USING FACEBOOK</span>
+					<span ng-hide="facebook.facebook.wait">Hop in using Facebook</span>
 					<span ng-show="facebook.facebook.wait">Just a sec...</span>
 				</button>
-
-				<a href="#" class="bottom-link" ng-click="showTab( 'form' )">OTHER OPTIONS</a>
-
 			</div>
 
-			<div ng-show="tab == 'form'">
+			<div class="dialog-message dialog-message-error" ng-repeat="error in account.errors">{{error}}</div>
 
-				<a href="#" ng-click="showTab( 'facebook' )" class="back-link"><span>&laquo;</span> BACK</a>
+			<span class="bottom-link cursor" ng-click="changeTab( 'form' )">Other Options</span>
+		</div>
+
+
+		<div ng-show="tab == 'form'">
+			<div class="dialog-padding account-modal">
+				<span ng-click="changeTab( 'facebook' )" class="back-link cursor"><span>&laquo;</span> BACK</span>
+				<p>Not a fan of facebook? Don’t worry. We won't tell anyone. <b>Log in</b> or <b>sign up</b> below.</p>
 				
-				<div ng-show="account.user">
-					We got your account right here! Either go back and link it with a social network, or add a password right here. The choice is yours.
-				</div>
+				<div class="divider spacer-one-two"></div>
 
-				<div ng-show="!account.user">
-					Not a fan of facebook? Don’t worry. We wont tell anyone. Log in or sign up below.
-				</div>
-
-				<div>
-
-					<form name="accountForm" class="form">
-						<input type="email" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" placeholder="email address" class="input" ng-enter="account.enter()">
-						
-						<input type="password" class="input" maxlength="250" ng-model="account.form.password" name="password" tabindex="11" placeholder="password" ng-enter="account.enter()">
-					</form>
-				
-					<div class="dialog-message dialog-message-error" ng-repeat="error in account.errors">{{error}}</div>
-
-					<a ng-show="!account.user" href="#" class="help" ng-click="showTab( 'reset' )">FORGOT PASSWORD</a>
-
-					<div class="divisor"></div>
-
-					<div class="button-pushable">
-						<button class="button account-submit" ng-click="account.enter()">Join the cool kids club</button>
+				<form name="accountForm">
+					<div class="support-form-group form-group">
+						<input type="email" ng-focus="softKeyboardModal($event)" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" placeholder="email address" class="form-input form-field" ng-enter="account.enter()">
 					</div>
-				</div>
-				
+					
+					<div class="support-form-group form-group">
+						<input type="password" ng-focus="softKeyboardModal($event)" class="form-input form-field" maxlength="250" ng-model="account.form.password" name="password" tabindex="11" placeholder="password" ng-enter="account.enter()">
+					</div>
+				</form>
+			
+				<div class="dialog-message dialog-message-error" ng-repeat="error in account.errors">{{error}}</div>
 
+				<span ng-show="!account.user" class="help cursor" ng-click="changeTab( 'reset' )">Forgot Password</span>
+				<div class="divider"></div>
 			</div>
-
-			<div ng-show="tab == 'reset'">
-				
-				<a href="#" ng-click="showTab('form')" class="back-link"><span>&laquo;</span> BACK</a>
-
-				<div>
-					Password help?
+			<div class="dialog-divider"></div>
+			<div class="dialog-padding dialog-bottom-buttons" ng-if="!support.thanks">
+				<div class="button-pushable">
+					<button class="button account-submit lightorange" ng-click="account.enter()">Enter the cool kids club</button>
 				</div>
+			</div>
+		</div>
 
-				<div>
+
+		<div ng-show="tab == 'reset'">
+			<div class="dialog-padding account-modal">
+				<span ng-click="changeTab('form')" class="back-link cursor"><span>&laquo;</span> BACK</span>
+				
+				<div ng-show="!help.success.visible">
+					<p>Forgot your password? Let's get you a new one!</p>
+				
+					<div class="divider spacer-one-onehalf"></div>
 
 					<form name="accountReset" class="form">
-						<input type="email" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" placeholder="email address" class="input" ng-enter="help.sendForm()">
+						<div class="support-form-group form-group">
+							<input type="email"  ng-focus="softKeyboardModal($event)" maxlength="250" ng-model="account.form.email" name="email" tabindex="10" placeholder="email address" class="form-input form-field" ng-enter="help.sendForm()">
+						</div>
 					</form>
-
-					<div class="dialog-message dialog-message-error" ng-repeat="error in help.errors">{{error}}</div>	
-
-					<div class="divisor"></div>
-
-					<div class="button-pushable" ng-show="!help.success.visible">
-						<button ng-click="help.sendForm()" class="button account-submit">Reset</button>
-					</div>
-
-					<div class="dialog-message dialog-message-success" ng-show="help.success.visible">
-						Please check your email or phone. 
-						<br/>
-						You will receive a password reset link that will expire in 24 hours.
-					</div>
-
 				</div>
 
+				<div class="dialog-message dialog-message-error" ng-repeat="error in help.errors">{{error}}</div>	
+				<div class="dialog-message dialog-message-success" ng-show="help.success.visible">
+					Please check your email or phone. 
+					<br/>
+					You will receive a password reset link that will expire in 24 hours.
+				</div>
 			</div>
 
+			<div class="dialog-divider" ng-show="!help.success.visible"></div>
+			<div class="dialog-padding dialog-bottom-buttons" ng-show="!help.success.visible">
+				<div class="button-pushable">
+					<button class="button account-submit lightorange" ng-click="help.sendForm()">Reset Password</button>
+				</div>
+			</div>
 		</div>
 
 	</div>
+
 
 </div>
 </script><script type="text/ng-template" id="assets/view/account.reset.html">
@@ -320,15 +288,6 @@
 			</div>
 
 		</div>
-	</div>
-</div>
-</script><script type="text/ng-template" id="assets/view/bycity.html">
-<div class="content-item-locations crunchbutton-by-city">
-	<h1>Crunchbutton by city:</h1> 
-	<div class="content-item-locations-cities">
-		<% _.each(topCommunities, function(alias) { %>
-			<span class="content-item-locations-city" permalink="<%= alias.alias %>"><%= alias.name %></span>&nbsp;&nbsp;&nbsp;&nbsp;
-		<% }); %>
 	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/cafe.html">
@@ -592,16 +551,15 @@
 </script><script type="text/ng-template" id="assets/view/giftcard.html">
 <div class="giftcard-container zoom-anim-dialog mfp-hide dialog mfp-hide" ng-controller="GiftCardCtrl">
 
-	<div class="dialog-padding account-modal">
 
-		<div ng-show="modal.intro">
-			<div class="wait">Just a sec.</div>
-		</div>
 
-		<!-- Error -->
-		<div ng-show="modal.error && !modal.success">
-			<div>Oops, error!</div>
-			<br/>
+	<div ng-show="modal.intro" class="dialog-padding account-modal">
+		<p>Doin' stuff. Just a sec...</p>
+	</div>
+
+	<!-- Error -->
+	<div ng-show="modal.error && !modal.success">
+		<div class="dialog-padding account-modal">
 			<div class="dialog-message dialog-message-error" ng-show="modal.error == 'used'">
 				Sorry, this gift card was already used.
 			</div>
@@ -612,29 +570,36 @@
 				Please try it again.
 			</div>
 		</div>
-
-		<!-- Success -->
-		<div ng-show="modal.success && !modal.error">
-			<div ng-show="!user">Welcome!</div>
-			<div ng-show="user">Congrats!</div>
-			<div ng-show="modal.restaurant">
-				Congrats, you just got a <b>${{giftcard.value}}</b> gift card to <b class="pointer" ng-click="giftcard.openRestaurant();">{{modal.restaurant.name}}</b>.
-			</div>
-			<div ng-show="!modal.restaurant">
-				Congrats, you just got a <b>${{giftcard.value}}</b> gift card.
-			</div>
-			<div>
-				Go ahead and order some food!
-			</div>
-			<div class="divisor"></div>
-			<div class="button-pushable" ng-show="!help.success.visible">
-				<button ng-click="modal.close()" class="button account-submit">Great</button>
-			</div>
-			
-			
-		</div>
-
 	</div>
+
+	<!-- Success -->
+	<div ng-show="modal.success && !modal.error">
+		<div class="dialog-padding account-modal">
+			<p>
+				<b>Congrats!</b>
+			</p>
+			<div class="divider spacer-one-onehalf"></div>
+			<p>
+
+				<span ng-show="modal.restaurant">
+					You just got a <b>${{giftcard.value}}</b> gift card to <b class="pointer" ng-click="giftcard.openRestaurant();">{{modal.restaurant.name}}</b>.
+				</span>
+				<span ng-show="!modal.restaurant">
+					You just got a <b>${{giftcard.value}}</b> gift card.
+				</span>
+
+				&nbsp;Go ahead and order some food!
+			</p>
+		</div>
+		
+		<div class="dialog-divider"></div>
+		<div class="dialog-padding dialog-bottom-buttons">
+			<div class="button-pushable">
+				<button ng-click="modal.close()" class="button green">Great</button>
+			</div>
+		</div>
+	</div>
+
 
 </div>
 
@@ -655,14 +620,14 @@
 <div class="content-padding" ng-controller="SupportCtrl">
 	<br />
 	<h4>So, what exactly do you do?</h4>
-	<p>We highlight the top food from the top restaurants in a community. Place an order, and we save it for next time, along with your delivery and payment info. Reorder your favorites with a single tap :)</p>
+	<p>We get the best food in your community delivered straight to your door. Place an order, and we save it for next time, along with your delivery and payment info. Reorder your favorites with a single tap :)</p>
 	<br /><br />
 	<h4>Hey! I need help with my order!</h4>
 	<p ng-show="!account.user.id_user"><a ng-click="navigation.signin()">Sign in to see your previous orders</a> and contact the restaurant you ordered from.</p>
-	<p ng-show="account.user.id_user">Please visit your <a ng-click="navigation.link('/orders','push')">My Orders</a> and contact the restaurant you ordered from.</p>
+	<p ng-show="account.user.id_user">Please visit <a ng-click="navigation.link('/orders','push')">My Orders</a> and contact the restaurant you ordered from.</p>
 	<br /><br />
 	<h4>Need to contact Crunchbutton?</h4>
-	<p>Call or text us at <a href="tel:+16467831444">(646) 783-1444</a> or email us at <a href="mailto:{{customers}}">{{customers}}</a>.</p>
+	<p>Call or text us at <a href="sms:+16467831444" target="_system">(646) 783-1444</a> or email us at <a href="mailto:{{customers}}">{{customers}}</a>.</p>
 	<br /><br />
 	<button class="button green" ng-click="support.dialog()">Send us a message</button>
 </div>
@@ -681,16 +646,10 @@
 	<br><br><br>
 	
 	<h4>How do I order food?</h4>
-	<p>Easy! Just go to <a href="http://crunchbutton.com" target="_blank">crunchbutton.com</a> and click the restaurant you want to order from. Add whatever food you want, and enter your address, phone, and payment info. Click "Get Food" and try to stay hungry! The restaurant will call you when they're outside.</p>
-	<br /><br />
-	<h4>Is it cheaper for me to just call the restaurant?</h4>
-	<p>Nope! Crunchbutton is totally free to you. Prices are the same as calling the restaurant. Sometimes even cheaper!</p>
-	<br /><br />
-	<h4>Is it faster for me to just call the restaurant?</h4>
-	<p>Nope! With Crunchbutton ordering is as fast as a single click!! And we make sure our restaurants receive orders promptlier and accuratelier than when you call.</p>
+	<p>Easy! Just go to <a href="http://crunchbutton.com" target="_blank">crunchbutton.com</a> and click the restaurant you want to order from. Add whatever food you want, and enter your address, phone, and payment info. Click "Get Food" and try to stay hungry! The driver will call you when they're outside.</p>
 	<br /><br />
 	<h4>How do you save my info?</h4>
-	<p>We use a super secure system away from our web server to store and encrypt all your financial information.</p>
+	<p>We use SSL and a PCI-DSS Level 1 Compliant provider to encrypt your information when you place an order. We never store any of your financial information on our web servers.</p>
 	<br /><br />
 	<h4>How do I change my stored info?</h4>
 	<p>Just click on the info you want to change, enter the changes, and, after you place your order, it’ll be saved for next time.</p>
@@ -721,31 +680,12 @@
 
 <div class="restaurants-bubble-wrap">
 	<div class="bubble-tail bubble-tail-green bubble-animated">
-		<div class="text" ng-switch="pushMessage">
-			<span class="small" ng-switch-when="1">Push one of those restaurants down there.</span>
-			<span ng-switch-when="2">The RESTAURANTS.</span>
-			<span ng-switch-when="3">The AWESOME restaurants.</span>
-			<span class="single-line" ng-switch-when="4">Down there.</span>
-			<span class="single-line" ng-switch-when="5">NOT me!!</span>
-			<span class="single-line" ng-switch-when="6">@#%*@%&!</span>
-			<span class="single-line" ng-switch-when="7">...</span>
-			<span class="single-line" ng-switch-when="8">....</span>
-			<span class="single-line" ng-switch-when="9">.....</span>
-			<span class="single-line" ng-switch-when="10">......</span>
-			<span class="single-line" ng-switch-when="11">.......</span>
-			<span class="single-line" ng-switch-when="12">........</span>
-			<span class="single-line" ng-switch-when="13">I quit.</span>
-			<span class="single-line" ng-switch-when="14"><i class="fa fa-suitcase"></i> <i class="fa fa-suitcase"></i> <i class="fa fa-suitcase"></i></span>
-			<span ng-switch-default>Push a button.<br>Get food.&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		<div class="text">
+			<span class="restaurants-push-tagline"><b>Push a button</b><br>Get food delivered</span>
 		</div>
 		<div class="bubble-tail-spacer"></div>
 	</div>
-	<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 13 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
-	<div class="divider"></div>
-	<div class="restaurants-tagline">
-		<h1>Order the top local delivery food.</h1>
-		<h2>Choose one of these awesome restaurants</h2>
-	</div>
+	<div class="restaurants-orange"></div>
 	<div class="divider"></div>
 </div>
 
@@ -780,30 +720,30 @@
 
 	<h4>Community Representative</h4>
 	<p>
-		No one knows more about your college or community than you. You know whats "cool", and that's why we’re going to hire you! You'll be responsible for scouting the area to get restaurants signed up, and later work directly with us to orchestrate awesome marketing campaigns.
+		No one knows more about your college or community than you. You know whats "cool", and that's why we’re going to hire you! Scout for local awesome restaurants to sign up, and play a significant role in orchestrating marketing campaings.
 	</p>
 	<br />
 	<a href="mailto:{{reps}}"><button class="button lightorange">join up</button></a>
 	<br /><br /><br /><br />
 
 	<h4>Rockstar Developers &amp; Designers</h4>
-	<p>Look at this beautiful website! It's almost perfect! You know what would make it better? Your magical touch! Join our small team of developers located in LA/Brazil and lets get shit done!</p>
+	<p>Look at this beautiful website! It's almost perfect! You know what would make it better? Your magical touch! Join our small team of developers located in Los Angeles and let's get shit done!</p>
 	<br />
 	<a href="mailto:{{devs}}"><button class="button green">rock out</button></a>
 </div>
 
 </script><script type="text/ng-template" id="assets/view/location.html">
 <div class="bg">
-	<div class="home-top">
+	<div class="home-top parallax-bg">
 		<div class="top-pad"></div>
 	
 		<div ng-if="!locationError">
 			<div class="pushabutton"></div>
 			<div class="home-inputs">
-				<h4 class="action">What's your address?</h4>
+				<h4 class="action">What's your full address?</h4>
 				<table cellpadding="0" cellspacing="0" class="home-location">
 					<tr>
-						<td style="width: 100%;"><input class="location-address" autocapitalize="off" autocorrect="off" placeholder="e.g. 37 Elm St, New Haven CT 06511" geo-complete-enter="letsEat()" id="input-location-address" ng-model="location.form.address" geo-complete >
+						<td style="width: 100%;"><input class="location-address needsclick" autocapitalize="off" autocorrect="off" placeholder="e.g. 37 Elm St, New Haven CT 06511" ng-focus="softKeyboard($event);" geo-complete-enter="letsEat()" id="input-location-address" ng-model="location.form.address" geo-complete >
 						</td>
 						<td>				
 							<button class="location-detect ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF" ng-click="locEat()">
@@ -848,11 +788,9 @@
 				<p>Crunchbutton is currently in a limited area trial featuring only a select few colleges. Interested in helping to bring Crunchbutton to your area? Become a marketing rep or driver!</p>
 								<div class="divider spacer-one-two"></div>
 
-				<a href="mailto:{{reps}}">
-					<div class="button-pushable">
-						<button class="button orange" ng-click="facebook.auth()"><b>bring crunchbutton to you!</b></button>
-					</div>
-				</a>
+				<div class="button-pushable">
+					<button class="button orange" ng-click="navigation.link('/jobs','push')"><b>bring crunchbutton to you!</b></button>
+				</div>
 
 				
 					
@@ -937,7 +875,7 @@
 	</div>
 	<div class="dialog-divider"></div>
 	<div class="dialog-padding dialog-bottom-buttons">
-		<div class="button-pushable"><button class="button lightorange" ng-click="closePopup()">ok</button></div>
+		<div class="button-pushable"><button class="button lightorange" ng-click="complete()">ok</button></div>
 	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/order.html">
@@ -945,7 +883,7 @@
 
 <div ng-if="!order.id">
 	<div class="content-padding">
-		<h4>Loading order awesomeness...</h4>
+
 		<div class="ajax-loader-teal"></div>
 		<br />
 	</div>
@@ -976,7 +914,7 @@
 
 	<div class="order-content">
 		<div ng-hide="account.user.has_auth">
-		
+
 			<div class="divider dots spacer-two-two"></div>
 			<div class="content-padding order-buttons">
 				<p>Create an account to reorder your favorite food anywhere, including <a data-ng-href="http://crunchbutton.com">crunchbutton.com</a> and our <a data-ng-href="https://itunes.apple.com/app/id721780390">iOS App</a>.</p>
@@ -988,7 +926,7 @@
 			</div>
 
 		</div>
-		
+
 		<div ng-show="account.user.has_auth">
 			<div ng-if="order._new">
 				<div class="divider dots spacer-two-two"></div>
@@ -999,36 +937,39 @@
 				</div>
 							</div>
 		</div>
-	
+
 		<div class="divider dots spacer-two-two"></div>
-	
-	
+
+
 		<div class="content-padding">
-		
+
 			<div class="order-icon"><div class="icon-chef"></div></div>
 			<div class="order-info">
-				<p>
+				<p ng-if="order.delivery_service == 1">
+					For updates on your order, please text your driver, whose number you'll be texted.
+				</p>
+				<p ng-if="order.delivery_service == 0">
 					For updates on your order, please call
 					<br /><b>{{order._restaurant_name}}: <a href="tel:{{order._restaurant_phone}}" target="_blank">{{ order._restaurant_phone | formatPhone }}</a></b>
 					<br /><br />
 				</p>
 			</div>
 			<div class="divider"></div>
-	
+
 			<div class="order-icon"><div class="icon-support"></div></div>
 			<div class="order-info">
 				<p>
-					For website or app support, please call
-					<br /><b>Crunchbutton: <a href="tel:(646) 783-1444" target="_blank">{{ '6467831444' | formatPhone }}</a></b>
+					For website or app support, please call or text
+					<br /><b>Crunchbutton: <a href="sms:(646) 783-1444" target="_system">{{ '6467831444' | formatPhone }}</a></b>
 				</p>
 			</div>
 			<div class="divider"></div>
 		</div>
-	
+
 		<div class="divider dots spacer-two-two"></div>
-		
+
 		<div class="content-padding">
-			
+
 			<div class="order-icon">
 				<div ng-show="(order.delivery_type == 'delivery')" class="icon-delivery"></div>
 				<div ng-hide="(order.delivery_type == 'delivery')" class="icon-takeout"></div>
@@ -1040,19 +981,19 @@
 				</p>
 			</div>
 			<div class="divider"></div>
-			
+
 			<div class="order-icon">
 				<div ng-show="(order.pay_type == 'card')" class="icon-card"></div>
 				<div ng-hide="(order.pay_type == 'card')" class="icon-cash"></div>
 			</div>
 			<div class="order-info order-info-oneline">
 				<p>
-					<span ng-show="(order.pay_type == 'card')">Paid by card ending in <b>{{order.card.lastfour}}</b></span>
+					<span ng-show="(order.pay_type == 'card')">Paid by card <span ng-show="order.card_ending">ending in <b>{{order.card_ending}}</b></span></span>
 					<span ng-hide="(order.pay_type == 'card')">Pay<span ng-show="(order.delivery_type == 'delivery')"> and tip</span> with <b>cash</b></span>
 				</p>
 			</div>
 			<div class="divider"></div>
-			
+
 			<div class="order-icon"><div class="icon-clock"></div></div>
 			<div class="order-info order-info-oneline">
 				<p>
@@ -1060,7 +1001,7 @@
 				</p>
 			</div>
 			<div class="divider"></div>
-			
+
 			<div class="order-icon"><div class="icon-timer"></div></div>
 			<div class="order-info order-info-oneline">
 				<p>
@@ -1071,11 +1012,11 @@
 			</div>
 			<div class="divider"></div>
 		</div>
-			
+
 		<div class="divider dots spacer-two-two"></div>
 
 		<div class="content-padding">
-			
+
 			<div class="order-icon"><div class="icon-user"></div></div>
 			<div class="order-info">
 				<p>
@@ -1084,39 +1025,51 @@
 				</p>
 			</div>
 			<div class="divider"></div>
-			
+
 			<div ng-if="order.notes">
 				<div class="order-comment-arrow"></div>
 				<div class="order-comment">
 					<p ng-bind-html-unsafe="order.notes | nl2br"></p>
 				</div>
 			</div>
-			
+
 			<div class="divider spacer-one-two"></div>
-			
-			<a href="{{order.mapLink}}" target="_blank"><div class="order-map" style="background: url('https://maps.googleapis.com/maps/api/staticmap?&size={{width*2}}x300&markers=color:green%7Clabel:A%7C{{order.address.replace('#','') | nl2cm}}&markers=color:red%7Clabel:B%7C{{order._restaurant_lat}},{{order._restaurant_lon}}&sensor=false&visual_refresh=true');"></div></a>
-			
+
+
+			<span ng-if="order.delivery_type == 'delivery'">
+
+				<a href="{{order.mapLink}}" target="_blank"><div class="order-map" style="background: url('https://maps.googleapis.com/maps/api/staticmap?&size={{width*2}}x300&markers=color:green%7Clabel:A%7C{{order.address.replace('#','') | nl2cm}}&markers=color:red%7Clabel:B%7C{{order._restaurant_lat}},{{order._restaurant_lon}}&sensor=false&visual_refresh=true');"></div></a>
+
+			</span>
+			<span ng-if="order.delivery_type == 'takeout'">
+
+				<a href="{{order.mapLink}}" target="_blank"><div class="order-map" style="background: url('https://maps.googleapis.com/maps/api/staticmap?&size={{width*2}}x300&markers=color:red%7Clabel:B%7C{{order._restaurant_lat}},{{order._restaurant_lon}}&sensor=false&visual_refresh=true');"></div></a>
+
+			</span>
+
 			<div class="divider spacer-two-two"></div>
-			
-			<div class="order-icon"><div class="icon-map-home"></div></div>
-			<div class="order-info">
-				<p class="order-info-address"><a href="{{order.mapLink}}"><span ng-bind-html-unsafe="order.address | nl2br"></span></a></p>
-				<br />
-			</div>
-			<div class="divider"></div>
-			
+
+			<span ng-if="order.delivery_type == 'delivery'">
+				<div class="order-icon"><div class="icon-map-home"></div></div>
+				<div class="order-info">
+					<p class="order-info-address"><a href="{{order.mapLink}}"><span ng-bind-html-unsafe="order.address | nl2br"></span></a></p>
+					<br />
+				</div>
+				<div class="divider"></div>
+			</span>
+
 			<div class="order-icon"><div class="icon-map-restaurant"></div></div>
 			<div class="order-info">
 				<p class="order-info-address"><a href="{{order.mapLink}}"><span ng-bind-html-unsafe="order._restaurant_address | nl2br"></span></a></p>
 			</div>
 			<div class="divider"></div>
-			
+
 		</div>
-			
+
 		<div class="divider dots spacer-two-two"></div>
-		
+
 		<div class="content-padding">
-	
+
 			<h4>Your receipt:</h4>
 			<p>
 				<span ng-bind-html-unsafe="order._message"></span>
@@ -1124,23 +1077,28 @@
 				Total: $<span ng-bind-html-unsafe="order.charged | formatPrice"></span>
 				<br><br>
 			</p>
-			
-	
+
+
 			<div class="credit" ng-if="(order.credit && order.credit > 0)">( ${{order._final_price}} - ${{order._credit}} credit )</div>
 
 			<div class="divider spacer-two-two"></div>
-			<a href="{{server}}/printorder/{{ order.uuid }}" target="_blank" class="print-icon"><button class="button lightorange"><i class="fa fa-print"></i>&nbsp;&nbsp;&nbsp;Print Receipt</button></a>
+			<a href="{{server}}printorder/{{ order.uuid }}" target="_blank" class="print-icon"><button class="button lightorange"><i class="fa fa-print"></i>&nbsp;&nbsp;&nbsp;Print Receipt</button></a>
 		</div>
-		
+
 	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/orders.html">
 <div class="top-pad"></div>
 
+	
+<div class="content-padding">
+	<div class="orders-oranges animated-resize"></div>
+		
+</div>
+
 <div ng-show="!orders.list">
 	<div class="content-padding">
-		<h4>Energizing...</h4>
-		<p>Cross circuiting to A... Cross circuiting to B...</p>
+		<h4>Energizing..............</h4>
 		<div class="ajax-loader-teal"></div>
 		<br />
 	</div>
@@ -1155,12 +1113,6 @@
 </div>
 
 <div ng-show="orders.list && orders.list.length > 0">
-	
-	<div class="content-padding">
-		<div class="orders-oranges animated-resize"></div>
-				
-	</div>
-
 	<div class="content-padding">
 		<ul class="orders-list">
 			<li ng-repeat="order in orders.list" class="order-item-wrap" ng-click="orders.receipt(order.id)">
@@ -1199,7 +1151,7 @@
 			<span ng-switch-when="4">You really should use Crunchbutton</span>
 			<span ng-switch-when="5">Our customers are awesome</span>
 			<span class="single-line" ng-switch-when="6">They love us</span>
-			<span class="small" ng-switch-when="7">And we are more than willing to share that love</span>
+			<span class="small" ng-switch-when="7">And we are more<br>than willing to share<br> that love</span>
 			<span ng-switch-when="8">For a small fee of course</span>
 			<span ng-switch-when="9">I mean nothing is free</span>
 			<span class="single-line" ng-switch-when="10">Not even love</span>
@@ -1284,17 +1236,24 @@
 	<div class="dialog-padding">
 		<h1 ng-bind="restaurant.name"></h1>
 		<div class="dialog-egg animated-resize"></div>
-		<p>
-			<span ng-if="acceptingOrders">
-				is currently closed. It will be open during the following hours 
+			<span ng-if="active">
+				<p>
+					<span ng-if="acceptingOrders">
+						is currently closed. It will be open during the following hours 
+					</span>
+					<span ng-if="!acceptingOrders">
+						You can't place an order here right now, but you usually can during these hours
+					</span>
+					&nbsp;(<span ng-bind="restaurant._tzabbr"></span>):<br /><br />
+
+				</p>
+				<p ng-bind-html-unsafe="closedMessage" class="dialog-hours"></p>
 			</span>
-			<span ng-if="!acceptingOrders">
-				You can't place an order here right now, but you usually can during these hours
+			<span ng-if="!active">
+				<p>This restaurant is currently closed</p>
 			</span>
-			&nbsp;(<span ng-bind="restaurant._tzabbr"></span>):<br /><br />
-		</p>
-		<p ng-bind-html-unsafe="closedMessage" class="dialog-hours"></p>
-		<div class="divider"></div>
+			<div class="divider"></div>
+
 	</div>
 	<div class="dialog-divider"></div>
 	<div class="dialog-padding dialog-bottom-buttons">
@@ -1307,32 +1266,32 @@
 <div class="bg">
 	<div ng-show="!order.loaded">
 			</div>
-	
+
 	<div ng-show="restaurant">
-	
+
 		<div class="restaurant-pad"></div>
-		
+
 		<div ng-if="restaurant.image" class="restaurant-pic-wrapper">
-	
+
 			<div class="restaurant-pic" style="background: url({{restaurant.img}});"><div class="restaurant-pic-overlay"></div></div>
 			<div class="restaurant-name">
-				<h1>{{restaurant.name}}</h1>
+				<h1 ng-resize-text>{{restaurant.name}}</h1>
 				<h2>{{restaurant.message || restaurant.short_description}}</h2>
 			</div>
-	
+
 			<div class="giftcard-badge" ng-if="credit.hasValue">
 				<i class="fa fa-certificate"></i>
 				<div class="giftcard-badge-value"><sup>$</sup>{{Math.round(credit.value)}}</div>
 				<div class="giftcard-badge-text">gift card</div>
 			</div>
-			
+
 			<div class="divider"></div>
 		</div>
-	
-	
+
+
 		<!-- main-content-readable-margin -->
 		<div class="content-padding">
-		
+
 			<div class="restaurant-comment" ng-if="restaurant.comment">
 				<div class="restaurant-comment-wrap">
 					<div class="restaurant-comment-image">
@@ -1344,70 +1303,70 @@
 					</div>
 				</div>
 			</div>
-		
+
 			<div restaurant-is-closed></div>
-	
+
 			<!-- cart -->
 			<div class="cart-items">
 				<div ng-show="restaurant._open">
-	
+
 					<div ng-show="!order.cart.hasItems()" class="restaurant-box">
 						<div class="restaurant-box-inner">
 							<span class="restaurant-box-icon">
-								<i class="fa fa-arrow-down"></i> 
+								<i class="fa fa-arrow-down"></i>
 							</span>
 							<span class="restaurant-box-content">
 																<span class="restaurant-box-subtitle restaurant-box-align">{{nothingInTheCartMobile}}</span>
 							</span>
 						</div>
 					</div>
-					
-				
+
+
 					<div ng-show="order.info.deliveryMinDiff && order.cart.hasItems()" class="dialog-message dialog-message-error delivery-minimum-error">
-						Add <sup>$</sup><span class="delivery-min-diff">{{order.info.deliveryMinDiff}}</span> more to meet the delivery min.
+						Add <sup>$</sup><span class="delivery-min-diff">{{order.info.deliveryMinDiff}}</span> more to meet the delivery min
 					</div>
-	
+
 					<div ng-show="order.cart.hasItems()">
 						<div class="restaurant-title-wrap">
 							<div class="restaurant-title">The Order</div>
 							<div class="restaurant-title-bar"><div class="restaurant-title-bar-inner">&nbsp;</div></div>
 						</div>
 					</div>
-	
+
 					<!-- Cart's basket -->
 					<div ng-repeat="item in order.cart.items">
-	
+
 						<div class="cart-item">
-	
+
 							<div ng-if="item.details.customization.customizable" ng-click="item.details.customization.expanded=!item.details.customization.expanded" class="cart-item-config">Customize</div>
-	
+
 							<div class="cart-button cart-button-remove" ng-click="order.cart.remove(item.details.id);"><span class="fa fa-times-circle"></span></div>
-	
+
 							<div class="cart-item-text">
 								<span class="cart-item-name">{{item.details.name}}</span><br />
 								<span class="cart-item-description">{{item.details.description}}</span>
 							</div>
-	
-							
+
+
 							<div class="divider"></div>
-	
+
 						</div>
-	
+
 						<!-- Customizable options -->
 						<div class="cart-customize-options" ng-show="item.details.customization.customizable && item.details.customization.expanded">
-							
+
 							<div ng-repeat="option in item.details.customization.options">
-	
+
 								<div class="cart-item-customize-item">
-								
+
 									<div ng-switch on="option.type">
-									
+
 										<!-- Customizable - select -->
 										<div ng-switch-when="select" class="cart-item-customize-item-select">
 											<label class="cart-item-customize-select-name">{{option.name}}</label>
 											<select ng-change="order.cart.customizeItem(option, item)" ng-model="option.selected" ng-options="opt.id_option as opt.name for opt in option.options" class="cart-customize-select"></select>
 										</div>
-	
+
 										<!-- Customizable - checkbox -->
 										<div ng-switch-when="check" class="cart-item-customize-item-check">
 											<input type="checkbox" custom-checkbox ng-change="order.cart.customizeItem(option, item)" ng-model="option.checked" class="cart-customize-check">
@@ -1415,87 +1374,83 @@
 											<span ng-click="option.checked = !option.checked; order.cart.customizeItem(option, item);" class="cart-item-customize-price">{{option.priceFormated}}</span>
 											<div class="divider"></div>
 										</div>
-	
-	
-	
+
+
+
 									</div>
 								</div>
-	
+
 							</div>
 						</div>
-	
+
 					</div>
 				</div>
-	
-	
+
+
 				<div class="default-order-check" ng-show="order.info.totalItems && restaurant._open">
 					<input custom-checkbox type="checkbox" ng-model="order.form.make_default">
 					<a ng-click="order.form.make_default = !order.form.make_default;">Save this order for next time</a>
 					<div class="divider"></div>
 				</div>
-	
+
 			</div>
-			
+
 			<!-- menu -->
 			<div class="restaurant-items">
-				
+
 				<div ng-show="fullmenu">
 					<div ng-bind-once class="restaurant-menu-category" ng-repeat="category in restaurant.categories()">
-					
+
 						<div class="restaurant-title-wrap">
 							<div class="restaurant-title restaurant-category">{{category.name}}{{category.locName()}}</div>
 							<div class="restaurant-title-bar restaurant-category"><div class="restaurant-title-bar-inner">&nbsp;</div></div>
 						</div>
-	
+
 						<ul class="resturant-dishes resturant-dish-container" date-id_category="{{category.id_category}}">
 							<li ng-bind-once ng-repeat="dish in category.dishes()" class="dish-item" data-id_dish="{{dish.id_dish}}" add-to-cart>
-								<span class="dish-item-name"><i class="fa fa-star" ng-if="dish.top"></i> {{dish.name}}</span><span class="dish-item-price">(${{dish.price}}<span ng-if="dish.changeable_price">+</span>)</span><br />
+								<span class="dish-item-name"><i class="fa fa-star" ng-if="dish.top"></i> {{dish.name}}</span><span class="dish-item-price">({{AB.dollar}}{{dish.price}}<span ng-if="dish.changeable_price">+</span>)</span><br />
 								<span class="dish-item-description">{{dish.description}}</span>
 							</li>
 						</ul>
 					</div>
-	
-					<button class="button lightorange restaurant-items-toggle" ng-click="fullmenu=0">less food</button>
+
+					<div class="more-food-link restaurant-items-toggle" ng-click="fullmenu=0">less food</div>
 				</div>
-				
+
 				<div ng-show="!fullmenu">
-	
+
 					<div class="restaurant-title-wrap">
-						<div class="restaurant-title">The Menu</div>
-						<div class="restaurant-title-bar"><div class="restaurant-title-bar-inner">&nbsp;</div></div>
+						<div class="restaurant-title">The Highlights</div>
+						<div class="restaurant-title-bar"><div class="restaurant-title-bar-inner"></div></div>
 					</div>
-	
+
 					<div ng-repeat="category in restaurant.categories()">
 						<ul class="resturant-dishes resturant-dish-container" date-id_category="{{category.id_category}}">
 							<li ng-repeat="dish in category.dishes() | filter: {top: 1}" class="dish-item" data-id_dish="{{dish.id_dish}}" add-to-cart>
-								<span class="dish-item-name">{{dish.name}}</span><span class="dish-item-price">(${{dish.price}}<span ng-show="dish.changeable_price">+</span>)</span><br />
+								<span class="dish-item-name">{{dish.name}}</span><span class="dish-item-price">({{AB.dollar}}{{dish.price}}<span ng-show="dish.changeable_price">+</span>)</span><br />
 								<span class="dish-item-description">{{dish.description}}</span>
 							</li>
 						</ul>
 					</div>
-					
-					<button class="button lightorange restaurant-items-toggle" ng-click="fullmenu=1">more food</button>
+
+					<p class="center-text">
+						<div class="more-food-link restaurant-items-toggle" ng-click="fullmenu=1">more food</div>
+					</p>
+
+
 				</div>
-				
+
 			</div>
 			<div class="divider"></div>
 		</div>
-		
-		
-		<div class="divider dots spacer-one-one" ng-if="!account.user.id_user"></div>
-		<div class="content-padding" ng-if="!account.user.id_user">
-			<p>Already signed up? Don't enter all that stuff again! Not signed up yet? Don't worry, you don't have to sign up to order, but we <b><i>highly</i></b> recommend it!</p>
-			<br>
-			<button class="button facebook" ng-click="navigation.signin()">Log in / Sign up</button>
-		</div>
-	
+
 		<div class="divider dots spacer-one-one" ng-if="order.loaded && order.cart.hasItems() && order.showForm"></div>
-	
+
 		<!-- payment and user info -->
 		<form class="payment-form content-padding" ng-show="order.loaded && order.cart.hasItems() && order.showForm">
-		
+
 			<div ng-show="restaurant._open && order.showForm && order.cart.hasItems()">
-				
+
 				<!-- user info -->
 				<div class="delivery-info-container">
 					<div ng-show="(restaurant.delivery == '1' && restaurant.takeout == '1')">
@@ -1505,67 +1460,72 @@
 							<div class="divider"></div>
 						</div>
 					</div>
-					
-					
+
+
 					<div class="payment-form-group form-group">
 						<i class="form-icon form-field"> </i>
 						<div class="form-field">
 							<div ng-show="(restaurant.delivery == '1' && restaurant.takeout != '1')">
 								<label class="pay-title-label">Delivery Info</label>
 							</div>
-			
+
 							<div ng-show="(restaurant.delivery != '1' && restaurant.takeout == '1')">
 								<label class="pay-title-label">Takeout Info </label>
 								<span class="take-out-only">Take out only!</span>
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="divider spacer-one-two"></div>
-	
-	
+
+
 					<div class="personal-info field-container">
 						<div class="payment-form-group form-group">
 							<i class="fa fa-user payment-form-icon form-icon form-field"></i>
-							<input type="text" name="pay-name" tabindex="2" ng-model="order.form.name" class="payment-form-input form-input form-field" placeholder="name">
+							<input ng-focus="softKeyboard($event);" type="text" name="pay-name" tabindex="2" ng-model="order.form.name" class="payment-form-input form-input form-field" placeholder="name">
 						</div>
-	
+
+						<div class="payment-form-group form-group">
+							<i class="fa fa-envelope-o payment-form-icon form-icon form-field"></i>
+							<input ng-focus="softKeyboard($event);" type="text" name="pay-email" tabindex="3" ng-model="order.form.email" class="payment-form-input form-input form-field" placeholder="email">
+						</div>
+
 						<div class="payment-form-group form-group">
 							<i class="fa fa-phone payment-form-icon form-icon form-field"></i>
-							<input type="tel" name="pay-phone" tabindex="3" ng-format-phone ng-model="order.form.phone" class="payment-form-input form-input form-field" placeholder="phone number">
+							<input ng-focus="softKeyboard($event);" type="tel" name="pay-phone" tabindex="4" ng-format-phone ng-model="order.form.phone" class="payment-form-input form-input form-field" placeholder="phone number">
 						</div>
-	
+
 						<div class="payment-form-group form-group">
 							<i class="fa fa-map-marker payment-form-icon form-icon form-field"></i>
 							<p class="pickup-info" ng-if="order.form.delivery_type!='delivery'">Pickup from:<br><span ng-bind-html-unsafe="restaurant.address | nl2br"></span></p>
-							<textarea ng-autosize ng-show="order.form.delivery_type=='delivery'" class="payment-form-input form-input form-field" ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5" placeholder="address"></textarea>
+							<textarea ng-focus="softKeyboard($event);" ng-autosize ng-show="order.form.delivery_type=='delivery'" class="payment-form-input form-input form-field" ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5" placeholder="address"></textarea>
 						</div>
-	
+
 						<div class="payment-form-group form-group">
-	
+
 							<i class="fa fa-bullhorn payment-form-icon form-icon form-field"></i>
-							<textarea ng-autosize name="notes" ng-blur="checkGiftCard()" ng-model="order.form.notes" tabindex="6" class="payment-form-input form-input form-field" placeholder="notes"></textarea>
-	
+							<textarea ng-focus="softKeyboard($event);" ng-autosize name="notes" ng-blur="checkGiftCard()" ng-model="order.form.notes" tabindex="6" class="payment-form-input form-input form-field" placeholder="notes"></textarea>
+
 							<!-- Gift card messages -->
 							<div class="giftcard-info">
-	
+
 								<div class="warning" ng-if="giftcard.removed">
 									You just removed a gift card. If you still want to use that gift card, you must put it back in the notes field.
 								</div>
-	
+
 								<div ng-if="restaurant.giftcard == 0 && giftcard.hasGiftCards">
 									This restaurant does not accept gift card.
 								</div>
-	
+
 								<div ng-if="giftcard.hasValue && order.form.pay_type == 'cash' ">
-									Pay with a card, NOT CASH, to use your ${{giftcard.value}} gift card!</span>
+									Pay with a card, NOT CASH, to use your {{AB.dollar}}{{giftcard.value}} gift card!</span>
 								</div>
-	
+
 								<div ng-if="restaurant.giftcard == 1 && order.form.pay_type == 'card' ">
 									<!-- Gift card success -->
 									<div ng-repeat="success in giftcard.giftcards.success">
 										<div ng-show="!success.error">
-											Congrats! This gift card ({{success.giftcard}}) gives you ${{success.value}}.	
+											Congrats! This gift card ({{success.giftcard}}) gives you {{AB.dollar}}{{success.value}}.
 										</div>
 										<div ng-show="success.error == 'other restaurant'">
 											The gift card ({{success.giftcard}}) you are trying to use belongs to another restaurant.
@@ -1580,70 +1540,70 @@
 										</div>
 									</div>
 								</div>
-								<spa ng-if="giftcard.justOneGiftCardError">
+								<span ng-if="giftcard.justOneGiftCardError">
 									You can only use one gift card at a time!
 								</span>
 							</div>
 						</div>
-		
+
 					</div>
 				</div>
-				
+
 				<!-- payment info -->
 				<div class="payment-info-container">
-				
-	
+
+
 					<div class="divider spacer-two-two"></div>
 					<div class="divider spacer-one-one"></div>
-			
+
 					<div class="payment-info field-container">
 						<div class="toggle-wrapper clearfix">
-							<button ng-click="order.tooglePayment( 'card' )" ng-show="(restaurant.credit == '1')" ng-class="{'toggle-active': order.form.pay_type=='card' }" class="payment-form-toggle">card</button> 
+							<button ng-click="order.tooglePayment( 'card' )" ng-show="(restaurant.credit == '1')" ng-class="{'toggle-active': order.form.pay_type=='card' }" class="payment-form-toggle">card</button>
 							<button ng-click="order.tooglePayment( 'cash' )" ng-show="(restaurant.cash == '1')"  ng-class="{'toggle-active': order.form.pay_type=='cash' }" class="payment-form-toggle">cash</button>
 							<div class="divider"></div>
 						</div>
-						
+
 						<div class="divider spacer-two-two"></div>
-	
+
 						<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
 							<i class="fa fa-credit-card payment-form-icon form-icon form-field"></i>
-							<input type="tel" name="pay-card-number" tabindex="6" ng-change="order.creditCardChanged();" ng-model="order.form.cardNumber" class="payment-form-input form-input form-field">
+							<input ng-focus="softKeyboard($event);" type="tel" name="pay-card-number" tabindex="6" ng-change="order.creditCardChanged();" ng-model="order.form.cardNumber" class="payment-form-input form-input form-field">
 						</div>
-						
+
 						<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
 							<i class="fa payment-form-icon form-icon form-field"></i>
 							<div class="form-input-select"><select ng-change="order.cardInfoChanged()" ng-model="order.form.cardMonth" ng-options="month.value as month.label for month in order._months()" tabindex="7" class="payment-form-select payment-form-input form-input form-field">{{order.form.card.month}}</select></div>
 							<div class="form-input-select"><select ng-change="order.cardInfoChanged()" ng-model="order.form.cardYear" ng-options="year.value as year.label for year in order._years()" tabindex="8" class="payment-form-select payment-form-input form-input form-field payment-form-select-year"></select></div>
 						</div>
-	
+
 						<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
 							<i class="fa fa-thumbs-up payment-form-icon form-icon form-field"></i>
 							<input type="hidden" name="pay-autotip-value" ng-model="order.form.autotip" value="0">
 							<div class="form-input-select"><select ng-model="order.form.tip" ng-options="tip.value as tip.label for tip in order._tips()" ng-change="order.tipChanged();" class="tip payment-form-select payment-form-input form-input form-field" tabindex="9"></select></div>
-	
+
 						</div>
 					</div>
-	
+
 				</div>
-	
-	
-				
-	
+
+
+
+
 			</div>
-		
+
 		</form>
-	
+
 		<!-- stored user info -->
-		
-		<div class="delivery-payment-info main-content-readable" ng-if="restaurant._open && !order.showForm && order.cart.hasItems()">
-			
+
+		<div class="delivery-payment-info main-content-readable" ng-if="order.loaded && restaurant._open && !order.showForm && order.cart.hasItems()">
+
 			<div class="divider dots spacer-one-one"></div>
 				<div class="content-padding">
-				
+
 				<p>We’ve saved your payment and delivery info for one click reordering.</p>
-				
+
 				<div class="divider spacer-one-one"></div>
-				
+
 				<div class="order-icon"><div class="icon-phone"></div></div>
 				<div class="order-info order-info-oneline">
 					<p>
@@ -1658,6 +1618,7 @@
 						<div class="icon-cash" ng-show="order.form.pay_type=='cash'"></div>
 				</div>
 				<div class="order-info order-info-oneline">
+
 					<p>
 						<span ng-show="order.form.pay_type=='card' && order.total() <= credit.number">Gift card balance</span>
 						<span ng-show="order.form.pay_type=='card' && credit.number && order.total() > credit.number">Card ending in {{user.card_ending}} &amp; - {{credit.value}} credit</span>
@@ -1666,7 +1627,7 @@
 					</p>
 				</div>
 				<div class="divider"></div>
-				
+
 				<div class="order-icon">
 					<div class="icon-map-home" ng-show="restaurant.delivery == '1' && order.form.delivery_type=='delivery'"></div>
 					<div class="icon-map-restaurant" ng-show="restaurant.takeout == '1' && order.form.delivery_type=='takeout'"></div>
@@ -1681,45 +1642,42 @@
 					</p>
 				</div>
 				<div class="order-info" ng-show="restaurant.takeout == '1' && order.form.delivery_type=='takeout'">
-					<p>
-						Deliver to:<br />
-					</p>
 					<p class="restaurant-info-address">
 						Pick up from:<br />
 						<span ng-bind-html-unsafe="restaurant.address | nl2br"></span>
 					</p>
 				</div>
 				<div class="divider"></div>
-				
+
 				<div class="order-icon"><div class="icon-notes" ng-show="order.form.notes"></div></div>
 				<div class="order-info">
 					<p ng-bind-html-unsafe="order.form.notes | nl2br" class="restaurant-info-address"></p>
 				</div>
 				<div class="divider"></div>
-				
+
 				<div class="divider spacer-one-two"></div>
-	
-				<button class="button green" ng-click="order.showForm=true">Change info</button>		
+
+				<button class="button green" ng-click="order.showForm=true">Change info</button>
 			</div>
 		</div>
-	
+
 	</div>
-	
-	
+
+
 	<!-- total breakdown -->
 	<div class="divider dots spacer-one-two" ng-show="order.info.subtotal && order.info.subtotal!='0.00' && restaurant._open"></div>
-	
+
 	<div class="payment-total content-padding" ng-if="order.info.subtotal && order.info.subtotal!='0.00' && restaurant._open">
 		<div class="restaurant-banana animated-resize"></div>
-		
+
 		<div class="payment-wrap">
-			<div class="payment-ribbon">
+			<div class="payment-ribbon" ng-class="{'backface':!isIOs}">
 				<div class="payment-ribbon-content">
-					<span class="restaurant-payment-item">Subtotal: <span ng-show="order.form.pay_type=='cash'">~</span>${{order.info.subtotal}}</span>
-					<span class="restaurant-payment-item">Tax: ${{order.info.taxes}}</span>
-					<span class="restaurant-payment-item" ng-show="order.form.pay_type!='cash' && order.info.tip!='0.00'">Tip: ${{order.info.tip}}</span>
-					<span class="restaurant-payment-item" ng-show="order.info.delivery!='0.00'">Delivery Fee: ${{order.info.delivery}}</span>
-					<span class="restaurant-payment-item" ng-show="order.info.fee!='0.00'">Service Fee: ${{order.info.fee}}</span>
+					<span class="restaurant-payment-item">Subtotal: <span ng-show="order.form.pay_type=='cash'">~</span>{{AB.dollar}}{{order.info.subtotal}}</span>
+					<span class="restaurant-payment-item">Tax: {{AB.dollar}}{{order.info.taxes}}</span>
+					<span class="restaurant-payment-item" ng-show="order.form.pay_type!='cash' && order.info.tip!='0.00'">Tip: {{AB.dollar}}{{order.info.tip}}</span>
+					<span class="restaurant-payment-item" ng-show="order.info.delivery!='0.00'">Delivery Fee: {{AB.dollar}}{{order.info.delivery}}</span>
+					<span class="restaurant-payment-item" ng-show="order.info.fee!='0.00'">Service Fee: {{AB.dollar}}{{order.info.fee}}</span>
 					<span class="restaurant-payment-item" ng-show="credit.hasValue && order.form.pay_type == 'card'">Credit: -$
 						<span ng-show="order.total() <= credit.number">{{order.info.total}}</span>
 						<span ng-show="order.total() > credit.number">{{credit.value}}</span>
@@ -1731,160 +1689,143 @@
 			<div class="divider"></div>
 		</div>
 		<div class="divider"></div>
-	
+
 		<div ng-if="credit.hasValue && order.form.pay_type == 'cash' && order.total() >= credit.number">
-			<div class="giftcard-payment-message">Pay with a card, NOT CASH, to use your ${{credit.value}} gift card</div>
+			<div class="giftcard-payment-message">Pay with a card, NOT CASH, to use your {{AB.dollar}}{{credit.value}} gift card</div>
 		</div>
 	</div>
-	
+
 	<div class="divider bottom-spacer"></div>
-	
-	
-	
-	
-	
-	
+
+
 </div>
 
 
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
-<div class="address-not-found-warning order-warning modal zoom-anim-dialog small-container mfp-hide">
-	<h1>Confirm your address?</h1>
-	<p><strong>We could not find the address:<br/>{{order.form.address}}</strong></p>
-	<ul>
-		<li>
-			<div ng-click="addressPlaceAnyway();">Continue</div>
-		</li>
-		<li>
-			<div ng-click="addressLetMeChangeIt();">Add a City or Zip Code</div>
-		</li>
-	</ul>
-</div>
-
-
-
-
-<div class="address-not-found-warning zoom-anim-dialog mfp-hide dialog" ng-controller="RestaurantClosedCtrl">
+<div class="address-incomplete-warning order-warning  zoom-anim-dialog mfp-hide dialog mfp-hide">
 	<div class="dialog-padding">
-		<h1>One sec!</h1>
-		<p><strong>We could not find the address:<br/>{{order.form.address}}</strong></p>
-	</div>
-	<div class="dialog-divider"></div>
-	<div class="dialog-padding dialog-bottom-buttons">
-		<div class="button-pushable"><button class="button lightorange" ng-click="addressLetMeChangeIt();">Add a City or Zip Code</button></div>
-		<a href="" ng-click="addressPlaceAnyway();" class="dialog-alternate-link">Place Order Anyway</a>
-		<div class="divider"></div>
+		<b class="order-warning-bold">Confirm your address?</b>
+		<p>It looks like your address is incomplete: <br/> {{order.form.address}}</p>
+		<div class="divider spacer-one-two"></div>
+		<ul>
+			<li>
+				<div class="button-pushable">
+					<button class="button lightorange" ng-click="addressLetMeChangeIt()">
+						Add a City or Zip Code
+					</button>
+				</div>
+			</li>
+			<li>
+				<div class="cursor link" ng-click="addressPlaceAnyway();">Place Order Anyway</div>
+			</li>
+		</ul>
 	</div>
 </div>
 
-
-
-
-<div class="address-out-of-range-warning zoom-anim-dialog mfp-hide dialog" ng-controller="RestaurantClosedCtrl">
+<div class="address-not-found-warning order-warning  zoom-anim-dialog mfp-hide dialog mfp-hide">
 	<div class="dialog-padding">
-		<h1>One sec!</h1>
-		<p>The address <strong>{{order.form.address}}</strong> is out of delivery range, or you have entered an invalid address.<br/><br/>Please check your address, or order takeout.</p>
-	</div>
-	<div class="dialog-divider"></div>
-	<div class="dialog-padding dialog-bottom-buttons">
-		<div class="button-pushable"><button class="button lightorange" ng-click="addressLetMeChangeIt();">Modify Address</button></div>
-		<a href="" ng-click="addressOutOfRangePlaceAnyway();" class="dialog-alternate-link">Place Order Anyway</a>
-		<div class="divider"></div>
+		<b class="order-warning-bold">Confirm your address?</b>
+		<p>We could not find the address: <br/> {{order.form.address}}</p>
+		<div class="divider spacer-one-two"></div>
+		<ul>
+			<li>
+				<div class="button-pushable">
+					<button class="button lightorange" ng-click="addressLetMeChangeIt()">
+						Add a City or Zip Code
+					</button>
+				</div>
+			</li>
+			<li>
+				<div class="cursor link" ng-click="addressPlaceAnyway();">Continue</div>
+			</li>
+		</ul>
 	</div>
 </div>
-</script><script type="text/ng-template" id="assets/view/restaurant.suggestion.tooltip.html">
-<span class="tooltip-help-{{type}}-container">
 
-	<span ng-show="type == 'mobile'" class="tooltip-help-mobile-touchable">
-		<span class="tooltip-help tooltip-help-mobile" ng-click="show=!show">
-			<span>?</span>
-		</span>
-	</span>
 
-	<span ng-show="type == 'desktop'" class="tooltip-help tooltip-help-desktop" ng-click="show=!show">
-		<span>?</span>
-	</span>
-
-	<div ng-show="show" class="tooltip-help-content tooltip-help-content-{{type}}">
-		We've highlighted the top food from this restaurant below. Suggest something else? Text or call us at <a href="tel:+16467831444">(646) 783-1444</a>.
+<div class="address-out-of-range-warning order-warning  zoom-anim-dialog mfp-hide dialog mfp-hide">
+	<div class="dialog-padding">
+		<b class="order-warning-bold">One sec!</b>
+		<p>The address <b>{{order.form.address}}</b> is out of delivery range, or you have entered an invalid address.<br/><br/>Please check your address, or order takeout.</p>
+		<div class="divider spacer-one-two"></div>
+		<ul>
+			<li>
+				<div class="button-pushable">
+					<button class="button lightorange" ng-click="addressLetMeChangeIt()">
+						Modify Address
+					</button>
+				</div>
+			</li>
+			<li>
+				<div class="cursor link" ng-click="addressPlaceAnyway();">Place Order Anyway</div>
+			</li>
+		</ul>
 	</div>
-</span>
+</div>
+
 </script><script type="text/ng-template" id="assets/view/restaurants.html">
 <div class="top-pad"></div>
 
 <div class="restaurants-bubble-wrap">
+	<div ng-if="!image">
+		<div ng-if="!allClosed">
+			<div class="bubble-tail bubble-tail-green bubble-animated">
+				<div class="text" ng-switch="pushMessage">
+					<span ng-switch-when="1">We choose<br>the best food...</span>
+					<span ng-switch-when="2">From the best restaurants...</span>
+					<span ng-switch-when="3">So you don't<br> have to!</span>
+					<span ng-switch-when="4">Screw huge<br> menus!</span>
+					<span class="single-line" ng-switch-when="5">Screw gross food!!</span>
+					<span ng-switch-when="6">We only have awesome stuff!</span>
+					<span class="single-line" ng-switch-when="7">Got a suggestion?</span>
+					<span ng-switch-when="8">Want to work<br> for us?</span>
+					<span class="single-line" ng-switch-when="9">Send us a text!</span>
+					<span ng-switch-when="10">We are always looking for...</span>
+					<span ng-switch-when="11" class="single-line">Awesome people...</span>
+					<span class="single-line" ng-switch-when="12">And great food!</span>
+					<span class="single-line" ng-switch-when="13"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
+					<span ng-switch-default class="restaurants-push-tagline"><b>Push a button</b><br>Get food delivered</span>
+				</div>
+				<div class="bubble-tail-spacer"></div>
+			</div>
+			<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 12 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
+		</div>
 
-	<div ng-if="!allClosed">
-		<div class="bubble-tail bubble-tail-green bubble-animated">
-			<div class="text" ng-switch="pushMessage">
-				<span ng-switch-when="1">We choose the best food...</span>
-				<span ng-switch-when="2">From the best restaurants...</span>
-				<span ng-switch-when="3">So you don't have to!</span>
-				<span ng-switch-when="4">Screw huge menus!</span>
-				<span class="single-line" ng-switch-when="5">Screw gross food!!</span>
-				<span ng-switch-when="6">We only have awesome stuff!</span>
-				<span class="single-line" ng-switch-when="7">Got a suggestion?</span>
-				<span ng-switch-when="8">Want to work for us?</span>
-				<span class="single-line" ng-switch-when="9">Send us a text!</span>
-				<span ng-switch-when="10">We are always looking for...</span>
-				<span ng-switch-when="11">Awesome people...</span>
-				<span class="single-line" ng-switch-when="12">And great food!</span>
-				<span class="single-line" ng-switch-when="13"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
-				<span ng-switch-default>Push a button.<br>Get food.&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		<div ng-if="allClosed">
+			<div class="bubble-tail bubble-tail-green bubble-animated">
+				<div class="text" ng-switch="pushMessage">
+					<span ng-switch-when="2">There are no open restaurants</span>
+					<span ng-switch-when="3" class="small">Know of something awesome in your area?</span>
+					<span class="single-line" ng-switch-when="4">Send us a txt...</span>
+					<span class="single-line" ng-switch-when="5">And we'll add it!</span>
+					<span ng-switch-when="6">Don't stay hungry!</span>
+					<span class="single-line" ng-switch-when="7"><i class="fa fa-cutlery"></i> <i class="fa fa-cutlery"></i> <i class="fa fa-cutlery"></i></span>
+					<span ng-switch-default class="single-line">
+						<span ng-if="community_closed" class="small">
+							{{community_closed}}
+						</span>
+						<span ng-if="!community_closed">Wahhhhhh!!!&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					</span>
+				</div>
+				<div class="bubble-tail-spacer"></div>
 			</div>
-			<div class="bubble-tail-spacer"></div>
+			<div class="restaurants-orange restaurants-orange-sad" ng-instant="pushMessage = (pushMessage > 6 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
 		</div>
-		<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 12 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
-	</div>
-	
-	<div ng-if="allClosed">
-		<div class="bubble-tail bubble-tail-green bubble-animated">
-			<div class="text" ng-switch="pushMessage">
-				<span ng-switch-when="2">There are no open restaurants</span>
-				<span ng-switch-when="3" class="small">Know of something awesome in your area?</span>
-				<span class="single-line" ng-switch-when="4">Send us a txt...</span>
-				<span class="single-line" ng-switch-when="5">And we'll add it!</span>
-				<span ng-switch-when="6">Don't stay hungry!</span>
-				<span class="single-line" ng-switch-when="7"><i class="fa fa-cutlery"></i> <i class="fa fa-cutlery"></i> <i class="fa fa-cutlery"></i></span>
-				<span ng-switch-default class="single-line">Wahhhhhh!!!&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+		<div class="divider"></div>
+		<br>
+
 			</div>
-			<div class="bubble-tail-spacer"></div>
-		</div>
-		<div class="restaurants-orange restaurants-orange-sad" ng-instant="pushMessage = (pushMessage > 6 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
-	</div>
-	
-	<div class="divider"></div>
-	<div class="restaurants-tagline">
-		<h1>Order the top local delivery food.</h1>
-		<h2>Choose one of these awesome restaurants</h2>
-	</div>
+
+	<div ng-show="image" class="community-image"></div>
+
+
 	<div class="divider"></div>
 </div>
 
 <div ng-if="restaurants">
 
 	<div class="restaurants-items">
-		
+
 	<span ng-repeat="restaurant in restaurants | limitTo:restaurantsToShow">
 
 			<div class="restaurant-list-divider" ng-if="restaurant._divider"></div>
@@ -1898,11 +1839,11 @@
 
 				<div class="restaurants-closed" ng-if="restaurant._tag == 'force_close'">
 					<h2 class="restaurants-name">{{restaurant.name}}</h2>
-					<div class="restaurants-opensin">Temporarily closed {{restaurant._closedDueTo}}</div>			
+					<div class="restaurants-opensin">Temporarily closed {{restaurant._closedDueTo}}</div>
 				</div>
 
 				<div class="restaurants-open" ng-hide="restaurant._tag == 'closed' || restaurant._tag == 'force_close'">
-					
+
 					<div class="restaurants-item-content ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#333333" data-spinner-autostart="{{restaurant._open}}">
 						<div class="ladda-label">
 							<div class="restaurants-pic meal-pic" style="background: url({{restaurant.img}});"></div>
@@ -1914,7 +1855,7 @@
 								<div class="meal-item-tag about-to-close" ng-switch-when="closing">Hurry, closes in {{restaurant._closesIn}} min!</div>
 								<div class="meal-item-tag about-to-open" ng-switch-when="opening">Opens {{restaurant._opensIn_formatted}} </div>
 							</div>
-							
+
 							<div class="meal-item-tag-bottom" ng-if="restaurant._tag == 'closing' || restaurant._tag == 'takeout' || restaurant._tag == 'force_close'"></div>
 
 						</div>
@@ -1933,54 +1874,56 @@
 	</div>
 </div>
 </script><script type="text/ng-template" id="assets/view/splash.html">
-<div class="bg home-top splash-top fixed">
+<div splash-position-fix class="bg home-top splash-top fixed parallax-bg">
 	<div class="splash-spacer-one"></div>
 	<div title="Crunchbutton" class="logo animated-resize" ng-click="navigation.home()"></div>
 	<div class="splash-spacer-two"></div>
 
-	<div class="splash-bubble-wrap">
-		<div class="bubble-curved bubble-curved-white bubble-animated animated-resize">
-			<div class="text" ng-switch="splashMessage">
-				<span class="single-line" ng-switch-when="1">Hey!!</span>
-				<span class="single-line" ng-switch-when="2">Try logging in!</span>
-				<span class="single-line" ng-switch-when="3">No, down THERE!</span>
-				<span ng-switch-when="4">You are in<br>for a treat</span>
-				<span ng-switch-when="5">I can tell you are excited</span>
-				<span class="small" ng-switch-when="6">Perhaps too excited to follow directions</span>
-				<span class="small" ng-switch-when="7">But the next page is even MORE exciting!</span>
-				<span class="single-line" ng-switch-when="8">You can do it!</span>
-				<span class="single-line" ng-switch-when="9">I believe in you!</span>
-				<span class="single-line" ng-switch-when="10">You are awesome!</span>
-				<span class="single-line" ng-switch-when="11">Log in!</span>
-				<span class="single-line" ng-switch-when="12">YA!</span>
-				<span ng-switch-when="13">There is now cow level.</span>
-				<span ng-switch-when="14">Snape kills Dumbledore.</span>
-				<span class="small" ng-switch-when="15">Rubber baby buggy bumpers.</span>
-				<span class="small" ng-switch-when="16" style="margin-top: 1.2em;">
-					<i class="fa fa-arrow-circle-up"></i> 
-					<i class="fa fa-arrow-circle-up"></i> 
-					<i class="fa fa-arrow-circle-down"></i> 
-					<i class="fa fa-arrow-circle-down"></i> 
-					<i class="fa fa-arrow-circle-left"></i> 
-					<i class="fa fa-arrow-circle-right"></i> 
-					<i class="fa fa-arrow-circle-left"></i> 
-					<i class="fa fa-arrow-circle-right"></i> 
-					B 
-					A 
-				</span>
-				<span class="single-line" ng-switch-when="17">@#%*@%&!</span>
-				
-				
-				<span class="single-line" ng-switch-when="18"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
-				<span class="single-line" ng-switch-default>Oh, Hello!&nbsp;&nbsp;</span>
-			</div>
-		</div>
-		<div class="bubble-curved-spacer"></div>
-	</div>
+	<div class="about-green-orange-scene" fixed-height="170">
+		<div class="splash-bubble-wrap">
+			<div class="bubble-curved bubble-curved-white bubble-animated animated-resize">
+				<div class="text" ng-switch="splashMessage">
+					<span class="single-line" ng-switch-when="1">Hey!!</span>
+					<span class="single-line" ng-switch-when="2">Try logging in!</span>
+					<span class="single-line" ng-switch-when="3">No, down THERE!</span>
+					<span ng-switch-when="4">You are in<br>for a treat</span>
+					<span ng-switch-when="5">I can tell you are excited</span>
+					<span class="small" ng-switch-when="6">Perhaps too excited to follow directions</span>
+					<span class="small" ng-switch-when="7">But the next page is even MORE exciting!</span>
+					<span class="single-line" ng-switch-when="8">You can do it!</span>
+					<span class="single-line" ng-switch-when="9">I believe in you!</span>
+					<span class="single-line" ng-switch-when="10">You are awesome!</span>
+					<span class="single-line" ng-switch-when="11">Log in!</span>
+					<span class="single-line" ng-switch-when="12">YA!</span>
+					<span ng-switch-when="13">There is now cow level.</span>
+					<span ng-switch-when="14">Snape kills Dumbledore.</span>
+					<span class="small" ng-switch-when="15">Rubber baby buggy bumpers.</span>
+					<span class="small" ng-switch-when="16" style="margin-top: 1.2em;">
+						<i class="fa fa-arrow-circle-up"></i>
+						<i class="fa fa-arrow-circle-up"></i>
+						<i class="fa fa-arrow-circle-down"></i>
+						<i class="fa fa-arrow-circle-down"></i>
+						<i class="fa fa-arrow-circle-left"></i>
+						<i class="fa fa-arrow-circle-right"></i>
+						<i class="fa fa-arrow-circle-left"></i>
+						<i class="fa fa-arrow-circle-right"></i>
+						B
+						A
+					</span>
+					<span class="single-line" ng-switch-when="17">@#%*@%&!</span>
 
-	<div class="about-green-orange animated-resize" ng-instant="splashMessage = (splashMessage > 17 ? 0 : (splashMessage + 1))" instant-pass-thru></div>
+
+					<span class="single-line" ng-switch-when="18"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
+					<span class="single-line" ng-switch-default>Oh, Hello!&nbsp;&nbsp;</span>
+				</div>
+			</div>
+			<div class="bubble-curved-spacer"></div>
+		</div>
+
+		<div class="about-green-orange animated-resize" ng-instant="splashMessage = (splashMessage > 17 ? 0 : (splashMessage + 1))" instant-pass-thru></div>
+	</div>
 	<div class="divider"></div>
-	
+
 	<div class="splash-bottom fixed-599">
 		<div class="splash-inputs">
 			<p class="splash-tagline">
@@ -1994,7 +1937,7 @@
 					<span ng-show="facebook.facebook.wait">Just a sec...</span>
 				</button>
 			</div>
-	
+
 			<p class="center-text">
 				<a href="" class="splash-continue" ng-instant="navigation.link('/location','fade')">Continue without logging in</a>
 			</p>
@@ -2003,35 +1946,6 @@
 
 </div>
 
-</script><script type="text/ng-template" id="assets/view/suggestion.html">
-<div class="suggest-food-container modal zoom-anim-dialog small-container mfp-hide" ng-controller="RecommendFoodCtrl">
-
-	<div ng-show="!recommend.thanks">
-		<form name="formSuggest">
-			<h1>What do you suggest?</h1>
-			<input type="text" maxlength="250" ng-model="recommend.form.name" ng-enter="recommend.send()" id="suggestion-name" tabindex="10" />
-			<div class="divider"></div>
-		</form>
-		<button ng-show="!recommend.isSending" ng-click="recommend.send();">Suggest</button>
-		<div class="divider"></div>
-		<i ng-show="recommend.isSending" class="fa fa-spinner fa-spin"></i>
-		<br/>
-		<div class="divider dots"></div>
-		<div class="message">
-			Crunchbutton curates menus. <br/>
-			We've curated just the top food here. <br/>
-			You can suggest food, and, if it's really good, you'll see it on the menu soon.
-		</div>
-	</div>
-
-	<div ng-show="recommend.thanks">
-		<div class="success">
-			<h1>Awesome, thanks!!</h1>
-			If you really really wanna order it RIGHT NOW, call us at <b>646-783-1444</b>
-		</div>
-	</div>
-
-</div>
 </script><script type="text/ng-template" id="assets/view/support.html">
 <div class="support-container zoom-anim-dialog mfp-hide dialog" ng-controller="SupportCtrl">
 	<div class="dialog-padding">
@@ -2083,7 +1997,7 @@
 <div class="main-content-readable content-padding">
 <p><b>TERMS OF USE</b><br />
 <br />
-<a href="http://youbeo.com/" target="_blank">Youbeo Inc.</a>, d/b/a Crunchbutton  ("Crunchbutton") through the http://crunchbutton.com website (the "Site") provides a collection of online food ordering resources for restaurants, merchants and the public (referred to hereafter as the "Service") subject to the following Terms of Use (the "Terms"). By using the Service in any way, you are agreeing to comply with the Terms set forth herein and amended from time to time, including the Privacy Policy. In addition, when using the Service, you agree to abide by any applicable posted guidelines for all of our Services, which may change from time to time. Should you object to the Terms or any subsequent modifications thereto or become dissatisfied with the Service in any way, your only recourse is to immediately discontinue use of our Service. <br />
+<a href="http://youbeo.com/" target="_system">Youbeo Inc.</a>, d/b/a Crunchbutton  ("Crunchbutton") through the http://crunchbutton.com website (the "Site") provides a collection of online food ordering resources for restaurants, merchants and the public (referred to hereafter as the "Service") subject to the following Terms of Use (the "Terms"). By using the Service in any way, you are agreeing to comply with the Terms set forth herein and amended from time to time, including the Privacy Policy. In addition, when using the Service, you agree to abide by any applicable posted guidelines for all of our Services, which may change from time to time. Should you object to the Terms or any subsequent modifications thereto or become dissatisfied with the Service in any way, your only recourse is to immediately discontinue use of our Service. <br />
 <br />
 All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Site. If you are a minor, you must have your parent or guardian read and agree to the Terms prior to using the Site. Persons under the age of 13 are not permitted to register for the Site or use the Services.<br />
 <br />
@@ -2093,7 +2007,7 @@ All users who are minors in the jurisdiction in which they reside (generally und
 <br />
 2.  Purpose<br />
 <br />
-We have created the Site to serve as a marketplace to facilitate the ordering and delivering of food. Crunchbutton does not sell or control the production of any food produced and simply provides buyers the ability to search for and find local restaurants that deliver or make food available for pick up.<br />
+We have created the Site to serve as a marketplace to facilitate the ordering and delivering of food. Crunchbutton simply provides buyers the ability to search for and order food from local restaurants that deliver or make food available for pick up, which then may be delivered by 3rd party contractors.<br />
 <br />
 3.  Use of the Site<br />
 <br />
@@ -2206,7 +2120,7 @@ Youbeo, Inc., d/b/a Crunchbutton, including its affiliates ("Crunchbutton"), is 
 <br />
 9.1 If you have any questions about this Policy, the practices of this site, or your dealings with this site, please contact us at <a href="mailto:{{join}}">{{join}}</a><br />
 <br />
-This document was last updated on May 15, 2013.<br />
+This document was last updated on October 27th, 2014.<br />
 <br />
 </p>
 </div>
@@ -2231,7 +2145,7 @@ This document was last updated on May 15, 2013.<br />
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-cutlery"></i></td>
-						<td class="side-menu-label">Food</a></td>
+						<td class="side-menu-label">Choose Food</a></td>
 					</tr>
 				</table>
 			</li>
@@ -2301,9 +2215,9 @@ This document was last updated on May 15, 2013.<br />
 				</table>
 			</li>
 		</ul>
-		
-		
-			
+
+
+
 
 		<a href="{{(isPhoneGap && 'fb://profile/372531956099058' || !isPhoneGap && 'http://facebook.com/crunchbutton')}}" target="_blank" class="facebook-like-link">
 			<button class="facebook-like">
@@ -2316,7 +2230,7 @@ This document was last updated on May 15, 2013.<br />
 </div>
 
 <div class="wrapper static-nav-viewport loggedout-hideable">
-	
+
 	<div id="snap-content" class="snap-content">
 		<div class="navs fixed" data-position="fixed" ng-controller="MainHeaderCtrl">
 			<div class="nav nav-top">
@@ -2343,12 +2257,12 @@ This document was last updated on May 15, 2013.<br />
 							<li><a ng-click="App.test.card()" ng-show="debug()"><i class="fa fa-circle-o"></i>TEST: card</a></li>
 					    </ul>
 					</div>
-				
+
 					<div title="Menu" class="menu side" ng-click="navigation.menu()" ng-show="navigation.buttons.menu"></div>
 					<div title="Menu" class="menu drop" ng-show="navigation.buttons.menu" ng-toggle="menudropdown"></div>
 					<div title="Back" ng-show="navigation.buttons.back" class="nav-back hide-before-init" ng-click="back()"></div>
-					
-					<div title="Cart" class="nav-cart hide-before-init" ng-click="cartScroll(order.restaurant.permalink)" ng-show="order.info.totalItems && ((navigation.page == 'restaurant' && order.restaurant._open) || navigation.page != 'restaurant')">
+
+					<div title="Cart" class="nav-cart hide-before-init" ng-click="cartScroll(order.restaurant.permalink)" ng-show="order.info.totalItems && ((navigation.page == 'restaurant' && order.restaurant._open) || navigation.page != 'restaurant')" ng-class="{ 'animation-blink' : cart.blink}">
 						<div class="fa fa-shopping-cart"></div>
 						<div class="nav-cart-count">{{order.info.totalItems}}</div>
 					</div>
@@ -2359,15 +2273,14 @@ This document was last updated on May 15, 2013.<br />
 			</div>
 		</div>
 
-
-		<div ng-class="{'button-bottom-show': (navigation.page == 'restaurant' && navigation.restaurant._open && navigation.order.cart.hasItems() && !notificationBarStatus ), 'button-bottom-show-notification-bar-on': (navigation.page == 'restaurant' && navigation.restaurant._open && navigation.order.cart.hasItems() && notificationBarStatus )}" class="button-bottom-wrapper fixed">
+		<div class="button-bottom-wrapper fixed">
 			<div class="button-pushable" ng-show="navigation.order.form.name || navigation.order.form.phone"><button class="button orange get-food ani-all" ng-click="navigation.order.submit();"><div>Get Food</div></button></div>
 			<div class="button-pushable" ng-show="!navigation.order.form.name && !navigation.order.form.phone"><button class="button orange get-food ani-all" ng-click="navigation.order.checkout();"><div>Checkout</div></button></div>
 		</div>
 
 		<div class="snap-content-inner bg" ng-scroll-position>
 			<div class="content" ng-scroll-spy>
-				<div ng-view id="ng-view" ng-class="animationClass"><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1>Push a button.<br />Get food.&nbsp;&nbsp;&nbsp;&nbsp;</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div><div class="restaurants-tagline"><h1>Order the top local delivery food.</h1><h2>Choose one of these awesome restaurants</h2></div><div class="divider"></div></div></div></div>
+				<div ng-view id="ng-view" ng-class="animationClass"><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1 class="restaurants-push-tagline"><b>Push a button</b><br>Get food delivered</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div></div></div></div>
 			</div>
 
 			<div class="divider"></div>
@@ -2375,7 +2288,7 @@ This document was last updated on May 15, 2013.<br />
 			<div class="footer">
 				<div class="divider line"></div>
 				<div class="content-padding">
-						
+					
 					<div class="social">
 						<a href="http://facebook.com/crunchbutton" target="_blank" class="fa fa-facebook"></a>
 						<a href="http://twitter.com/crunchbutton" target="_blank" class="fa fa-twitter"></a>
@@ -2383,7 +2296,7 @@ This document was last updated on May 15, 2013.<br />
 					</div>
 					<span ng-controller="BottomCtrl">
 						<div class="divider"></div>
-						<div class="copyright">&copy; 2014 <a ng-click="navigation.link('/legal')">Crunchbutton</a></div>
+						<div class="copyright">&copy; 2015 <a ng-click="navigation.link('/legal')">Crunchbutton</a></div>
 						<div class="divider"></div>
 					</span>
 					<br>
@@ -2404,7 +2317,6 @@ This document was last updated on May 15, 2013.<br />
 <div ng-include="'assets/view/account.reset.html'"></div>
 <div ng-include="'assets/view/restaurant.closed.inline.html'"></div>
 <div ng-include="'assets/view/giftcard.html'"></div>
-<div ng-include="'assets/view/suggestion.html'"></div>
 <div ng-include="'assets/view/support.html'"></div>
 <div ng-include="'assets/view/connection.error.html'"></div>
 
@@ -2423,9 +2335,8 @@ This document was last updated on May 15, 2013.<br />
 	<script type="text/javascript" src="angular-route.min.js"></script>
 	<script type="text/javascript" src="angular-animate.min.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="cdv-plugin-fb-connect.js"></script>
-	<script type="text/javascript" src="facebook-js-sdk.js"></script>
 	<script type="text/javascript" src="analytics.js"></script>
+	<script type="text/javascript" src="ecommerce.js"></script>
 
 	<script type="text/javascript" src="index.js"></script>
 	<script type="text/javascript" src="bundle.js"></script>
