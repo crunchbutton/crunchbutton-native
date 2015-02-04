@@ -1005,7 +1005,7 @@
 			<div class="order-icon"><div class="icon-timer"></div></div>
 			<div class="order-info order-info-oneline">
 				<p>
-					Expected by&nbsp;
+					Estimated by&nbsp;
 					<span ng-show="(order.delivery_type == 'delivery')">{{order._restaurant_delivery_estimated_time_formated}}</span>
 					<span ng-hide="(order.delivery_type == 'delivery')">{{order._restaurant_pickup_estimated_time_formated}}</span>
 				</p>
@@ -1223,9 +1223,9 @@
 			<i class="fa fa-clock-o"></i>
 		</span>
 		<span class="restaurant-box-content">
-			<div class="restaurant-box-title">Opens in {{restaurant._opensIn_formatted}}</div>
+			<div class="restaurant-box-title">Opens {{restaurant._opensIn_formatted}}</div>
 			<div class="restaurant-box-text">
-				Hours of operation (<span ng-bind="restaurant._tzabbr"></span>):<br> 
+				Hours of operation (<span ng-bind="restaurant._tzabbr"></span>):<br>
 				<span ng-bind-html-unsafe="restaurant.closedMessage() | nl2br"></span>
 			</div>
 		</span>
@@ -1238,19 +1238,23 @@
 		<div class="dialog-egg animated-resize"></div>
 			<span ng-if="active">
 				<p>
-					<span ng-if="acceptingOrders">
-						is currently closed. It will be open during the following hours 
-					</span>
+					
 					<span ng-if="!acceptingOrders">
-						You can't place an order here right now, but you usually can during these hours
+						<span ng-if="restaurant.delivery">is temporarily unavailable for delivery, but is usualy available durring the following hours</span>
+						<span ng-if="!restaurant.delivery">is temporarily closed but is usualy available during the following hours</span>
 					</span>
+					<span ng-if="acceptingOrders">
+						<span ng-if="restaurant.delivery">is currently unavailable for delivery. Delivery is available during the following hours</span>
+						<span ng-if="!restaurant.delivery">is currently closed. It will be open during the following hours</span>
+					</span>
+
 					&nbsp;(<span ng-bind="restaurant._tzabbr"></span>):<br /><br />
 
 				</p>
 				<p ng-bind-html-unsafe="closedMessage" class="dialog-hours"></p>
 			</span>
 			<span ng-if="!active">
-				<p>This restaurant is currently closed</p>
+				<p>This restaurant is currently unavailable</p>
 			</span>
 			<div class="divider"></div>
 
@@ -2021,7 +2025,7 @@ We have created the Site to serve as a marketplace to facilitate the ordering an
 <br />
 (a) All ordering is performed online and may be paid for with cash upon delivery or by credit card.  If you decide to use a credit card, your payment will be processed by Balancedpayments.com and not by Crunchbutton. By submitting a payment by credit card you hereby authorize Crunchbutton to transfer your credit card information to Balancedpayments.com for processing.<br />
 <br />
-(b) Crunchbutton is dedicated to customer satisfaction. If you encounter problems with your food order, please contact the restaurant directly. If you are unable to resolve an issue with a restaurant, please contact Crunchbutton and we will try to assist you. In appropriate cases, we may be able to provide a partial or full refund and/or a credit towards a future purchase.<br />
+(b) Crunchbutton is dedicated to customer satisfaction. If you encounter problems with your order, please contact Crunchbutton and we will try to assist you. In appropriate cases, we may be able to provide a partial or full refund and/or a credit towards a future purchase.<br />
 <br />
 5.  Restaurant Reviews<br />
 <br />
@@ -2244,6 +2248,8 @@ This document was last updated on October 27th, 2014.<br />
 							<li class="dropdown-divider"></li>
 							<li><a ng-click="navigation.link('/help')"><i class="fa fa-heart"></i>Help</a></li>
 							<li><a ng-click="navigation.link('/about')"><i class="fa fa-lightbulb-o"></i>About</a></li>
+							<li><a ng-click="navigation.link('/jobs')"><i class="fa fa-briefcase"></i>Jobs</a></li>
+
 							<li><a ng-click="navigation.signin()" ng-show="!account.user.id_user"><i class="fa fa-sign-in"></i>Log In</a></li>
 							<li><a ng-click="signout.signout()" ng-show="account.user.id_user"><i class="fa fa-sign-out"></i>Log Out</a></li>
 
@@ -2280,7 +2286,7 @@ This document was last updated on October 27th, 2014.<br />
 
 		<div class="snap-content-inner bg" ng-scroll-position>
 			<div class="content" ng-scroll-spy>
-				<div ng-view id="ng-view" ng-class="animationClass"><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1 class="restaurants-push-tagline"><b>Push a button</b><br>Get food delivered</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div></div></div></div>
+				<div ng-view id="ng-view" ng-class="animationClass"><!DOCTYPE html><head></head><body><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1 class="restaurants-push-tagline"><b>Push a button</b><br>Get food delivered</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div></div></div></body></html></div>
 			</div>
 
 			<div class="divider"></div>
@@ -2334,9 +2340,11 @@ This document was last updated on October 27th, 2014.<br />
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="angular-route.min.js"></script>
 	<script type="text/javascript" src="angular-animate.min.js"></script>
+	<script type="text/javascript" src="angular-resource.min.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="analytics.js"></script>
 	<script type="text/javascript" src="ecommerce.js"></script>
+	<script type="text/javascript" src="facebook-sdk.js"></script>
 
 	<script type="text/javascript" src="index.js"></script>
 	<script type="text/javascript" src="bundle.js"></script>

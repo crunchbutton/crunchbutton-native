@@ -6,19 +6,8 @@
 var now = new Date();
 var _gmtServer = now.getUTCFullYear() + '/' + (now.getUTCMonth()+1) + '/' + now.getUTCDate() + '/' + now.getUTCHours() + '/' + now.getUTCMinutes() + '/' + now.getUTCSeconds();
 
-var TapToScroll = function() {
-
-};
-
-TapToScroll.prototype.initListener = function() {
-	cordova.exec(null, null, 'TapToScroll', 'initListener',[]);
-};
-
 if (!window.plugins) {
 	window.plugins = {};
-}
-if (!window.plugins.tapToScroll) {
-	window.plugins.tapToScroll = new TapToScroll();
 }
 
 var onSuccess = function(){console.log('1',arguments);};
@@ -353,7 +342,7 @@ $(function() {
 		});
 
 		// top tap scroller
-		window.plugins.tapToScroll.initListener();
+
 		window.addEventListener('statusTap', function() {
 			$('html, body, .snap-content-inner').animate({scrollTop: 0}, 200, $.easing.easeInOutQuart ? 'easeInOutQuart' : null);
 		});
@@ -383,8 +372,9 @@ $(function() {
 					//cookie: true,
 					xfbml: true,
 					//oauth: true,
-					nativeInterface: CDV.FB,
-					useCachedDialogs: false
+					nativeInterface: facebookConnectPlugin,
+					useCachedDialogs: false,
+					version: 'v2.2'
 				});
 
 				FB.getLoginStatus(facebookService.processStatus);

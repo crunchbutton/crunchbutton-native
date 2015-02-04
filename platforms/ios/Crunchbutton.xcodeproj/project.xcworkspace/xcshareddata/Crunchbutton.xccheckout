@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D0238F81-9774-45B2-9FF7-76FD751973B9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Crunchbutton</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>39F5837CFA0362991A084B92EDF66A7B22CD5267</key>
+		<string>github.com:crunchbutton/phonegap.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/Crunchbutton.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>39F5837CFA0362991A084B92EDF66A7B22CD5267</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:crunchbutton/phonegap.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>39F5837CFA0362991A084B92EDF66A7B22CD5267</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>39F5837CFA0362991A084B92EDF66A7B22CD5267</string>
+			<key>IDESourceControlWCCName</key>
+			<string>crunchbutton</string>
+		</dict>
+	</array>
+</dict>
+</plist>
