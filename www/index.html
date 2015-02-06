@@ -128,7 +128,7 @@
 		Like food? Like fun? Like beer? Then we want you! Join our young ambitious team in sunny LA!
 	</p>
 	<br>
-	<button class="button lightorange" ng-click="navigation.link('/jobs','push')">Jobs</button>
+	<button class="button lightorange" ng-click="navigation.link('/work','push')">Work with Us</button>
 </div>
 
 </script><script type="text/ng-template" id="assets/view/account.html">
@@ -619,12 +619,12 @@
 
 <div class="content-padding" ng-controller="SupportCtrl">
 	<br />
-	<h4>So, what exactly do you do?</h4>
-	<p>We get the best food in your community delivered straight to your door. Place an order, and we save it for next time, along with your delivery and payment info. Reorder your favorites with a single tap :)</p>
+	<h4>So, what is Crunchbutton?</h4>
+	<p>Crunchbutton lets you order the best food in your area delivered straight to your door. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click.</p>
 	<br /><br />
 	<h4>Hey! I need help with my order!</h4>
-	<p ng-show="!account.user.id_user"><a ng-click="navigation.signin()">Sign in to see your previous orders</a> and contact the restaurant you ordered from.</p>
-	<p ng-show="account.user.id_user">Please visit <a ng-click="navigation.link('/orders','push')">My Orders</a> and contact the restaurant you ordered from.</p>
+	<p ng-show="!account.user.id_user"><a ng-click="navigation.signin()">Sign in to see your previous orders</a> and contact the number on the order details page.</p>
+	<p ng-show="account.user.id_user">Please visit <a ng-click="navigation.link('/orders','push')">My Orders</a> and contact the number on the order details page.</p>
 	<br /><br />
 	<h4>Need to contact Crunchbutton?</h4>
 	<p>Call or text us at <a href="sms:+16467831444" target="_system">(646) 783-1444</a> or email us at <a href="mailto:{{customers}}">{{customers}}</a>.</p>
@@ -661,14 +661,23 @@
 	<p>We thought this might happen. Luckily, Crunchbutton saves your address, phone, and payment info, so all you have to do is click what you want and hit the big, red "Get Food" button. Try to be awake when the delivery guy calls.</p>
 	<br /><br />
 	<h4>I want to put a restaurant on Crunchbutton.</h4>
-	<p>Good idea! <a ng-click="navigation.link('/owners','push')">Get more info and contact us.</a></p>
+	<p>Good idea! <a ng-click="navigation.link('/owners','push')">Get more info and contact us</a>.</p>
 	<br /><br />
+	
+	<h4>I want to drive for Crunchbutton</h4>
+	<p>Cool! <a ng-click="navigation.link('/drivers/apply','push')">Fill out an application here</a>.</p>
+	<br /><br />
+	
 	<h4>I know I can order food online, but can I order by US mail?</h4>
-	<p>Why yes you can! Give us one week's notice, and we will get you your food! Send a check or money order to:<br /><br />
-	Crunchbutton<br />
-	1120 Princeton Dr STE 7<br />
-	Marina Del Rey, CA 90292</p>
+	<p>Why yes you can! Give us one week's notice, and we will get you your food! Send a check or money order to: 
+	Crunchbutton, 1120 Princeton Dr STE 7, Marina Del Rey, CA 90292</p>
+	<br /><br />
+	
+	<h4>I know I can order food by US mail, but can I order by teleportation?</h4>
+	<p>Why yes you can! Send a check or money order to Crunchbutton, 1120 Princeton Dr STE 7, Marina Del Rey, CA 90292, give us 25 years to develop the appropriate technology, and we will get you your food!<br />
+	
 	<br /><br /><br /><br />
+	
 	Visit our <a ng-click="navigation.link('/legal','push')">legal page</a> for legal and privacy information.
 	<br /><br /><br /><br /><br /><br /><br />
 	<center><div class="fa fa-heart faq-heart"></div></center>
@@ -687,49 +696,6 @@
 	</div>
 	<div class="restaurants-orange"></div>
 	<div class="divider"></div>
-</div>
-
-</script><script type="text/ng-template" id="assets/view/jobs.html">
-
-
-<div class="content-padding">
-	<div class="jobs-bubble-wrap">
-		<div class="bubble-curved bubble-curved-green bubble-animated animated-resize">
-			<div class="text" ng-switch="orangeMessage">
-				<span class="single-line" ng-switch-when="1">Free delivery food</span>
-				<span ng-switch-when="2">Free pink gorilla suit</span>
-				<span class="single-line" ng-switch-when="3">Free hugs</span>
-				<span ng-switch-when="4">Now THOSE are benefits!</span>
-				<span ng-switch-when="5">What more could you want?</span>
-				<span ng-switch-when="6">Good weather, you say?</span>
-				<span ng-switch-when="7">Great people, you say?</span>
-				<span ng-switch-when="8">Oh yeah, we got that too!</span>
-				<span class="small" ng-switch-when="9">Send us a message and grab a beer with us!</span>
-				<span class="single-line" ng-switch-when="10"><i class="fa fa-beer"></i> <i class="fa fa-beer"></i> <i class="fa fa-beer"></i></span>
-				<span class="single-line" ng-switch-default><b>Free beer!</b></span>
-			</div>
-		</div>
-	</div>
-
-	<div class="home-join-us" ng-instant="orangeMessage = (orangeMessage > 9 ? 0 : (orangeMessage + 1))" instant-pass-thru></div>
-	<div class="divider"></div>
-</div>
-
-<div class="content-padding" ng-controller="SupportCtrl">
-	<br />
-
-	<h4>Community Representative</h4>
-	<p>
-		No one knows more about your college or community than you. You know whats "cool", and that's why we’re going to hire you! Scout for local awesome restaurants to sign up, and play a significant role in orchestrating marketing campaings.
-	</p>
-	<br />
-	<a href="mailto:{{reps}}"><button class="button lightorange">join up</button></a>
-	<br /><br /><br /><br />
-
-	<h4>Rockstar Developers &amp; Designers</h4>
-	<p>Look at this beautiful website! It's almost perfect! You know what would make it better? Your magical touch! Join our small team of developers located in Los Angeles and let's get shit done!</p>
-	<br />
-	<a href="mailto:{{devs}}"><button class="button green">rock out</button></a>
 </div>
 
 </script><script type="text/ng-template" id="assets/view/location.html">
@@ -789,7 +755,7 @@
 								<div class="divider spacer-one-two"></div>
 
 				<div class="button-pushable">
-					<button class="button orange" ng-click="navigation.link('/jobs','push')"><b>bring crunchbutton to you!</b></button>
+					<button class="button orange" ng-click="navigation.link('/work','push')"><b>bring crunchbutton to you!</b></button>
 				</div>
 
 				
@@ -808,7 +774,7 @@
 	<div class="content-padding">
 		<br /><br /><br />
 		<h4>Order the best local delivery food</h4>
-		<p>We find the top delivery restaurants in your area, curate their menus, and make it easy for you to order with a single click.</p>
+		<p>Crunchbutton lets you order the best food in your area delivered straight to your door. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click.</p>
 	</div>
 	
 	
@@ -838,9 +804,9 @@
 	<div class="content-padding">
 		<br /><br />
 		<h4>Are you a delivery foodie?</h4>
-		<p>Join our marketing intern program and get a free pink gorilla suit! Also maybe some money too. We are always looking for great people. Developer? Designer? Give us a ring!</p>
+		<p>Join our marketing intern program and get a free pink gorilla suit! Also maybe some money too. We are always looking for great people. Developer? Designer? Give us a ring! Looking to become a Delivery Driver? Apply today!</p>
 		<br />
-		<button class="button lightorange" ng-click="navigation.link('/jobs','push')">Work with us</button>
+		<button class="button lightorange" ng-click="navigation.link('/work','push')">Work with us</button>
 	</div>
 	
 	<div class="content-padding">
@@ -855,15 +821,15 @@
 	
 	<div class="content-padding">
 		<h4>We’re expanding!</h4>
-		<p>We may not be everywhere yet, but the communities we are in love us! Take a look at some of our most popular locations.</p>
+		<p>We may not be everywhere yet, but the communities we are in love us! Browse some of the food from or most popular locations:</p>
 		<br /><br /><br />
-		<div class="popular-locations">
-			<div class="map map-new-haven"></div>
-			<div class="map map-dc"></div>
-			<div class="map map-providence"></div>
-			<div class="map map-venice"></div>
-		</div>
+		<p>
+			<span class="popular-location" ng-repeat="alias in topCommunities">
+				<a href ng-click="openCity(alias.alias)" permalink="{{alias.alias}}">{{alias.name}}</span>
+			</span>
+		</p>
 	</div>
+	<br><br><br>
 </div>
 </script><script type="text/ng-template" id="assets/view/notification.alert.html">
 <div class="notification-alert-container zoom-anim-dialog mfp-hide dialog" ng-controller="NotificationAlertCtrl">
@@ -1090,19 +1056,21 @@
 </script><script type="text/ng-template" id="assets/view/orders.html">
 <div class="top-pad"></div>
 
+<div ng-show="!orders.list">
+	<div class="content-padding">
+		<div class="stamp-loader">
+			<div class="stamp-loader-button"></div>
+			<div class="stamp-loader-words"></div>
+		</div>
+	</div>
+</div>
 	
-<div class="content-padding">
+<div class="content-padding" ng-show="orders.list">
 	<div class="orders-oranges animated-resize"></div>
 		
 </div>
 
-<div ng-show="!orders.list">
-	<div class="content-padding">
-		<h4>Energizing..............</h4>
-		<div class="ajax-loader-teal"></div>
-		<br />
-	</div>
-</div>
+
 
 <div ng-show="orders.list.length == 0">
 	<div class="content-padding">
@@ -1197,7 +1165,7 @@
 		<div class="owner-icon"><i class="fa fa-check"></i></div>
 		<div class="owner-text">
 			<h4>We're streamlined.</h4>
-			<p>Getting you up and running is as simple as collecting a few pieces of info. We can notify you of orders by fax, phone, text message, email, and/or online system. We pay you by check or bank deposit.</p>
+			<p>Getting you up and running is as simple as collecting a few pieces of info. We can notify you of orders by fax, phone, text message, email, and/or online system, and our own delivery drivers can carry out the deliveries for you. We pay you by check or bank deposit.</p>
 		</div>
 	</div>
 
@@ -1223,7 +1191,7 @@
 			<i class="fa fa-clock-o"></i>
 		</span>
 		<span class="restaurant-box-content">
-			<div class="restaurant-box-title">Opens {{restaurant._opensIn_formatted}}</div>
+			<div class="restaurant-box-title">Available {{restaurant._opensIn_formatted}}</div>
 			<div class="restaurant-box-text">
 				Hours of operation (<span ng-bind="restaurant._tzabbr"></span>):<br>
 				<span ng-bind-html-unsafe="restaurant.closedMessage() | nl2br"></span>
@@ -1827,6 +1795,8 @@
 </div>
 
 <div ng-if="restaurants">
+	
+	
 
 	<div class="restaurants-items">
 
@@ -1838,7 +1808,7 @@
 
 				<div class="restaurants-closed" ng-if="restaurant._tag == 'closed'">
 					<h2 class="restaurants-name">{{restaurant.name}}</h2>
-					<div class="restaurants-opensin" ng-if="restaurant._openIn > 0" >Opens {{restaurant._opensIn_formatted}}</div>
+					<div class="restaurants-opensin" ng-if="restaurant._openIn > 0" >Available {{restaurant._opensIn_formatted}}</div>
 				</div>
 
 				<div class="restaurants-closed" ng-if="restaurant._tag == 'force_close'">
@@ -1857,7 +1827,7 @@
 							<div ng-switch on="restaurant._tag">
 								<div class="meal-item-tag" ng-switch-when="takeout">Take out only</div>
 								<div class="meal-item-tag about-to-close" ng-switch-when="closing">Hurry, closes in {{restaurant._closesIn}} min!</div>
-								<div class="meal-item-tag about-to-open" ng-switch-when="opening">Opens {{restaurant._opensIn_formatted}} </div>
+								<div class="meal-item-tag about-to-open" ng-switch-when="opening">Available {{restaurant._opensIn_formatted}} </div>
 							</div>
 
 							<div class="meal-item-tag-bottom" ng-if="restaurant._tag == 'closing' || restaurant._tag == 'takeout' || restaurant._tag == 'force_close'"></div>
@@ -1996,6 +1966,67 @@
 	</div>
 
 </div>
+</script><script type="text/ng-template" id="assets/view/work.html">
+
+
+<div class="content-padding">
+	<div class="jobs-bubble-wrap">
+		<div class="bubble-curved bubble-curved-green bubble-animated animated-resize">
+			<div class="text" ng-switch="orangeMessage">
+				<span class="single-line" ng-switch-when="1">Free delivery food</span>
+				<span ng-switch-when="2">Free pink gorilla suit</span>
+				<span class="single-line" ng-switch-when="3">Free hugs</span>
+				<span ng-switch-when="4">Now THOSE are benefits!</span>
+				<span ng-switch-when="5">What more could you want?</span>
+				<span ng-switch-when="6">Good weather, you say?</span>
+				<span ng-switch-when="7">Great people, you say?</span>
+				<span ng-switch-when="8">Oh yeah, we got that too!</span>
+				<span class="small" ng-switch-when="9">Send us a message and grab a beer with us!</span>
+				<span class="single-line" ng-switch-when="10"><i class="fa fa-beer"></i> <i class="fa fa-beer"></i> <i class="fa fa-beer"></i></span>
+				<span class="single-line" ng-switch-default><b>Free beer!</b></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="home-join-us" ng-instant="orangeMessage = (orangeMessage > 9 ? 0 : (orangeMessage + 1))" instant-pass-thru></div>
+	<div class="divider"></div>
+</div>
+
+<div class="content-padding" ng-controller="SupportCtrl">
+	<br />
+	
+	<h4>Delivery drivers</h4>
+	<p>
+		What's better than getting delivery food? Delivering the food! If you have a smartphone, car, and auto insurance, send us a message!
+	</p>
+	<br />
+	<a href ng-click="navigation.link('/drivers/apply','push')"><button class="button lightorange">apply now</button></a>
+	<br /><br /><br /><br />
+
+	<h4>Community Representative</h4>
+	<p>
+		No one knows more about your college or community than you. You know whats "cool", and that's why we’re going to hire you! Scout for local awesome restaurants to sign up, and play a significant role in orchestrating marketing campaings.
+	</p>
+	<br />
+	<a href="mailto:{{reps}}"><button class="button lightorange">join up</button></a>
+	<br /><br /><br /><br />
+
+	<h4>Rockstar Developers &amp; Designers</h4>
+	<p>Look at this beautiful website! It's almost perfect! You know what would make it better? Your magical touch! Join our small team of developers located in Los Angeles and let's get shit done!</p>
+	<br />
+	<a href="mailto:{{devs}}"><button class="button lightorange">rock out</button></a>
+</div>
+
+<div class="divider dots spacer-two-two"></div>
+
+<div class="content-padding" ng-controller="SupportCtrl">	
+	<h4>Who are you?!</h4>
+	<p>We're people! People who love food so much that we want to share our passion without asking you to even leave your homes.</p>
+	<br>
+	<button class="button green" ng-click="navigation.link('/about','push')">Meet the team</button>
+	<br><br><br>
+</div>
+
 </script><script type="text/ng-template" id="assets/view/legal.html">
 <div class="top-pad"></div>
 <div class="main-content-readable content-padding">
@@ -2169,11 +2200,20 @@ This document was last updated on October 27th, 2014.<br />
 					</tr>
 				</table>
 			</li>
+
 			<li ng-click="navigation.link('/help')" ng-class="{'nav-active': (navigation.page == 'help')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-heart"></i></td>
 						<td class="side-menu-label">Help</a></td>
+					</tr>
+				</table>
+			</li>
+			<li ng-click="navigation.link('/work')" ng-class="{'nav-active': (navigation.page == 'jobs')}">
+				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
+					<tr>
+						<td class="side-menu-icon"><i class="fa fa-briefcase"></i></td>
+						<td class="side-menu-label">Work with Us</a></td>
 					</tr>
 				</table>
 			</li>
@@ -2248,7 +2288,7 @@ This document was last updated on October 27th, 2014.<br />
 							<li class="dropdown-divider"></li>
 							<li><a ng-click="navigation.link('/help')"><i class="fa fa-heart"></i>Help</a></li>
 							<li><a ng-click="navigation.link('/about')"><i class="fa fa-lightbulb-o"></i>About</a></li>
-							<li><a ng-click="navigation.link('/jobs')"><i class="fa fa-briefcase"></i>Jobs</a></li>
+							<li><a ng-click="navigation.link('/work')"><i class="fa fa-briefcase"></i>Work with us</a></li>
 
 							<li><a ng-click="navigation.signin()" ng-show="!account.user.id_user"><i class="fa fa-sign-in"></i>Log In</a></li>
 							<li><a ng-click="signout.signout()" ng-show="account.user.id_user"><i class="fa fa-sign-out"></i>Log Out</a></li>
@@ -2286,7 +2326,7 @@ This document was last updated on October 27th, 2014.<br />
 
 		<div class="snap-content-inner bg" ng-scroll-position>
 			<div class="content" ng-scroll-spy>
-				<div ng-view id="ng-view" ng-class="animationClass"><!DOCTYPE html><head></head><body><div class="top-pad"></div><div class="home-text"><div class="restaurants-bubble-wrap"><div class="bubble-tail bubble-tail-green"><div class="text"><h1 class="restaurants-push-tagline"><b>Push a button</b><br>Get food delivered</h1></div></div><div class="restaurants-orange"></div><div class="divider"></div></div></div></body></html></div>
+				<div ng-view id="ng-view" ng-class="animationClass"><!DOCTYPE html><head></head><body><div class="top-pad"></div><div class="home-text"><div class="stamp-loader"><div class="stamp-loader-button"></div><div class="stamp-loader-words"></div></div></div></body></html></div>
 			</div>
 
 			<div class="divider"></div>

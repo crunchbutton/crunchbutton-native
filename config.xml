@@ -20,7 +20,10 @@
 	<preference name="detect-data-types" value="true" />
 	<preference name="exit-on-suspend" value="false" />
 	<preference name="show-splash-screen-spinner" value="false" />
-	<preference name="auto-hide-splash-screen" value="false" />
+	<preference name="ShowSplashScreenSpinner" value="false" />
+	<preference name="auto-hide-splash-screen" value="true" />
+	<preference name="AutoHideSplashScreen" value="true" />
+	 
 	<preference name="disable-cursor" value="false" />
 	<preference name="android-minSdkVersion" value="7" />
 	<preference name="android-installLocation" value="auto" />
@@ -48,10 +51,6 @@
 	<gap:plugin name="com.phonegap.plugins.facebookconnect">
 		<param name="APP_ID" value="411729638889643" />
 		<param name="APP_NAME" value="Crunchbutton" />
-	</gap:plugin>
-	
-	<gap:plugin name="com.crunchbutton.balanced">
-		<param name="MARKETPLACE" value="" />
 	</gap:plugin>
 
 	

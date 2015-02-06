@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.crunchbutton" version="2.5.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <preference name="AllowInlineMediaPlayback" value="false" />
-    <preference name="AutoHideSplashScreen" value="true" />
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="DisallowOverscroll" value="false" />
     <preference name="EnableViewportScale" value="false" />
@@ -114,7 +113,9 @@
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
     <preference name="show-splash-screen-spinner" value="false" />
-    <preference name="auto-hide-splash-screen" value="false" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="AutoHideSplashScreen" value="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
@@ -140,9 +141,6 @@
     <gap:plugin name="com.phonegap.plugins.facebookconnect">
         <param name="APP_ID" value="411729638889643" />
         <param name="APP_NAME" value="Crunchbutton" />
-    </gap:plugin>
-    <gap:plugin name="com.crunchbutton.balanced">
-        <param name="MARKETPLACE" value="" />
     </gap:plugin>
     <preference name="DisallowOverscroll" value="true" />
     <preference name="BackgroundColor" value="0x00000000" />
