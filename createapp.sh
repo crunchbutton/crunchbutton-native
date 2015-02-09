@@ -14,6 +14,7 @@ phonegap plugin add https://github.com/apache/cordova-plugin-dialogs
 phonegap plugin add https://github.com/apache/cordova-plugin-device
 phonegap plugin add https://github.com/apache/cordova-plugin-inappbrowser
 phonegap plugin add https://github.com/apache/cordova-plugin-statusbar
+phonegap plugin add https://github.com/driftyco/ionic-plugins-keyboard
 
 #phonegap plugin add https://github.com/Wizcorp/phonegap-facebook-plugin --variable APP_ID="411729638889643" --variable APP_NAME="Crunchbutton"
 

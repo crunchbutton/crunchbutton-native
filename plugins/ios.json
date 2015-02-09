@@ -91,6 +91,10 @@
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -241,6 +245,9 @@
         "com.phonegap.plugins.facebookconnect": {
             "APP_ID": "411729638889643",
             "APP_NAME": "Crunchbutton",
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "com.ionic.keyboard": {
             "PACKAGE_NAME": "com.crunchbutton"
         }
     },
