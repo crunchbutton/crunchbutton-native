@@ -51,6 +51,8 @@ Stripe = {
 }
 
 
+
+
 var login = function() {
 	FB.login(status, {scope: 'email'});
 };
@@ -67,10 +69,25 @@ if (!localStorage.loggedIn) {
 
 $(function() {
 	document.addEventListener('deviceready', function() {
+
+		// check for needed plugins
+		if (!navigator || !navigator.connection) {
+			console.error('Failed to load connection information plugin.');
+		}
+		
+		if (!navigator || !navigator.splashscreen) {
+			console.error('Failed to load splashscreen plugin.');
+		}
+		
+		if (!window.device) {
+			console.error('Failed to load device plugin.');
+		}
+		
 		// if they are logged in, they are going straight to the restaurant page
 		if (localStorage.loggedIn) {
 			navigator.splashscreen.hide();
 		}
+		
 
 		if( navigator && navigator.Sysinfo && navigator.Sysinfo.getInfo ){
 			navigator.Sysinfo.getInfo( function( info ){
@@ -87,31 +104,28 @@ $(function() {
 
 		//gamecenter.auth( onSuccess, onError );
 
-		cordova.exec(function(response) {
-			$.ajaxSetup({
-				timeout: App.ajaxTimeout,
-				data: {
-					'_v': response
-				}
-			});
-		}, null, 'VersionPlugin', 'version',[]);
-
-
-		if( navigator && navigator.hockeyapp && navigator.hockeyapp.init ){
-			navigator.hockeyapp.init(
-			    function(){},
-			    function(){},
-			    // Hockey App ID
-			    [ '83f69a1317bff05dbf6c97d0e43e204f', true, true ]
-			);
+		if (!App.minimalMode) {
+			cordova.exec(function(response) {
+				$.ajaxSetup({
+					timeout: App.ajaxTimeout,
+					data: {
+						'_v': response
+					}
+				});
+			}, null, 'VersionPlugin', 'version',[]);
 		}
 
 		// Disable paralax for android old versions - #3105
 		if( App.isAndroid() ){
+			var version;
 			if( window && window.device && window.device.version ){
-				App.parallax.enabled = App.isVersionCompatible( '4.4', window.device.version );
+				version = window.device.version;
+			} else if (cordova && cordova.version) {
+				version = cordova.version;
 			}
-			App.transitionAnimationEnabled = App.isVersionCompatible( '4', window.device.version );
+
+			App.parallax.enabled = App.isVersionCompatible( '4.4', version );
+			App.transitionAnimationEnabled = App.isVersionCompatible( '4', version );
 		}
 
 		function orientationChanged (orientationEvent) {
