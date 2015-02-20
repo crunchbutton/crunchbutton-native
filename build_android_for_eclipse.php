@@ -6,6 +6,8 @@
  *
  */
 
+include 'config.php';
+
 $weinre = false;
 // weinre
 $serverIP = '192.168.0.13';
@@ -142,6 +144,8 @@ if( $live ){
 } else {
 	$index = str_replace('FACEBOOK_APP_IP', $config->facebook, $index);
 }
+$index = str_replace('IPHONE_NATIVE_VERSION',  IPHONE_NATIVE_VERSION, $index);
+$index = str_replace('ANDROID_NATIVE_VERSION',  ANDROID_NATIVE_VERSION, $index);
 $index = str_replace('APP_SERVER_URL', $live ? 'https://crunchbutton.com/' : 'http://beta.crunchr.co/', $index);
 file_put_contents($path.'index.js', $index);
 

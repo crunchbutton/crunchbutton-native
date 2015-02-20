@@ -1,9 +1,11 @@
 #!/usr/bin/env php
 <?php
 
+include 'config.php';
+
 /**
  * Download and build local assets for phonegap
- * 
+ *
  * requires php, wget, gunzip
  *
  */
@@ -46,10 +48,10 @@ echo "Downloading assets bundle...\n";
 
 function download($file, $dst = null, $usegzip = false) {
 	global $server, $path, $curpath;
-	
+
 	$parts = pathinfo($path.'assets/'.$file);
 	$dstpath = $dst !== null ? $path.$dst.$parts['basename'] : $path.'assets/'.$file;
-	
+
 	echo '	'.$file.'... ';
 
 	if (!file_exists($parts['dirname'])) {
@@ -108,6 +110,8 @@ file_put_contents($path.'index.html', $index);
 // add facebook to index js
 echo "Building index js...\n";
 $index = file_get_contents($path.'index.js');
+$index = str_replace('IPHONE_NATIVE_VERSION',  IPHONE_NATIVE_VERSION, $index);
+$index = str_replace('ANDROID_NATIVE_VERSION',  ANDROID_NATIVE_VERSION, $index);
 $index = str_replace('FACEBOOK_APP_IP', $config->facebook, $index);
 $index = str_replace('APP_SERVER_URL', $live ? 'https://crunchbutton.com/' : 'http://beta.crunchr.co/', $index);
 file_put_contents($path.'index.js', $index);
