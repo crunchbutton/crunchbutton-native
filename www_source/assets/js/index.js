@@ -51,8 +51,6 @@ Stripe = {
 }
 
 
-
-
 var login = function() {
 	FB.login(status, {scope: 'email'});
 };
@@ -252,6 +250,8 @@ $(function() {
 
 
 		App.server = 'APP_SERVER_URL';
+		App._nativeVersionAndroid = 'ANDROID_NATIVE_VERSION';
+		App._nativeVersionIphone = 'IPHONE_NATIVE_VERSION';
 		App.service = App.server + 'api/';
 		App.imgServer = 'http://i.crunchbutton.com/';
 
