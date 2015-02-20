@@ -79,3 +79,38 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
   ]
 ]
 2015-01-16 17:28:00.707 Crunchbutton[27836:3050649] Terminating since there is no system app.
+2015-02-09 23:14:40.797 Crunchbutton[75495:4536876] Apache Cordova native platform version 3.7.0 is starting.
+2015-02-09 23:14:40.801 Crunchbutton[75495:4536876] Multi-tasking -> Device: YES, App: YES
+2015-02-09 23:14:40.814 Crunchbutton[75495:4536876] Unlimited access to network resources
+2015-02-09 23:14:40.822 Crunchbutton[75495:4536876] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-02-09 23:14:41.121 Crunchbutton[75495:4536876] [CDVTimer][file] 8.884013ms
+2015-02-09 23:14:41.221 Crunchbutton[75495:4536876] [CDVTimer][splashscreen] 99.505007ms
+2015-02-09 23:14:41.226 Crunchbutton[75495:4536876] [CDVTimer][statusbar] 4.824042ms
+2015-02-09 23:14:41.226 Crunchbutton[75495:4536876] Init FacebookConnect Session
+2015-02-09 23:14:41.234 Crunchbutton[75495:4536876] [CDVTimer][facebookconnectplugin] 7.748008ms
+2015-02-09 23:14:41.234 Crunchbutton[75495:4536876] [CDVTimer][keyboard] 0.052989ms
+2015-02-09 23:14:41.234 Crunchbutton[75495:4536876] [CDVTimer][TotalPluginStartup] 121.578991ms
+2015-02-09 23:14:41.261 Crunchbutton[75495:4536876] active
+2015-02-09 23:14:41.263 Crunchbutton[75495:4536876] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-02-09 23:14:41.315 Crunchbutton[75495:4536876] Resetting plugins due to page load.
+2015-02-09 23:14:41.624 Crunchbutton[75495:4536876] active
+2015-02-09 23:14:41.624 Crunchbutton[75495:4536876] Attempting to badge the application icon but haven't received permission from the user to badge the application
+>>>> frameSizeChanged = 4096
+>>>> frameSizeChanged = 4096
+2015-02-09 23:14:42.117 Crunchbutton[75495:4536876] Finished load of: file:///Users/arzynik/Library/Developer/CoreSimulator/Devices/CB2C7068-C290-44BC-9A6A-5767604F969E/data/Containers/Bundle/Application/86F200D9-6F6B-42D3-9D08-7320B91A3C67/Crunchbutton.app/www/index.html
+2015-02-09 23:14:42.192 Crunchbutton[75495:4536876] ERROR: Plugin 'VersionPlugin' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2015-02-09 23:14:42.192 Crunchbutton[75495:4536876] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "VersionPlugin1763879599",
+  "VersionPlugin",
+  "version",
+  [
+
+  ]
+]

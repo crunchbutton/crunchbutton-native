@@ -9,6 +9,42 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Media\"><param name=\"android-package\" value=\"org.apache.cordova.media.AudioHandler\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Vibration\"><param name=\"android-package\" value=\"org.apache.cordova.vibration.Vibration\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"com.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
@@ -21,39 +57,27 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"android-package\" value=\"org.apache.cordova.facebook.ConnectPlugin\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+                            "xml": "<access origin=\"https://m.facebook.com\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<access origin=\"https://graph.facebook.com\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "xml": "<access origin=\"https://api.facebook.com\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Media\"><param name=\"android-package\" value=\"org.apache.cordova.media.AudioHandler\" /></feature>",
+                            "xml": "<access origin=\"https://*.fbcdn.net\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Vibration\"><param name=\"android-package\" value=\"org.apache.cordova.vibration.Vibration\" /></feature>",
+                            "xml": "<access origin=\"https://*.akamaihd.net\" />",
                             "count": 1
                         }
                     ]
@@ -62,6 +86,10 @@
             "AndroidManifest.xml": {
                 "parents": {
                     "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+                            "count": 2
+                        },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
                             "count": 1
@@ -73,10 +101,6 @@
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
                             "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
-                            "count": 2
                         },
                         {
                             "xml": "<uses-permission android:name=\"com.google.android.c2dm.permission.RECEIVE\" />",
@@ -107,16 +131,20 @@
                     ],
                     "/*": [
                         {
-                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 2
-                        },
-                        {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
                             "count": 1
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 2
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.RECORD_AUDIO\" />",
@@ -129,9 +157,29 @@
                         {
                             "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
                             "count": 1
+                        }
+                    ],
+                    "application": [
+                        {
+                            "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationId\" android:value=\"@string/fb_app_id\" />",
+                            "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "xml": "<activity android:label=\"@string/fb_app_name\" android:name=\"com.facebook.LoginActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "res/values/facebookconnect.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<string name=\"fb_app_id\">***REMOVED***</string>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<string name=\"fb_app_name\">Crunchbutton</string>",
                             "count": 1
                         }
                     ]
@@ -140,6 +188,33 @@
         }
     },
     "installed_plugins": {
+        "org.apache.cordova.geolocation": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "org.apache.cordova.network-information": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "org.apache.cordova.media": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "org.apache.cordova.splashscreen": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "org.apache.cordova.vibration": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "org.apache.cordova.dialogs": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "org.apache.cordova.statusbar": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
         "com.ionic.keyboard": {
             "PACKAGE_NAME": "com.crunchbutton"
         },
@@ -149,36 +224,15 @@
         "net.bgta.phonegap.plugin.appversion": {
             "PACKAGE_NAME": "com.crunchbutton"
         },
-        "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "org.apache.cordova.dialogs": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "org.apache.cordova.file": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "org.apache.cordova.geolocation": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "org.apache.cordova.inappbrowser": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "org.apache.cordova.media": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "org.apache.cordova.network-information": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "org.apache.cordova.splashscreen": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "org.apache.cordova.statusbar": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "org.apache.cordova.vibration": {
+        "com.phonegap.plugins.facebookconnect": {
+            "APP_ID": "***REMOVED***",
+            "APP_NAME": "Crunchbutton",
             "PACKAGE_NAME": "com.crunchbutton"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "org.apache.cordova.file": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        }
+    }
 }

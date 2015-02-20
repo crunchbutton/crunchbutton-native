@@ -21,7 +21,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android"
 id="org.apache.cordova.media"
-    version="0.2.16-dev">
+    version="0.2.17-dev">
 
     <name>Media</name>
     <description>Cordova Media Plugin</description>
@@ -149,7 +149,19 @@ id="org.apache.cordova.media"
 
     <!-- windows8 -->
     <platform name="windows8">
-        <js-module src="src/windows8/MediaProxy.js" name="MediaProxy">
+        <js-module src="src/windows/MediaProxy.js" name="MediaProxy">
+            <merges target="" />
+        </js-module>
+
+        <config-file target="package.appxmanifest" parent="/Package/Capabilities">
+            <Capability Name="musicLibrary" />
+            <DeviceCapability Name="microphone" />
+        </config-file>
+    </platform>
+
+    <!-- windows -->
+    <platform name="windows">
+        <js-module src="src/windows/MediaProxy.js" name="MediaProxy">
             <merges target="" />
         </js-module>
 

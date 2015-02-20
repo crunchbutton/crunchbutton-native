@@ -20,7 +20,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
            id="org.apache.cordova.splashscreen"
-      version="0.3.6-dev">
+      version="1.0.1-dev">
     <name>Splashscreen</name>
     <description>Cordova Splashscreen Plugin</description>
     <license>Apache 2.0</license>
@@ -116,7 +116,14 @@
 
     <!-- windows8 -->
     <platform name="windows8">
-        <js-module src="www/windows8/SplashScreenProxy.js" name="SplashScreenProxy">
+        <js-module src="www/windows/SplashScreenProxy.js" name="SplashScreenProxy">
+            <merges target="" />
+        </js-module>
+    </platform>
+
+    <!-- windows -->
+    <platform name="windows">
+        <js-module src="www/windows/SplashScreenProxy.js" name="SplashScreenProxy">
             <merges target="" />
         </js-module>
     </platform>

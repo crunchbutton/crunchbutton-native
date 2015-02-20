@@ -20,7 +20,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
            id="org.apache.cordova.dialogs"
-      version="0.2.12-dev">
+      version="0.3.1-dev">
 
     <name>Notification</name>
     <description>Cordova Notification Plugin</description>
@@ -157,9 +157,15 @@
 
     <!-- windows8 -->
     <platform name="windows8">
-        <js-module src="src/windows8/NotificationProxy.js" name="NotificationProxy">
+        <js-module src="src/windows/NotificationProxy.js" name="NotificationProxy">
             <merges target="" />
         </js-module>
     </platform>
 
+    <!-- windows -->
+    <platform name="windows">
+        <js-module src="src/windows/NotificationProxy.js" name="NotificationProxy">
+            <merges target="" />
+        </js-module>
+    </platform>
 </plugin>

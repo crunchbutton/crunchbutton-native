@@ -18,12 +18,17 @@
  * under the License.
  *
  */
+ 
+var isWindows = cordova.platformId == 'windows8' || cordova.platformId == 'windows';
+// detect whether audio hardware is available and enabled
+var isAudioSupported = isWindows ? Windows.Media.Devices.MediaDevice.getDefaultAudioRenderId(Windows.Media.Devices.AudioDeviceRole.default) : true;
 
 exports.defineAutoTests = function () {
     var failed = function (done, msg, error) {
         var info = typeof msg == 'undefined' ? 'Unexpected error callback' : msg;
         expect(true).toFailWithMessage(info + '\n' + JSON.stringify(error));
         done();
+        this.done = true;
     };
 
     var succeed = function (done, msg) {
@@ -84,70 +89,70 @@ exports.defineAutoTests = function () {
         });
 
         it("media.spec.5 should contain a play function", function () {
-            var media1 = new Media();
+            var media1 = new Media("dummy");
             expect(media1.play).toBeDefined();
             expect(typeof media1.play).toBe('function');
             media1.release();
         });
 
         it("media.spec.6 should contain a stop function", function () {
-            var media1 = new Media();
+            var media1 = new Media("dummy");
             expect(media1.stop).toBeDefined();
             expect(typeof media1.stop).toBe('function');
             media1.release();
         });
 
         it("media.spec.7 should contain a seekTo function", function () {
-            var media1 = new Media();
+            var media1 = new Media("dummy");
             expect(media1.seekTo).toBeDefined();
             expect(typeof media1.seekTo).toBe('function');
             media1.release();
         });
 
         it("media.spec.8 should contain a pause function", function () {
-            var media1 = new Media();
+            var media1 = new Media("dummy");
             expect(media1.pause).toBeDefined();
             expect(typeof media1.pause).toBe('function');
             media1.release();
         });
 
         it("media.spec.9 should contain a getDuration function", function () {
-            var media1 = new Media();
+            var media1 = new Media("dummy");
             expect(media1.getDuration).toBeDefined();
             expect(typeof media1.getDuration).toBe('function');
             media1.release();
         });
 
         it("media.spec.10 should contain a getCurrentPosition function", function () {
-            var media1 = new Media();
+            var media1 = new Media("dummy");
             expect(media1.getCurrentPosition).toBeDefined();
             expect(typeof media1.getCurrentPosition).toBe('function');
             media1.release();
         });
 
         it("media.spec.11 should contain a startRecord function", function () {
-            var media1 = new Media();
+            var media1 = new Media("dummy");
             expect(media1.startRecord).toBeDefined();
             expect(typeof media1.startRecord).toBe('function');
             media1.release();
         });
 
         it("media.spec.12 should contain a stopRecord function", function () {
-            var media1 = new Media();
+            var media1 = new Media("dummy");
             expect(media1.stopRecord).toBeDefined();
             expect(typeof media1.stopRecord).toBe('function');
             media1.release();
         });
 
         it("media.spec.13 should contain a release function", function () {
-            var media1 = new Media();
+            var media1 = new Media("dummy");
             expect(media1.release).toBeDefined();
             expect(typeof media1.release).toBe('function');
             media1.release();
         });
 
         it("media.spec.14 should contain a setVolume function", function () {
-            var media1 = new Media();
+            var media1 = new Media("dummy");
             expect(media1.setVolume).toBeDefined();
             expect(typeof media1.setVolume).toBe('function');
             media1.release();
@@ -179,6 +184,12 @@ exports.defineAutoTests = function () {
         });
 
         it("media.spec.16 position should be set properly", function (done) {
+            // no audio hardware available
+            if (!isAudioSupported) {
+                pending();
+                return;
+            }
+            var self = this;
             var mediaFile = 'http://cordova.apache.org/downloads/BlueZedEx.mp3',
             mediaState = Media.MEDIA_STOPPED,
             successCallback,
@@ -194,16 +205,24 @@ exports.defineAutoTests = function () {
                             expect(position).toBeGreaterThan(0.0);
                             media1.stop();
                             media1.release();
-                            done();
-                        }, failed.bind(null, done, 'media1.getCurrentPosition - Error getting media current position'));
+                            if (!self.done) {
+                                done();
+                            }
+                        }, failed.bind(self, done, 'media1.getCurrentPosition - Error getting media current position'));
                     }, 1000);
                 }
             },
-            media1 = new Media(mediaFile, successCallback, failed.bind(null, done, 'media1 = new Media - Error creating Media object. Media file: ' + mediaFile), statusChange);
+            media1 = new Media(mediaFile, successCallback, failed.bind(self, done, 'media1 = new Media - Error creating Media object. Media file: ' + mediaFile), statusChange);
             media1.play();
         });
 
         it("media.spec.17 duration should be set properly", function (done) {
+            // no audio hardware available
+            if (!isAudioSupported) {
+                pending();
+                return;
+            }
+            var self = this;
             if (cordova.platformId === 'blackberry10') {
                 expect(true).toFailWithMessage('Platform does not supported this feature');
                 done();
@@ -222,11 +241,13 @@ exports.defineAutoTests = function () {
                         expect(media1.getDuration()).toBeGreaterThan(0.0);
                         media1.stop();
                         media1.release();
-                        done();
+                        if (!self.done) {
+                            done();
+                        }
                     }, 1000);
                 }
             },
-            media1 = new Media(mediaFile, successCallback, failed.bind(null, done, 'media1 = new Media - Error creating Media object. Media file: ' + mediaFile), statusChange);
+            media1 = new Media(mediaFile, successCallback, failed.bind(self, done, 'media1 = new Media - Error creating Media object. Media file: ' + mediaFile), statusChange);
             media1.play();
         });
     });
@@ -572,9 +593,9 @@ exports.defineManualTests = function (contentEl, createActionButton) {
         table.setAttribute("id", tableId);
         return table;
     }
-    
+
 //Audio && Record Elements
-    var elementsResultsAudio= 
+    var elementsResultsAudio=
     [{
             id : "statusTag",
             content : "Status:",
@@ -719,7 +740,7 @@ exports.defineManualTests = function (contentEl, createActionButton) {
             }
         }
     ];
-    
+
     //Title audio results
     var div = document.createElement('h2');
     div.appendChild(document.createTextNode('Audio'));
@@ -727,7 +748,7 @@ exports.defineManualTests = function (contentEl, createActionButton) {
     contentEl.appendChild(div);
     //Generate and add results table
     contentEl.appendChild(generateTable('info', 3, 3, elementsResultsAudio));
-    
+
     //Title audio actions
     div = document.createElement('h2');
     div.appendChild(document.createTextNode('Actions'));
@@ -794,7 +815,7 @@ exports.defineManualTests = function (contentEl, createActionButton) {
     div.setAttribute("style", "background:#B0C4DE;border:1px solid #FFA07A;margin:15px 6px 0px;min-width:295px;max-width:97%;padding:4px 0px 2px 10px;min-height:160px;max-height:200px;overflow:auto");
     div.appendChild(list);
     contentEl.appendChild(div);
-    
+
     //Title Record Audio
     div = document.createElement('h2');
     div.appendChild(document.createTextNode('Record Audio'));
