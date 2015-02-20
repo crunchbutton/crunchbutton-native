@@ -34,9 +34,9 @@
 	<div class="divider"></div>
 </div>
 
-<div class="content-padding">
-	<br />
-	<div class="staff">
+<br /><br /><br />
+<div class="content-padding col-box">
+	<div class="staff two-col">
 		<div class="staff-judd staff-image animated-resize"></div>
 		<h1>Judd Rosenblatt</h1>
 		<h2>Chief Eater</h2>
@@ -49,7 +49,7 @@
 		</p>
 	</div>
 
-	<div class="staff">
+	<div class="staff two-col">
 		<div class="staff-devin staff-image animated-resize"></div>
 		<h1>Devin Smith</h1>
 		<h2>Executive Chef</h2>
@@ -62,7 +62,7 @@
 		</p>
 	</div>
 	
-	<div class="staff">
+	<div class="staff two-col">
 		<div class="staff-david staff-image animated-resize"></div>
 		<h1>David Klumpp</h1>
 		<h2>Chief Taster</h2>
@@ -75,7 +75,7 @@
 		</p>
 	</div>
 	
-	<div class="staff">
+	<div class="staff two-col">
 		<div class="staff-nick staff-image animated-resize"></div>
 		<h1>Nick Hunter</h1>
 		<h2>Chief Curator</h2>
@@ -88,7 +88,7 @@
 		</p>
 	</div>
 	
-	<div class="staff">
+	<div class="staff two-col">
 		<div class="staff-daniel staff-image animated-resize"></div>
 		<h1>Daniel Camargo</h1>
 		<h2>Sous-chef</h2>
@@ -100,7 +100,9 @@
 			Part Brazilian, part super hero. When the day needs saving he saves it.
 		</p>
 	</div>
+</div>
 
+<div class="content-padding about-join-team-wrap">
 	<div class="about-join-bubble-wrap">
 		<div class="bubble-curved bubble-curved-green bubble-animated animated-resize">
 			<div class="text" ng-switch="orangeMessage">
@@ -290,163 +292,6 @@
 		</div>
 	</div>
 </div>
-</script><script type="text/ng-template" id="assets/view/apply.html">
-<div class="top-pad"></div>
-<div class="content-padding drivers-apply">
-	<div class="apply-item-title text-your-order" name="userForm">
-		Driver Application
-	</div>
-	<p>
-		<br>
-		We'll get back to you to schedule a quick phone call once we receive your application.<br>
-		All fields are required.
-		<br><br>
-	</p>
-	<!--form goes here-->
-	<form>
-
-		<div class="form-group">
-			<h4><span class="form-required">*</span> First Name:</h4>
-
-			<div class="textbox">
-				<div ng-if="errors.firstName">Please enter your first name:</div>
-				<input type="text" ng-model="apply.firstName" name="firstName" class="form-control form-control-large">
-			</div>
-		</div>
-
-		<div class="form-group">
-			<h4><span class="form-required">*</span> Last Name:</h4>
-			
-			<div class="textbox">
-				<div ng-if="errors.lastName">Please enter your last name:</div>
-				<input type="text" ng-model="apply.lastName" name="lastName" class="form-control form-control-large" >
-			</div>
-		</div>
-
-		<div class="form-group">
-			<h4><span class="form-required">*</span> Email:</h4>
-			
-			<div class="textbox">
-				<div ng-if="errors.email">Please enter your email:</div>
-				<input type="text" class="form-control form-control-large" ng-model="apply.email" name="email" >
-			</div>
-		</div>
-
-		<div class="form-group">
-			<h4><span class="form-required">*</span> What school are you near?</h4>
-			
-			<div class="textbox">
-				<div ng-if="errors.university">Please enter your nearest school:</div>
-				<select class="form-control form-control-large form-control form-control-select" ng-model="apply.university" name="university" >
-					<option></option> 
-					<option ng-repeat="community in communities | orderBy: 'name'" value="{{community.name}}">{{community.name}}</option>
-					<option valie="Other">Other</option> 
-				</select>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<h4><span class="form-required">*</span> Cell Phone Number:</h4>
-
-			<div class="textbox">
-				<div ng-if="errors.number">Please enter your number:</div>
-				<input type="tel" class="form-control form-control-large" ng-model="apply.number" name="number" >
-			</div>
-		</div>
-		
-		<div class="form-group"></div>
-
-		<div class="form-group">
-			<h4><span class="form-required">*</span> What type of phone do you have?</h4>
-
-			<div class="textbox">
-				<div ng-if="errors.phone">Please enter your phone type:</div>
-				<input type="radio" ng-model="apply.phone" name="phone" value="iPhone" id="apply-phone-iphone"><label for="apply-phone-iphone">iPhone</label><br>
-				<input type="radio" ng-model="apply.phone" name="phone" value="Android" id="apply-phone-android"><label for="apply-phone-android">Android</label><br>
-				<input type="radio" ng-model="apply.phone" name="phone" value="Windows" id="apply-phone-windows"><label for="apply-phone-windows">Windows</label><br>
-				<input type="radio" ng-model="apply.phone" name="phone" value="OtherSmartPhone" id="apply-phone-other"><label for="apply-phone-other">Other Smartphone</label><br>
-				<input type="radio" ng-model="apply.phone" name="phone" value="Non-Smartphone" id="apply-phone-dumb"><label for="apply-phone-dumb">Non-Smartphone</label><br>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<h4><span class="form-required">*</span> Who is your carrier?</h4>
-
-			<div class="textbox">
-				<div ng-if="errors.carrier">Please enter your carrier:</div>
-				<input type="radio" name="carrier" ng-model="apply.carrier" value="Verizon" id="apply-carrier-verizon"><label for="apply-carrier-verizon">Verizon</label><br>
-				<input type="radio" name="carrier" ng-model="apply.carrier" value="ATandT" id="apply-carrier-att"><label for="apply-carrier-att">AT&amp;T</label><br>
-				<input type="radio" name="carrier" ng-model="apply.carrier" value="Sprint" id="apply-carrier-sprint"><label for="apply-carrier-sprint">Sprint</label><br>
-				<input type="radio" name="carrier" ng-model="apply.carrier" value="T-Mobile" id="apply-carrier-tmobile"><label for="apply-carrier-tmobile">T-Mobile</label><br>
-				<input type="radio" name="carrier" ng-model="apply.carrier" value="Other" id="apply-carrier-other"><label for="apply-carrier-other">Other:</label>
-				<div ng-if="errors.otherCarrier">Please specify your carrier:</div>
-				<input ng-click="apply.carrier='Other'" class="form-control form-control-small" type="text" name="otherCarrier" ng-model="apply.otherCarrier">
-			</div>
-		</div>
-
-		<div class="form-group">
-			<h4><span class="form-required">*</span> Car or bike?</h4>
-
-			<div class="textbox">
-				<div ng-if="errors.transport">Please enter your mode of transport:</div>
-				<input type="radio" name="transport" ng-model="apply.transport" value="car" id="apply-trans-car"><label for="apply-trans-car">Car</label><br>
-				<input type="radio" name="transport" ng-model="apply.transport" value="bike" id="apply-trans-bike"><label for="apply-trans-bike">Bike</label><br>
-				<input type="radio" name="transport" ng-model="apply.transport" value="both" id="apply-trans-both"><label for="apply-trans-both">Both</label><br>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<h4><span class="form-required">*</span> How many hours per week would you like to work?</h4>
-			<p>
-				<i>No commitment necessary - just a general approximation</i>
-			</p>
-
-			<div class="textbox">
-				<div ng-if="errors.hours">Please enter your number of preferred hours:</div>
-				<br>
-				<input type="radio" name="hours" ng-model="apply.hours" value="5" id="apply-hours-5"><label for="apply-hours-5">5-10</label><br>
-				<input type="radio" name="hours" ng-model="apply.hours" value="10" id="apply-hours-10"><label for="apply-hours-10">10-20</label><br>
-				<input type="radio" name="hours" ng-model="apply.hours" value="20" id="apply-hours-20"><label for="apply-hours-20">20-30</label><br>
-				<input type="radio" name="hours" ng-model="apply.hours" value="30" id="apply-hours-30"><label for="apply-hours-30">30+</label><br>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<h4><span class="form-required">*</span> Applicant Type:</h4>
-			<p>
-				<i>Select student if you're a student at the college we're operating at</i>
-			</p>
-
-			<div class="textbox">
-				<div ng-if="errors.applicant">Please choose student or non-student:</div>
-				<br>
-				<input type="radio" ng-model="apply.applicant" name="applicant" value="student" id="apply-applicant-student"><label for="apply-applicant-student">Student</label><br>
-				<input type="radio" ng-model="apply.applicant" name="applicant" value="non-student" id="apply-applicant-non-student"><label for="apply-applicant-non-student">Non-Student</label><br><br><br>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<h4><span class="form-required">*</span> How did you find out about us?</h4>
-
-			<div class="textbox">
-				<div ng-if="errors.source">Please enter how you found out about us:</div>
-				<input type="radio" ng-model="apply.source" name="source" value="craigslist" id="apply-source-craigslist"><label for="apply-source-craigslist">Craigslist</label><br>
-				<input type="radio" ng-model="apply.source" name="source" value="school-job-list" id="apply-source-school"><label for="apply-source-school">School Job Board</label><br>
-				<input type="radio" ng-model="apply.source" name="source" value="friend" id="apply-source-friend"><label for="apply-source-friend">Through a Friend</label><br>
-				<input type="radio" ng-model="apply.source" name="source" value="campus-marketing" id="apply-source-marketing"><label for="apply-source-marketing">Marketing on Campus</label><br>
-				<input type="radio" ng-model="apply.source" name="source" value="cb-website" id="apply-source-website"><label for="apply-source-website">Via Crunchbutton Website</label><br>
-				<input type="radio" ng-model="apply.source" name="source" value="other" id="apply-source-other"><label for="apply-source-other">Other:</label>
-				<div ng-if="errors.otherSource">Please specify how you found out about us:</div>
-				<input ng-click="apply.source='other'" class="form-control form-control-small" type="text" ng-model="apply.otherSource" name="otherSource">
-			</div>
-		</div>
-
-		
-		<button class="button lightorange button-bottom " ng-click="post()">Submit</button>
-		
-	</form>
-</div>
-
 </script><script type="text/ng-template" id="assets/view/cafe.html">
 
 
@@ -638,7 +483,7 @@
 	
 			<div class="button-pushable">
 				<a href="https://itunes.apple.com/app/id721780390" target="_blank">
-					<button class="button orange download ani-all" ng-click="letsEat()" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF">
+					<button class="button orange download ani-all">
 						Download
 					</button>
 				</a>
@@ -703,6 +548,163 @@
 		
 	</div>
 
+</div>
+
+</script><script type="text/ng-template" id="assets/view/drivers.apply.html">
+<div class="top-pad"></div>
+<div class="content-padding drivers-apply">
+	<div class="apply-item-title text-your-order" name="userForm">
+		Driver Application
+	</div>
+	<p>
+		<br>
+		We'll get back to you to schedule a quick phone call once we receive your application.<br>
+		All fields are required.
+		<br><br>
+	</p>
+	<!--form goes here-->
+	<form>
+
+		<div class="form-group">
+			<h4><span class="form-required">*</span> First Name:</h4>
+
+			<div class="textbox">
+				<div ng-if="errors.firstName">Please enter your first name:</div>
+				<input type="text" ng-model="apply.firstName" name="firstName" class="form-control form-control-large">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<h4><span class="form-required">*</span> Last Name:</h4>
+			
+			<div class="textbox">
+				<div ng-if="errors.lastName">Please enter your last name:</div>
+				<input type="text" ng-model="apply.lastName" name="lastName" class="form-control form-control-large" >
+			</div>
+		</div>
+
+		<div class="form-group">
+			<h4><span class="form-required">*</span> Email:</h4>
+			
+			<div class="textbox">
+				<div ng-if="errors.email">Please enter your email:</div>
+				<input type="text" class="form-control form-control-large" ng-model="apply.email" name="email" >
+			</div>
+		</div>
+
+		<div class="form-group">
+			<h4><span class="form-required">*</span> What school are you near?</h4>
+			
+			<div class="textbox">
+				<div ng-if="errors.university">Please enter your nearest school:</div>
+				<select class="form-control form-control-large form-control form-control-select" ng-model="apply.university" name="university" >
+					<option></option> 
+					<option ng-repeat="community in communities | orderBy: 'name'" value="{{community.name}}">{{community.name}}</option>
+					<option valie="Other">Other</option> 
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<h4><span class="form-required">*</span> Cell Phone Number:</h4>
+
+			<div class="textbox">
+				<div ng-if="errors.number">Please enter your number:</div>
+				<input type="tel" class="form-control form-control-large" ng-model="apply.number" name="number" >
+			</div>
+		</div>
+		
+		<div class="form-group"></div>
+
+		<div class="form-group">
+			<h4><span class="form-required">*</span> What type of phone do you have?</h4>
+
+			<div class="textbox">
+				<div ng-if="errors.phone">Please enter your phone type:</div>
+				<input type="radio" ng-model="apply.phone" name="phone" value="iPhone" id="apply-phone-iphone"><label for="apply-phone-iphone">iPhone</label><br>
+				<input type="radio" ng-model="apply.phone" name="phone" value="Android" id="apply-phone-android"><label for="apply-phone-android">Android</label><br>
+				<input type="radio" ng-model="apply.phone" name="phone" value="Windows" id="apply-phone-windows"><label for="apply-phone-windows">Windows</label><br>
+				<input type="radio" ng-model="apply.phone" name="phone" value="OtherSmartPhone" id="apply-phone-other"><label for="apply-phone-other">Other Smartphone</label><br>
+				<input type="radio" ng-model="apply.phone" name="phone" value="Non-Smartphone" id="apply-phone-dumb"><label for="apply-phone-dumb">Non-Smartphone</label><br>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<h4><span class="form-required">*</span> Who is your carrier?</h4>
+
+			<div class="textbox">
+				<div ng-if="errors.carrier">Please enter your carrier:</div>
+				<input type="radio" name="carrier" ng-model="apply.carrier" value="Verizon" id="apply-carrier-verizon"><label for="apply-carrier-verizon">Verizon</label><br>
+				<input type="radio" name="carrier" ng-model="apply.carrier" value="ATandT" id="apply-carrier-att"><label for="apply-carrier-att">AT&amp;T</label><br>
+				<input type="radio" name="carrier" ng-model="apply.carrier" value="Sprint" id="apply-carrier-sprint"><label for="apply-carrier-sprint">Sprint</label><br>
+				<input type="radio" name="carrier" ng-model="apply.carrier" value="T-Mobile" id="apply-carrier-tmobile"><label for="apply-carrier-tmobile">T-Mobile</label><br>
+				<input type="radio" name="carrier" ng-model="apply.carrier" value="Other" id="apply-carrier-other"><label for="apply-carrier-other">Other:</label>
+				<div ng-if="errors.otherCarrier">Please specify your carrier:</div>
+				<input ng-click="apply.carrier='Other'" class="form-control form-control-small" type="text" name="otherCarrier" ng-model="apply.otherCarrier">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<h4><span class="form-required">*</span> Car or bike?</h4>
+
+			<div class="textbox">
+				<div ng-if="errors.transport">Please enter your mode of transport:</div>
+				<input type="radio" name="transport" ng-model="apply.transport" value="car" id="apply-trans-car"><label for="apply-trans-car">Car</label><br>
+				<input type="radio" name="transport" ng-model="apply.transport" value="bike" id="apply-trans-bike"><label for="apply-trans-bike">Bike</label><br>
+				<input type="radio" name="transport" ng-model="apply.transport" value="both" id="apply-trans-both"><label for="apply-trans-both">Both</label><br>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<h4><span class="form-required">*</span> How many hours per week would you like to work?</h4>
+			<p>
+				<i>No commitment necessary - just a general approximation</i>
+			</p>
+
+			<div class="textbox">
+				<div ng-if="errors.hours">Please enter your number of preferred hours:</div>
+				<br>
+				<input type="radio" name="hours" ng-model="apply.hours" value="5" id="apply-hours-5"><label for="apply-hours-5">5-10</label><br>
+				<input type="radio" name="hours" ng-model="apply.hours" value="10" id="apply-hours-10"><label for="apply-hours-10">10-20</label><br>
+				<input type="radio" name="hours" ng-model="apply.hours" value="20" id="apply-hours-20"><label for="apply-hours-20">20-30</label><br>
+				<input type="radio" name="hours" ng-model="apply.hours" value="30" id="apply-hours-30"><label for="apply-hours-30">30+</label><br>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<h4><span class="form-required">*</span> Applicant Type:</h4>
+			<p>
+				<i>Select student if you're a student at the college we're operating at</i>
+			</p>
+
+			<div class="textbox">
+				<div ng-if="errors.applicant">Please choose student or non-student:</div>
+				<br>
+				<input type="radio" ng-model="apply.applicant" name="applicant" value="student" id="apply-applicant-student"><label for="apply-applicant-student">Student</label><br>
+				<input type="radio" ng-model="apply.applicant" name="applicant" value="non-student" id="apply-applicant-non-student"><label for="apply-applicant-non-student">Non-Student</label><br><br><br>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<h4><span class="form-required">*</span> How did you find out about us?</h4>
+
+			<div class="textbox">
+				<div ng-if="errors.source">Please enter how you found out about us:</div>
+				<input type="radio" ng-model="apply.source" name="source" value="craigslist" id="apply-source-craigslist"><label for="apply-source-craigslist">Craigslist</label><br>
+				<input type="radio" ng-model="apply.source" name="source" value="school-job-list" id="apply-source-school"><label for="apply-source-school">School Job Board</label><br>
+				<input type="radio" ng-model="apply.source" name="source" value="friend" id="apply-source-friend"><label for="apply-source-friend">Through a Friend</label><br>
+				<input type="radio" ng-model="apply.source" name="source" value="campus-marketing" id="apply-source-marketing"><label for="apply-source-marketing">Marketing on Campus</label><br>
+				<input type="radio" ng-model="apply.source" name="source" value="cb-website" id="apply-source-website"><label for="apply-source-website">Via Crunchbutton Website</label><br>
+				<input type="radio" ng-model="apply.source" name="source" value="other" id="apply-source-other"><label for="apply-source-other">Other:</label>
+				<div ng-if="errors.otherSource">Please specify how you found out about us:</div>
+				<input ng-click="apply.source='other'" class="form-control form-control-small" type="text" ng-model="apply.otherSource" name="otherSource">
+			</div>
+		</div>
+
+		
+		<button class="button lightorange button-bottom " ng-click="post()">Submit</button>
+		
+	</form>
 </div>
 
 </script><script type="text/ng-template" id="assets/view/giftcard.html">
@@ -774,68 +776,84 @@
 	<div class="divider"></div>
 </div>
 
-<div class="content-padding" ng-controller="SupportCtrl">
-	<br />
-	<h4>So, what is Crunchbutton?</h4>
-	<p>Crunchbutton lets you order the best food in your area delivered straight to your door. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click.</p>
-	<br /><br />
-	<h4>Need to contact Crunchbutton?</h4>
-	<p>Problem with your order? Need help with your homework? Text or call us at <a href="sms:+16467831444" target="_system">(646) 783-1444</a> or email us at <a href="mailto:{{customers}}">{{customers}}</a>.</p>
-	<br /><br />
-	<button class="button green" ng-click="support.dialog()">Send us a message</button>
+<br /><br /><br />
+<div class="content-padding col-box" ng-controller="SupportCtrl">
+	<div class="two-col">
+		<br />
+		<h4>So, what is Crunchbutton?</h4>
+		<p>Crunchbutton lets you order the best food in your area delivered straight to your door. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click.</p>
+	</div>
+	<div class="two-col">
+		<h4>Need to contact Crunchbutton?</h4>
+		<p>Problem with your order? Need help with your homework? Text or call us at <a href="sms:+16467831444" target="_system">(646) 783-1444</a> or email us at <a href="mailto:{{happy_customers}}">{{happy_customers}}</a> or <a href="mailto:{{angry_customers}}">{{angry_customers}}</a>, as appropriate. .</p>
+		<br /><br />
+		<button class="button green" ng-click="support.dialog()">Send us a message</button>
+	</div>
 </div>
 
+
 <div class="content-padding">
-	<br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br />
 	<div class="faq-sun"></div>
 	<br /><br /><br /><br />
 </div>
 
-<div class="content-padding">
-	<h4>Who are you?!</h4>
-	<p>We're people! People who love food so much that we want to share our passion without asking you to even leave your homes.</p>
-	<br>
-	<button class="button lightorange" ng-click="navigation.link('/about','push')">Meet the team</button>
-	<br><br><br>
+<div class="content-padding col-box">
+	<div class="two-col">
+		<h4>Who are you?!</h4>
+		<p>We're people! People who love food so much that we want to share our passion without asking you to even leave your homes.</p>
+		<br>
+		<button class="button lightorange" ng-click="navigation.link('/about','push')">Meet the team</button>
+	</div>
+	<div class="two-col">
+		<h4>How do I order food?</h4>
+		<p>Easy! Just go to <a href="http://crunchbutton.com" target="_blank">crunchbutton.com</a> and click the restaurant you want to order from. Add whatever food you want, and enter your address, phone, and payment info. Click "Get Food" and try to stay hungry! The driver will call you when they're outside.</p>
+	</div>
+	<div class="two-col">
+		<h4>How do you save my info?</h4>
+		<p>We use SSL and a PCI-DSS Level 1 Compliant provider to encrypt your information when you place an order. We never store any of your financial information on our web servers.</p>
+	</div>
+	<div class="two-col">
+		<h4>How do I change my stored info?</h4>
+		<p>Just click on the info you want to change, enter the changes, and, after you place your order, it’ll be saved for next time.</p>
+	</div>
+	<div class="two-col">
+		<h4>But I've never used Crunchbutton before...</h4>
+		<p>Oh man, it's okay. I remember my first time, it didn't last more than 30 seconds. I went to Crunchbutton.com, found my favorite restaurant, hit "Get Food." Minutes later, my sandwich arrived. Post-coital bliss ensued, that sandwich sure knew how to crunch my buttons.</p>
+	</div>
+	<div class="two-col">
+		<h4>omg i am wayy too drunk to enter my information</h4>
+		<p>We thought this might happen. Luckily, Crunchbutton saves your address, phone, and payment info, so all you have to do is click what you want and hit the big, red "Get Food" button. Try to be awake when the delivery guy calls.</p>
+	</div>
 	
-	<h4>How do I order food?</h4>
-	<p>Easy! Just go to <a href="http://crunchbutton.com" target="_blank">crunchbutton.com</a> and click the restaurant you want to order from. Add whatever food you want, and enter your address, phone, and payment info. Click "Get Food" and try to stay hungry! The driver will call you when they're outside.</p>
-	<br /><br />
-	<h4>How do you save my info?</h4>
-	<p>We use SSL and a PCI-DSS Level 1 Compliant provider to encrypt your information when you place an order. We never store any of your financial information on our web servers.</p>
-	<br /><br />
-	<h4>How do I change my stored info?</h4>
-	<p>Just click on the info you want to change, enter the changes, and, after you place your order, it’ll be saved for next time.</p>
-	<br /><br />
-	<h4>But I've never used Crunchbutton before...</h4>
-	<p>Oh man, it's okay. I remember my first time, it didn't last more than 30 seconds. I went to Crunchbutton.com, found my favorite restaurant, hit "Get Food." Minutes later, my sandwich arrived. Post-coital bliss ensued, that sandwich sure knew how to crunch my buttons.</p>
-	<br /><br />
-	<h4>omg i am wayy too drunk to enter my information</h4>
-	<p>We thought this might happen. Luckily, Crunchbutton saves your address, phone, and payment info, so all you have to do is click what you want and hit the big, red "Get Food" button. Try to be awake when the delivery guy calls.</p>
-	<br /><br />
-	<h4>I want to put a restaurant on Crunchbutton.</h4>
-	<p>Good idea! <a ng-click="navigation.link('/owners','push')">Get more info and contact us</a>.</p>
-	<br /><br />
-	
-	<h4>I want to drive for Crunchbutton</h4>
-	<p>Cool! <a ng-click="navigation.link('/drivers/apply','push')">Fill out an application here</a>.</p>
-	<br /><br />
-	
-	<h4>I know I can order food online, but can I order by US mail?</h4>
-	<p>Why yes you can! Give us one week's notice, and we will get you your food! Send a check or money order to: 
-	Crunchbutton, 1120 Princeton Dr STE 7, Marina Del Rey, CA 90292</p>
-	<br /><br />
-	
-	<h4>I know I can order food by US mail, but can I order by teleportation?</h4>
-	<p>Why yes you can! Send a check or money order to Crunchbutton, 1120 Princeton Dr STE 7, Marina Del Rey, CA 90292, give us 25 years to develop the appropriate technology, and we will get you your food!<br />
-	
-	<br /><br /><br /><br />
-	
-	Visit our <a ng-click="navigation.link('/legal','push')">legal page</a> for legal and privacy information.
-	<br /><br /><br /><br /><br /><br /><br />
-	<center><div class="fa fa-heart faq-heart"></div></center>
-	<br /><br /><br /><br />
+	<div class="two-col">
+		<h4>I want to put a restaurant on Crunchbutton.</h4>
+		<p>Good idea! <a ng-click="navigation.link('/owners','push')">Get more info and contact us</a>.</p>
+	</div>
+		
+	<div class="two-col">
+		<h4>I want to drive for Crunchbutton</h4>
+		<p>Cool! <a ng-click="navigation.link('/drivers/apply','push')">Fill out an application here</a>.</p>
+	</div>
+
+	<div class="two-col">
+		<h4>I know I can order food online, but can I order by US mail?</h4>
+		<p>Why yes you can! Give us one week's notice, and we will get you your food! Send a check or money order to: 
+		Crunchbutton, 1120 Princeton Dr STE 7, Marina Del Rey, CA 90292</p>
+	</div>
+
+	<div class="two-col">
+		<h4>I know I can order food by US mail, but can I order by teleportation?</h4>
+		<p>Why yes you can! Send a check or money order to Crunchbutton, 1120 Princeton Dr STE 7, Marina Del Rey, CA 90292, give us 25 years to develop the appropriate technology, and we will get you your food!</p>
+	</div>
+	<div class="two-col">
+		Visit our <a ng-click="navigation.link('/legal','push')">legal page</a> for legal and privacy information.
+	</div>
 </div>
+
+<br /><br /><br /><br /><br /><br /><br />
+<center><div class="fa fa-heart faq-heart"></div></center>
+<br /><br /><br /><br />
 
 </script><script type="text/ng-template" id="assets/view/home.html">
 <div class="top-pad"></div>
@@ -865,17 +883,15 @@
 						<td style="width: 100%;"><input class="location-address needsclick" autocapitalize="off" autocorrect="off" placeholder="e.g. 37 Elm St, New Haven CT 06511" ng-focus="softKeyboard($event);" geo-complete-enter="letsEat()" id="input-location-address" ng-model="location.form.address" geo-complete >
 						</td>
 						<td>				
-							<button class="location-detect ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF" ng-click="locEat()">
-								<span class="fa fa-location-arrow "></span>
-								<div class="ladda-spinner"></div>
+							<button class="location-detect" ng-click="locEat()">
+								<span class="fa fa-location-arrow" ng-spinner="loadingLocation" data-spinner-color="#fff" data-spinner-scale="1.5"></span>
 							</button>
 						</td>
 					</tr>
 				</table>
 				<div class="button-pushable find-restaurants">
-					<button class="button orange find-restaurants button-letseat-form ladda-button" ng-click="letsEat()" ng-spinner data-style="zoom-out" data-spinner-color="#FFFFFF">
-						<div class="ladda-label">Find Restaurants!</div>
-						<span class="ladda-spinner"></span>
+					<button class="button orange find-restaurants button-letseat-form" ng-click="letsEat()">
+						<div ng-spinner="loadingGetfood" data-spinner-color="#fff" data-spinner-scale="1.6">Find Restaurants!</div>
 					</button>
 				</div>
 			</div>
@@ -924,14 +940,28 @@
 	
 	<div class="divider-orange-food divider-circle" ng-click="scrollHalf()"></div>
 	
-	<div class="content-padding">
-		<br /><br /><br />
-		<h4>Order your favorite restaurants, delivered</h4>
-		<p>Crunchbutton lets you order the best restaurants in your area delivered straight to your door. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click.</p>
+	<br /><br /><br />
+	<div class="content-padding home-buttons col-box">
+		<div class="two-col">
+			<h4>Order your favorite restaurants, delivered</h4>
+			<p>Crunchbutton lets you order the best restaurants in your area delivered straight to your door. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click.</p>
+			<br><br><br>
+			
+			<div class="location-gorillia hide-desktop" ng-click="rage()"></div>
+			
+			<h4>Who are you?!</h4>
+			<p>We're people! People who love food so much that we want to share our passion without asking you to even leave your homes.</p>
+			<br>
+			<button class="button lightorange" ng-click="navigation.link('/about','push')">Meet the Team</button>
+		</div>
+		<div class="two-col hide-mobile">
+			<div class="location-gorillia animated-resize" ng-click="rage()"></div>
+		</div>
 	</div>
+
+	<div class="divider dots spacer-two-one"></div>
 	
-	
-	
+
 	<div class="about-join-bubble-wrap">
 		<div class="bubble-curved bubble-curved-green bubble-animated animated-resize">
 			<div class="text" ng-switch="orangeMessage">
@@ -953,57 +983,70 @@
 	</div>
 	<div class="about-green-orange animated-resize" ng-instant="orangeMessage = (orangeMessage > 10 ? 0 : (orangeMessage + 1))" instant-pass-thru></div>
 	<div class="divider"></div>
+	<br><br>
 	
-	<div class="content-padding" ng-controller="SupportCtrl">
-		<br />
+	<div class="content-padding home-buttons col-box" ng-controller="SupportCtrl">
+		<div class="three-col">
+			<h4>Delivery drivers</h4>
+			<p>
+				What's better than getting delivery food? Delivering the food! If you have a smartphone, car, and auto insurance, send us a message!
+			</p>
+			<br />
+			<a href ng-click="navigation.link('/drivers/apply','push')"><button class="button green">Apply Now</button></a>
+			<br /><br /><br /><br />
+		</div>
 
-		<h4>Delivery drivers</h4>
-		<p>
-			What's better than getting delivery food? Delivering the food! If you have a smartphone, car, and auto insurance, send us a message!
-		</p>
-		<br />
-		<a href ng-click="navigation.link('/drivers/apply','push')"><button class="button lightorange">apply now</button></a>
-		<br /><br /><br /><br />
+		<div class="three-col">
+			<h4>Community Representative</h4>
+			<p>
+				No one knows more about your college or community than you. You know what's "cool", and that's why we’re going to work with you! Scout for local awesome restaurants to sign up, and play a significant role in orchestrating marketing campaigns.
+			</p>
+			<br />
+			<a href="mailto:{{reps}}"><button class="button green">Join up</button></a>
+			<br /><br /><br /><br />
+		</div>
 
-		<h4>Community Representative</h4>
-		<p>
-			No one knows more about your college or community than you. You know what's "cool", and that's why we’re going to work with you! Scout for local awesome restaurants to sign up, and play a significant role in orchestrating marketing campaigns.
-		</p>
-		<br />
-		<a href="mailto:{{reps}}"><button class="button lightorange">join up</button></a>
-		<br /><br /><br /><br />
+		<div class="three-col">
+			<h4>Rockstar Developers &amp; Designers</h4>
+			<p>Look at this beautiful website! It's almost perfect! You know what would make it better? Your magical touch! Join our small team of developers located in Los Angeles and let's get shit done!</p>
+			<br />
+			<a href="mailto:{{devs}}"><button class="button green">Rock Out</button></a>
+		</div>
 
-		<h4>Rockstar Developers &amp; Designers</h4>
-		<p>Look at this beautiful website! It's almost perfect! You know what would make it better? Your magical touch! Join our small team of developers located in Los Angeles and let's get shit done!</p>
-		<br />
-		<a href="mailto:{{devs}}"><button class="button lightorange">rock out</button></a>
+		<!--
+		<div class="three-col">
+			<a href ng-click="navigation.link('/drivers/apply','push')"><button class="button lightorange">Apply Now</button></a>
+		</div>
+		<div class="three-col">
+			<a href="mailto:{{reps}}"><button class="button lightorange">Join up</button></a>
+		</div>
+		<div class="three-col">
+			<a href="mailto:{{devs}}"><button class="button lightorange">Rock Out</button></a>
+		</div>
+-->
 	</div>
 	
-	<div class="divider dots spacer-two-one"></div>
-
-	<div class="content-padding" ng-controller="SupportCtrl">	
-		<h4>Who are you?!</h4>
-		<p>We're people! People who love food so much that we want to share our passion without asking you to even leave your homes.</p>
-		<br>
-		<button class="button green" ng-click="navigation.link('/about','push')">Meet the team</button>
-		<br><br><br>
+	<div class="divider dots spacer-two-two"></div>
+	<br><br>
+	
+	
+	<div class="col-box">
+		<div class="two-col">
+			<div class="location-map"></div>
+		</div>
+		<div class="two-col">
+			<div class="content-padding">
+				<h4>We’re expanding!</h4>
+				<p>We may not be everywhere yet, but the communities we are in love us! Browse some of the food from or most popular locations:</p>
+				<br /><br /><br />
+				<p>
+					<span class="popular-location" ng-repeat="alias in topCommunities">
+						<a href ng-click="openCity(alias.alias)" permalink="{{alias.alias}}">{{alias.name}}</span>
+					</span>
+				</p>
+			</div>
+		</div>
 	</div>
-	
-	<div class="location-gorillia animated-resize" ></div>
-	<div class="divider"></div>
-	
-	
-	<div class="content-padding">
-		<h4>We’re expanding!</h4>
-		<p>We may not be everywhere yet, but the communities we are in love us! Browse some of the food from or most popular locations:</p>
-		<br /><br /><br />
-		<p>
-			<span class="popular-location" ng-repeat="alias in topCommunities">
-				<a href ng-click="openCity(alias.alias)" permalink="{{alias.alias}}">{{alias.name}}</span>
-			</span>
-		</p>
-	</div>
-	<br><br><br>
 </div>
 </script><script type="text/ng-template" id="assets/view/notification.alert.html">
 <div class="notification-alert-container zoom-anim-dialog mfp-hide dialog" ng-controller="NotificationAlertCtrl">
@@ -1416,16 +1459,21 @@
 
 		<div ng-if="restaurant.image" class="restaurant-pic-wrapper">
 
-			<div class="restaurant-pic" style="background: url({{restaurant.img}});"><div class="restaurant-pic-overlay"></div></div>
-			<div class="restaurant-name">
-				<h1 ng-resize-text>{{restaurant.name}}</h1>
-				<h2>{{restaurant.message || restaurant.short_description}}</h2>
-			</div>
+			<div class="restaurant-pic hide-mobile" style="background: url(https://i.crunchbutton.com/1200x600/{{restaurant.permalink}}.jpg?crop=1);"></div>
+			<div class="restaurant-pic hide-desktop" style="background: url({{restaurant.img}});"><div class="restaurant-pic-overlay"></div></div>
+			
+			<div class="restaurant-content-padding">
 
-			<div class="giftcard-badge" ng-if="credit.hasValue">
-				<i class="fa fa-certificate"></i>
-				<div class="giftcard-badge-value"><sup>$</sup>{{Math.round(credit.value)}}</div>
-				<div class="giftcard-badge-text">gift card</div>
+				<div class="restaurant-name">
+					<h1 ng-resize-text>{{restaurant.name}}</h1><div></div>
+					<h2>{{restaurant.message || restaurant.short_description}}</h2>
+				</div>
+
+				<div class="giftcard-badge" ng-if="credit.hasValue">
+					<i class="fa fa-certificate"></i>
+					<div class="giftcard-badge-value"><sup>$</sup>{{Math.round(credit.value)}}</div>
+					<div class="giftcard-badge-text">gift card</div>
+				</div>
 			</div>
 
 			<div class="divider"></div>
@@ -1433,7 +1481,7 @@
 
 
 		<!-- main-content-readable-margin -->
-		<div class="content-padding">
+		<div class="restaurant-content-body content-padding">
 
 			<div class="restaurant-comment" ng-if="restaurant.comment">
 				<div class="restaurant-comment-wrap">
@@ -1452,7 +1500,7 @@
 			<div restaurant-is-closed></div>
 
 			<!-- cart -->
-			<div class="cart-items">
+			<div class="cart-items restaurant-side-bar">
 				<div ng-show="restaurant._open">
 
 					<div ng-show="!order.cart.hasItems()" class="restaurant-box">
@@ -1551,8 +1599,8 @@
 							<div class="restaurant-title-bar restaurant-category"><div class="restaurant-title-bar-inner">&nbsp;</div></div>
 						</div>
 
-						<ul class="resturant-dishes resturant-dish-container" date-id_category="{{category.id_category}}">
-							<li ng-bind-once ng-repeat="dish in category.dishes()" class="dish-item" data-id_dish="{{dish.id_dish}}" add-to-cart>
+						<ul class="col-box resturant-dishes resturant-dish-container" date-id_category="{{category.id_category}}">
+							<li ng-bind-once ng-repeat="dish in category.dishes()" class="two-col dish-item" data-id_dish="{{dish.id_dish}}" add-to-cart>
 								<span class="dish-item-name"><i class="fa fa-star" ng-if="dish.top"></i> {{dish.name}}</span><span class="dish-item-price">({{AB.dollar}}{{dish.price}}<span ng-if="dish.changeable_price">+</span>)</span><br />
 								<span class="dish-item-description">{{dish.description}}</span>
 							</li>
@@ -1581,7 +1629,7 @@
 					</div>
 
 					<br>
-					<button class="button green" ng-click="fullmenu=1">more food</button>						
+					<button class="button green" ng-click="fullmenu=1">see full menu</button>						
 
 
 
@@ -1589,226 +1637,227 @@
 
 			</div>
 			<div class="divider"></div>
-		</div>
 
-		<div class="divider dots spacer-one-one" ng-if="order.loaded && order.cart.hasItems() && order.showForm"></div>
+			<!-- payment and user info -->
+			<form class="payment-form restaurant-side-bar" ng-show="order.loaded && order.cart.hasItems() && order.showForm">
+				
+				<div class="divider dots spacer-one-one"></div>
 
-		<!-- payment and user info -->
-		<form class="payment-form content-padding" ng-show="order.loaded && order.cart.hasItems() && order.showForm">
+				<div ng-show="restaurant._open && order.showForm && order.cart.hasItems()">
 
-			<div ng-show="restaurant._open && order.showForm && order.cart.hasItems()">
-
-				<!-- user info -->
-				<div class="delivery-info-container">
-					<div ng-show="(restaurant.delivery == '1' && restaurant.takeout == '1')">
-						<div class="toggle-wrapper clearfix">
-							<button ng-click="order.toogleDelivery( 'delivery' )" ng-class="{'toggle-active': order.form.delivery_type=='delivery' }" class="payment-form-toggle">delivery</button>
-							<button ng-click="order.toogleDelivery( 'takeout' )" ng-class="{'toggle-active': order.form.delivery_type=='takeout' }" class="payment-form-toggle">takeout</button>
-							<div class="divider"></div>
-						</div>
-					</div>
-
-
-					<div class="payment-form-group form-group">
-						<i class="form-icon form-field"> </i>
-						<div class="form-field">
-							<div ng-show="(restaurant.delivery == '1' && restaurant.takeout != '1')">
-								<label class="pay-title-label">Delivery Info</label>
-							</div>
-
-							<div ng-show="(restaurant.delivery != '1' && restaurant.takeout == '1')">
-								<label class="pay-title-label">Takeout Info </label>
-								<span class="take-out-only">Take out only!</span>
+					<!-- user info -->
+					<div class="delivery-info-container">
+						<div ng-show="(restaurant.delivery == '1' && restaurant.takeout == '1')">
+							<div class="toggle-wrapper clearfix">
+								<button ng-click="order.toogleDelivery( 'delivery' )" ng-class="{'toggle-active': order.form.delivery_type=='delivery' }" class="payment-form-toggle">delivery</button>
+								<button ng-click="order.toogleDelivery( 'takeout' )" ng-class="{'toggle-active': order.form.delivery_type=='takeout' }" class="payment-form-toggle">takeout</button>
+								<div class="divider"></div>
 							</div>
 						</div>
-					</div>
 
-					<div class="divider spacer-one-two"></div>
-
-
-					<div class="personal-info field-container">
-						<div class="payment-form-group form-group">
-							<i class="fa fa-user payment-form-icon form-icon form-field"></i>
-							<input ng-focus="softKeyboard($event);" type="text" name="pay-name" tabindex="2" ng-model="order.form.name" class="payment-form-input form-input form-field" placeholder="name">
-						</div>
 
 						<div class="payment-form-group form-group">
-							<i class="fa fa-envelope-o payment-form-icon form-icon form-field"></i>
-							<input ng-focus="softKeyboard($event);" type="email" name="pay-email" tabindex="3" ng-model="order.form.email" class="payment-form-input form-input form-field" placeholder="email">
-						</div>
-
-						<div class="payment-form-group form-group">
-							<i class="fa fa-phone payment-form-icon form-icon form-field"></i>
-							<input ng-focus="softKeyboard($event);" type="tel" name="pay-phone" tabindex="4" ng-format-phone ng-model="order.form.phone" class="payment-form-input form-input form-field" placeholder="phone number">
-						</div>
-
-						<div class="payment-form-group form-group">
-							<i class="fa fa-map-marker payment-form-icon form-icon form-field"></i>
-							<p class="pickup-info" ng-if="order.form.delivery_type!='delivery'">Pickup from:<br><span ng-bind-html-unsafe="restaurant.address | nl2br"></span></p>
-							<textarea ng-focus="softKeyboard($event);" ng-autosize ng-show="order.form.delivery_type=='delivery'" class="payment-form-input form-input form-field" ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5" placeholder="address"></textarea>
-						</div>
-
-						<div class="payment-form-group form-group">
-
-							<i class="fa fa-bullhorn payment-form-icon form-icon form-field"></i>
-							<textarea ng-focus="softKeyboard($event);" ng-autosize name="notes" ng-blur="checkGiftCard()" ng-model="order.form.notes" tabindex="6" class="payment-form-input form-input form-field" placeholder="notes"></textarea>
-
-							<!-- Gift card messages -->
-							<div class="giftcard-info">
-
-								<div class="warning" ng-if="giftcard.removed">
-									You just removed a gift card. If you still want to use that gift card, you must put it back in the notes field.
+							<i class="form-icon form-field"> </i>
+							<div class="form-field">
+								<div ng-show="(restaurant.delivery == '1' && restaurant.takeout != '1')">
+									<label class="pay-title-label">Delivery Info</label>
 								</div>
 
-								<div ng-if="restaurant.giftcard == 0 && giftcard.hasGiftCards">
-									This restaurant does not accept gift card.
+								<div ng-show="(restaurant.delivery != '1' && restaurant.takeout == '1')">
+									<label class="pay-title-label">Takeout Info </label>
+									<span class="take-out-only">Take out only!</span>
 								</div>
+							</div>
+						</div>
 
-								<div ng-if="giftcard.hasValue && order.form.pay_type == 'cash' ">
-									Pay with a card, NOT CASH, to use your {{AB.dollar}}{{giftcard.value}} gift card!</span>
-								</div>
+						<div class="divider spacer-one-two"></div>
 
-								<div ng-if="restaurant.giftcard == 1 && order.form.pay_type == 'card' ">
-									<!-- Gift card success -->
-									<div ng-repeat="success in giftcard.giftcards.success">
-										<div ng-show="!success.error">
-											Congrats! This gift card ({{success.giftcard}}) gives you {{AB.dollar}}{{success.value}}.
-										</div>
-										<div ng-show="success.error == 'other restaurant'">
-											The gift card ({{success.giftcard}}) you are trying to use belongs to another restaurant.
-										</div>
+
+						<div class="personal-info field-container">
+							<div class="payment-form-group form-group">
+								<i class="fa fa-user payment-form-icon form-icon form-field"></i>
+								<input ng-focus="softKeyboard($event);" type="text" name="pay-name" tabindex="2" ng-model="order.form.name" class="payment-form-input form-input form-field" placeholder="name">
+							</div>
+
+							<div class="payment-form-group form-group">
+								<i class="fa fa-envelope-o payment-form-icon form-icon form-field"></i>
+								<input ng-focus="softKeyboard($event);" type="email" name="pay-email" tabindex="3" ng-model="order.form.email" class="payment-form-input form-input form-field" placeholder="email">
+							</div>
+
+							<div class="payment-form-group form-group">
+								<i class="fa fa-phone payment-form-icon form-icon form-field"></i>
+								<input ng-focus="softKeyboard($event);" type="tel" name="pay-phone" tabindex="4" ng-format-phone ng-model="order.form.phone" class="payment-form-input form-input form-field" placeholder="phone number">
+							</div>
+
+							<div class="payment-form-group form-group">
+								<i class="fa fa-map-marker payment-form-icon form-icon form-field"></i>
+								<p class="pickup-info" ng-if="order.form.delivery_type!='delivery'">Pickup from:<br><span ng-bind-html-unsafe="restaurant.address | nl2br"></span></p>
+								<textarea ng-focus="softKeyboard($event);" ng-autosize ng-show="order.form.delivery_type=='delivery'" class="payment-form-input form-input form-field" ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5" placeholder="address"></textarea>
+							</div>
+
+							<div class="payment-form-group form-group">
+
+								<i class="fa fa-bullhorn payment-form-icon form-icon form-field"></i>
+								<textarea ng-focus="softKeyboard($event);" ng-autosize name="notes" ng-blur="checkGiftCard()" ng-model="order.form.notes" tabindex="6" class="payment-form-input form-input form-field" placeholder="notes"></textarea>
+
+								<!-- Gift card messages -->
+								<div class="giftcard-info">
+
+									<div class="warning" ng-if="giftcard.removed">
+										You just removed a gift card. If you still want to use that gift card, you must put it back in the notes field.
 									</div>
-									<!-- Gift card errors -->
-									<div ng-repeat="error in giftcard.giftcards.error">
-										<div ng-switch on="error.error">
-											<div ng-switch-when="gift card already used">
-											The gift card ({{error.giftcard}}) you are trying to use was already redeemed.
+
+									<div ng-if="restaurant.giftcard == 0 && giftcard.hasGiftCards">
+										This restaurant does not accept gift card.
+									</div>
+
+									<div ng-if="giftcard.hasValue && order.form.pay_type == 'cash' ">
+										Pay with a card, NOT CASH, to use your {{AB.dollar}}{{giftcard.value}} gift card!</span>
+									</div>
+
+									<div ng-if="restaurant.giftcard == 1 && order.form.pay_type == 'card' ">
+										<!-- Gift card success -->
+										<div ng-repeat="success in giftcard.giftcards.success">
+											<div ng-show="!success.error">
+												Congrats! This gift card ({{success.giftcard}}) gives you {{AB.dollar}}{{success.value}}.
+											</div>
+											<div ng-show="success.error == 'other restaurant'">
+												The gift card ({{success.giftcard}}) you are trying to use belongs to another restaurant.
+											</div>
+										</div>
+										<!-- Gift card errors -->
+										<div ng-repeat="error in giftcard.giftcards.error">
+											<div ng-switch on="error.error">
+												<div ng-switch-when="gift card already used">
+												The gift card ({{error.giftcard}}) you are trying to use was already redeemed.
+												</div>
 											</div>
 										</div>
 									</div>
+									<span ng-if="giftcard.justOneGiftCardError">
+										You can only use one gift card at a time!
+									</span>
 								</div>
-								<span ng-if="giftcard.justOneGiftCardError">
-									You can only use one gift card at a time!
-								</span>
+							</div>
+
+						</div>
+					</div>
+
+					<!-- payment info -->
+					<div class="payment-info-container">
+
+
+						<div class="divider spacer-two-two"></div>
+						<div class="divider spacer-one-one"></div>
+
+						<div class="payment-info field-container">
+							<div class="toggle-wrapper clearfix">
+								<button ng-click="order.tooglePayment( 'card' )" ng-show="(restaurant.credit == '1')" ng-class="{'toggle-active': order.form.pay_type=='card' }" class="payment-form-toggle">card</button>
+								<button ng-click="order.tooglePayment( 'cash' )" ng-show="(restaurant.cash == '1')"  ng-class="{'toggle-active': order.form.pay_type=='cash' }" class="payment-form-toggle">cash</button>
+								<div class="divider"></div>
+							</div>
+
+							<div class="divider spacer-two-two"></div>
+
+							<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
+								<i class="fa fa-credit-card payment-form-icon form-icon form-field"></i>
+								<input ng-focus="softKeyboard($event);" type="tel" name="pay-card-number" tabindex="6" ng-change="order.creditCardChanged();" ng-model="order.form.cardNumber" class="payment-form-input form-input form-field">
+							</div>
+
+							<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
+								<i class="fa payment-form-icon form-icon form-field"></i>
+								<div class="form-input-select"><select ng-change="order.cardInfoChanged()" ng-model="order.form.cardMonth" ng-options="month.value as month.label for month in order._months" tabindex="7" class="payment-form-select payment-form-input form-input form-field">{{order.form.card.month}}</select></div>
+								<div class="form-input-select"><select ng-change="order.cardInfoChanged()" ng-model="order.form.cardYear" ng-options="year.value as year.label for year in order._years" tabindex="8" class="payment-form-select payment-form-input form-input form-field payment-form-select-year"></select></div>
+							</div>
+
+							<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
+								<i class="fa fa-thumbs-up payment-form-icon form-icon form-field"></i>
+								<input type="hidden" name="pay-autotip-value" ng-model="order.form.autotip" value="0">
+								<div class="form-input-select"><select ng-model="order.form.tip" ng-options="tip.value as tip.label for tip in order._tips" ng-change="order.tipChanged();" class="tip payment-form-select payment-form-input form-input form-field" tabindex="9"></select></div>
 							</div>
 						</div>
 
 					</div>
+
+
+
+
 				</div>
 
-				<!-- payment info -->
-				<div class="payment-info-container">
+			</form>
 
+			<!-- stored user info -->
 
-					<div class="divider spacer-two-two"></div>
+			<div class="delivery-payment-info restaurant-side-bar" ng-if="order.loaded && restaurant._open && !order.showForm && order.cart.hasItems()">
+
+				<div class="divider dots spacer-one-one"></div>
+					<div class="content-padding">
+
+					<p>We’ve saved your payment and delivery info for one click reordering.</p>
+
 					<div class="divider spacer-one-one"></div>
 
-					<div class="payment-info field-container">
-						<div class="toggle-wrapper clearfix">
-							<button ng-click="order.tooglePayment( 'card' )" ng-show="(restaurant.credit == '1')" ng-class="{'toggle-active': order.form.pay_type=='card' }" class="payment-form-toggle">card</button>
-							<button ng-click="order.tooglePayment( 'cash' )" ng-show="(restaurant.cash == '1')"  ng-class="{'toggle-active': order.form.pay_type=='cash' }" class="payment-form-toggle">cash</button>
-							<div class="divider"></div>
-						</div>
-
-						<div class="divider spacer-two-two"></div>
-
-						<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
-							<i class="fa fa-credit-card payment-form-icon form-icon form-field"></i>
-							<input ng-focus="softKeyboard($event);" type="tel" name="pay-card-number" tabindex="6" ng-change="order.creditCardChanged();" ng-model="order.form.cardNumber" class="payment-form-input form-input form-field">
-						</div>
-
-						<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
-							<i class="fa payment-form-icon form-icon form-field"></i>
-							<div class="form-input-select"><select ng-change="order.cardInfoChanged()" ng-model="order.form.cardMonth" ng-options="month.value as month.label for month in order._months" tabindex="7" class="payment-form-select payment-form-input form-input form-field">{{order.form.card.month}}</select></div>
-							<div class="form-input-select"><select ng-change="order.cardInfoChanged()" ng-model="order.form.cardYear" ng-options="year.value as year.label for year in order._years" tabindex="8" class="payment-form-select payment-form-input form-input form-field payment-form-select-year"></select></div>
-						</div>
-
-						<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
-							<i class="fa fa-thumbs-up payment-form-icon form-icon form-field"></i>
-							<input type="hidden" name="pay-autotip-value" ng-model="order.form.autotip" value="0">
-							<div class="form-input-select"><select ng-model="order.form.tip" ng-options="tip.value as tip.label for tip in order._tips" ng-change="order.tipChanged();" class="tip payment-form-select payment-form-input form-input form-field" tabindex="9"></select></div>
-						</div>
+					<div class="order-icon"><div class="icon-phone"></div></div>
+					<div class="order-info order-info-oneline">
+						<p>
+							<span ng-show="user.phone">{{ user.phone | formatPhone }}</span>
+							<span ng-show="!user.phone">no phone # provided</span>
+						</p>
 					</div>
+					<div class="divider"></div>
+					<div class="order-icon">
+							<div class="icon-credit" ng-show="order.form.pay_type=='card' && order.total() <= credit.number"></div>
+							<div class="icon-card" ng-show="order.form.pay_type=='card' && order.total() > credit.number"></div>
+							<div class="icon-cash" ng-show="order.form.pay_type=='cash'"></div>
+					</div>
+					<div class="order-info order-info-oneline">
 
+						<p>
+							<span ng-show="order.form.pay_type=='card' && order.total() <= credit.number">Gift card balance</span>
+							<span ng-show="order.form.pay_type=='card' && credit.number && order.total() > credit.number">Card ending in {{user.card_ending}} &amp; - {{credit.value}} credit</span>
+							<span ng-show="order.form.pay_type=='card' && !credit.number">Card ending in {{user.card_ending}}</span>
+							<span ng-show="order.form.pay_type=='cash'">Pay and tip with <b>cash</b></span>
+						</p>
+					</div>
+					<div class="divider"></div>
+
+					<div class="order-icon">
+						<div class="icon-map-home" ng-show="restaurant.delivery == '1' && order.form.delivery_type=='delivery'"></div>
+						<div class="icon-map-restaurant" ng-show="restaurant.takeout == '1' && order.form.delivery_type=='takeout'"></div>
+					</div>
+					<div class="order-info" ng-show="restaurant.delivery == '1' && order.form.delivery_type=='delivery'">
+						<p>
+							Delivered to:<br />
+						</p>
+						<p class="restaurant-info-address">
+							<span ng-bind-html-unsafe="order.form.address | nl2br"></span>
+							<i ng-hide="order.form.address">no address provided</i>
+						</p>
+					</div>
+					<div class="order-info" ng-show="restaurant.takeout == '1' && order.form.delivery_type=='takeout'">
+						<p class="restaurant-info-address">
+							Pick up from:<br />
+							<span ng-bind-html-unsafe="restaurant.address | nl2br"></span>
+						</p>
+					</div>
+					<div class="divider"></div>
+
+					<div class="order-icon"><div class="icon-notes" ng-show="order.form.notes"></div></div>
+					<div class="order-info">
+						<p ng-bind-html-unsafe="order.form.notes | nl2br" class="restaurant-info-address"></p>
+					</div>
+					<div class="divider"></div>
+
+					<div class="divider spacer-one-two"></div>
+
+					<button class="button green" ng-click="order.showForm=true">Change info</button>
 				</div>
-
-
-
-
 			</div>
 
-		</form>
-
-		<!-- stored user info -->
-
-		<div class="delivery-payment-info main-content-readable" ng-if="order.loaded && restaurant._open && !order.showForm && order.cart.hasItems()">
-
-			<div class="divider dots spacer-one-one"></div>
-				<div class="content-padding">
-
-				<p>We’ve saved your payment and delivery info for one click reordering.</p>
-
-				<div class="divider spacer-one-one"></div>
-
-				<div class="order-icon"><div class="icon-phone"></div></div>
-				<div class="order-info order-info-oneline">
-					<p>
-						<span ng-show="user.phone">{{ user.phone | formatPhone }}</span>
-						<span ng-show="!user.phone">no phone # provided</span>
-					</p>
-				</div>
-				<div class="divider"></div>
-				<div class="order-icon">
-						<div class="icon-credit" ng-show="order.form.pay_type=='card' && order.total() <= credit.number"></div>
-						<div class="icon-card" ng-show="order.form.pay_type=='card' && order.total() > credit.number"></div>
-						<div class="icon-cash" ng-show="order.form.pay_type=='cash'"></div>
-				</div>
-				<div class="order-info order-info-oneline">
-
-					<p>
-						<span ng-show="order.form.pay_type=='card' && order.total() <= credit.number">Gift card balance</span>
-						<span ng-show="order.form.pay_type=='card' && credit.number && order.total() > credit.number">Card ending in {{user.card_ending}} &amp; - {{credit.value}} credit</span>
-						<span ng-show="order.form.pay_type=='card' && !credit.number">Card ending in {{user.card_ending}}</span>
-						<span ng-show="order.form.pay_type=='cash'">Pay and tip with <b>cash</b></span>
-					</p>
-				</div>
-				<div class="divider"></div>
-
-				<div class="order-icon">
-					<div class="icon-map-home" ng-show="restaurant.delivery == '1' && order.form.delivery_type=='delivery'"></div>
-					<div class="icon-map-restaurant" ng-show="restaurant.takeout == '1' && order.form.delivery_type=='takeout'"></div>
-				</div>
-				<div class="order-info" ng-show="restaurant.delivery == '1' && order.form.delivery_type=='delivery'">
-					<p>
-						Delivered to:<br />
-					</p>
-					<p class="restaurant-info-address">
-						<span ng-bind-html-unsafe="order.form.address | nl2br"></span>
-						<i ng-hide="order.form.address">no address provided</i>
-					</p>
-				</div>
-				<div class="order-info" ng-show="restaurant.takeout == '1' && order.form.delivery_type=='takeout'">
-					<p class="restaurant-info-address">
-						Pick up from:<br />
-						<span ng-bind-html-unsafe="restaurant.address | nl2br"></span>
-					</p>
-				</div>
-				<div class="divider"></div>
-
-				<div class="order-icon"><div class="icon-notes" ng-show="order.form.notes"></div></div>
-				<div class="order-info">
-					<p ng-bind-html-unsafe="order.form.notes | nl2br" class="restaurant-info-address"></p>
-				</div>
-				<div class="divider"></div>
-
-				<div class="divider spacer-one-two"></div>
-
-				<button class="button green" ng-click="order.showForm=true">Change info</button>
-			</div>
+			
 		</div>
 
 	</div>
-
 
 	<!-- total breakdown -->
 	<div class="divider dots spacer-one-two" ng-show="order.info.subtotal && order.info.subtotal!='0.00' && restaurant._open"></div>
@@ -1969,9 +2018,6 @@
 </div>
 
 <div ng-if="restaurants">
-	
-	
-
 	<div class="restaurants-items">
 
 	<span ng-repeat="restaurant in restaurants | limitTo:restaurantsToShow">
@@ -1992,7 +2038,8 @@
 
 				<div class="restaurants-open" ng-hide="restaurant._tag == 'closed' || restaurant._tag == 'force_close'">
 
-					<div class="restaurants-item-content ladda-button" ng-spinner data-style="zoom-out" data-spinner-color="#333333" data-spinner-autostart="{{restaurant._open}}">
+
+					<div ng-spinner="loadingRestaurant[restaurant.id_restaurant]" class="restaurants-item-content" data-spinner-color="#333333" data-spinner-scale=".5">
 						<div class="ladda-label">
 							<div class="restaurants-pic meal-pic" style="background: url({{restaurant.img}});"></div>
 							<h2 class="restaurants-name">{{restaurant.name}}</h2>
@@ -2001,13 +2048,14 @@
 							<div ng-switch on="restaurant._tag">
 								<div class="meal-item-tag" ng-switch-when="takeout">Take out only</div>
 								<div class="meal-item-tag about-to-close" ng-switch-when="closing">Hurry, closes in {{restaurant._closesIn}} min!</div>
-								<div class="meal-item-tag about-to-open" ng-switch-when="opening">Available {{restaurant._opensIn_formatted}} </div>
+								<div ng-switch-when="opening">
+									<div ng-if="restaurant._opensIn_formatted" class="meal-item-tag about-to-open"><span >Available {{restaurant._opensIn_formatted}}</span></div>
+								</div>
 							</div>
 
 							<div class="meal-item-tag-bottom" ng-if="restaurant._tag == 'closing' || restaurant._tag == 'takeout' || restaurant._tag == 'force_close'"></div>
 
 						</div>
-						<span class="ladda-spinner"></span>
 					</div>
 				</div>
 			</div>
@@ -2178,39 +2226,44 @@
 	<div class="divider"></div>
 </div>
 
-<div class="content-padding" ng-controller="SupportCtrl">
-	<br />
+<br />
+<div class="content-padding col-box" ng-controller="SupportCtrl">
+	<div class="two-col">
+		<h4>Delivery drivers</h4>
+		<p>
+			What's better than getting delivery food? Delivering the food! If you have a smartphone, car, and auto insurance, send us a message!
+		</p>
+		<br />
+		<a href ng-click="navigation.link('/drivers/apply','push')"><button class="button lightorange">apply now</button></a>
+		<br /><br /><br /><br />
+	</div>
+
+	<div class="two-col">
+		<h4>Community Representative</h4>
+		<p>
+			No one knows more about your college or community than you. You know what's "cool", and that's why we’re going to work with you! Scout for local awesome restaurants to sign up, and play a significant role in orchestrating marketing campaigns.
+		</p>
+		<br />
+		<a href="mailto:{{reps}}"><button class="button lightorange">join up</button></a>
+		<br /><br /><br /><br />
+	</div>
 	
-	<h4>Delivery drivers</h4>
-	<p>
-		What's better than getting delivery food? Delivering the food! If you have a smartphone, car, and auto insurance, send us a message!
-	</p>
-	<br />
-	<a href ng-click="navigation.link('/drivers/apply','push')"><button class="button lightorange">apply now</button></a>
-	<br /><br /><br /><br />
 
-	<h4>Community Representative</h4>
-	<p>
-		No one knows more about your college or community than you. You know what's "cool", and that's why we’re going to work with you! Scout for local awesome restaurants to sign up, and play a significant role in orchestrating marketing campaigns.
-	</p>
-	<br />
-	<a href="mailto:{{reps}}"><button class="button lightorange">join up</button></a>
-	<br /><br /><br /><br />
-
-	<h4>Rockstar Developers &amp; Designers</h4>
-	<p>Look at this beautiful website! It's almost perfect! You know what would make it better? Your magical touch! Join our small team of developers located in Los Angeles and let's get shit done!</p>
-	<br />
-	<a href="mailto:{{devs}}"><button class="button lightorange">rock out</button></a>
-</div>
-
-<div class="divider dots spacer-two-two"></div>
-
-<div class="content-padding" ng-controller="SupportCtrl">	
-	<h4>Who are you?!</h4>
-	<p>We're people! People who love food so much that we want to share our passion without asking you to even leave your homes.</p>
-	<br>
-	<button class="button green" ng-click="navigation.link('/about','push')">Meet the team</button>
-	<br><br><br>
+	<div class="two-col">
+		<h4>Rockstar Developers &amp; Designers</h4>
+		<p>Look at this beautiful website! It's almost perfect! You know what would make it better? Your magical touch! Join our small team of developers located in Los Angeles and let's get shit done!</p>
+		<br />
+		<a href="mailto:{{devs}}"><button class="button lightorange">rock out</button></a>
+		<br /><br /><br /><br />
+	</div>
+	
+	<div class="two-col">
+		<h4>Who are you?!</h4>
+		<p>We're people! People who love food so much that we want to share our passion without asking you to even leave your homes.</p>
+		<br>
+		<button class="button green" ng-click="navigation.link('/about','push')">Meet the team</button>
+		<br /><br /><br /><br />
+	</div>
 </div>
 
 </script><script type="text/ng-template" id="assets/view/legal.html">
@@ -2395,7 +2448,7 @@ This document was last updated on October 27th, 2014.<br />
 					</tr>
 				</table>
 			</li>
-			<li ng-click="navigation.link('/work')" ng-class="{'nav-active': (navigation.page == 'jobs')}">
+			<li ng-click="navigation.link('/work')" ng-class="{'nav-active': (navigation.page == 'work')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-briefcase"></i></td>
