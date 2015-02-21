@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0466D86942D24BA3BEC6DC52 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B9DBD704BF114454BE2FB985 /* CDVNotification.bundle */; };
 		066275CB093D443D9471C27A /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B726F2FAC54BF385D69BBC /* CDVReachability.m */; };
