@@ -105,14 +105,14 @@ $(function() {
 		//gamecenter.auth( onSuccess, onError );
 
 		if (!App.minimalMode) {
-			cordova.exec(function(response) {
+			getAppVersion(function(response) {
 				$.ajaxSetup({
 					timeout: App.ajaxTimeout,
 					data: {
 						'_v': response
 					}
 				});
-			}, null, 'VersionPlugin', 'version',[]);
+			});
 		}
 
 		// Disable paralax for android old versions - #3105
@@ -264,6 +264,8 @@ $(function() {
 
 
 		App.server = 'http://beta.crunchr.co/';
+		App._nativeVersionAndroid = '1.1';
+		App._nativeVersionIphone = '1.2';
 		App.service = App.server + 'api/';
 		App.imgServer = 'http://i.crunchbutton.com/';
 

@@ -105,14 +105,14 @@ $(function() {
 		//gamecenter.auth( onSuccess, onError );
 
 		if (!App.minimalMode) {
-			cordova.exec(function(response) {
+			getAppVersion(function(response) {
 				$.ajaxSetup({
 					timeout: App.ajaxTimeout,
 					data: {
 						'_v': response
 					}
 				});
-			}, null, 'VersionPlugin', 'version',[]);
+			});
 		}
 
 		// Disable paralax for android old versions - #3105
