@@ -172,7 +172,9 @@
                             "xml": "true",
                             "count": 1
                         }
-                    ]
+                    ],
+                    "WebKit.framework": [],
+                    "libz.dylib": []
                 }
             },
             "*-Info.plist": {

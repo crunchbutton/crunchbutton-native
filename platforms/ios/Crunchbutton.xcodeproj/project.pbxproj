@@ -13,7 +13,6 @@
 		08EDC8381A97FCF700AF6C07 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 364BCA5CF1DB4AE690C3E997 /* CDVDevice.m */; };
 		08EDC8391A97FCFA00AF6C07 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = CB227CBB2ADB4F80BFE9479C /* PushPlugin.m */; };
 		08EDC83A1A97FCFE00AF6C07 /* AppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = D71C5D5379D74396849E157E /* AppVersion.m */; };
-		08EDC83B1A97FD0100AF6C07 /* CDVNotification.h in Sources */ = {isa = PBXBuildFile; fileRef = 956BF949AFE2486EA1CDF5E6 /* CDVNotification.h */; };
 		08EDC83C1A97FD0600AF6C07 /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A85D26938C4FA98B594669 /* CDVFile.m */; };
 		08EDC83D1A97FD0700AF6C07 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3D4A1F5C6A4B73AA61D27C /* CDVLocalFilesystem.m */; };
 		08EDC83E1A97FD0900AF6C07 /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 69780E50CDD14033BDD8423D /* CDVAssetLibraryFilesystem.m */; };
@@ -26,6 +25,7 @@
 		08EDC8451A97FD1400AF6C07 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFFA732A48345F08909307F /* FacebookConnectPlugin.m */; };
 		08EDC8461A97FD5900AF6C07 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB97D0B3B2B46189CAF8BCF /* CoreLocation.framework */; };
 		08EDC8471A97FD8A00AF6C07 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A254190B7FE04F41BA166276 /* AudioToolbox.framework */; };
+		08EDC8501A98146800AF6C07 /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F416C5290C845859CDF3C36 /* CDVNotification.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
@@ -510,8 +510,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08EDC83B1A97FD0100AF6C07 /* CDVNotification.h in Sources */,
 				08EDC83A1A97FCFE00AF6C07 /* AppVersion.m in Sources */,
+				08EDC8501A98146800AF6C07 /* CDVNotification.m in Sources */,
 				08EDC8391A97FCFA00AF6C07 /* PushPlugin.m in Sources */,
 				08EDC8381A97FCF700AF6C07 /* CDVDevice.m in Sources */,
 				08EDC83C1A97FD0600AF6C07 /* CDVFile.m in Sources */,
@@ -560,6 +560,7 @@
 					"$(PROJECT_DIR)/Crunchbutton/Plugins/com.phonegap.plugins.facebookconnect",
 					"\"Crunchbutton/Plugins/com.phonegap.plugins.facebookconnect\"",
 					"\"Crunchbutton/Plugins/com.phonegap.plugins.facebookconnect\"",
+					"\"Crunchbutton/Plugins/com.telerik.plugins.wkwebview\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -600,6 +601,7 @@
 					"$(PROJECT_DIR)/Crunchbutton/Plugins/com.phonegap.plugins.facebookconnect",
 					"\"Crunchbutton/Plugins/com.phonegap.plugins.facebookconnect\"",
 					"\"Crunchbutton/Plugins/com.phonegap.plugins.facebookconnect\"",
+					"\"Crunchbutton/Plugins/com.telerik.plugins.wkwebview\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Crunchbutton/Crunchbutton-Prefix.pch";

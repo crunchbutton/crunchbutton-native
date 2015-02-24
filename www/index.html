@@ -807,7 +807,7 @@
 	</div>
 	<div class="two-col">
 		<h4>How do I order food?</h4>
-		<p>Easy! Just go to <a href="http://crunchbutton.com" target="_blank">crunchbutton.com</a> and click the restaurant you want to order from. Add whatever food you want, and enter your address, phone, and payment info. Click "Get Food" and try to stay hungry! The driver will call you when they're outside.</p>
+		<p>Easy! Just go to <a href="http://crunchbutton.com" target="_system">crunchbutton.com</a> and click the restaurant you want to order from. Add whatever food you want, and enter your address, phone, and payment info. Click "Get Food" and try to stay hungry! The driver will call you when they're outside.</p>
 	</div>
 	<div class="two-col">
 		<h4>How do you save my info?</h4>
@@ -1143,7 +1143,7 @@
 			<div class="order-info">
 				<p>
 					For website or app support, please call or text
-					<br /><b>Crunchbutton: <a href="sms:(646) 783-1444" target="_system">{{ '6467831444' | formatPhone }}</a></b>
+					<br /><b>Crunchbutton: <a href="sms:6467831444" target="_system">{{ '6467831444' | formatPhone }}</a></b>
 				</p>
 			</div>
 			<div class="divider"></div>
@@ -1407,7 +1407,9 @@
 		<span class="restaurant-box-content">
 			<div class="restaurant-box-title">Available {{restaurant._opensIn_formatted}}</div>
 			<div class="restaurant-box-text">
-				Hours of operation (<span ng-bind="restaurant._tzabbr"></span>):<br>
+				<span ng-if="!restaurant.delivery_service">Hours of operation</span>
+				<span ng-if="restaurant.delivery_service">Hours we deliver</span>
+				&nbsp;(<span ng-bind="restaurant._tzabbr"></span>):<br>
 				<span ng-bind-html-unsafe="restaurant.closedMessage() | nl2br"></span>
 			</div>
 		</span>
@@ -1422,8 +1424,8 @@
 				<p>
 					
 					<span ng-if="!acceptingOrders">
-						<span ng-if="restaurant.delivery">is temporarily unavailable for delivery, but is usualy available durring the following hours</span>
-						<span ng-if="!restaurant.delivery">is temporarily closed but is usualy available during the following hours</span>
+						<span ng-if="restaurant.delivery">is temporarily unavailable for delivery, but is usually available durring the following hours</span>
+						<span ng-if="!restaurant.delivery">is temporarily closed but is usually available during the following hours</span>
 					</span>
 					<span ng-if="acceptingOrders">
 						<span ng-if="restaurant.delivery">is currently unavailable for delivery. Delivery is available during the following hours</span>
@@ -1636,7 +1638,7 @@
 				</div>
 
 			</div>
-			<div class="divider"></div>
+			
 
 			<!-- payment and user info -->
 			<form class="payment-form restaurant-side-bar" ng-show="order.loaded && order.cart.hasItems() && order.showForm">
@@ -1854,6 +1856,7 @@
 				</div>
 			</div>
 
+		<div class="divider"></div>
 			
 		</div>
 
@@ -2407,7 +2410,7 @@ This document was last updated on October 27th, 2014.<br />
 
 		<div class="pushabutton"></div>
 		<ul>
-			<li ng-click="navigation.link('/splash')" ng-if="!account.user.id_user" ng-class="{'nav-active': (navigation.page == 'splash')}">
+			<li ng-click="navigation.link('/splash', null, true)" ng-if="!account.user.id_user" ng-class="{'nav-active': (navigation.page == 'splash')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-rocket"></i></td>
@@ -2415,7 +2418,7 @@ This document was last updated on October 27th, 2014.<br />
 					</tr>
 				</table>
 			</li>
-			<li ng-click="navigation.link('/food-delivery')" ng-if="account.user.id_user" ng-class="{'nav-active': (navigation.page == 'restaurants')}">
+			<li ng-click="navigation.link('/food-delivery', null, true)" ng-if="account.user.id_user" ng-class="{'nav-active': (navigation.page == 'restaurants')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-cutlery"></i></td>
@@ -2423,7 +2426,7 @@ This document was last updated on October 27th, 2014.<br />
 					</tr>
 				</table>
 			</li>
-			<li ng-if="account.user.id_user && account.user.name" ng-click="navigation.link('/orders')" ng-class="{'nav-active': (navigation.page == 'orders')}">
+			<li ng-if="account.user.id_user && account.user.name" ng-click="navigation.link('/orders', null, true)" ng-class="{'nav-active': (navigation.page == 'orders')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-truck"></i></td>
@@ -2431,7 +2434,7 @@ This document was last updated on October 27th, 2014.<br />
 					</tr>
 				</table>
 			</li>
-			<li ng-click="navigation.link('/location')" ng-if="account.user.id_user" ng-class="{'nav-active': (navigation.page == 'location')}">
+			<li ng-click="navigation.link('/location', null, true)" ng-if="account.user.id_user" ng-class="{'nav-active': (navigation.page == 'location')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-map-marker"></i></td>
@@ -2440,7 +2443,7 @@ This document was last updated on October 27th, 2014.<br />
 				</table>
 			</li>
 
-			<li ng-click="navigation.link('/help')" ng-class="{'nav-active': (navigation.page == 'help')}">
+			<li ng-click="navigation.link('/help', null, true)" ng-class="{'nav-active': (navigation.page == 'help')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-heart"></i></td>
@@ -2448,7 +2451,7 @@ This document was last updated on October 27th, 2014.<br />
 					</tr>
 				</table>
 			</li>
-			<li ng-click="navigation.link('/work')" ng-class="{'nav-active': (navigation.page == 'work')}">
+			<li ng-click="navigation.link('/work', null, true)" ng-class="{'nav-active': (navigation.page == 'work')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-briefcase"></i></td>
@@ -2544,7 +2547,6 @@ This document was last updated on October 27th, 2014.<br />
 					</div>
 
 					<div title="Menu" class="menu side" ng-click="navigation.menu()" ng-if="navigation.buttons.menu"></div>
-					<div title="Menu" class="menu drop" ng-if="navigation.buttons.menu" ng-toggle="menudropdown"></div>
 					<div title="Back" ng-if="navigation.buttons.back" class="nav-back hide-before-init" ng-click="back()"></div>
 
 					<div title="Cart" class="nav-cart hide-before-init" ng-click="cartScroll(order.restaurant.permalink)" ng-if="order.info.totalItems && ((navigation.page == 'restaurant' && order.restaurant._open) || navigation.page != 'restaurant')" ng-class="{ 'animation-blink' : cart.blink}">
@@ -2553,6 +2555,15 @@ This document was last updated on October 27th, 2014.<br />
 					</div>
 
 					<div title="Crunchbutton" class="logo animated-resize" ng-click="navigation.home()"></div>
+					
+					<div class="desktop-top-nav hide-mobile hide-before-init">
+						<a href="/work"><u>We're hiring!</u></a>
+						<a href="/location">Home</a>
+						<a href="/help">Help</a>
+						<a href="/orders" ng-if="account.user.id_user">Account</a>
+						<a ng-click="navigation.signin()" ng-if="!account.user.id_user">Log In</a>
+						<a ng-click="signout.signout()" ng-if="account.user.id_user">Log Out</a>
+					</div>
 
 				</div>
 			</div>

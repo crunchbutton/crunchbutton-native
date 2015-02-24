@@ -101,6 +101,11 @@ $(function() {
 				}
 			} );
 		}
+		
+		// prevent android back
+		document.addEventListener('backbutton', function (e) {
+			e.preventDefault();
+		}, false );
 
 		//gamecenter.auth( onSuccess, onError );
 
