@@ -1,2 +1,2 @@
-/Users/pererinha/Dev/crunchbutton/phonegap/platforms/android/ant-build/AndroidManifest.xml : \
-/Users/pererinha/Dev/crunchbutton/phonegap/platforms/android/AndroidManifest.xml \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/ant-build/AndroidManifest.xml : \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/AndroidManifest.xml \
