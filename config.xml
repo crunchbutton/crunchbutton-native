@@ -12,7 +12,7 @@
 	<preference name="phonegap-version" value="4.2.0" />
 	<preference name="orientation" value="default" />
 	<preference name="target-device" value="universal" />
-	<preference name="fullscreen" value="true" />
+	<preference name="fullscreen" value="false" />
 	<preference name="webviewbounce" value="false" />
 	<preference name="prerendered-icon" value="true" />
 	<preference name="stay-in-webview" value="false" />
