@@ -46,7 +46,7 @@
 	<gap:plugin name="org.apache.cordova.splashscreen" />
 	<gap:plugin name="org.apache.cordova.vibration" />
 
-	<icon src="icon.png" />
+	
 	
 	<gap:plugin name="com.phonegap.plugins.facebookconnect">
 		<param name="APP_ID" value="411729638889643" />
@@ -68,6 +68,7 @@
 	
 
 	<platform name="ios">
+		<icon src="icon.png" />
 		<!-- iOS 8.0+ -->
 		<!-- iPhone 6 Plus  -->
 		<icon src="res/icon/ios/icon-180.png" width="180" height="180" />
@@ -110,6 +111,8 @@
 	
 
 	<platform name="android">
+		<icon src="res/icon/android/icon-512.png" />
+		
 		<icon src="res/icon/android/icon-36-ldpi.png" density="ldpi" />
 		<icon src="res/icon/android/icon-48-mdpi.png" density="mdpi" />
 		<icon src="res/icon/android/icon-72-hdpi.png" density="hdpi" />
