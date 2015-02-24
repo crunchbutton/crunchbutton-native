@@ -61,16 +61,6 @@
     <feature name="AppVersion">
         <param name="ios-package" value="AppVersion" />
     </feature>
-    <feature name="FacebookConnectPlugin">
-        <param name="ios-package" value="FacebookConnectPlugin" />
-        <param name="onload" value="true" />
-    </feature>
-    <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin" />
-    <access origin="https://m.facebook.com" />
-    <access origin="https://graph.facebook.com" />
-    <access origin="https://api.facebook.com" />
-    <access origin="https://*.fbcdn.net" />
-    <access origin="https://*.akamaihd.net" />
     <icon src="icon.png" />
     <icon height="180" src="res/icon/ios/icon-180.png" width="180" />
     <icon height="60" src="res/icon/ios/icon-60.png" width="60" />
@@ -154,4 +144,14 @@
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <preference name="splash-screen-duration" value="0" />
     <access origin="*" />
+    <feature name="FacebookConnectPlugin">
+        <param name="ios-package" value="FacebookConnectPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin" />
+    <access origin="https://m.facebook.com" />
+    <access origin="https://graph.facebook.com" />
+    <access origin="https://api.facebook.com" />
+    <access origin="https://*.fbcdn.net" />
+    <access origin="https://*.akamaihd.net" />
 </widget>

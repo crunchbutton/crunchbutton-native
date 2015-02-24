@@ -9,7 +9,6 @@
 		0466D86942D24BA3BEC6DC52 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B9DBD704BF114454BE2FB985 /* CDVNotification.bundle */; };
 		066275CB093D443D9471C27A /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B726F2FAC54BF385D69BBC /* CDVReachability.m */; };
 		08EDC8361A97FC2300AF6C07 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB1C97DDBD40C193A9DF2C /* SystemConfiguration.framework */; };
-		08EDC8371A97FC2B00AF6C07 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EDC8331A97FB9700AF6C07 /* FacebookSDK.framework */; };
 		08EDC8381A97FCF700AF6C07 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 364BCA5CF1DB4AE690C3E997 /* CDVDevice.m */; };
 		08EDC8391A97FCFA00AF6C07 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = CB227CBB2ADB4F80BFE9479C /* PushPlugin.m */; };
 		08EDC83A1A97FCFE00AF6C07 /* AppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = D71C5D5379D74396849E157E /* AppVersion.m */; };
@@ -22,7 +21,6 @@
 		08EDC8421A97FD0F00AF6C07 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C08A36D0D0B411A9B5B74B4 /* CDVSplashScreen.m */; };
 		08EDC8431A97FD1000AF6C07 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF60D8834B44993A0449B17 /* CDVStatusBar.m */; };
 		08EDC8441A97FD1200AF6C07 /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C1C872B28484F85B41F335E /* CDVVibration.m */; };
-		08EDC8451A97FD1400AF6C07 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFFA732A48345F08909307F /* FacebookConnectPlugin.m */; };
 		08EDC8461A97FD5900AF6C07 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB97D0B3B2B46189CAF8BCF /* CoreLocation.framework */; };
 		08EDC8471A97FD8A00AF6C07 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A254190B7FE04F41BA166276 /* AudioToolbox.framework */; };
 		08EDC8501A98146800AF6C07 /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F416C5290C845859CDF3C36 /* CDVNotification.m */; };
@@ -184,7 +182,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				08EDC8461A97FD5900AF6C07 /* CoreLocation.framework in Frameworks */,
-				08EDC8371A97FC2B00AF6C07 /* FacebookSDK.framework in Frameworks */,
 				08EDC8361A97FC2300AF6C07 /* SystemConfiguration.framework in Frameworks */,
 				08EDC8471A97FD8A00AF6C07 /* AudioToolbox.framework in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
@@ -526,7 +523,6 @@
 				08EDC8421A97FD0F00AF6C07 /* CDVSplashScreen.m in Sources */,
 				394F898D7218464E867EAE14 /* AppDelegate+notification.m in Sources */,
 				08EDC8441A97FD1200AF6C07 /* CDVVibration.m in Sources */,
-				08EDC8451A97FD1400AF6C07 /* FacebookConnectPlugin.m in Sources */,
 				D44C99AAC9EB4403935B709F /* IonicKeyboard.m in Sources */,
 				B4885029BCEA47D689190630 /* CDVConnection.m in Sources */,
 				5B93B06F921442DDACF4E046 /* UIWebViewExtension.m in Sources */,
