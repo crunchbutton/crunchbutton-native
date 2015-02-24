@@ -71,6 +71,7 @@
     <access origin="https://api.facebook.com" />
     <access origin="https://*.fbcdn.net" />
     <access origin="https://*.akamaihd.net" />
+    <icon src="icon.png" />
     <icon height="180" src="res/icon/ios/icon-180.png" width="180" />
     <icon height="60" src="res/icon/ios/icon-60.png" width="60" />
     <icon height="120" src="res/icon/ios/icon-60-2x.png" width="120" />
@@ -140,7 +141,6 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
-    <icon src="icon.png" />
     <gap:plugin name="com.phonegap.plugins.facebookconnect">
         <param name="APP_ID" value="411729638889643" />
         <param name="APP_NAME" value="Crunchbutton" />
