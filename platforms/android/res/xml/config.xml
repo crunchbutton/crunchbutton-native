@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.crunchbutton" version="2.6.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.crunchbutton" version="2.6.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <feature name="Keyboard">
         <param name="android-package" value="com.ionic.keyboard.IonicKeyboard" />
@@ -49,6 +49,9 @@
     <access origin="https://api.facebook.com" />
     <access origin="https://*.fbcdn.net" />
     <access origin="https://*.akamaihd.net" />
+    <feature name="AppAvailability">
+        <param name="android-package" value="com.ohh2ahh.appavailability.AppAvailability" />
+    </feature>
     <icon src="res/icon/android/icon-512.png" />
     <icon density="ldpi" src="res/icon/android/icon-36-ldpi.png" />
     <icon density="mdpi" src="res/icon/android/icon-48-mdpi.png" />
@@ -116,4 +119,10 @@
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <preference name="splash-screen-duration" value="0" />
     <access origin="*" />
+    <access launch-external="yes" origin="tel:*" />
+    <access launch-external="yes" origin="geo:*" />
+    <access launch-external="yes" origin="mailto:*" />
+    <access launch-external="yes" origin="sms:*" />
+    <access launch-external="yes" origin="market:*" />
+    <access launch-external="yes" origin="fb:*" />
 </widget>

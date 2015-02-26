@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.crunchbutton" version="2.6.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.crunchbutton" version="2.6.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
 	<name>Crunchbutton</name>
 	<description>
 		One click food ordering
@@ -133,4 +133,10 @@
 	</platform>
 
 	<access origin="*" />
+	<access origin="tel:*" launch-external="yes"/>
+	<access origin="geo:*" launch-external="yes"/>
+	<access origin="mailto:*" launch-external="yes"/>
+	<access origin="sms:*" launch-external="yes"/>
+	<access origin="market:*" launch-external="yes"/>
+	<access origin="fb:*" launch-external="yes"/>
 </widget>

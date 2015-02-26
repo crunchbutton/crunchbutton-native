@@ -384,6 +384,7 @@
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/faq-tomato.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/favicon.ico \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/fork-knife-orange.svg \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/google-play-store.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/gorillia.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/home-join-us.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/icon-card.svg \
@@ -448,6 +449,7 @@
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/view/template.html \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/view/template_android.html \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/com.ionic.keyboard \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/com.ohh2ahh.plugins.appavailability \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/com.phonegap.plugins.facebookconnect \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/com.phonegap.plugins.PushPlugin \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/net.bgta.phonegap.plugin.appversion \
@@ -462,6 +464,8 @@
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/org.apache.cordova.vibration \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/com.ionic.keyboard/www \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/com.ionic.keyboard/www/keyboard.js \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/com.ohh2ahh.plugins.appavailability/www \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/com.ohh2ahh.plugins.appavailability/www/AppAvailability.js \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/com.phonegap.plugins.facebookconnect/facebookConnectPlugin.js \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/com.phonegap.plugins.PushPlugin/www \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js \

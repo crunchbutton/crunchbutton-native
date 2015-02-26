@@ -95,6 +95,10 @@
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AppAvailability\"><param name=\"ios-package\" value=\"AppAvailability\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -247,6 +251,9 @@
         "com.phonegap.plugins.facebookconnect": {
             "APP_ID": "***REMOVED***",
             "APP_NAME": "Crunchbutton",
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "com.ohh2ahh.plugins.appavailability": {
             "PACKAGE_NAME": "com.crunchbutton"
         }
     },
