@@ -146,7 +146,8 @@ $(function() {
 				App.hasFacebook = false;
 			};
 			if (device.platform == 'Android') {
-				appAvailability.check('com.facebook.katana',success, fail);
+				//appAvailability.check('com.facebook.katana',success, fail);
+				App.hasFacebook = false;
 			} else if (device.platform == 'iOS') {
 				appAvailability.check('fb://',success, fail);
 			} else {
