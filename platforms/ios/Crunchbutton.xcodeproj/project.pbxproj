@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0466D86942D24BA3BEC6DC52 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B9DBD704BF114454BE2FB985 /* CDVNotification.bundle */; };
 		066275CB093D443D9471C27A /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B726F2FAC54BF385D69BBC /* CDVReachability.m */; };
@@ -64,6 +63,7 @@
 		B4885029BCEA47D689190630 /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0A47697E1640D8A66F3682 /* CDVConnection.m */; };
 		D44C99AAC9EB4403935B709F /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A16CA10EBEC4B5FB6A942E5 /* IonicKeyboard.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
+		B187DD4A850F49F6B5EF9DB3 /* AppAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFBFF845D894C6DAB46E7DA /* AppAvailability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +177,8 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Crunchbutton/config.xml; sourceTree = "<group>"; };
 		FA1592192A524D11A7DEF713 /* CDVLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLocation.h; path = org.apache.cordova.geolocation/CDVLocation.h; sourceTree = "<group>"; };
 		FF0A47697E1640D8A66F3682 /* CDVConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVConnection.m; path = "org.apache.cordova.network-information/CDVConnection.m"; sourceTree = "<group>"; };
+		DDFBFF845D894C6DAB46E7DA /* AppAvailability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppAvailability.m"; path = "com.ohh2ahh.plugins.appavailability/AppAvailability.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		15614A7337BB4578A4874CE7 /* AppAvailability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppAvailability.h"; path = "com.ohh2ahh.plugins.appavailability/AppAvailability.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +331,8 @@
 				2BF71A431FCD49739109D01F /* UIWebViewExtension.h */,
 				5F9590B3D18E4E74B9DCC903 /* AppDelegate+notification.m */,
 				5D9F61E1779A4FBD81D71EFE /* AppDelegate+notification.h */,
+				DDFBFF845D894C6DAB46E7DA /* AppAvailability.m */,
+				15614A7337BB4578A4874CE7 /* AppAvailability.h */,
 			);
 			name = Plugins;
 			path = Crunchbutton/Plugins;
@@ -533,6 +537,7 @@
 				5B93B06F921442DDACF4E046 /* UIWebViewExtension.m in Sources */,
 				08EDC8431A97FD1000AF6C07 /* CDVStatusBar.m in Sources */,
 				066275CB093D443D9471C27A /* CDVReachability.m in Sources */,
+				B187DD4A850F49F6B5EF9DB3 /* AppAvailability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

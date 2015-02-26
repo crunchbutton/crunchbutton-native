@@ -74,20 +74,24 @@ $(function() {
 		if (!navigator || !navigator.connection) {
 			console.error('Failed to load connection information plugin.');
 		}
-		
+
 		if (!navigator || !navigator.splashscreen) {
 			console.error('Failed to load splashscreen plugin.');
 		}
-		
+
 		if (!window.device) {
 			console.error('Failed to load device plugin.');
 		}
-		
+
+		if (!window.appAvailability) {
+			console.error('Failed to load appAvailability plugin.');
+		}
+
 		// if they are logged in, they are going straight to the restaurant page
 		if (localStorage.loggedIn) {
 			navigator.splashscreen.hide();
 		}
-		
+
 
 		if( navigator && navigator.Sysinfo && navigator.Sysinfo.getInfo ){
 			navigator.Sysinfo.getInfo( function( info ){
@@ -101,7 +105,7 @@ $(function() {
 				}
 			} );
 		}
-		
+
 		// prevent android back
 		document.addEventListener('backbutton', function (e) {
 			e.preventDefault();
@@ -132,6 +136,24 @@ $(function() {
 			App.parallax.enabled = App.isVersionCompatible( '4.4', version );
 			App.transitionAnimationEnabled = App.isVersionCompatible( '4', version );
 		}
+
+		// detect if device has facebook
+		if (window.appAvailability) {
+			var success = function() {
+				App.hasFacebook = true;
+			};
+			var fail = function() {
+				App.hasFacebook = false;
+			};
+			if (device.platform == 'Android') {
+				appAvailability.check('com.facebook.katana',success, fail);
+			} else if (device.platform == 'iOS') {
+				appAvailability.check('fb://',success, fail);
+			} else {
+				App.hasFacebook = false;
+			}
+		}
+
 
 		function orientationChanged (orientationEvent) {
 			if (!App || !App.parallax.enabled || !App.parallax.x || !App.parallax.width) {
@@ -308,7 +330,7 @@ $(function() {
 			$('body').scrollTop(280-$('.snap-content-inner').scrollTop());
 		}, '.location-address');
 
-			var facebookInit = function(){
+		var facebookInit = function(){
 			// Verify if angular is already started
 			if( angular && angular.element('html') && angular.element('html').injector() && angular.element('html').injector().get('FacebookService') ){
 				var facebookService = angular.element('html').injector().get('FacebookService');

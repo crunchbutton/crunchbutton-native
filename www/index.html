@@ -483,7 +483,7 @@
 			<h2>there's an app for that.</h2>
 	
 			<div class="button-pushable">
-				<a href="https://itunes.apple.com/app/id721780390" target="_blank">
+				<a href="{{downloadLink}}" target="_blank">
 					<button class="button orange download ani-all">
 						Download
 					</button>
@@ -496,13 +496,13 @@
 		<div class="divider"></div>
 		
 		<div class="download-bottom fixed-699">
-			<a href="https://itunes.apple.com/app/id721780390" target="_blank"><div class="download-phone image-animated"></div></a>
+			<a href="{{downloadLink}}" target="_blank"><div class="download-phone image-animated"></div></a>
 		</div>
 	</div>
 	
 	<div class="download-desktop">
 		<div class="content">
-			<a href="https://itunes.apple.com/app/id721780390" target="_blank"><div class="download-phone image-animated"></div></a>
+			<a href="{{downloadLink}}" target="_blank"><div class="download-phone image-animated"></div></a>
 
 			<div class="download-top">
 				<!-- dont hate. -->
@@ -537,6 +537,7 @@
 					<tr><td class="download-top-grid-foot">
 			
 						<a href="https://itunes.apple.com/app/id721780390" target="_blank"><div class="app-store"></div></a>
+						<a href="https://play.google.com/store/apps/details?id=com.crunchbutton" target="_blank"><div class="play-store"></div></a>
 						
 						<br>
 						
@@ -1031,12 +1032,12 @@
 	<br><br>
 	
 	
-	<div class="col-box">
+	<div class="col-box content-padding">
 		<div class="two-col">
 			<div class="location-map"></div>
 		</div>
 		<div class="two-col">
-			<div class="content-padding">
+
 				<h4>We’re expanding!</h4>
 				<p>We may not be everywhere yet, but the communities we are in love us! Browse some of the food from or most popular locations:</p>
 				<br /><br /><br />
@@ -1045,7 +1046,7 @@
 						<a href ng-click="openCity(alias.alias)" permalink="{{alias.alias}}">{{alias.name}}</span>
 					</span>
 				</p>
-			</div>
+			
 		</div>
 	</div>
 </div>
@@ -1101,7 +1102,9 @@
 
 			<div class="divider dots spacer-two-two"></div>
 			<div class="content-padding order-buttons">
-				<p>Create an account to reorder your favorite food anywhere, including <a data-ng-href="http://crunchbutton.com">crunchbutton.com</a> and our <a data-ng-href="https://itunes.apple.com/app/id721780390">iOS App</a>.</p>
+				<p>Create an account to reorder your favorite food anywhere, including
+					<span ng-if="isPhoneGap"><a href target="_system">crunchbutton.com</a> on your desktop.</span>
+					our <span ng-if="!isPhoneGap"><a href="/download">iOS and Android apps</a>.</p>
 				<br>
 				<div class="button-pushable">
 					<button class="button lightorange" ng-click="modal.signupOpen();">Create an account</button>
@@ -1220,7 +1223,7 @@
 			<div class="divider spacer-one-two"></div>
 
 			<span ng-if="order.delivery_type == 'delivery'">
-				<a href="{{order.mapLink}}" target="_system"><div class="order-map" style="background: url('https://maps.googleapis.com/maps/api/staticmap?&size={{width*2}}x300&markers=color:green%7Clabel:A%7C{{order.address.replace('#','') | nl2cm}}&markers=color:red%7Clabel:B%7C{{order._restaurant_lat}},{{order._restaurant_lon}}&sensor=false&visual_refresh=true');"></div></a>
+				<a href="{{order.mapLink}}" target="_system"><div class="order-map" style="background: url('https://maps.googleapis.com/maps/api/staticmap?&size={{width*2}}x300&markers=color:green%7Clabel:A%7C{{order.address.replace('#','') | nl2cm}}&markers=color:red%7Clabel:B%7C{{order._restaurant_lat}},{{order._restaurant_lon}}&sensor=false&visual_refresh=true&style=feature:road.arterial|element:geometry.fill|visibility:on|weight:1.5|lightness:-15|gamma:0.95|hue:0xff0000|saturation:-87|color:0xf67f52&style=feature:road.highway|element:geometry.fill|hue:0xff4d00|lightness:39|color:0xf67f52&style=feature:landscape|color:0xfffef8&style=feature:water|hue:0x00f6ff|color:0x119c87&style=element:labels.icon|hue:0x00ddff|saturation:-42&style=feature:poi|element:geometry.fill|color:0xfffef8&style=feature:road.local|color:0x119c87|visibility:simplified');"></div></a>
 			</span>
 
 			<span ng-if="order.delivery_type == 'takeout'">
@@ -1425,15 +1428,15 @@
 				<p>
 					
 					<span ng-if="!acceptingOrders">
-						<span ng-if="restaurant.delivery">is temporarily unavailable for delivery, but is usually available durring the following hours</span>
+						<span ng-if="restaurant.delivery">is temporarily unavailable for delivery, but is usually available during the following hours</span>
 						<span ng-if="!restaurant.delivery">is temporarily closed but is usually available during the following hours</span>
 					</span>
 					<span ng-if="acceptingOrders">
-						<span ng-if="restaurant.delivery">is currently unavailable for delivery. Delivery is available during the following hours</span>
+						<span ng-if="restaurant.delivery">is currently unavailable for delivery. Delivery will be available:</span>
 						<span ng-if="!restaurant.delivery">is currently closed. It will be open during the following hours</span>
 					</span>
 
-					&nbsp;(<span ng-bind="restaurant._tzabbr"></span>):<br /><br />
+<!--					&nbsp;(<span ng-bind="restaurant._tzabbr"></span>):--><br /><br />
 
 				</p>
 				<p ng-bind-html-unsafe="closedMessage" class="dialog-hours"></p>
@@ -1484,7 +1487,9 @@
 
 
 		<!-- main-content-readable-margin -->
+		
 		<div class="restaurant-content-body content-padding">
+			<div class="restaurant-content-body-background"></div>
 
 			<div class="restaurant-comment" ng-if="restaurant.comment">
 				<div class="restaurant-comment-wrap">
@@ -1611,7 +1616,7 @@
 					</div>
 					
 					<br>
-					<button class="button green" ng-click="fullmenu=0">less food</button>						
+					<button class="button green hide-desktop" ng-click="fullmenu=0">less food</button>						
 
 				</div>
 
@@ -1964,61 +1969,75 @@
 </script><script type="text/ng-template" id="assets/view/restaurants.html">
 <div class="top-pad"></div>
 
-<div class="restaurants-bubble-wrap">
-	<div ng-if="!image">
-		<div ng-if="!allClosed">
-			<div class="bubble-tail bubble-tail-green bubble-animated">
-				<div class="text" ng-switch="pushMessage">
-					<span ng-switch-when="1">We choose<br>the best food...</span>
-					<span ng-switch-when="2">From the best restaurants...</span>
-					<span ng-switch-when="3">So you don't<br> have to!</span>
-					<span ng-switch-when="4">Screw huge<br> menus!</span>
-					<span class="single-line" ng-switch-when="5">Screw gross food!!</span>
-					<span ng-switch-when="6">We only have awesome stuff!</span>
-					<span class="single-line" ng-switch-when="7">Got a suggestion?</span>
-					<span ng-switch-when="8">Want to work<br> for us?</span>
-					<span class="single-line" ng-switch-when="9">Send us a text!</span>
-					<span ng-switch-when="10">We are always looking for...</span>
-					<span ng-switch-when="11" class="single-line">Awesome people...</span>
-					<span class="single-line" ng-switch-when="12">And great food!</span>
-					<span class="single-line" ng-switch-when="13"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
-					<span ng-switch-default class="restaurants-push-tagline"><b>Push a button</b><br>Get food delivered</span>
-				</div>
-				<div class="bubble-tail-spacer"></div>
-			</div>
-			<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 12 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
-		</div>
+<div class="restaurants-top-wrap content-padding">
+	<div class="restaurants-top-tag hide-mobile">
+		<h4 ng-bind-html-unsafe="slogan"></h4>
+		<p ng-bind-html-unsafe="tagline"></p>
+		<p><br>{{entered}} - <a href="/location">Change</a></p>
+	</div>
 
-		<div ng-if="allClosed">
-			<div class="bubble-tail bubble-tail-green bubble-animated">
-				<div class="text" ng-switch="pushMessage">
-					<span ng-switch-when="2">There are no open restaurants</span>
-					<span ng-switch-when="3" class="small">Know of something awesome in your area?</span>
-					<span class="single-line" ng-switch-when="4">Send us a txt...</span>
-					<span class="single-line" ng-switch-when="5">And we'll add it!</span>
-					<span ng-switch-when="6">Don't stay hungry!</span>
-					<span class="single-line" ng-switch-when="7"><i class="fa fa-cutlery"></i> <i class="fa fa-cutlery"></i> <i class="fa fa-cutlery"></i></span>
-					<span ng-switch-default class="single-line">
-						<span ng-if="community_closed" class="small">
-							{{community_closed}}
+	<div class="restaurants-bubble-wrap noselect">
+		<div ng-if="!image">
+			<div ng-if="!allClosed">
+				<div class="bubble-tail bubble-tail-green bubble-animated">
+					<div class="text" ng-switch="pushMessage">
+						<span ng-switch-when="1">We choose<br>the best food...</span>
+						<span ng-switch-when="2">From the best restaurants...</span>
+						<span ng-switch-when="3">So you don't<br> have to!</span>
+						<span ng-switch-when="4">Screw huge<br> menus!</span>
+						<span class="single-line" ng-switch-when="5">Screw gross food!!</span>
+						<span ng-switch-when="6">We only have awesome stuff!</span>
+						<span class="single-line" ng-switch-when="7">Got a suggestion?</span>
+						<span ng-switch-when="8">Want to work<br> for us?</span>
+						<span class="single-line" ng-switch-when="9">Send us a text!</span>
+						<span ng-switch-when="10">We are always looking for...</span>
+						<span ng-switch-when="11" class="single-line">Awesome people...</span>
+						<span class="single-line" ng-switch-when="12">And great food!</span>
+						<span class="single-line" ng-switch-when="13"><i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i></span>
+						<span ng-switch-default class="restaurants-push-tagline">
+							<span class="hide-desktop"><b>Push a button</b><br>Get food delivered</span>
+							<span class="hide-mobile">Choose a <br><b>restaurant</b></span>
 						</span>
-						<span ng-if="!community_closed">Wahhhhhh!!!&nbsp;&nbsp;&nbsp;&nbsp;</span>
-					</span>
+
+					</div>
+					<div class="bubble-tail-spacer"></div>
 				</div>
-				<div class="bubble-tail-spacer"></div>
+				<div class="restaurants-orange" ng-instant="pushMessage = (pushMessage > 12 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
 			</div>
-			<div class="restaurants-orange restaurants-orange-sad" ng-instant="pushMessage = (pushMessage > 6 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
-		</div>
+
+			<div ng-if="allClosed">
+				<div class="bubble-tail bubble-tail-green bubble-animated noselect">
+					<div class="text" ng-switch="pushMessage">
+						<span ng-switch-when="1">We will be back soon.</span>
+						<span ng-switch-when="2" class="small">Know of some awesome restaurants in your area?</span>
+						<span ng-switch-when="3">Want to become a delivery driver?</span>
+						<span class="single-line" ng-switch-when="4">Send us a txt...</span>
+						<span class="single-line" ng-switch-when="5">And lets do stuff!</span>
+						<span class="single-line" ng-switch-when="6"><i class="fa fa-cutlery"></i> <i class="fa fa-cutlery"></i> <i class="fa fa-cutlery"></i></span>
+						<span ng-switch-default class="restaurants-push-tagline">
+							<span ng-if="community_closed" class="small">
+								{{community_closed}}
+							</span>
+							<span ng-if="!community_closed"><b>Wahhhhhh!!!</b><br>No delivery is available</span>
+						</span>
+					</div>
+					<div class="bubble-tail-spacer"></div>
+				</div>
+				<div class="restaurants-orange restaurants-orange-sad" ng-instant="pushMessage = (pushMessage > 6 ? 0 : (pushMessage + 1))" instant-pass-thru></div>
+			</div>
+
+			<div class="divider"></div>
+			<br>
+
+					</div>
+
+		<div ng-show="image" class="community-image"></div>
+
 
 		<div class="divider"></div>
-		<br>
-
-			</div>
-
-	<div ng-show="image" class="community-image"></div>
-
-
+	</div>
 	<div class="divider"></div>
+
 </div>
 
 <div ng-if="restaurants">
@@ -2051,6 +2070,7 @@
 
 							<div ng-switch on="restaurant._tag">
 								<div class="meal-item-tag" ng-switch-when="takeout">Take out only</div>
+								<div class="meal-item-tag" ng-switch-when="next_open">{{restaurant.next_open_time_message.message}}</div>
 								<div class="meal-item-tag about-to-close" ng-switch-when="closing">Hurry, closes in {{restaurant._closesIn}} min!</div>
 								<div ng-switch-when="opening">
 									<div ng-if="restaurant._opensIn_formatted" class="meal-item-tag about-to-open"><span >Available {{restaurant._opensIn_formatted}}</span></div>
@@ -2506,7 +2526,7 @@ This document was last updated on October 27th, 2014.<br />
 
 
 
-		<a href="{{(isPhoneGap && 'fb://profile/372531956099058' || !isPhoneGap && 'http://facebook.com/crunchbutton')}}" target="_blank" class="facebook-like-link">
+		<a href="{{(hasFacebook && 'fb://profile/372531956099058' || !hasFacebook && 'http://facebook.com/crunchbutton')}}" target="_system" class="facebook-like-link">
 			<button class="facebook-like">
 				<i class="fa fa-facebook-square"></i> Like
 			</button>
@@ -2524,26 +2544,11 @@ This document was last updated on October 27th, 2014.<br />
 				<div class="content">
 					<div class="hide-before-init dropdown dropdown-tip" ng-show="menudropdown">
 						<ul class="dropdown-menu">
-							<li><a ng-click="navigation.link('/splash')" ng-show="!account.user.id_user"><i class="fa fa-rocket"></i>Get Started!</a></li>
-							<li><a ng-click="navigation.link('/food-delivery')" ng-show="account.user.id_user"><i class="fa fa-cutlery"></i>Food</a></li>
-							<li><a ng-click="navigation.link('/orders')" ng-show="account.user.id_user && account.user.name"><i class="fa fa-truck"></i>My Orders</a></li>
-							<li><a ng-click="navigation.link('/location')" ng-show="account.user.id_user"><i class="fa fa-map-marker"></i>Change Location</a></li>
-							<li class="dropdown-divider"></li>
-							<li><a ng-click="navigation.link('/help')"><i class="fa fa-heart"></i>Help</a></li>
-							<li><a ng-click="navigation.link('/about')"><i class="fa fa-lightbulb-o"></i>About</a></li>
-							<li><a ng-click="navigation.link('/work')"><i class="fa fa-briefcase"></i>Work with us</a></li>
 
-							<li><a ng-click="navigation.signin()" ng-show="!account.user.id_user"><i class="fa fa-sign-in"></i>Log In</a></li>
-							<li><a ng-click="signout.signout()" ng-show="account.user.id_user"><i class="fa fa-sign-out"></i>Log Out</a></li>
-
-							<li class="dropdown-divider"></li>
-							<li><a ng-click="navigation.link('/download')"><i class="fa fa-mobile-phone"></i>Download for iPhone</a></li>
-
-							<li class="dropdown-divider" ng-show="account.user.debug"></li>
-							<li><a ng-click="App.test.card()" ng-show="debug()"><i class="fa fa-circle-o"></i>TEST: card</a></li>
-							<li><a ng-click="App.test.clearloc()" ng-show="debug()"><i class="fa fa-circle-o"></i>TEST: clear location</a></li>
-							<li><a ng-click="navigation.link('/')" ng-show="debug()"><i class="fa fa-circle-o"></i>TEST: go home</a></li>
-							<li><a ng-click="App.test.card()" ng-show="debug()"><i class="fa fa-circle-o"></i>TEST: card</a></li>
+							<li><a ng-click="test.card()" ng-show="debug()"><i class="fa fa-circle-o"></i>test card</a></li>
+							<li><a ng-click="test.clearloc()" ng-show="debug()"><i class="fa fa-circle-o"></i>clear location</a></li>
+							<li><a ng-click="test.reload()" ng-show="debug()"><i class="fa fa-circle-o"></i>reload page</a></li>
+							<li class="dropdown-divider" ng-show="debug()"></li>
 					    </ul>
 					</div>
 
@@ -2559,11 +2564,12 @@ This document was last updated on October 27th, 2014.<br />
 					
 					<div class="desktop-top-nav hide-mobile hide-before-init">
 						<a href="/work"><u>We're hiring!</u></a>
-						<a href="/location">Home</a>
+						<a href="/">Home</a>
 						<a href="/help">Help</a>
 						<a href="/orders" ng-if="account.user.id_user">Account</a>
 						<a ng-click="navigation.signin()" ng-if="!account.user.id_user">Log In</a>
 						<a ng-click="signout.signout()" ng-if="account.user.id_user">Log Out</a>
+						<a ng-toggle="menudropdown" ng-show="debug()"><i class="fa fa-bug"></i></a>
 					</div>
 
 				</div>

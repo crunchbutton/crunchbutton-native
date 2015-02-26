@@ -28,6 +28,7 @@
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/ant-build/classes/com/ionic/keyboard/IonicKeyboard$2.class \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/ant-build/classes/com/ionic/keyboard/IonicKeyboard$3.class \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/ant-build/classes/com/ionic/keyboard/IonicKeyboard.class \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/ant-build/classes/com/ohh2ahh/appavailability/AppAvailability.class \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/ant-build/classes/com/plugin/gcm/CordovaGCMBroadcastReceiver.class \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/ant-build/classes/com/plugin/gcm/GCMIntentService.class \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/ant-build/classes/com/plugin/gcm/PushHandlerActivity.class \
