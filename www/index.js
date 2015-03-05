@@ -298,21 +298,9 @@ $(function() {
 		App.imgServer = 'http://i.crunchbutton.com/';
 
 		// @todo: add fail handler
-		App.request(App.service + 'config/extended', function(r) {
-			var extract = ['aliases','locations','facebookScope','communities','topCommunities'];
-			for (var x in extract) {
-				App[extract[x]] = r[extract[x]];
-				r[extract[x]] = null;
-			}
-			App._remoteConfig = true;
-			App.init(r);
-		}, function() {
-			App._remoteConfig = false;
-			App.init({});
-		});
+		App.loadConfig();
 
 		// top tap scroller
-
 		window.addEventListener('statusTap', function() {
 			$('html, body, .snap-content-inner').animate({scrollTop: 0}, 200, $.easing.easeInOutQuart ? 'easeInOutQuart' : null);
 		});
