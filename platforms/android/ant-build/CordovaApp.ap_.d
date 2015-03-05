@@ -339,6 +339,7 @@
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/nav.png \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/payment \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/pushabutton-getfood.png \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/server-away.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/sign-in-icon.png \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/sign-in.png \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/toon-apple.png \
