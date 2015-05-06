@@ -288,6 +288,7 @@
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/jquery.scrollspy.js \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/lazycache.js \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/plugins \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/stripe.js \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/audio \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/css \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/fonts \
@@ -299,11 +300,12 @@
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/css/bundle.css \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/css/fontawesome.css \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/css/index.css \
-/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/fonts/Fontawesome \
-/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/fonts/Fontawesome.otf \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/fonts/Fontawesome.eot \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/fonts/FontAwesome.otf \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/fonts/Fontawesome.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/fonts/Fontawesome.ttf \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/fonts/Fontawesome.woff \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/fonts/Fontawesome.woff2 \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/fonts/OpenSans-Bold.woff \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/fonts/OpenSans-Extrabold.woff \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/fonts/OpenSans-Light.woff \
@@ -384,10 +386,13 @@
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/faq-tomato-green.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/faq-tomato.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/favicon.ico \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/finger.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/fork-knife-orange.svg \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/free-food-friends.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/google-play-store.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/gorillia.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/home-join-us.svg \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/hot-dog-relax.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/icon-card.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/icon-cash.svg \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/assets/images/micro/icon-chef.svg \

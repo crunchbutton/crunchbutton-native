@@ -97,14 +97,6 @@ body {
 }
 
 
-.snap-drawers {
-	font-family: Helvetica, Arial, sans-serif;
-}
-.snap-drawer li {
-	font-weight: bold;
-}
-
-
 
 .loggedin-hideables {
 	position: fixed;

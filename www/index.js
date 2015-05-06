@@ -13,45 +13,6 @@ if (!window.plugins) {
 var onSuccess = function(){console.log('1',arguments);};
 var onError = function(){console.log('0',arguments);};
 
-// Stripe
-Stripe = {
-	setPublishableKey : function(){},
-	card : {
-		createToken : function( args, complete ){
-
-			navigator.stripe.tokenizeCard(
-				// Success
-				function( response ){
-
-					if( typeof( response ) == 'string' ){
-						response = JSON.parse( response );
-					}
-
-					if ( response.id ) {
-						console.log('response',response);
-						complete( true, response );
-					} else {
-						complete( false, { 'error' : { 'code' : '' } } );
-					}
-				},
-				// Error
-				function( response ){
-					complete( false, { 'error' : { 'code' : response } } );
-				},
-				// Args
-				[
-					args.number,
-					args.exp_month,
-					args.exp_year,
-					''
-				]
-			);
-		}
-	}
-}
-
-
-
 
 var login = function() {
 	FB.login(status, {scope: 'email'});
