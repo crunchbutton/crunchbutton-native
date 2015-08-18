@@ -282,6 +282,7 @@
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/device.css \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/ecommerce.js \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/facebook-sdk.js \
+/Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/facebook-track.js \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/index.html \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/index.js \
 /Users/arzynik/Development/ios/cruchbutton-repo1/platforms/android/assets/www/jquery-2.0.3.min.js \

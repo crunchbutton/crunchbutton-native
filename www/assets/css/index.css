@@ -65,7 +65,6 @@ body {
 	background-position-y: 4px;
 }
 .location-detect {
-	display: block !important;
 	height: 40.5px;
 }
 .dialog-message-error {
