@@ -61,10 +61,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"PushPlugin\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"AppVersion\"><param name=\"ios-package\" value=\"AppVersion\" /></feature>",
                             "count": 1
                         },
@@ -98,6 +94,10 @@
                         },
                         {
                             "xml": "<feature name=\"AppAvailability\"><param name=\"ios-package\" value=\"AppAvailability\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PushNotification\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -242,9 +242,6 @@
         "com.ionic.keyboard": {
             "PACKAGE_NAME": "com.crunchbutton"
         },
-        "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
         "net.bgta.phonegap.plugin.appversion": {
             "PACKAGE_NAME": "com.crunchbutton"
         },
@@ -254,6 +251,9 @@
             "PACKAGE_NAME": "com.crunchbutton"
         },
         "com.ohh2ahh.plugins.appavailability": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "phonegap-plugin-push": {
             "PACKAGE_NAME": "com.crunchbutton"
         }
     },

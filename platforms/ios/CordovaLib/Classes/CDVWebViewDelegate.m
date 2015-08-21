@@ -114,11 +114,6 @@ static NSString *stripFragment(NSString* url)
     return self;
 }
 
-- (BOOL)request:(NSURLRequest*)newRequest isFragmentIdentifierToRequest:(NSURLRequest*)originalRequest
-{
-    return [self request:newRequest isEqualToRequestAfterStrippingFragments:originalRequest];
-}
-
 - (BOOL)request:(NSURLRequest*)newRequest isEqualToRequestAfterStrippingFragments:(NSURLRequest*)originalRequest
 {
     if (originalRequest.URL && newRequest.URL) {
@@ -202,7 +197,7 @@ static NSString *stripFragment(NSString* url)
 {
     NSString* scheme = [[request URL] scheme];
 
-    if ([scheme isEqualToString:@"mailto"] || [scheme isEqualToString:@"tel"]) {
+    if ([scheme isEqualToString:@"mailto"] || [scheme isEqualToString:@"tel"] || [scheme isEqualToString:@"sms"]) {
         return YES;
     }
 
@@ -256,10 +251,10 @@ static NSString *stripFragment(NSString* url)
 
                 default:
                     {
-                        _loadCount = 0;
-                        _state = STATE_WAITING_FOR_LOAD_START;
                         NSString* description = [NSString stringWithFormat:@"CDVWebViewDelegate: Navigation started when state=%ld", (long)_state];
                         NSLog(@"%@", description);
+                        _loadCount = 0;
+                        _state = STATE_WAITING_FOR_LOAD_START;
                         if ([_delegate respondsToSelector:@selector(webView:didFailLoadWithError:)]) {
                             NSDictionary* errorDictionary = @{NSLocalizedDescriptionKey : description};
                             NSError* error = [[NSError alloc] initWithDomain:@"CDVWebViewDelegate" code:1 userInfo:errorDictionary];

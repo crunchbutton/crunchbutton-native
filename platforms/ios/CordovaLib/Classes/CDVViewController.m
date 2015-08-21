@@ -24,6 +24,7 @@
 #import "CDVUserAgentUtil.h"
 #import "CDVWebViewDelegate.h"
 #import <AVFoundation/AVFoundation.h>
+#import "CDVHandleOpenURL.h"
 
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
 
@@ -459,7 +460,9 @@
 
         [CDVTimer stop:@"TotalPluginStartup"];
     }
-
+    
+    [self registerPlugin:[[CDVHandleOpenURL alloc] initWithWebView:self.webView] withClassName:NSStringFromClass([CDVHandleOpenURL class])];
+    
     // /////////////////
     NSURL* appURL = [self appUrl];
 
@@ -598,13 +601,22 @@
 
 - (NSString*)userAgent
 {
-    if (_userAgent == nil) {
-        NSString* localBaseUserAgent;
-        if (self.baseUserAgent != nil) {
-            localBaseUserAgent = self.baseUserAgent;
-        } else {
-            localBaseUserAgent = [CDVUserAgentUtil originalUserAgent];
-        }
+    if (_userAgent != nil) {
+        return _userAgent;
+    }
+
+    NSString* localBaseUserAgent;
+    if (self.baseUserAgent != nil) {
+        localBaseUserAgent = self.baseUserAgent;
+    } else if ([self settingForKey:@"OverrideUserAgent"] != nil) {
+        localBaseUserAgent = [self settingForKey:@"OverrideUserAgent"];
+    } else {
+        localBaseUserAgent = [CDVUserAgentUtil originalUserAgent];
+    }
+    NSString* appendUserAgent = [self settingForKey:@"AppendUserAgent"];
+    if (appendUserAgent) {
+        _userAgent = [NSString stringWithFormat:@"%@ %@", localBaseUserAgent, appendUserAgent];
+    } else {
         // Use our address as a unique number to append to the User-Agent.
         _userAgent = [NSString stringWithFormat:@"%@ (%lld)", localBaseUserAgent, (long long)self];
     }
@@ -977,6 +989,13 @@
 {
     // NSLog(@"%@",@"applicationWillEnterForeground");
     [self.commandDelegate evalJs:@"cordova.fireDocumentEvent('resume');"];
+    
+    /** Clipboard fix **/
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    NSString *string = pasteboard.string;
+    if (string) {
+        [pasteboard setValue:string forPasteboardType:@"public.text"];
+    } 
 }
 
 // This method is called to let your application know that it moved from the inactive to active state.

@@ -5,9 +5,6 @@
         <param name="android-package" value="com.ionic.keyboard.IonicKeyboard" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="PushPlugin">
-        <param name="android-package" value="com.plugin.gcm.PushPlugin" />
-    </feature>
     <feature name="AppVersion">
         <param name="android-package" value="net.bgta.phonegap.plugins.AppVersion" />
     </feature>
@@ -125,4 +122,7 @@
     <access launch-external="yes" origin="sms:*" />
     <access launch-external="yes" origin="market:*" />
     <access launch-external="yes" origin="fb:*" />
+    <feature name="PushNotification">
+        <param name="android-package" value="com.adobe.phonegap.push.PushPlugin" />
+    </feature>
 </widget>
