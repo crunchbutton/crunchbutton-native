@@ -1,16 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.crunchbutton" version="2.6.10" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.crunchbutton" version="2.6.12" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="DisallowOverscroll" value="false" />
     <preference name="EnableViewportScale" value="false" />
-    <preference name="FadeSplashScreen" value="true" />
-    <preference name="FadeSplashScreenDuration" value=".25" />
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
     <preference name="MediaPlaybackRequiresUserAction" value="false" />
-    <preference name="ShowSplashScreenSpinner" value="true" />
     <preference name="SuppressesIncrementalRendering" value="false" />
-    <preference name="TopActivityIndicator" value="gray" />
     <preference name="GapBetweenPages" value="0" />
     <preference name="PageLength" value="0" />
     <preference name="PaginationBreakingMode" value="page" />
@@ -55,9 +51,6 @@
     <feature name="Keyboard">
         <param name="ios-package" onload="true" value="IonicKeyboard" />
     </feature>
-    <feature name="PushPlugin">
-        <param name="ios-package" value="PushPlugin" />
-    </feature>
     <feature name="AppVersion">
         <param name="ios-package" value="AppVersion" />
     </feature>
@@ -73,6 +66,9 @@
     <access origin="https://*.akamaihd.net" />
     <feature name="AppAvailability">
         <param name="ios-package" value="AppAvailability" />
+    </feature>
+    <feature name="PushNotification">
+        <param name="ios-package" value="PushPlugin" />
     </feature>
     <icon src="icon.png" />
     <icon height="180" src="res/icon/ios/icon-180.png" width="180" />
@@ -123,6 +119,7 @@
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="BackupWebStorage" value="local" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />

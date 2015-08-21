@@ -9,30 +9,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:exported="true" android:name="com.plugin.gcm.PushHandlerActivity" />
-        <receiver android:name="com.plugin.gcm.CordovaGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id" />
+        <activity android:label="@string/fb_app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:exported="true" android:name="com.adobe.phonegap.push.PushHandlerActivity" />
+        <receiver android:name="com.adobe.phonegap.push.CordovaGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
                 <category android:name="com.crunchbutton" />
             </intent-filter>
         </receiver>
-        <service android:name="com.plugin.gcm.GCMIntentService" />
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id" />
-        <activity android:label="@string/fb_app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <service android:name="com.adobe.phonegap.push.GCMIntentService" />
     </application>
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="19" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <permission android:name="com.crunchbutton.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-    <uses-permission android:name="com.crunchbutton.permission.C2D_MESSAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <permission android:name="com.crunchbutton.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.crunchbutton.permission.C2D_MESSAGE" />
 </manifest>

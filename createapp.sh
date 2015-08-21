@@ -18,8 +18,9 @@ phonegap plugin add https://github.com/driftyco/ionic-plugins-keyboard
 
 #phonegap plugin add https://github.com/Wizcorp/phonegap-facebook-plugin --variable APP_ID="***REMOVED***" --variable APP_NAME="Crunchbutton"
 
-phonegap plugin add https://github.com/arzynik/PushPlugin
+#phonegap plugin add https://github.com/arzynik/PushPlugin
 ###phonegap plugin add https://github.com/phonegap-build/PushPlugin
+phonegap plugin add https://github.com/phonegap/phonegap-plugin-push
 phonegap plugin add https://github.com/bgta/net.bgta.phonegap.appversion
 #phonegap plugin add https://github.com/crunchbutton/cordova-plugin-balanced
 
