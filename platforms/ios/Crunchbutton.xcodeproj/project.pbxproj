@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0948F856C63F43FABF4D24EE /* UIWebViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 336D65D486D542B59426419E /* UIWebViewExtension.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
