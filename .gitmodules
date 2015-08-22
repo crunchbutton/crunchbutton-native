@@ -1,3 +1,0 @@
-[submodule "braintree_ios"]
-	path = braintree_ios
-	url = git@github.com:braintree/braintree_ios.git
