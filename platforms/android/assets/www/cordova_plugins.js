@@ -251,6 +251,20 @@ module.exports = [
         "clobbers": [
             "PushNotification"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-appavailability/www/AppAvailability.js",
+        "id": "cordova-plugin-appavailability.AppAvailability",
+        "clobbers": [
+            "appAvailability"
+        ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.facebookconnect/facebookConnectPlugin.js",
+        "id": "com.phonegap.plugins.facebookconnect.FacebookConnectPlugin",
+        "clobbers": [
+            "facebookConnectPlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -269,7 +283,10 @@ module.exports.metadata =
     "cordova-plugin-vibration": "1.2.1-dev",
     "cordova-plugin-whitelist": "1.0.0",
     "net.bgta.phonegap.plugin.appversion": "1.1.1",
-    "phonegap-plugin-push": "1.1.1"
+    "phonegap-plugin-push": "1.1.1",
+    "cordova-plugin-appavailability": "0.4.2",
+    "cordova-plugin-applepay": "0.0.1",
+    "com.phonegap.plugins.facebookconnect": "0.11.0"
 }
 // BOTTOM OF METADATA
 });
