@@ -757,13 +757,13 @@
 
 			<div ng-show="referral.invite_code">
 				<p>
-					Get your friends to enter <b>your referral code</b> in the Notes section of their first order, and you'll both get a free delivery ;)
+					Get your friends to enter your referral code in the Notes section of their first order, and you'll both get a FREE Delivery ;)
 				</p><br/>
 
 			</div>
 			<div ng-show="!referral.invite_code">
 				<p>
-					Get your friends to enter <b>your referral code</b> in the Notes section of their first order, and you'll both get a free delivery ;)
+					Get your friends to enter your referral code in the Notes section of their first order, and you'll both get a FREE Delivery ;)
 				</p><br/>
 				<p>
 					Create an account and receive your referral code.
@@ -1451,6 +1451,25 @@ This document was last updated on October 27th, 2014.<br />
 		<div class="button-pushable"><button class="button lightorange" ng-click="complete()">ok</button></div>
 	</div>
 </div>
+</script><script type="text/ng-template" id="assets/view/notification.remote.html">
+<div class="notification-remote-container zoom-anim-dialog mfp-hide dialog" ng-controller="NotificationRemoteCtrl">
+	<div class="dialog-padding">
+		<h1 ng-bind="title" ng-show="title"></h1>
+		<p ng-bind-html-unsafe="message"></p>
+		<div class="divider"></div>
+	</div>
+	<div class="dialog-divider"></div>
+	<div class="dialog-padding dialog-bottom-buttons">
+		<div ng-if="hasFn">
+			<div class="button-pushable button-remote-fn"><button class="button lightorange" ng-click="complete()">view</button></div>
+			<div class="button-pushable button-remote-fn"><button class="button green" ng-click="cancel()">close</button></div>
+			<div class="divider"></div>
+		</div>
+		<div ng-if="!hasFn">
+			<div class="button-pushable"><button class="button lightorange" ng-click="complete()">ok</button></div>
+		</div>
+	</div>
+</div>
 </script><script type="text/ng-template" id="assets/view/order.html">
 <div class="top-pad"></div>
 
@@ -1852,7 +1871,7 @@ This document was last updated on October 27th, 2014.<br />
 
 			<div ng-show="referral.invite_code">
 				<p>
-					Get your friends to enter <b>your referral code</b> in the Notes section of their first order, and you'll both get a free delivery ;)
+					Get your friends to enter your referral code in the Notes section of their first order, and you'll both get a FREE Delivery ;)
 				</p>
 				<br><br>
 
@@ -2253,9 +2272,9 @@ This document was last updated on October 27th, 2014.<br />
 </div>
 </script><script type="text/ng-template" id="assets/view/restaurant-desktop.html">
 <div class="restaurant-right-bar">
-	
+
 	<div restaurant-is-closed></div>
-	
+
 	<div ng-show="!order.cart.hasItems() && open" class="restaurant-box hide-mobile">
 		<div class="restaurant-box-inner">
 			<span class="restaurant-box-icon">
@@ -2280,8 +2299,9 @@ This document was last updated on October 27th, 2014.<br />
 			</div>
 
 			<!-- place order button -->
-			<div class="button-pushable" ng-show="order.form.name || order.form.phone"><button class="button orange get-food ani-all" ng-click="order.submit();"><div>Place Order</div></button></div>
-			<div class="button-pushable" ng-show="!order.form.name && !order.form.phone"><button class="button orange get-food ani-all" ng-click="order.checkout();"><div>Checkout</div></button></div>
+			<div ng-if="!order.showForm">
+				<ng-include src="'assets/view/restaurant-place-order-button.html'"></ng-include>
+			</div>
 
 		</div>
 
@@ -2431,19 +2451,15 @@ This document was last updated on October 27th, 2014.<br />
 					<button ng-click="order.tooglePayment( 'cash' )" ng-show="(restaurant.cash == '1')"  ng-class="{'toggle-active': order.form.pay_type=='cash' }" class="payment-form-toggle">cash</button>
 					<div class="divider"></div>
 				</div>
-				
+
 				<div class="divider spacer-two-two"></div>
-				
+
 
 				<div ng-if="config.driver_change_amount && order.form.pay_type == 'cash'">
 					<p class="delivery-free restaurant-delivery-free">
 						<i>Drivers only carry ${{config.driver_change_amount}} in change.</i><br><br>
 					</p>
 				</div>
-
-
-
-				
 
 				<div class="payment-form-group form-group" ng-show="order.form.pay_type=='card'">
 					<i class="fa fa-credit-card payment-form-icon form-icon form-field"></i>
@@ -2461,6 +2477,12 @@ This document was last updated on October 27th, 2014.<br />
 					<input type="hidden" name="pay-autotip-value" ng-model="order.form.autotip" value="0">
 					<div class="form-input-select"><select ng-model="order.form.tip" ng-options="tip.value as tip.label for tip in order._tips" ng-change="order.tipChanged();" class="tip payment-form-select payment-form-input form-input form-field" tabindex="9"></select></div>
 				</div>
+			</div>
+
+			<div class="divider spacer-two-two"></div>
+
+			<div class="payment-form-group form-group">
+				<ng-include src="'assets/view/restaurant-place-order-button.html'"></ng-include>
 			</div>
 
 		</div>
@@ -2628,6 +2650,9 @@ This document was last updated on October 27th, 2014.<br />
 
 <!-- stored user info -->
 <ng-include src="'assets/view/restaurant-stored-user-info.html'"></ng-include>
+</script><script type="text/ng-template" id="assets/view/restaurant-place-order-button.html">
+<div class="button-pushable" ng-show="order.form.name || order.form.phone"><button class="button orange get-food ani-all" ng-click="order.submit();"><div>Place Order</div></button></div>
+<div class="button-pushable" ng-show="!order.form.name && !order.form.phone"><button class="button orange get-food ani-all" ng-click="order.checkout();"><div>Checkout</div></button></div>
 </script><script type="text/ng-template" id="assets/view/restaurant-stored-user-info.html">
 <div class="delivery-payment-info restaurant-side-bar restaurant-side-user-info" ng-if="order.loaded && restaurant._open && !order.showForm && order.cart.hasItems()">
 
@@ -3299,7 +3324,9 @@ This document was last updated on October 27th, 2014.<br />
 					<div title="Crunchbutton" class="logo animated-resize" ng-click="navigation.home()"></div>
 
 					<div class="desktop-top-nav hide-mobile hide-before-init">
-						<a href="/work"><u>Work with us!</u></a>
+					<div>
+					</div>
+						<a ng-if="config.menu_item_1_label && config.menu_item_1_url" href="{{config.menu_item_1_url}}"><u>{{config.menu_item_1_label}}</u></a>
 						<a href="/">Home</a>
 						<a href="/help">Help</a>
 						<a href="/orders" ng-if="account.user.id_user">Account</a>
@@ -3426,6 +3453,7 @@ This document was last updated on October 27th, 2014.<br />
 </div>
 
 <div ng-include="'assets/view/notification.alert.html'"></div>
+<div ng-include="'assets/view/notification.remote.html'"></div>
 <div ng-include="'assets/view/restaurant.closed.html'"></div>
 <div ng-include="'assets/view/account.html'"></div>
 <div ng-include="'assets/view/account.reset.html'"></div>

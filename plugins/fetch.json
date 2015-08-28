@@ -122,5 +122,36 @@
         },
         "is_top_level": false,
         "variables": {}
+    },
+    "cordova-plugin-appavailability": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ohh2ahh/AppAvailability",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-applepay": {
+        "source": {
+            "type": "local",
+            "path": "/Users/arzynik/Development/ios/cordova-plugin-applepay/cordova-plugin-applepay"
+        },
+        "is_top_level": true,
+        "variables": {
+            "STRIPE_PUBLISHABLE_KEY": "***REMOVED***"
+        }
+    },
+    "com.phonegap.plugins.facebookconnect": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Wizcorp/phonegap-facebook-plugin.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "***REMOVED***",
+            "APP_NAME": "Crunchbutton"
+        }
     }
 }
