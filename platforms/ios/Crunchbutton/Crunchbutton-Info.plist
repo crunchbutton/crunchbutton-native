@@ -57,11 +57,11 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>2.6.14</string>
+    <string>2.7.0</string>
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleVersion</key>
-    <string>2.6.14</string>
+    <string>2.7.0</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSLocationWhenInUseUsageDescription</key>
@@ -177,8 +177,6 @@
         <string>{768, 1024}</string>
       </dict>
     </array>
-    <key>StripePublishableKey</key>
-    <string>pk_test_O2GipEOkufCpgUJZaKP15OaQ</string>
     <key>FacebookAppID</key>
     <string>411729638889643</string>
     <key>FacebookDisplayName</key>
@@ -191,6 +189,52 @@
           <string>fb411729638889643</string>
         </array>
       </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb411729638889643</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb411729638889643</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb411729638889643</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb411729638889643</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb411729638889643</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb411729638889643</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb411729638889643</string>
+        </array>
+      </dict>
     </array>
+    <key>ApplePayMerchant</key>
+    <string>merchant.com.crunchbutton</string>
+    <key>StripePublishableKey</key>
+    <string>pk_test_O2GipEOkufCpgUJZaKP15OaQ</string>
   </dict>
 </plist>

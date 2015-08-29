@@ -1,6 +1,7 @@
 #import "CDVApplePay.h"
 #import <Stripe/Stripe.h>
 #import <Stripe/STPAPIClient.h>
+#import <Stripe/STPCardBrand.h>
 #import <PassKit/PassKit.h>
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
@@ -11,6 +12,7 @@
 - (CDVPlugin*)initWithWebView:(UIWebView*)theWebView
 {
     NSString * StripePublishableKey = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"StripePublishableKey"];
+    merchantId = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ApplePayMerchant"];
     [Stripe setDefaultPublishableKey:StripePublishableKey];
     self = (CDVApplePay*)[super initWithWebView:(UIWebView*)theWebView];
     
@@ -56,13 +58,8 @@
         CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: @"user has apple pay"];
         [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
     } else {
-#if DEBUG
-        CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: @"in debug mode, simulating apple pay"];
-        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-#else
         CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString: @"user does not have apple pay"];
         [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-#endif
     }
 }
 
@@ -120,9 +117,48 @@
             [self.commandDelegate sendPluginResult:result callbackId:callbackId];
             return;
         } else {
+
+            NSString* brand;
+            
+            switch (token.card.brand) {
+                case STPCardBrandVisa:
+                    brand = @"Visa";
+                    break;
+                case STPCardBrandAmex:
+                    brand = @"American Express";
+                    break;
+                case STPCardBrandMasterCard:
+                    brand = @"MasterCard";
+                    break;
+                case STPCardBrandDiscover:
+                    brand = @"Discover";
+                    break;
+                case STPCardBrandJCB:
+                    brand = @"JCB";
+                    break;
+                case STPCardBrandDinersClub:
+                    brand = @"Diners Club";
+                    break;
+                case STPCardBrandUnknown:
+                    brand = @"Unknown";
+                    break;
+            }
+            
+            NSDictionary* card = @{
+               @"id": token.card.cardId,
+               @"brand": brand,
+               @"last4": [NSString stringWithFormat:@"%@", token.card.last4],
+               @"exp_month": [NSString stringWithFormat:@"%lu", token.card.expMonth],
+               @"exp_year": [NSString stringWithFormat:@"%lu", token.card.expYear]
+           };
+            
+            NSDictionary* message = @{
+               @"id": token.tokenId,
+               @"card": card
+            };
             
             completion(PKPaymentAuthorizationStatusSuccess);
-            CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: token.tokenId];
+            CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary: message];
             [self.commandDelegate sendPluginResult:result callbackId:callbackId];
         }
         

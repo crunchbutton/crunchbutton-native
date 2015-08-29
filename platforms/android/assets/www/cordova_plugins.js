@@ -285,8 +285,8 @@ module.exports.metadata =
     "net.bgta.phonegap.plugin.appversion": "1.1.1",
     "phonegap-plugin-push": "1.1.1",
     "cordova-plugin-appavailability": "0.4.2",
-    "cordova-plugin-applepay": "0.0.1",
-    "com.phonegap.plugins.facebookconnect": "0.11.0"
+    "com.phonegap.plugins.facebookconnect": "0.11.0",
+    "cordova-plugin-applepay": "0.0.1"
 }
 // BOTTOM OF METADATA
 });
