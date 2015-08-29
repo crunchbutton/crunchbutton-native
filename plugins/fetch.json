@@ -132,16 +132,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-applepay": {
-        "source": {
-            "type": "local",
-            "path": "/Users/arzynik/Development/ios/cordova-plugin-applepay/cordova-plugin-applepay"
-        },
-        "is_top_level": true,
-        "variables": {
-            "STRIPE_PUBLISHABLE_KEY": "***REMOVED***"
-        }
-    },
     "com.phonegap.plugins.facebookconnect": {
         "source": {
             "type": "git",
@@ -152,6 +142,17 @@
         "variables": {
             "APP_ID": "***REMOVED***",
             "APP_NAME": "Crunchbutton"
+        }
+    },
+    "cordova-plugin-applepay": {
+        "source": {
+            "type": "local",
+            "path": "/Users/arzynik/Development/ios/cordova-plugin-applepay/cordova-plugin-applepay"
+        },
+        "is_top_level": true,
+        "variables": {
+            "STRIPE_PUBLISHABLE_KEY": "***REMOVED***",
+            "APPLE_PAY_MERCHANT": "merchant.com.crunchbutton"
         }
     }
 }

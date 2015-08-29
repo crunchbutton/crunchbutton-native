@@ -5,11 +5,12 @@
 //  Created by Jack Flintermann on 9/15/14.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
+
 #if TARGET_OS_IPHONE
-@import UIKit;
+#import <UIKit/UIKit.h>
 #else
-@import AppKit;
+#import <AppKit/AppKit.h>
 #endif
 
 

@@ -12,6 +12,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 	
 		
 	<preference name="STRIPE_PUBLISHABLE_KEY" />
+	<preference name="APPLE_PAY_MERCHANT" />
+	
 
 
     <platform name="ios">
@@ -31,6 +33,12 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 		
 		<config-file target="*-Info.plist" parent="StripePublishableKey">
             <string>$STRIPE_PUBLISHABLE_KEY</string>
+        </config-file>
+		
+        <config-file target="*.entitlements" parent="com.apple.developer.in-app-payments">
+			<array>
+				<string>$APPLE_PAY_MERCHANT</string>
+			</array>
         </config-file>
 		
 		<framework src="src/ios/Stripe.framework" custom="true" />

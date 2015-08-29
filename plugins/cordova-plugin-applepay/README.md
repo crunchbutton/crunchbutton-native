@@ -48,3 +48,6 @@ Request a stripe token for an Apple Pay card.
 
     ApplePay.getStripeToken(onSuccess, onError, 10.00, "Delicious Cake", "USD");
 
+
+Enable Apple Pay in Xcode so it creates your entitlements file if you dont already have one
+Install the plugin

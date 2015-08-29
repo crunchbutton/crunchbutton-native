@@ -18,7 +18,7 @@ phonegap plugin add https://github.com/driftyco/ionic-plugins-keyboard
 
 #phonegap plugin add https://github.com/Wizcorp/phonegap-facebook-plugin --variable APP_ID="***REMOVED***" --variable APP_NAME="Crunchbutton"
 phonegap plugin add https://github.com/Wizcorp/phonegap-facebook-plugin.git --variable APP_ID="***REMOVED***" --variable APP_NAME="Crunchbutton"
-phonegap plugin add /Users/arzynik/Development/ios/cordova-plugin-applepay/cordova-plugin-applepay --variable STRIPE_PUBLISHABLE_KEY="***REMOVED***"
+phonegap plugin add https://github.com/arzynik/cordova-plugin-applepay --variable STRIPE_PUBLISHABLE_KEY="***REMOVED***" --variable APPLE_PAY_MERCHANT="merchant.com.crunchbutton"
 
 #phonegap plugin add https://github.com/arzynik/PushPlugin
 ###phonegap plugin add https://github.com/phonegap-build/PushPlugin
