@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>53A24C45-02AA-4D18-80E1-F2EF9CA6773A</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Crunchbutton</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>39F5837CFA0362991A084B92EDF66A7B22CD5267</key>
 		<string>github.com:crunchbutton/phonegap.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>platforms/ios/Crunchbutton.xcodeproj</string>
+	<string>platforms/ios/Crunchbutton.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>39F5837CFA0362991A084B92EDF66A7B22CD5267</key>
