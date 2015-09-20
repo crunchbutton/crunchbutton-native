@@ -753,9 +753,9 @@
 <br>
 <div class="content-padding">
 
-	<div class="user-account-credit col-box">
+	<div class="user-account-credit zcol-box">
 
-		<div class="two-col">
+		<div class="ztwo-col">
 
 			<div ng-show="referral.invite_code">
 				<p>
@@ -899,7 +899,7 @@
 	<div class="two-col">
 		<br />
 		<h4>So, what is Crunchbutton?</h4>
-		<p>Crunchbutton lets you order the best food in your area delivered straight to your door. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click.</p>
+		<p>Get food delivered from places that don't deliver. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click.</p>
 	</div>
 	<div class="two-col">
 		<h4>Need to contact Crunchbutton?</h4>
@@ -1159,8 +1159,8 @@ This document was last updated on October 27th, 2014.<br />
 	<br /><br /><br />
 	<div class="content-padding home-buttons col-box">
 		<div class="two-col">
-			<h4>Order your favorite restaurants, delivered</h4>
-			<p>Crunchbutton lets you order the best restaurants in your area delivered straight to your door. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click.</p>
+			<h4>Your favorite restaurants, delivered</h4>
+			<p>Get food delivered from places that don't deliver. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click.</p>
 			<br><br><br>
 
 			<div class="location-gorillia hide-desktop" ng-click="rage()"></div>
@@ -1271,8 +1271,8 @@ This document was last updated on October 27th, 2014.<br />
 	<br /><br /><br />
 	<div class="content-padding home-buttons col-box">
 		<div class="two-col">
-			<h4>Order your favorite restaurants, delivered</h4>
-			<p>Crunchbutton lets you order the best restaurants in your area delivered straight to your door. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click.</p>
+			<h4>Your favorite restaurants, delivered</h4>
+			<p>Get food delivered from places that don't deliver. Place an order, and we save it for next time, along with your delivery and payment info. Come back and reorder your favorites with just one click.</p>
 			<br><br><br>
 
 			<div class="location-gorillia hide-desktop" ng-click="rage()"></div>
@@ -2075,10 +2075,10 @@ This document was last updated on October 27th, 2014.<br />
 
 </script><script type="text/ng-template" id="assets/view/restaurant.html">
 <div class="bg">
-	<div ng-show="!order.loaded">
+	<div ng-if="!order.loaded">
 			</div>
 
-	<div ng-show="restaurant">
+	<div ng-if="restaurant">
 
 		<div class="restaurant-pad"></div>
 
@@ -2119,7 +2119,7 @@ This document was last updated on October 27th, 2014.<br />
 
 <ng-include src="'assets/view/restaurant-message-boxes.html'"></ng-include>
 </script><script type="text/ng-template" id="assets/view/restaurant-breakdown.html">
-<div class="divider dots spacer-one-two" ng-show="order.info.subtotal && order.info.subtotal!='0.00' && restaurant._open && !isMobileWidth"></div>
+<div class="divider dots spacer-one-two" ng-if="order.info.subtotal && order.info.subtotal!='0.00' && restaurant._open && !isMobileWidth"></div>
 <div class="payment-total content-padding" ng-if="order.info.subtotal && order.info.subtotal!='0.00' && restaurant._open">
 
 	<div ng-if="isMobileWidth" class="restaurant-banana animated-resize hide-desktop"></div>
@@ -2133,7 +2133,7 @@ This document was last updated on October 27th, 2014.<br />
 				<span class="restaurant-payment-item">
 					<span class="restaurant-payment-item-label">Subtotal: </span>
 					<span class="restaurant-payment-item-value">
-						<span ng-show="order.form.pay_type=='cash'">~</span>
+						<span ng-if="order.form.pay_type=='cash'">~</span>
 						{{AB.dollar}}{{order.info.subtotal}}
 					</span>
 				</span>
@@ -2143,26 +2143,26 @@ This document was last updated on October 27th, 2014.<br />
 					<span class="restaurant-payment-item-value">{{AB.dollar}}{{order.info.taxes}}</span>
 				 </span>
 
-				<span class="restaurant-payment-item" ng-show="order.form.pay_type!='cash' && order.info.tip!='0.00'">
+				<span class="restaurant-payment-item" ng-if="order.form.pay_type!='cash' && order.info.tip!='0.00'">
 					<span class="restaurant-payment-item-label">Tip: </span>
 					<span class="restaurant-payment-item-value">{{AB.dollar}}{{order.info.tip}}</span>
 				</span>
 
-				<span class="restaurant-payment-item" ng-show="order.info.delivery!='0.00' && order.info.delivery_service_fee!='0.00'">
+				<span class="restaurant-payment-item" ng-if="order.info.delivery!='0.00' && order.info.delivery_service_fee!='0.00'">
 					<span class="restaurant-payment-item-label">Delivery Fee: </span>
 					<span class="restaurant-payment-item-value">{{AB.dollar}}{{order.info.delivery_service_fee}}</span>
 				</span>
 
-				<span class="restaurant-payment-item" ng-show="order.info.delivery=='0.00' && order.info.fee!='0.00'">
+				<span class="restaurant-payment-item" ng-if="order.info.delivery=='0.00' && order.info.fee!='0.00'">
 					<span class="restaurant-payment-item-label">Service Fee: </span>
 					<span class="restaurant-payment-item-value">{{AB.dollar}}{{order.info.fee}}</span>
 				</span>
 
-				<span class="restaurant-payment-item" ng-show="credit.hasValue && order.form.pay_type == 'card'">
+				<span class="restaurant-payment-item" ng-if="credit.hasValue && order.form.pay_type == 'card'">
 					<span class="restaurant-payment-item-label">Credit: </span>
 					<span class="restaurant-payment-item-value">-$
-						<span ng-show="order.total() <= credit.number">{{order.info.total}}</span>
-						<span ng-show="order.total() > credit.number">{{credit.value}}</span>
+						<span ng-if="order.total() <= credit.number">{{order.info.total}}</span>
+						<span ng-if="order.total() > credit.number">{{credit.value}}</span>
 					</span>
 				</span>
 
@@ -2187,7 +2187,7 @@ This document was last updated on October 27th, 2014.<br />
 		<div class="giftcard-payment-message">Pay with a card, NOT CASH, to use your {{AB.dollar}}{{credit.value}} gift card</div>
 	</div>
 
-	<div ng-show="restaurant.delivery == '1' && order.form.delivery_type=='delivery' && points.free_delivery_message">
+	<div ng-if="restaurant.delivery == '1' && order.form.delivery_type=='delivery' && points.free_delivery_message">
 		<p class="delivery-free restaurant-delivery-free">
 			<strong ng-if="order.form.pay_type == 'card'">You have {{points.show}} points! This delivery fee is on us.</strong>
 			<strong ng-if="order.form.pay_type == 'cash'">Pay with a card, NOT CASH, to get your delivery free.</strong>
@@ -2197,13 +2197,13 @@ This document was last updated on October 27th, 2014.<br />
 </div>
 
 </script><script type="text/ng-template" id="assets/view/restaurant-cart.html">
-<div ng-show="restaurant._open">
+<div ng-if="restaurant._open">
 
-	<div ng-show="order.info.deliveryMinDiff && order.cart.hasItems()" class="dialog-message dialog-message-error delivery-minimum-error">
+	<div ng-if="order.info.deliveryMinDiff && order.cart.hasItems()" class="dialog-message dialog-message-error delivery-minimum-error">
 		Add <sup>$</sup><span class="delivery-min-diff">{{order.info.deliveryMinDiff}}</span> more to meet the delivery min
 	</div>
 
-	<div ng-show="order.cart.hasItems()">
+	<div ng-if="order.cart.hasItems()">
 		<div class="restaurant-title-wrap">
 			<div class="restaurant-title">The Order</div>
 		</div>
@@ -2227,7 +2227,7 @@ This document was last updated on October 27th, 2014.<br />
 		</div>
 
 		<!-- Customizable options -->
-		<div class="cart-customize-options" ng-show="item.details.customization.customizable && item.details.customization.expanded">
+		<div class="cart-customize-options" ng-if="item.details.customization.customizable && item.details.customization.expanded">
 
 			<div ng-repeat="option in item.details.customization.options">
 
@@ -2243,7 +2243,6 @@ This document was last updated on October 27th, 2014.<br />
 									<select ng-change="order.cart.customizeItem(option, item)" ng-model="option.selected" ng-options="opt.id_option as opt.name for opt in option.options" class="cart-customize-select"></select>
 								</div>
 							</div>
-							<div class="divider"></div>
 						</div>
 
 						<!-- Customizable - checkbox -->
@@ -2264,7 +2263,7 @@ This document was last updated on October 27th, 2014.<br />
 
 </div>
 
-<div class="default-order-check" ng-show="order.info.totalItems && restaurant._open">
+<div class="default-order-check" ng-if="order.info.totalItems && restaurant._open">
 	<input custom-checkbox type="checkbox" ng-model="order.form.make_default">
 	<a ng-click="order.form.make_default = !order.form.make_default;">Save this order for next time</a>
 	<div class="divider"></div>
@@ -2273,7 +2272,7 @@ This document was last updated on October 27th, 2014.<br />
 <div class="restaurant-comment" ng-if="restaurant.comment">
 	<div class="restaurant-comment-wrap">
 		<div class="restaurant-comment-image">
-			<div class="restaurant-comment-image-img" style="background: url(http://graph.facebook.com/{{restaurant.comment.fb}}/picture?type=normal)"></div>
+			<div class="restaurant-comment-image-img" style="background: url(https://graph.facebook.com/{{restaurant.comment.fb}}/picture?type=normal)"></div>
 		</div>
 		<div class="restaurant-comment-content">
 			<h4>{{restaurant.comment.user}} says</h4>
@@ -2286,7 +2285,7 @@ This document was last updated on October 27th, 2014.<br />
 
 	<div restaurant-is-closed></div>
 
-	<div ng-show="!order.cart.hasItems() && open" class="restaurant-box hide-mobile">
+	<div ng-if="!order.cart.hasItems() && open" class="restaurant-box hide-mobile">
 		<div class="restaurant-box-inner">
 			<span class="restaurant-box-icon">
 				<i class="fa fa-arrow-left"></i>
@@ -2297,7 +2296,7 @@ This document was last updated on October 27th, 2014.<br />
 		</div>
 	</div>
 
-	<div class="cart-items restaurant-side-bar restaurant-side-bar-margin" ng-show="order.cart.hasItems()">
+	<div class="cart-items restaurant-side-bar restaurant-side-bar-margin" ng-if="order.cart.hasItems() && open">
 
 		<!-- cart -->
 		<ng-include src="'assets/view/restaurant-cart.html'"></ng-include>
@@ -2366,29 +2365,29 @@ This document was last updated on October 27th, 2014.<br />
 			<div class="personal-info field-container">
 				<div class="payment-form-group form-group">
 					<i class="fa fa-user payment-form-icon form-icon form-field"></i>
-					<input ng-focus="softKeyboard($event);" type="text" name="pay-name" tabindex="2" ng-model="order.form.name" class="payment-form-input form-input form-field" placeholder="name">
+					<input focus="softKeyboard($event);" ng-blur="softKeyboardExit()" type="text" name="pay-name" tabindex="2" ng-model="order.form.name" class="payment-form-input form-input form-field" placeholder="name">
 				</div>
 
 				<div class="payment-form-group form-group">
 					<i class="fa fa-envelope-o payment-form-icon form-icon form-field"></i>
-					<input ng-focus="softKeyboard($event);" type="email" name="pay-email" tabindex="3" ng-model="order.form.email" class="payment-form-input form-input form-field" placeholder="email">
+					<input ng-focus="softKeyboard($event);" ng-blur="softKeyboardExit()" type="email" name="pay-email" tabindex="3" ng-model="order.form.email" class="payment-form-input form-input form-field" placeholder="email">
 				</div>
 
 				<div class="payment-form-group form-group">
 					<i class="fa fa-phone payment-form-icon form-icon form-field"></i>
-					<input ng-focus="softKeyboard($event);" type="tel" name="pay-phone" tabindex="4" ng-format-phone ng-model="order.form.phone" class="payment-form-input form-input form-field" placeholder="phone number">
+					<input ng-focus="softKeyboard($event);" ng-blur="softKeyboardExit()" type="tel" name="pay-phone" tabindex="4" ng-format-phone ng-model="order.form.phone" class="payment-form-input form-input form-field" placeholder="phone number">
 				</div>
 
 				<div class="payment-form-group form-group">
 					<i class="fa fa-map-marker payment-form-icon form-icon form-field"></i>
 					<p class="pickup-info" ng-if="order.form.delivery_type!='delivery'">Pickup from:<br><span ng-bind-html-unsafe="restaurant.address | nl2br"></span></p>
-					<textarea ng-focus="softKeyboard($event);" ng-autosize ng-if="order.form.delivery_type=='delivery'" class="payment-form-input form-input form-field" ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5" placeholder="address"></textarea>
+					<textarea ng-focus="softKeyboard($event);" ng-blur="softKeyboardExit()" ng-autosize ng-if="order.form.delivery_type=='delivery'" class="payment-form-input form-input form-field" ng-model="order.form.address" name="pay-address" id="pay-address" tabindex="5" placeholder="address"></textarea>
 				</div>
 
 				<div class="payment-form-group form-group">
 
 					<i class="fa fa-bullhorn payment-form-icon form-icon form-field"></i>
-					<textarea ng-focus="softKeyboard($event);" ng-autosize name="notes" ng-blur="checkGiftCard()" ng-model="order.form.notes" tabindex="6" class="payment-form-input form-input form-field" placeholder="notes"></textarea>
+					<textarea ng-focus="softKeyboard($event);" ng-blur="softKeyboardExit()" ng-autosize name="notes" ng-blur="checkGiftCard()" ng-model="order.form.notes" tabindex="6" class="payment-form-input form-input form-field" placeholder="notes"></textarea>
 
 					<!-- Gift card messages -->
 					<div class="giftcard-info">
@@ -2511,6 +2510,7 @@ This document was last updated on October 27th, 2014.<br />
 </form>
 </script><script type="text/ng-template" id="assets/view/restaurant-image.html">
 <div ng-if="restaurant.image" class="restaurant-pic-wrapper">
+	<div  ng-init="$log.log('test')"></div>
 
 	<div class="restaurant-pic hide-mobile" style="background-image: url({{restaurant.images.header || restaurant.img}});"></div>
 	<div class="restaurant-pic hide-desktop" style="background-image: url({{restaurant.images.normal || restaurant.img}});"><div class="restaurant-pic-overlay"></div></div>
@@ -2533,7 +2533,7 @@ This document was last updated on October 27th, 2014.<br />
 </div>
 </script><script type="text/ng-template" id="assets/view/restaurant-menu.html">
 
-<div ng-show="!order.cart.hasItems() && open" class="restaurant-box hide-desktop">
+<div ng-if="!order.cart.hasItems() && open" class="restaurant-box hide-desktop">
 	<div class="restaurant-box-inner">
 		<span class="restaurant-box-icon">
 			<i class="fa fa-arrow-down"></i>
@@ -2546,7 +2546,7 @@ This document was last updated on October 27th, 2014.<br />
 
 <div class="restaurant-items restaurant-items-list">
 
-	<div ng-show="fullmenu">
+	<div ng-if="fullmenu">
 		<div ng-bind-once class="restaurant-menu-category" ng-repeat="category in restaurant.categories()">
 
 			<div class="restaurant-title-wrap restaurant-category">
@@ -2564,11 +2564,11 @@ This document was last updated on October 27th, 2014.<br />
 
 		<br>
 
-		<button class="button green hide-desktop" ng-click="fullmenu=0">less food</button>
+		<button class="button green hide-desktop" ng-click="seeSmallMenu()">less food</button>
 
 	</div>
 
-	<div ng-show="!fullmenu">
+	<div ng-if="!fullmenu">
 
 		<div class="restaurant-title-wrap">
 			<div class="restaurant-title">The Highlights</div>
@@ -2577,14 +2577,14 @@ This document was last updated on October 27th, 2014.<br />
 		<div ng-repeat="category in restaurant.categories()">
 			<ul class="resturant-dishes resturant-dish-container" date-id_category="{{category.id_category}}">
 				<li ng-repeat="dish in category.dishes() | filter: {top: true}" class="dish-item" data-id_dish="{{dish.id_dish}}" add-to-cart>
-					<span class="dish-item-name">{{dish.name}}</span><span class="dish-item-price">({{AB.dollar}}{{dish.price}}<span ng-show="dish.changeable_price">+</span>)</span><br />
+					<span class="dish-item-name">{{dish.name}}</span><span class="dish-item-price">({{AB.dollar}}{{dish.price}}<span ng-if="dish.changeable_price">+</span>)</span><br />
 					<span class="dish-item-description">{{dish.description}}</span>
 				</li>
 			</ul>
 		</div>
 
 		<br>
-		<button class="button green" ng-click="fullmenu=1">see full menu</button>
+		<button class="button green" ng-click="seeFullMenu()">see full menu</button>
 
 	</div>
 
@@ -2624,7 +2624,7 @@ This document was last updated on October 27th, 2014.<br />
 				</div>
 			</li>
 			<li>
-				<div class="cursor link" ng-click="addressPlaceAnyway();">Continue</div>
+				<div class="cursor link" ng-click="addressPlaceAnyway();">Place Order Anyway</div>
 			</li>
 		</ul>
 	</div>
@@ -2667,8 +2667,8 @@ This document was last updated on October 27th, 2014.<br />
 <!-- stored user info -->
 <ng-include src="'assets/view/restaurant-stored-user-info.html'"></ng-include>
 </script><script type="text/ng-template" id="assets/view/restaurant-place-order-button.html">
-<div class="button-pushable" ng-show="order.form.name || order.form.phone"><button class="button orange get-food ani-all" ng-click="order.submit();"><div>Place Order</div></button></div>
-<div class="button-pushable" ng-show="!order.form.name && !order.form.phone"><button class="button orange get-food ani-all" ng-click="order.checkout();"><div>Checkout</div></button></div>
+<div class="button-pushable" ng-if="order.form.name || order.form.phone"><button class="button orange get-food ani-all" ng-click="order.submit();"><div>Place Order</div></button></div>
+<div class="button-pushable" ng-if="!order.form.name && !order.form.phone"><button class="button orange get-food ani-all" ng-click="order.checkout();"><div>Checkout</div></button></div>
 </script><script type="text/ng-template" id="assets/view/restaurant-stored-user-info.html">
 <div class="delivery-payment-info restaurant-side-bar restaurant-side-user-info" ng-if="order.loaded && restaurant._open && !order.showForm && order.cart.hasItems()">
 
@@ -2681,23 +2681,23 @@ This document was last updated on October 27th, 2014.<br />
 		</div>
 		<div class="order-info order-info-oneline">
 			<p>
-				<span ng-show="user.phone">{{ user.phone | formatPhone }}</span>
-				<span ng-show="!user.phone">no phone # provided</span>
+				<span ng-if="user.phone">{{ user.phone | formatPhone }}</span>
+				<span ng-if="!user.phone">no phone # provided</span>
 			</p>
 		</div>
 		<div class="divider"></div>
 		<div class="order-icon">
-			<i class="fa fa-birthday-cake payment-form-icon form-icon form-field" ng-show="order.form.pay_type=='card' && order.total() <= credit.number"></i>	
-			<i class="fa fa-credit-card payment-form-icon form-icon form-field" ng-show="order.form.pay_type=='card' && order.total() > credit.number"></i>	
-			<i class="fa fa-money payment-form-icon form-icon form-field" ng-show="order.form.pay_type=='cash'"></i>
+			<i class="fa fa-birthday-cake payment-form-icon form-icon form-field" ng-if="order.form.pay_type=='card' && order.total() <= credit.number"></i>	
+			<i class="fa fa-credit-card payment-form-icon form-icon form-field" ng-if="order.form.pay_type=='card' && order.total() > credit.number"></i>	
+			<i class="fa fa-money payment-form-icon form-icon form-field" ng-if="order.form.pay_type=='cash'"></i>
 		</div>
 		<div class="order-info order-info-oneline">
 
 			<p>
-				<span ng-show="order.form.pay_type=='card' && order.total() <= credit.number">Gift card balance</span>
-				<span ng-show="order.form.pay_type=='card' && credit.number && order.total() > credit.number">Card ending in {{user.card_ending}} &amp; - {{credit.value}} credit</span>
-				<span ng-show="order.form.pay_type=='card' && !credit.number">Card ending in {{user.card_ending}}</span>
-				<span ng-show="order.form.pay_type=='cash'">Pay and tip with <b>cash</b>
+				<span ng-if="order.form.pay_type=='card' && order.total() <= credit.number">Gift card balance</span>
+				<span ng-if="order.form.pay_type=='card' && credit.number && order.total() > credit.number">Card ending in {{user.card_ending}} &amp; - {{credit.value}} credit</span>
+				<span ng-if="order.form.pay_type=='card' && !credit.number">Card ending in {{user.card_ending}}</span>
+				<span ng-if="order.form.pay_type=='cash'">Pay and tip with <b>cash</b>
 					<span ng-if="config.driver_change_amount">
 						<br><i>Drivers only carry ${{config.driver_change_amount}} in change</i>
 					</span>
@@ -2710,7 +2710,7 @@ This document was last updated on October 27th, 2014.<br />
 		<div class="order-icon">
 			<i class="fa fa-map-marker payment-form-icon form-icon form-field"></i>
 		</div>
-		<div class="order-info" ng-show="restaurant.delivery == '1' && order.form.delivery_type=='delivery'">
+		<div class="order-info" ng-if="restaurant.delivery == '1' && order.form.delivery_type=='delivery'">
 			<p>
 				Delivered to:<br />
 			</p>
@@ -2719,7 +2719,7 @@ This document was last updated on October 27th, 2014.<br />
 				<i ng-hide="order.form.address">no address provided</i>
 			</p>
 		</div>
-		<div class="order-info" ng-show="restaurant.takeout == '1' && order.form.delivery_type=='takeout'">
+		<div class="order-info" ng-if="restaurant.takeout == '1' && order.form.delivery_type=='takeout'">
 			<p class="restaurant-info-address">
 				Pick up from:<br />
 				<span ng-bind-html-unsafe="restaurant.address | nl2br"></span>
@@ -2732,7 +2732,7 @@ This document was last updated on October 27th, 2014.<br />
 				<div class="payment-form-group form-group">
 
 					<i class="fa fa-bullhorn payment-form-icon form-icon form-field"></i>
-					<textarea ng-focus="softKeyboard($event);" ng-autosize name="notes" ng-blur="checkGiftCard()" ng-model="order.form.notes" tabindex="6" class="payment-form-input form-input form-field notes-text-area" placeholder="notes"></textarea>
+					<textarea ng-focus="softKeyboard($event);" ng-blur="softKeyboardExit()" ng-autosize name="notes" ng-blur="checkGiftCard()" ng-model="order.form.notes" tabindex="6" class="payment-form-input form-input form-field notes-text-area" placeholder="notes"></textarea>
 
 					<!-- Gift card messages -->
 					<div class="giftcard-info">
@@ -2761,10 +2761,10 @@ This document was last updated on October 27th, 2014.<br />
 						<!-- Gift card success -->
 						<div ng-repeat="success in giftcard.giftcards.success">
 							<div ng-if="!success.delivery_free && !success.message">
-								<div ng-show="!success.error">
+								<div ng-if="!success.error">
 									Congrats! This gift card ({{success.giftcard}}) gives you ${{success.value}}.
 								</div>
-								<div ng-show="success.error == 'other restaurant'">
+								<div ng-if="success.error == 'other restaurant'">
 									The gift card ({{success.giftcard}}) you are trying to use belongs to another restaurant.
 								</div>
 							</div>
@@ -2918,7 +2918,7 @@ This document was last updated on October 27th, 2014.<br />
 
 					</div>
 
-		<div ng-show="image" class="community-image"></div>
+		<div ng-if="image" class="community-image"></div>
 
 
 		<div class="divider"></div>
@@ -2955,7 +2955,7 @@ This document was last updated on October 27th, 2014.<br />
 
 							<div ng-switch on="restaurant._tag">
 								<div class="meal-item-tag about-to-open" ng-switch-when="closed">Available {{restaurant._opensIn_formatted}}</div>
-								<div class="meal-item-tag about-to-open" ng-switch-when="force_close">Temporarily closed {{restaurant._closedDueTo}}</div>
+								<div class="meal-item-tag about-to-open" ng-switch-when="force_close"><span ng-if="restaurant._opensIn_formatted">Available {{restaurant._opensIn_formatted}}</span><span ng-if="!restaurant._opensIn_formatted">Temporarily closed {{restaurant._closedDueTo}}</span></div>
 								<div class="meal-item-tag" ng-switch-when="takeout">Take out only</div>
 								<div class="meal-item-tag" ng-switch-when="next_open">{{restaurant.next_open_time_message.message}}</div>
 								<div class="meal-item-tag about-to-close" ng-switch-when="closing">Hurry, closes in {{restaurant._closesIn}} min!</div>
@@ -2974,7 +2974,7 @@ This document was last updated on October 27th, 2014.<br />
 		</span>
 		<div class="divider"></div>
 
-		<button class="button green restaurants-more" ng-show="restaurantsToShow < restaurants.length" ng-click="showMoreRestaurants()">
+		<button class="button green restaurants-more" ng-if="restaurantsToShow < restaurants.length" ng-click="showMoreRestaurants()">
 			More awesome Restaurants
 		</button>
 
@@ -3046,7 +3046,7 @@ This document was last updated on October 27th, 2014.<br />
 			</div>
 
 			<p class="center-text">
-				<a href="" class="splash-continue" ng-instant="navigation.link('/location','fade')">Continue without logging in</a>
+				<a href="" class="splash-continue" ng-click="navigation.link('/location','fade')">Continue without logging in</a>
 			</p>
 		</div>
 	</div>
@@ -3374,7 +3374,7 @@ This document was last updated on October 27th, 2014.<br />
 
 		<div class="snap-content-inner bg" ng-scroll-position>
 			<div class="content" ng-scroll-spy>
-				<div ng-view id="ng-view" ng-class="animationClass"><!DOCTYPE html>
+				<div ng-view id="ng-view" ng-class="animationClass" ><!DOCTYPE html>
 <head>
 </head>
 <body>
@@ -3448,7 +3448,7 @@ This document was last updated on October 27th, 2014.<br />
 					<sub class="fa fa-quote-right"></sub>
 				</p></div>
 				<div class="quote-author">
-					<div class="quote-author-image" style="background-image: url(http://graph.facebook.com/659828729/picture?width=120&height=120)"></div>
+					<div class="quote-author-image" style="background-image: url(https://graph.facebook.com/659828729/picture?width=120&height=120)"></div>
 					<div class="quote-author-info">
 						<p>
 							<b>Devin Smith</b><br>
