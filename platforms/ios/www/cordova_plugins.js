@@ -145,6 +145,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.telerik.plugins.wkwebview/www/wkwebview.js",
+        "id": "com.telerik.plugins.wkwebview.wkwebview",
+        "clobbers": [
+            "wkwebview"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
         "id": "cordova-plugin-file.DirectoryEntry",
         "clobbers": [
@@ -309,7 +316,9 @@ module.exports.metadata =
     "net.bgta.phonegap.plugin.appversion": "1.1.1",
     "phonegap-plugin-push": "1.2.3",
     "cordova-plugin-facebook4": "1.3.0-0",
-    "cordova-plugin-file": "3.0.0"
+    "com.telerik.plugins.wkwebview": "0.6.1",
+    "cordova-plugin-file": "3.0.0",
+    "cordova-plugin-webserver": "1.0.3"
 }
 // BOTTOM OF METADATA
 });

@@ -164,4 +164,22 @@
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
+// this happens while we are running ( in the background, or from within our own app )
+// only valid if Crunchbutton-Info.plist specifies a protocol to handle
+- (BOOL)application:(UIApplication*)application handleOpenURL:(NSURL*)url
+{
+    if (!url) {
+        return NO;
+    }
+    
+    // calls into javascript global function 'handleOpenURL'
+    NSString* jsString = [NSString stringWithFormat:@"handleOpenURL(\"%@\");", url];
+    [self.viewController.webView stringByEvaluatingJavaScriptFromString:jsString];
+    
+    // all plugins will get the notification, and their handlers will be called
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:CDVPluginHandleOpenURLNotification object:url]];
+    
+    return YES;
+}
+
 @end

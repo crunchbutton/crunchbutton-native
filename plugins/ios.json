@@ -80,16 +80,38 @@
                     "MobileCoreServices.framework": [
                         {
                             "xml": false,
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "SystemConfiguration.framework": [
                         {
                             "xml": true,
                             "count": 1
+                        },
+                        {
+                            "xml": false,
+                            "count": 1
                         }
                     ],
                     "QuickLook.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "libz.dylib": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "CFNetwork.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "WebKit.framework": [
                         {
                             "xml": false,
                             "count": 1
@@ -199,6 +221,10 @@
                         {
                             "xml": "<plugin name=\"FacebookConnectPlugin\" value=\"FacebookConnectPlugin\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"WKWebViewPolyfill\"><param name=\"ios-package\" value=\"WKWebViewPolyfill\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -244,6 +270,10 @@
                     "NSAppTransportSecurity": [
                         {
                             "xml": "<dict><key>NSExceptionDomains</key><dict><key>facebook.com</key><dict><key>NSIncludesSubdomains</key><true /><key>NSExceptionRequiresForwardSecrecy</key><false /></dict><key>fbcdn.net</key><dict><key>NSIncludesSubdomains</key><true /><key>NSExceptionRequiresForwardSecrecy</key><false /></dict><key>akamaihd.net</key><dict><key>NSIncludesSubdomains</key><true /><key>NSExceptionRequiresForwardSecrecy</key><false /></dict></dict></dict>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /></dict>",
                             "count": 1
                         }
                     ],
@@ -316,10 +346,16 @@
             "APP_ID": "***REMOVED***",
             "APP_NAME": "Crunchbutton",
             "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "com.telerik.plugins.wkwebview": {
+            "PACKAGE_NAME": "com.crunchbutton"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-webserver": {
             "PACKAGE_NAME": "com.crunchbutton"
         }
     }
