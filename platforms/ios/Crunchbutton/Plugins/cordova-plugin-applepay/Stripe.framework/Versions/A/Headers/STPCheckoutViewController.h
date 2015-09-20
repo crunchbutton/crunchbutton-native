@@ -6,14 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TargetConditionals.h"
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
 #else
 #import <AppKit/AppKit.h>
 #endif
-
-
 
 typedef NS_ENUM(NSInteger, STPPaymentStatus) {
     STPPaymentStatusSuccess,       // The transaction was a success.

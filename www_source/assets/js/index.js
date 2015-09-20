@@ -110,7 +110,7 @@ $(function() {
 				//appAvailability.check('com.facebook.katana',success, fail);
 				App.hasFacebook = false;
 			} else if (device.platform == 'iOS') {
-				appAvailability.check('fb://',success, fail);
+				appAvailability.check('fbauth2://',success, fail);
 			} else {
 				App.hasFacebook = false;
 			}

@@ -7,47 +7,40 @@
 	<author email="tech@crunchbutton.com" href="http://crunchbutton.com">
 		Devin Smith, Crunchbutton
 	</author>
-	<content src="index.html" />
-	<preference name="permissions" value="none" />
-	<preference name="phonegap-version" value="4.2.0" />
-	<preference name="orientation" value="default" />
-	<preference name="target-device" value="universal" />
-	<preference name="fullscreen" value="false" />
-	<preference name="webviewbounce" value="false" />
-	<preference name="prerendered-icon" value="true" />
-	<preference name="stay-in-webview" value="false" />
-	<preference name="ios-statusbarstyle" value="black-opaque" />
-	<preference name="detect-data-types" value="true" />
-	<preference name="exit-on-suspend" value="false" />
-	<preference name="show-splash-screen-spinner" value="false" />
-	<preference name="ShowSplashScreenSpinner" value="false" />
-	<preference name="auto-hide-splash-screen" value="true" />
-	<preference name="AutoHideSplashScreen" value="true" />
-	<preference name="BackupWebStorage" value="local" />
-	 
-	<preference name="disable-cursor" value="false" />
-	<preference name="android-minSdkVersion" value="14" />
-	<preference name="android-targetSdkVersion" value="22" />
-	<preference name="android-installLocation" value="auto" />
-	<gap:plugin name="org.apache.cordova.battery-status" />
-	<gap:plugin name="org.apache.cordova.camera" />
-	<gap:plugin name="org.apache.cordova.media-capture" />
-	<gap:plugin name="org.apache.cordova.console" />
-	<gap:plugin name="org.apache.cordova.contacts" />
-	<gap:plugin name="org.apache.cordova.device" />
-	<gap:plugin name="org.apache.cordova.device-motion" />
-	<gap:plugin name="org.apache.cordova.device-orientation" />
-	<gap:plugin name="org.apache.cordova.dialogs" />
-	<gap:plugin name="org.apache.cordova.file" />
-	<gap:plugin name="org.apache.cordova.file-transfer" />
-	<gap:plugin name="org.apache.cordova.geolocation" />
-	<gap:plugin name="org.apache.cordova.globalization" />
-	<gap:plugin name="org.apache.cordova.inappbrowser" />
-	<gap:plugin name="org.apache.cordova.media" />
-	<gap:plugin name="org.apache.cordova.network-information" />
-	<gap:plugin name="org.apache.cordova.splashscreen" />
-	<gap:plugin name="org.apache.cordova.vibration" />
-
+    <content src="index.html" />
+    <preference name="permissions" value="none" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="false" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-installLocation" value="auto" />
+    <gap:plugin name="org.apache.cordova.battery-status" />
+    <gap:plugin name="org.apache.cordova.camera" />
+    <gap:plugin name="org.apache.cordova.media-capture" />
+    <gap:plugin name="org.apache.cordova.console" />
+    <gap:plugin name="org.apache.cordova.contacts" />
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.device-motion" />
+    <gap:plugin name="org.apache.cordova.device-orientation" />
+    <gap:plugin name="org.apache.cordova.dialogs" />
+    <gap:plugin name="org.apache.cordova.file" />
+    <gap:plugin name="org.apache.cordova.file-transfer" />
+    <gap:plugin name="org.apache.cordova.geolocation" />
+    <gap:plugin name="org.apache.cordova.globalization" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="org.apache.cordova.media" />
+    <gap:plugin name="org.apache.cordova.network-information" />
+    <gap:plugin name="org.apache.cordova.splashscreen" />
+    <gap:plugin name="org.apache.cordova.vibration" />
 	
 	
 	<gap:plugin name="com.phonegap.plugins.facebookconnect">
@@ -133,12 +126,22 @@
 		<splash src="res/screen/android/splash-port-xhdpi.png" density="land-xhdpi"/>
 		-->
 	</platform>
-
-	<access origin="*" />
-	<access origin="tel:*" launch-external="yes"/>
-	<access origin="geo:*" launch-external="yes"/>
-	<access origin="mailto:*" launch-external="yes"/>
-	<access origin="sms:*" launch-external="yes"/>
-	<access origin="market:*" launch-external="yes"/>
-	<access origin="fb:*" launch-external="yes"/>
+	
+	
+    <access origin="*" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <engine name="ios" spec="~3.9.1" />
 </widget>

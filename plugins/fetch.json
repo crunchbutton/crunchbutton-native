@@ -80,7 +80,7 @@
         "is_top_level": true,
         "variables": {}
     },
-    "com.ionic.keyboard": {
+    "ionic-plugin-keyboard": {
         "source": {
             "type": "git",
             "url": "https://github.com/driftyco/ionic-plugins-keyboard",
@@ -88,6 +88,30 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.phonegap.plugins.facebookconnect": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Wizcorp/phonegap-facebook-plugin.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "411729638889643",
+            "APP_NAME": "Crunchbutton"
+        }
+    },
+    "cordova-plugin-applepay": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/arzynik/cordova-plugin-applepay",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {
+            "STRIPE_PUBLISHABLE_KEY": "pk_test_O2GipEOkufCpgUJZaKP15OaQ",
+            "APPLE_PAY_MERCHANT": "merchant.com.crunchbutton"
+        }
     },
     "phonegap-plugin-push": {
         "source": {
@@ -102,6 +126,15 @@
         "source": {
             "type": "git",
             "url": "https://github.com/bgta/net.bgta.phonegap.appversion",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-appavailability": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ohh2ahh/AppAvailability",
             "subdir": "."
         },
         "is_top_level": true,
@@ -123,36 +156,16 @@
         "is_top_level": false,
         "variables": {}
     },
-    "cordova-plugin-appavailability": {
+    "cordova-plugin-facebook4": {
         "source": {
             "type": "git",
-            "url": "https://github.com/ohh2ahh/AppAvailability",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "com.phonegap.plugins.facebookconnect": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Wizcorp/phonegap-facebook-plugin.git",
+            "url": "https://github.com/jeduan/cordova-plugin-facebook4",
             "subdir": "."
         },
         "is_top_level": true,
         "variables": {
             "APP_ID": "411729638889643",
             "APP_NAME": "Crunchbutton"
-        }
-    },
-    "cordova-plugin-applepay": {
-        "source": {
-            "type": "local",
-            "path": "/Users/arzynik/Development/ios/cordova-plugin-applepay/cordova-plugin-applepay"
-        },
-        "is_top_level": true,
-        "variables": {
-            "STRIPE_PUBLISHABLE_KEY": "pk_test_O2GipEOkufCpgUJZaKP15OaQ",
-            "APPLE_PAY_MERCHANT": "merchant.com.crunchbutton"
         }
     }
 }
