@@ -73,15 +73,11 @@ $(function() {
 		}, false );
 
 		//gamecenter.auth( onSuccess, onError );
-
+		App.version = 'cordova';
+		
 		if (!App.minimalMode) {
 			getAppVersion(function(response) {
-				$.ajaxSetup({
-					timeout: App.ajaxTimeout,
-					data: {
-						'_v': response
-					}
-				});
+				App.version = response;
 			});
 		}
 
@@ -252,7 +248,7 @@ $(function() {
 		window.addEventListener('deviceorientation', orientationChanged, false);
 
 
-		App.server = 'http://beta.crunchr.co/';
+		App.server = 'https://crunchbutton.com/';
 		App._nativeVersionAndroid = 'ANDROID_NATIVE_VERSION';
 		App._nativeVersionIphone = 'IPHONE_NATIVE_VERSION';
 		App.service = App.server + 'api/';
@@ -282,7 +278,7 @@ $(function() {
 
 		var facebookInit = function(){
 			// Verify if angular is already started
-			if( angular && angular.element('html') && angular.element('html').injector() && angular.element('html').injector().get('FacebookService') ){
+			if( window.FB && window.angular && angular.element('html') && angular.element('html').injector() && angular.element('html').injector().get('FacebookService') ){
 				var facebookService = angular.element('html').injector().get('FacebookService');
 				FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
 

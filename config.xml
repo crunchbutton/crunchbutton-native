@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.crunchbutton" version="3.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.crunchbutton" version="3.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
 	<name>Crunchbutton</name>
 	<description>
 		One click food ordering
@@ -44,14 +44,14 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
-	
-	
+
+
 	<gap:plugin name="com.phonegap.plugins.facebookconnect">
 		<param name="APP_ID" value="411729638889643" />
 		<param name="APP_NAME" value="Crunchbutton" />
 	</gap:plugin>
 
-	
+
 	<preference name="DisallowOverscroll" value="true" />
 	<preference name="BackgroundColor" value="0x00000000"/>
 	<preference name="HideKeyboardFormAccessoryBar" value="true" />
@@ -59,11 +59,11 @@
 	<preference name="StatusBarOverlaysWebView" value="true"/>
 	<preference name="StatusBarBackgroundColor" value="#000000"/>
 	<preference name="StatusBarStyle" value="blackopaque" />
-	
+
 	<preference name="KeyboardDisplayRequiresUserAction" value="false" />
-	
+
 	<preference name="splash-screen-duration" value="0"/>
-	
+
 
 	<platform name="ios">
 		<icon src="icon.png" />
@@ -93,8 +93,8 @@
 		<!-- iPad Spotlight and Settings Icon -->
 		<icon src="res/icon/ios/icon-50.png" width="50" height="50" />
 		<icon src="res/icon/ios/icon-50-2x.png" width="100" height="100" />
-		
-		
+
+
 		<splash src="res/screen/ios/screen-iphone-portrait.png" width="320" height="480"/>
 		<splash src="res/screen/ios/screen-iphone-portrait-2x.png" width="640" height="960"/>
 		<splash src="res/screen/ios/screen-ipad-portrait.png" width="768" height="1024"/>
@@ -106,17 +106,17 @@
 		<splash src="res/screen/ios/screen-iphone-portrait-iphone6plus-2x.png" width="1242" height="2208"/>
 		<splash src="res/screen/ios/screen-iphone-landscape-iphone6plus-2x.png" width="2208" height="1242"/>
 	</platform>
-	
+
 
 	<platform name="android">
 		<icon src="res/icon/android/icon-512.png" />
-		
+
 		<icon src="res/icon/android/icon-36-ldpi.png" density="ldpi" />
 		<icon src="res/icon/android/icon-48-mdpi.png" density="mdpi" />
 		<icon src="res/icon/android/icon-72-hdpi.png" density="hdpi" />
 		<icon src="res/icon/android/icon-96-xhdpi.png" density="xhdpi" />
 		<icon src="res/icon/android/icon-144-xxhdpi.png" density="xxhdpi" />
-		
+
 		<splash src="res/screen/android/screen-hdpi-portrait.png" density="port-hdpi"/>
 		<splash src="res/screen/android/screen-ldpi-portrait.png" density="port-ldpi"/>
 		<splash src="res/screen/android/screen-mdpi-portrait.png" density="port-mdpi"/>
@@ -129,8 +129,8 @@
 		<splash src="res/screen/android/splash-port-xhdpi.png" density="land-xhdpi"/>
 		-->
 	</platform>
-	
-	
+
+
     <access origin="*" />
     <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
