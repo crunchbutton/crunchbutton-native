@@ -116,14 +116,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/ionic-plugin-keyboard/www/ios/keyboard.js",
-        "id": "ionic-plugin-keyboard.keyboard",
-        "clobbers": [
-            "cordova.plugins.Keyboard"
-        ],
-        "runs": true
-    },
-    {
         "file": "plugins/net.bgta.phonegap.plugin.appversion/www/AppVersion.js",
         "id": "net.bgta.phonegap.plugin.appversion.AppVersion",
         "clobbers": [
@@ -142,6 +134,21 @@ module.exports = [
         "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
         "clobbers": [
             "facebookConnectPlugin"
+        ]
+    },
+    {
+        "file": "plugins/ionic-plugin-keyboard/www/ios/keyboard.js",
+        "id": "ionic-plugin-keyboard.keyboard",
+        "clobbers": [
+            "cordova.plugins.Keyboard"
+        ],
+        "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-nativeaudio/www/nativeaudio.js",
+        "id": "cordova-plugin-nativeaudio.nativeaudio",
+        "clobbers": [
+            "window.plugins.NativeAudio"
         ]
     },
     {
@@ -305,10 +312,12 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "2.1.1-dev",
     "cordova-plugin-statusbar": "2.0.0-dev",
     "cordova-plugin-vibration": "2.0.0-dev",
-    "ionic-plugin-keyboard": "1.0.6",
     "net.bgta.phonegap.plugin.appversion": "1.1.1",
     "phonegap-plugin-push": "1.2.3",
     "cordova-plugin-facebook4": "1.3.0-0",
+    "ionic-plugin-keyboard": "1.0.6",
+    "cordova-plugin-ios-longpress-fix": "1.0.1",
+    "cordova-plugin-nativeaudio": "3.0.5",
     "cordova-plugin-file": "3.0.0"
 }
 // BOTTOM OF METADATA
