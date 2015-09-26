@@ -50,13 +50,17 @@
                     "Foundation.framework": [
                         {
                             "xml": false,
-                            "count": 2
+                            "count": 3
                         }
                     ],
                     "AudioToolbox.framework": [
                         {
                             "xml": true,
                             "count": 2
+                        },
+                        {
+                            "xml": false,
+                            "count": 1
                         }
                     ],
                     "CoreLocation.framework": [
@@ -97,7 +101,13 @@
                     ],
                     "libz.dylib": [],
                     "CFNetwork.framework": [],
-                    "WebKit.framework": []
+                    "WebKit.framework": [],
+                    "AVFoundation.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ]
                 }
             },
             "config.xml": {
@@ -184,10 +194,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"AppVersion\"><param name=\"ios-package\" value=\"AppVersion\" /></feature>",
                             "count": 1
                         },
@@ -201,6 +207,18 @@
                         },
                         {
                             "xml": "<plugin name=\"FacebookConnectPlugin\" value=\"FacebookConnectPlugin\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"LongPressFix\"><param name=\"ios-package\" value=\"LongPressFix\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NativeAudio\"><param name=\"ios-package\" value=\"NativeAudio\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -306,9 +324,6 @@
         "cordova-plugin-vibration": {
             "PACKAGE_NAME": "com.crunchbutton"
         },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
         "net.bgta.phonegap.plugin.appversion": {
             "PACKAGE_NAME": "com.crunchbutton"
         },
@@ -318,6 +333,15 @@
         "cordova-plugin-facebook4": {
             "APP_ID": "411729638889643",
             "APP_NAME": "Crunchbutton",
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-ios-longpress-fix": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-nativeaudio": {
             "PACKAGE_NAME": "com.crunchbutton"
         }
     },

@@ -154,8 +154,8 @@
 
 			<div class="button-pushable">
 				<button class="button facebook" ng-click="facebook.auth()">
-					<span ng-hide="facebook.facebook.wait">Hop in using Facebook</span>
-					<span ng-show="facebook.facebook.wait">Just a sec
+					<span ng-if="!facebook.facebook.wait">Hop in using Facebook</span>
+					<span ng-if="facebook.facebook.wait">Just a sec
 						<div id="circleG">
 							<div id="circleG_1" class="circleG"></div>
 							<div id="circleG_2" class="circleG"></div>
@@ -2007,7 +2007,7 @@ This document was last updated on October 27th, 2014.<br />
 	<div ng-show="orders.list && orders.list.length > 0">
 
 		<ul class="orders-list col-box">
-			<li ng-repeat="order in orders.list" class="order-item-wrap" ng-click="orders.receipt(order.id)">
+			<li ng-repeat="order in orders.list" class="order-item-wrap" ng-click="navigation.link('/order/' + order.id, 'push')">
 				<div class="order-item">
 					<div class="order-date">
 						<div class="order-month">{{order._date.getMonthNameShort()}}</div>
@@ -2404,7 +2404,7 @@ This document was last updated on October 27th, 2014.<br />
 
 <div class="divider"></div>
 </script><script type="text/ng-template" id="assets/view/restaurant-form-user-info.html">
-<form class="payment-form restaurant-side-bar" ng-if="order.loaded && order.cart.hasItems() && order.showForm">
+<form class="payment-form restaurant-side-bar" ng-if="order.loaded && order.cart.hasItems() && order.showForm" novalidate>
 
 	<div class="divider dots spacer-one-one"></div>
 
@@ -2968,7 +2968,7 @@ This document was last updated on October 27th, 2014.<br />
 
 				<div class="restaurants-open" ng-if="!showSmallClosures || (showSmallClosures && restaurant._tag != 'closed' && restaurant._tag != 'force_close')">
 
-					<div ng-spinner="loadingRestaurant[restaurant.id_restaurant]" class="restaurants-item-content" data-spinner-color="#333333" data-spinner-scale=".5">
+					<div class="restaurants-item-content">
 						<div class="ladda-label">
 							<div class="restaurants-pic" style="background-image: url({{restaurant.images.normal || restaurant.img}});"></div>
 							<h2 class="restaurants-name">{{restaurant.name}}</h2>
@@ -3061,8 +3061,8 @@ This document was last updated on October 27th, 2014.<br />
 			<div class="button-pushable">
 				<button class="button facebook" ng-click="facebook.auth()">
 					<i class="fa fa-facebook-square"></i>&nbsp;
-					<span ng-hide="facebook.facebook.wait">Log in with Facebook</span>
-					<span ng-show="facebook.facebook.wait">Just a sec
+					<span ng-if="!facebook.facebook.wait">Log in with Facebook</span>
+					<span ng-if="facebook.facebook.wait">Just a sec
 						<div id="circleG">
 							<div id="circleG_1" class="circleG"></div>
 							<div id="circleG_2" class="circleG"></div>
@@ -3239,7 +3239,7 @@ This document was last updated on October 27th, 2014.<br />
 
 		<div class="pushabutton"></div>
 		<ul>
-			<li ng-click="navigation.link('/splash', null, true)" ng-if="!account.user.id_user" ng-class="{'nav-active': (navigation.page == 'splash')}">
+			<li ng-click="navigation.link('/splash', 'instant', true)" ng-if="!account.user.id_user" ng-class="{'nav-active': (navigation.page == 'splash')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-rocket"></i></td>
@@ -3247,7 +3247,7 @@ This document was last updated on October 27th, 2014.<br />
 					</tr>
 				</table>
 			</li>
-			<li ng-click="navigation.link('/food-delivery', null, true)" ng-if="account.user.id_user" ng-class="{'nav-active': (navigation.page == 'restaurants')}">
+			<li ng-click="navigation.link('/food-delivery', 'instant', true)" ng-if="account.user.id_user" ng-class="{'nav-active': (navigation.page == 'restaurants')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-cutlery"></i></td>
@@ -3255,7 +3255,7 @@ This document was last updated on October 27th, 2014.<br />
 					</tr>
 				</table>
 			</li>
-			<li ng-if="account.user.id_user && account.user.name" ng-click="navigation.link('/orders', null, true)" ng-class="{'nav-active': (navigation.page == 'orders')}">
+			<li ng-if="account.user.id_user && account.user.name" ng-click="navigation.link('/orders', 'instant', true)" ng-class="{'nav-active': (navigation.page == 'orders')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-truck"></i></td>
@@ -3263,7 +3263,7 @@ This document was last updated on October 27th, 2014.<br />
 					</tr>
 				</table>
 			</li>
-			<li ng-click="navigation.link('/location', null, true)" ng-if="account.user.id_user" ng-class="{'nav-active': (navigation.page == 'location')}">
+			<li ng-click="navigation.link('/location', 'instant', true)" ng-if="account.user.id_user" ng-class="{'nav-active': (navigation.page == 'location')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-map-marker"></i></td>
@@ -3272,7 +3272,7 @@ This document was last updated on October 27th, 2014.<br />
 				</table>
 			</li>
 
-			<li ng-click="navigation.link('/help', null, true)" ng-class="{'nav-active': (navigation.page == 'help')}">
+			<li ng-click="navigation.link('/help', 'instant', true)" ng-class="{'nav-active': (navigation.page == 'help')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-heart"></i></td>
@@ -3280,7 +3280,7 @@ This document was last updated on October 27th, 2014.<br />
 					</tr>
 				</table>
 			</li>
-			<li ng-if="account.user.id_user" ng-click="navigation.link('/free-food', null, true)" ng-class="{'nav-active': (navigation.page == 'free-food')}">
+			<li ng-if="account.user.id_user" ng-click="navigation.link('/free-food', 'instant', true)" ng-class="{'nav-active': (navigation.page == 'free-food')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-star"></i></td>
@@ -3288,7 +3288,7 @@ This document was last updated on October 27th, 2014.<br />
 					</tr>
 				</table>
 			</li>
-			<li ng-click="navigation.link('/work', null, true)" ng-class="{'nav-active': (navigation.page == 'work')}">
+			<li ng-click="navigation.link('/work', 'instant', true)" ng-class="{'nav-active': (navigation.page == 'work')}">
 				<table cellpadding="0" cellspacing="0" class="side-menu-wrap">
 					<tr>
 						<td class="side-menu-icon"><i class="fa fa-briefcase"></i></td>
@@ -3470,7 +3470,7 @@ This document was last updated on October 27th, 2014.<br />
 					<li><a href="/free-food">Free Food</a></li>
 				</ul>
 			</div>
-			<ng-include src="'assets/view/quote.html'"></ng-include>
+			<div ng-include="'assets/view/quote.html'"></div>
 		</div>
 		
 		<br><br><br><br>
@@ -3514,9 +3514,14 @@ This document was last updated on October 27th, 2014.<br />
 <div class="location-overpull-preload-two"></div>
 <div class="location-overpull-preload-three"></div>
 
+<audio id="crunch">
+	<source src="/assets/audio/crunch.mp3"></source>
+	<source src="/assets/audio/crunch.ogg"></source>
+</audio>
 </body>
+
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
-	<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="jquery-min.js"></script>
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="angular-route.min.js"></script>
 	<script type="text/javascript" src="angular-animate.min.js"></script>
@@ -3525,7 +3530,6 @@ This document was last updated on October 27th, 2014.<br />
 	<script type="text/javascript" src="analytics.js"></script>
 	<script type="text/javascript" src="ecommerce.js"></script>
 	<script type="text/javascript" src="facebook-track.js"></script>
-	<script type="text/javascript" src="balanced.js"></script>
 	<script type="text/javascript" src="stripe.js"></script>
 
 	<script type="text/javascript" src="index.js"></script>

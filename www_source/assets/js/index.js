@@ -300,6 +300,16 @@ $(function() {
 			}
 		}
 		facebookInit();
+		
+
+		if (window.plugins.NativeAudio) {
+			console.debug('init audio');
+			$('audio').each(function() {
+				console.debug($(this).find('source'));
+				window.plugins.NativeAudio.preloadSimple(this.id, $(this).find('source').attr('src').replace('/',''), function(msg){console.info(msg)}, function(msg){ console.error( 'Error: ' + msg ); });
+			});
+		}
+
 
 	}, true);
 } );

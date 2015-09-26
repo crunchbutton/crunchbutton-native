@@ -248,7 +248,7 @@ $(function() {
 		window.addEventListener('deviceorientation', orientationChanged, false);
 
 
-		App.server = 'https://crunchbutton.com/';
+		App.server = 'http://beta.crunchr.co/';
 		App._nativeVersionAndroid = 'ANDROID_NATIVE_VERSION';
 		App._nativeVersionIphone = 'IPHONE_NATIVE_VERSION';
 		App.service = App.server + 'api/';
@@ -300,6 +300,16 @@ $(function() {
 			}
 		}
 		facebookInit();
+		
+
+		if (window.plugins.NativeAudio) {
+			console.debug('init audio');
+			$('audio').each(function() {
+				console.debug($(this).find('source'));
+				window.plugins.NativeAudio.preloadSimple(this.id, $(this).find('source').attr('src').replace('/',''), function(msg){console.info(msg)}, function(msg){ console.error( 'Error: ' + msg ); });
+			});
+		}
+
 
 	}, true);
 } );

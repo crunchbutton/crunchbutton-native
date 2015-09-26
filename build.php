@@ -119,6 +119,26 @@ $index = str_replace('APP_SERVER_URL', $live ? 'https://crunchbutton.com/' : 'ht
 file_put_contents($path.'index.js', $index);
 
 
+// download latest versions of javascript libraries
+echo "Downloading javascript assets...\n";
+$angularVersion = '1.4.6';
+$jqueryVersion = '2.1.4';
+$files = [
+	'jquery-min.js' => 'http://ajax.googleapis.com/ajax/libs/jquery/'.$jqueryVersion.'/jquery.min.js',
+	'angular.min.js' => 'http://ajax.googleapis.com/ajax/libs/angularjs/'.$angularVersion.'/angular.min.js',
+	'angular-route.min.js' => 'http://ajax.googleapis.com/ajax/libs/angularjs/'.$angularVersion.'/angular-route.min.js',
+	'angular-animate.min.js' => 'http://ajax.googleapis.com/ajax/libs/angularjs/'.$angularVersion.'/angular-animate.min.js',
+	'angular-resource.min.js' => 'http://ajax.googleapis.com/ajax/libs/angularjs/'.$angularVersion.'/angular-resource.min.js',
+	'stripe.js' => 'https://js.stripe.com/v2/'
+];
+foreach ($files as $name => $file) {
+	echo '	'.$name.'... ';
+	$f = file_get_contents($file);
+	file_put_contents($path.$name, $f);
+	echo "complete.\n";
+}
+
+
 // replace playlist values
 /*
 echo "Building info plist...\n";

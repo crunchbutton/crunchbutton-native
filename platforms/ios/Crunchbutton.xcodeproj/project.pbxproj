@@ -45,7 +45,6 @@
 		7198192852B64DCC9AA91639 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C012C257E374049ABC75D7C /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		746CBAD547994BEB9B65518B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D66ECC687C1B4180B1FC96D4 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		75EF73E1B4EF4FC28DD2AAD5 /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C18C6E035542888D36C82D /* CDVFile.m */; };
-		79D5A2A55DB84A78A2E90E77 /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB71D5522B040C5BF8CF3C1 /* IonicKeyboard.m */; };
 		7C9DE9FFA1064DF189DD9037 /* AppAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400BD18B9C24B1AAD9FFC50 /* AppAvailability.m */; };
 		7D662B1D66A5453B8E9FF67B /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E814A946E54C99A5B3286B /* CDVLocalFilesystem.m */; };
 		7E7966DE1810823500FA85AD /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D41810823500FA85AD /* icon-40.png */; };
@@ -65,7 +64,6 @@
 		AE17DFC659744FC59820F0AB /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 052F3421DD1842AAAE2CB6AD /* CDVReachability.m */; };
 		B9F4C8CED50C4D8D91623FA2 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8AFEE851D44C728B3EFB74 /* CDVLocation.m */; };
 		BB6EB208E9A44CAAAA47F2CD /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD3B065433E4C8486A335FB /* PassKit.framework */; };
-		C59D48A7308640DB8F056708 /* UIWebViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B3269D2A74A6C8BE91FDF /* UIWebViewExtension.m */; };
 		CAD495977AAF40B5A67A2701 /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = E54F4C181E8B4366852C5653 /* CDVAssetLibraryFilesystem.m */; };
 		CE3C3E030FA3483680CF4044 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCF737CA18B4BC58621FEF8 /* CDVInAppBrowser.m */; };
 		D007F1CF3DF54A26805C3E75 /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C2B935AF36419690D38960 /* CDVNotification.m */; };
@@ -80,6 +78,12 @@
 		F76B8BA114834339A7DE6FBD /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA613A47971741B18EE9C084 /* QuickLook.framework */; };
 		F7B1E4C6A8894B6AA24DA52B /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = BA783C5708974F51BE7DD3BD /* FacebookConnectPlugin.m */; };
 		0337D8A598FA40DC8FC597BB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523341E91C884DC09A919B7A /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C37A485A6D9A4CEA9E643469 /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A14E769EE8AE464C91001F09 /* IonicKeyboard.m */; };
+		6437D4C77DF8417F9B7353B2 /* UIWebViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE7E178E833444AADE597A7 /* UIWebViewExtension.m */; };
+		FF2F985A971F41589C786734 /* LongPressFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BEA71F949246ABB8812E1A /* LongPressFix.m */; };
+		1AD98910AA3F4F9CB6D8592A /* NativeAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B74E53B538443378404A73C /* NativeAudio.m */; };
+		A68A3109B300454C9811E7DA /* NativeAudioAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F7576C0314B59928565E5 /* NativeAudioAsset.m */; };
+		D8DF307A66904F36A16314D9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47F56D6272B4783BAA55C0C /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,7 +148,6 @@
 		4C012C257E374049ABC75D7C /* AudioToolbox.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		53962B461C394C4DBF382C5D /* CDVVibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVVibration.h; path = "cordova-plugin-vibration/CDVVibration.h"; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		5FB71D5522B040C5BF8CF3C1 /* IonicKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IonicKeyboard.m; path = "ionic-plugin-keyboard/IonicKeyboard.m"; sourceTree = "<group>"; };
 		63BAC395CFC14357895ED8A0 /* CDVNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVNotification.h; path = "cordova-plugin-dialogs/CDVNotification.h"; sourceTree = "<group>"; };
 		64D4B817BC084E84A585E3A2 /* PushPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushPlugin.m; path = "phonegap-plugin-push/PushPlugin.m"; sourceTree = "<group>"; };
 		69681DD7622E4A83A572FE6D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "Crunchbutton/Plugins/cordova-plugin-facebook4/FBSDKShareKit.framework"; sourceTree = "<group>"; };
@@ -172,7 +175,6 @@
 		8DCF737CA18B4BC58621FEF8 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowser.m; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; };
 		9506112B4BE24C8E84A59FEE /* CDVSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVSplashScreen.m; path = "cordova-plugin-splashscreen/CDVSplashScreen.m"; sourceTree = "<group>"; };
 		96B97B054D2749C08AAFBE4E /* AddressBook.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		96BA9AEE83B64E4E9E7869CE /* UIWebViewExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIWebViewExtension.h; path = "ionic-plugin-keyboard/UIWebViewExtension.h"; sourceTree = "<group>"; };
 		986B3332E2264B27A0876D47 /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookConnectPlugin.h; path = "cordova-plugin-facebook4/FacebookConnectPlugin.h"; sourceTree = "<group>"; };
 		9CEA2DE7D2084074A4652659 /* CDVApplePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVApplePay.h; path = "cordova-plugin-applepay/CDVApplePay.h"; sourceTree = "<group>"; };
 		A2901FA49B0743848593A469 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Crunchbutton/Plugins/cordova-plugin-facebook4/Bolts.framework"; sourceTree = "<group>"; };
@@ -186,13 +188,11 @@
 		BA783C5708974F51BE7DD3BD /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookConnectPlugin.m; path = "cordova-plugin-facebook4/FacebookConnectPlugin.m"; sourceTree = "<group>"; };
 		BA7CB6FF846C40BB8955BBCA /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = "Crunchbutton/Plugins/cordova-plugin-applepay/Stripe.framework"; sourceTree = "<group>"; };
 		BEA8E0F9A8414BB682BBE5B9 /* Foundation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C43B3269D2A74A6C8BE91FDF /* UIWebViewExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIWebViewExtension.m; path = "ionic-plugin-keyboard/UIWebViewExtension.m"; sourceTree = "<group>"; };
 		C530D8A647AE47D087F891CB /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CDVNotification.bundle; sourceTree = "<group>"; };
 		C6C185A62D48482C8F36DE84 /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; };
 		C85BA3AC861C438394740DCC /* libsqlite3.dylib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CA56CBE112704F06923BC712 /* CDVStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVStatusBar.h; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; };
 		CA613A47971741B18EE9C084 /* QuickLook.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
-		CABA3B0CFBDE4F0C8CA1F38C /* IonicKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IonicKeyboard.h; path = "ionic-plugin-keyboard/IonicKeyboard.h"; sourceTree = "<group>"; };
 		CEA83D1F887F46B89D0EAD57 /* CDVApplePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVApplePay.m; path = "cordova-plugin-applepay/CDVApplePay.m"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		D66ECC687C1B4180B1FC96D4 /* Social.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -207,6 +207,17 @@
 		F303832444BB43EA889D9B14 /* CoreLocation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Crunchbutton/config.xml; sourceTree = "<group>"; };
 		523341E91C884DC09A919B7A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		A14E769EE8AE464C91001F09 /* IonicKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "IonicKeyboard.m"; path = "ionic-plugin-keyboard/IonicKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		EEE7E178E833444AADE597A7 /* UIWebViewExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIWebViewExtension.m"; path = "ionic-plugin-keyboard/UIWebViewExtension.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		9ED1A5CC91904D9E9BCF63AF /* IonicKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "IonicKeyboard.h"; path = "ionic-plugin-keyboard/IonicKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		869B16434AA945AFBE264CFA /* UIWebViewExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIWebViewExtension.h"; path = "ionic-plugin-keyboard/UIWebViewExtension.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		77BEA71F949246ABB8812E1A /* LongPressFix.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "LongPressFix.m"; path = "cordova-plugin-ios-longpress-fix/LongPressFix.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		2101ABA0391D40F99CD55391 /* LongPressFix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "LongPressFix.h"; path = "cordova-plugin-ios-longpress-fix/LongPressFix.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		3B74E53B538443378404A73C /* NativeAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NativeAudio.m"; path = "cordova-plugin-nativeaudio/NativeAudio.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		2C7F7576C0314B59928565E5 /* NativeAudioAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NativeAudioAsset.m"; path = "cordova-plugin-nativeaudio/NativeAudioAsset.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		A63493EA63B14B82BBC5DB2C /* NativeAudio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NativeAudio.h"; path = "cordova-plugin-nativeaudio/NativeAudio.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		5B33D2FC3D0D45EDA012DF5F /* NativeAudioAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NativeAudioAsset.h"; path = "cordova-plugin-nativeaudio/NativeAudioAsset.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		C47F56D6272B4783BAA55C0C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +247,7 @@
 				E7B19CC5887342EC8B501547 /* Accounts.framework in Frameworks */,
 				D2C02203F4E1446E93AECB7F /* Security.framework in Frameworks */,
 				0337D8A598FA40DC8FC597BB /* SystemConfiguration.framework in Frameworks */,
+				D8DF307A66904F36A16314D9 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +340,7 @@
 				0DB1700A7AB64F7D93F74640 /* Accounts.framework */,
 				452A97EFB43047F38C0F7278 /* Security.framework */,
 				523341E91C884DC09A919B7A /* SystemConfiguration.framework */,
+				C47F56D6272B4783BAA55C0C /* AVFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -375,10 +388,6 @@
 				CA56CBE112704F06923BC712 /* CDVStatusBar.h */,
 				AFFF7B663816486BA17D0655 /* CDVVibration.m */,
 				53962B461C394C4DBF382C5D /* CDVVibration.h */,
-				5FB71D5522B040C5BF8CF3C1 /* IonicKeyboard.m */,
-				C43B3269D2A74A6C8BE91FDF /* UIWebViewExtension.m */,
-				CABA3B0CFBDE4F0C8CA1F38C /* IonicKeyboard.h */,
-				96BA9AEE83B64E4E9E7869CE /* UIWebViewExtension.h */,
 				EE0E283E7B1C45C88083680A /* AppVersion.m */,
 				A6AF12C7F1EB4132B6673CA2 /* AppVersion.h */,
 				82B8E67813764FCBB3FFB20F /* AppDelegate+notification.m */,
@@ -387,6 +396,16 @@
 				8C96D23DD5484D8498FA1AAA /* PushPlugin.h */,
 				BA783C5708974F51BE7DD3BD /* FacebookConnectPlugin.m */,
 				986B3332E2264B27A0876D47 /* FacebookConnectPlugin.h */,
+				A14E769EE8AE464C91001F09 /* IonicKeyboard.m */,
+				EEE7E178E833444AADE597A7 /* UIWebViewExtension.m */,
+				9ED1A5CC91904D9E9BCF63AF /* IonicKeyboard.h */,
+				869B16434AA945AFBE264CFA /* UIWebViewExtension.h */,
+				77BEA71F949246ABB8812E1A /* LongPressFix.m */,
+				2101ABA0391D40F99CD55391 /* LongPressFix.h */,
+				3B74E53B538443378404A73C /* NativeAudio.m */,
+				2C7F7576C0314B59928565E5 /* NativeAudioAsset.m */,
+				A63493EA63B14B82BBC5DB2C /* NativeAudio.h */,
+				5B33D2FC3D0D45EDA012DF5F /* NativeAudioAsset.h */,
 			);
 			name = Plugins;
 			path = Crunchbutton/Plugins;
@@ -601,12 +620,15 @@
 				35020165D5314CC4B7FF1EE3 /* CDVViewController+SplashScreen.m in Sources */,
 				26E87249F2624E7F8A780BBB /* CDVStatusBar.m in Sources */,
 				9F980073FF6944C2A0160E92 /* CDVVibration.m in Sources */,
-				79D5A2A55DB84A78A2E90E77 /* IonicKeyboard.m in Sources */,
-				C59D48A7308640DB8F056708 /* UIWebViewExtension.m in Sources */,
 				9378BBEA66AB4ECF8FA18C10 /* AppVersion.m in Sources */,
 				A8F588A0A4FF41379CCA353D /* AppDelegate+notification.m in Sources */,
 				D1966FB9DED1453EAD04C643 /* PushPlugin.m in Sources */,
 				F7B1E4C6A8894B6AA24DA52B /* FacebookConnectPlugin.m in Sources */,
+				C37A485A6D9A4CEA9E643469 /* IonicKeyboard.m in Sources */,
+				6437D4C77DF8417F9B7353B2 /* UIWebViewExtension.m in Sources */,
+				FF2F985A971F41589C786734 /* LongPressFix.m in Sources */,
+				1AD98910AA3F4F9CB6D8592A /* NativeAudio.m in Sources */,
+				A68A3109B300454C9811E7DA /* NativeAudioAsset.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
