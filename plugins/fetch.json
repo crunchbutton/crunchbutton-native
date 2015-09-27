@@ -80,18 +80,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "com.phonegap.plugins.facebookconnect": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Wizcorp/phonegap-facebook-plugin.git",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {
-            "APP_ID": "***REMOVED***",
-            "APP_NAME": "Crunchbutton"
-        }
-    },
     "cordova-plugin-applepay": {
         "source": {
             "type": "git",

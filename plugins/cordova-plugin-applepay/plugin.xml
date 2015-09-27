@@ -28,6 +28,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <config-file target="config.xml" parent="/*">
 	        <feature name="ApplePay">
 	            <param name="ios-package" value="CDVApplePay"/>
+				<param name="STRIPE_PUBLISHABLE_KEY" value="pk_live_wubWoqnU6Mzo2IoaiSqdytE4"/>
 	        </feature>
         </config-file>
 		
