@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "STPCard.h"
-
 @class STPPaymentCardTextField;
 
 /**
@@ -61,21 +59,6 @@
  *  The text placeholder color used in each child field. Default is [UIColor lightGreyColor]. Set this property to nil to reset to the default. On iOS 7 and above, this will also set the color of the card placeholder icon.
  */
 @property(nonatomic, copy, null_resettable) IBInspectable UIColor *placeholderColor UI_APPEARANCE_SELECTOR IBInspectable;
-
-/**
- *  The placeholder for the card number field. Default is @"1234567812345678". If this is set to something that resembles a card number, it will automatically format it as such (in other words, you don't need to add spaces to this string).
- */
-@property(nonatomic, copy, nullable) NSString *numberPlaceholder;
-
-/**
- *  The placeholder for the expiration field. Defaults to @"MM/YY".
- */
-@property(nonatomic, copy, nullable) NSString *expirationPlaceholder;
-
-/**
- *  The placeholder for the cvc field. Defaults to @"CVC".
- */
-@property(nonatomic, copy, nullable) NSString *cvcPlaceholder;
 
 /**
  *  The border color for the field. Default is [UIColor lightGreyColor]. Can be nil (in which case no border will be drawn).
@@ -148,11 +131,6 @@
  *  The current card CVC displayed by the field. May or may not be valid, unless isValid is true, in which case it is guaranteed to be valid.
  */
 @property(nonatomic, readonly, nullable) NSString *cvc;
-
-/**
- *  Convenience method to create a STPCard from the currently entered information. Will return nil if not valid.
- */
-@property(nonatomic, readonly, nullable) STPCard *card;
 
 @end
 

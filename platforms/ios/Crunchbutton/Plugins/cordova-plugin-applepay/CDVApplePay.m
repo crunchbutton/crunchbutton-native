@@ -1,7 +1,5 @@
 #import "CDVApplePay.h"
 #import <Stripe/Stripe.h>
-//#import "STPAPIClient.h"
-//#import "STPCardBrand.h"
 #import <PassKit/PassKit.h>
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>

@@ -5,134 +5,9 @@
     },
     "config_munge": {
         "files": {
-            "framework": {
-                "parents": {
-                    "libsqlite3.dylib": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "Social.framework": [
-                        {
-                            "xml": true,
-                            "count": 1
-                        }
-                    ],
-                    "Accounts.framework": [
-                        {
-                            "xml": true,
-                            "count": 1
-                        }
-                    ],
-                    "Security.framework": [
-                        {
-                            "xml": true,
-                            "count": 1
-                        },
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "AddressBook.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "PassKit.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "Foundation.framework": [
-                        {
-                            "xml": false,
-                            "count": 3
-                        }
-                    ],
-                    "AudioToolbox.framework": [
-                        {
-                            "xml": true,
-                            "count": 2
-                        },
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "CoreLocation.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "CoreGraphics.framework": [
-                        {
-                            "xml": false,
-                            "count": 2
-                        }
-                    ],
-                    "AssetsLibrary.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "MobileCoreServices.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "SystemConfiguration.framework": [
-                        {
-                            "xml": true,
-                            "count": 1
-                        }
-                    ],
-                    "QuickLook.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "libz.dylib": [],
-                    "CFNetwork.framework": [],
-                    "WebKit.framework": [],
-                    "AVFoundation.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ]
-                }
-            },
             "config.xml": {
                 "parents": {
                     "/*": [
-                        {
-                            "xml": "<access origin=\"https://m.facebook.com\" />",
-                            "count": 2
-                        },
-                        {
-                            "xml": "<access origin=\"https://graph.facebook.com\" />",
-                            "count": 2
-                        },
-                        {
-                            "xml": "<access origin=\"https://api.facebook.com\" />",
-                            "count": 2
-                        },
-                        {
-                            "xml": "<access origin=\"https://*.fbcdn.net\" />",
-                            "count": 2
-                        },
-                        {
-                            "xml": "<access origin=\"https://*.akamaihd.net\" />",
-                            "count": 2
-                        },
                         {
                             "xml": "<feature name=\"AppAvailability\"><param name=\"ios-package\" value=\"AppAvailability\" /></feature>",
                             "count": 1
@@ -150,11 +25,31 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+                            "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"ios-package\" value=\"FacebookConnectPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "xml": "<plugin name=\"FacebookConnectPlugin\" value=\"FacebookConnectPlugin\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://m.facebook.com\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://graph.facebook.com\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://api.facebook.com\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://*.fbcdn.net\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://*.akamaihd.net\" />",
                             "count": 1
                         },
                         {
@@ -166,7 +61,23 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"LongPressFix\"><param name=\"ios-package\" value=\"LongPressFix\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Media\"><param name=\"ios-package\" value=\"CDVSound\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NativeAudio\"><param name=\"ios-package\" value=\"NativeAudio\" /></feature>",
                             "count": 1
                         },
                         {
@@ -194,31 +105,95 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"AppVersion\"><param name=\"ios-package\" value=\"AppVersion\" /></feature>",
                             "count": 1
                         },
                         {
                             "xml": "<feature name=\"PushNotification\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
                             "count": 1
-                        },
+                        }
+                    ]
+                }
+            },
+            "framework": {
+                "parents": {
+                    "AddressBook.framework": [
                         {
-                            "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"ios-package\" value=\"FacebookConnectPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": false,
                             "count": 1
-                        },
+                        }
+                    ],
+                    "PassKit.framework": [
                         {
-                            "xml": "<plugin name=\"FacebookConnectPlugin\" value=\"FacebookConnectPlugin\" />",
+                            "xml": false,
                             "count": 1
-                        },
+                        }
+                    ],
+                    "Foundation.framework": [
                         {
-                            "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
+                            "xml": false,
+                            "count": 3
+                        }
+                    ],
+                    "Security.framework": [
+                        {
+                            "xml": false,
                             "count": 1
+                        }
+                    ],
+                    "AudioToolbox.framework": [
+                        {
+                            "xml": true,
+                            "count": 2
                         },
                         {
-                            "xml": "<feature name=\"LongPressFix\"><param name=\"ios-package\" value=\"LongPressFix\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": false,
                             "count": 1
-                        },
+                        }
+                    ],
+                    "AssetsLibrary.framework": [
                         {
-                            "xml": "<feature name=\"NativeAudio\"><param name=\"ios-package\" value=\"NativeAudio\" /></feature>",
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "MobileCoreServices.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "CoreLocation.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": false,
+                            "count": 2
+                        }
+                    ],
+                    "AVFoundation.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "SystemConfiguration.framework": [
+                        {
+                            "xml": true,
+                            "count": 1
+                        }
+                    ],
+                    "QuickLook.framework": [
+                        {
+                            "xml": false,
                             "count": 1
                         }
                     ]
@@ -226,24 +201,6 @@
             },
             "*-Info.plist": {
                 "parents": {
-                    "FacebookAppID": [
-                        {
-                            "xml": "<string>411729638889643</string>",
-                            "count": 2
-                        }
-                    ],
-                    "FacebookDisplayName": [
-                        {
-                            "xml": "<string>Crunchbutton</string>",
-                            "count": 2
-                        }
-                    ],
-                    "CFBundleURLTypes": [
-                        {
-                            "xml": "<array><dict><key>CFBundleURLSchemes</key><array><string>fb411729638889643</string></array></dict></array>",
-                            "count": 2
-                        }
-                    ],
                     "StripePublishableKey": [
                         {
                             "xml": "<string>pk_test_O2GipEOkufCpgUJZaKP15OaQ</string>",
@@ -256,9 +213,21 @@
                             "count": 1
                         }
                     ],
-                    "NSLocationWhenInUseUsageDescription": [
+                    "FacebookAppID": [
                         {
-                            "xml": "<string />",
+                            "xml": "<string>411729638889643</string>",
+                            "count": 1
+                        }
+                    ],
+                    "FacebookDisplayName": [
+                        {
+                            "xml": "<string>Crunchbutton</string>",
+                            "count": 1
+                        }
+                    ],
+                    "CFBundleURLTypes": [
+                        {
+                            "xml": "<array><dict><key>CFBundleURLSchemes</key><array><string>fb411729638889643</string></array></dict></array>",
                             "count": 1
                         }
                     ],
@@ -271,6 +240,12 @@
                     "LSApplicationQueriesSchemes": [
                         {
                             "xml": "<array><string>fbapi</string><string>fb-messenger-api</string><string>fbauth2</string><string>fbshareextension</string></array>",
+                            "count": 1
+                        }
+                    ],
+                    "NSLocationWhenInUseUsageDescription": [
+                        {
+                            "xml": "<string />",
                             "count": 1
                         }
                     ]
@@ -303,13 +278,27 @@
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.crunchbutton"
         },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "411729638889643",
+            "APP_NAME": "Crunchbutton",
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.crunchbutton"
         },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.crunchbutton"
         },
+        "cordova-plugin-ios-longpress-fix": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
         "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-nativeaudio": {
             "PACKAGE_NAME": "com.crunchbutton"
         },
         "cordova-plugin-network-information": {
@@ -324,30 +313,15 @@
         "cordova-plugin-vibration": {
             "PACKAGE_NAME": "com.crunchbutton"
         },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
         "net.bgta.phonegap.plugin.appversion": {
             "PACKAGE_NAME": "com.crunchbutton"
         },
         "phonegap-plugin-push": {
             "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "cordova-plugin-facebook4": {
-            "APP_ID": "411729638889643",
-            "APP_NAME": "Crunchbutton",
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "cordova-plugin-ios-longpress-fix": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        },
-        "cordova-plugin-nativeaudio": {
-            "PACKAGE_NAME": "com.crunchbutton"
         }
     },
-    "dependent_plugins": {
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.crunchbutton"
-        }
-    }
+    "dependent_plugins": {}
 }
