@@ -10,20 +10,16 @@
 //
 
 #import "FacebookConnectPlugin.h"
-@import Social;
 #import <objc/runtime.h>
 
 @interface FacebookConnectPlugin ()
 
-@property BOOL useSystemLogin;
 @property (strong, nonatomic) NSString* dialogCallbackId;
 - (NSDictionary *)responseObject;
 - (NSDictionary*)parseURLParams:(NSString *)query;
 - (BOOL)isPublishPermission:(NSString*)permission;
 - (BOOL)areAllPermissionsReadPermissions:(NSArray*)permissions;
 @end
-
-
 
 @implementation FacebookConnectPlugin
 
@@ -39,10 +35,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(applicationDidBecomeActive:)
                                                  name:UIApplicationDidBecomeActiveNotification object:nil];
-    
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-        self.useSystemLogin = YES;
-    }
 }
 
 - (void) applicationDidFinishLaunching:(NSNotification *) notification {
@@ -148,15 +140,8 @@
     }
 
     void (^loginHandler)(FBSDKLoginManagerLoginResult *result, NSError *error) = ^void(FBSDKLoginManagerLoginResult *result, NSError *error) {
-
         if (error) {
-
             // If the SDK has a message for the user, surface it.
-            if (error.userInfo[FBSDKErrorLocalizedDescriptionKey] == @"Access has not been granted to the Facebook account. Verify device settings.") {
-                self.useSystemLogin = NO;
-                [self login:command];
-                return;
-            }
             NSString *errorMessage = error.userInfo[FBSDKErrorLocalizedDescriptionKey] ?: @"There was a problem logging you in.";
             CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
                                                               messageAsString:errorMessage];
@@ -188,10 +173,7 @@
         }
 
         FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-        if (self.useSystemLogin) {
-            login.loginBehavior = FBSDKLoginBehaviorSystemAccount;
-        }
-        [login logInWithReadPermissions:permissions fromViewController:self.viewController handler:loginHandler];
+        [login logInWithReadPermissions:permissions handler:loginHandler];
         return;
     }
 
@@ -446,9 +428,6 @@
     BOOL publishPermissionFound = NO;
     BOOL readPermissionFound = NO;
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    if (self.useSystemLogin) {
-        login.loginBehavior = FBSDKLoginBehaviorSystemAccount;
-    }
 
     for (NSString *p in permissions) {
         if ([self isPublishPermission:p]) {
@@ -473,10 +452,10 @@
 
     } else if (publishPermissionFound) {
         // Only publish permissions
-        [login logInWithPublishPermissions:permissions fromViewController:self.viewController handler:handler];
+        [login logInWithPublishPermissions:permissions handler:handler];
     } else {
         // Only read permissions
-        [login logInWithReadPermissions:permissions fromViewController:self.viewController handler:handler];
+        [login logInWithReadPermissions:permissions handler:handler];
     }
 }
 

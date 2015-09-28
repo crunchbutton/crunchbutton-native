@@ -23,10 +23,11 @@ cordova plugin add https://github.com/jeduan/cordova-plugin-facebook4 --variable
 #cordova plugin add https://github.com/arzynik/PushPlugin
 ###cordova plugin add https://github.com/cordova-build/PushPlugin
 cordova plugin add https://github.com/cordova/cordova-plugin-push
-cordova plugin add https://github.com/bgta/net.bgta.cordova.appversion
+cordova plugin add https://github.com/alignace/phonegap-appversion
 #cordova plugin add https://github.com/crunchbutton/cordova-plugin-balanced
 cordova plugin add https://github.com/ohh2ahh/AppAvailability
 cordova plugin add https://github.com/EddyVerbruggen/cordova-plugin-ios-longpress-fix
 cordova plugin add https://github.com/floatinghotpot/cordova-plugin-nativeaudio
+cordova plugin add https://github.com/phonegap/phonegap-plugin-push
 
 cordova build ios
