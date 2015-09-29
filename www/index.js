@@ -248,7 +248,7 @@ $(function() {
 		window.addEventListener('deviceorientation', orientationChanged, false);
 
 
-		App.server = 'http://dev.crunchr.co/';
+		App.server = 'https://crunchbutton.com/';
 		App._nativeVersionAndroid = 'ANDROID_NATIVE_VERSION';
 		App._nativeVersionIphone = 'IPHONE_NATIVE_VERSION';
 		App.service = App.server + 'api/';
