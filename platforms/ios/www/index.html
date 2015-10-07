@@ -192,7 +192,7 @@
 
 				<div class="dialog-message dialog-message-error" ng-repeat="error in account.errors">{{error}}</div>
 
-				<span ng-show="!account.user" class="help cursor" ng-click="changeTab( 'reset' )">Forgot Password</span>
+				<span class="help cursor" ng-click="changeTab( 'reset' )">Forgot Password</span>
 				<div class="divider"></div>
 			</div>
 			<div class="dialog-divider"></div>
@@ -230,8 +230,11 @@
 
 			<div class="dialog-divider" ng-show="!help.success.visible"></div>
 			<div class="dialog-padding dialog-bottom-buttons" ng-show="!help.success.visible">
-				<div class="button-pushable">
+				<div class="button-pushable" ng-show="!help.sendingHelpForm">
 					<button class="button account-submit lightorange" ng-click="help.sendForm()">Reset Password</button>
+				</div>
+				<div class="button-pushable" ng-show="help.sendingHelpForm">
+					<button class="button account-submit lightorange" disabled="disabled"><i class="fa fa-spinner fa-spin"></i> Sending</button>
 				</div>
 			</div>
 		</div>
@@ -240,16 +243,20 @@
 
 </div>
 </script><script type="text/ng-template" id="assets/view/account.reset.html">
-<div class="account-reset-container  zoom-anim-dialog mfp-hide dialog mfp-hide" ng-controller="AccountResetCtrl">
+<div class="account-reset-container zoom-anim-dialog mfp-hide dialog mfp-hide" ng-controller="AccountResetCtrl">
 	<div class="dialog-padding account-modal">
 		<div ng-show="reset.step == 1">
 
-			<div>Enter your password reset code</div>
+			<p>Enter your password reset code:</p>
 
-			<form class="form">	
-				
-				<input type="text" maxlength="250" id="account-reset-code" value="" ng-enter="reset.validateCode()" ng-model="reset.form.code" class="input" placeholder="enter the reset code" tabindex="10" />
-				
+			<div class="divider spacer-one-onehalf"></div>
+
+			<form class="form">
+
+				<div class="support-form-group form-group">
+					<input type="text" maxlength="250" id="account-reset-code" value="" ng-enter="reset.validateCode()" ng-model="reset.form.code" class="form-input form-field"  placeholder="enter the reset code" tabindex="10" />
+				</div>
+
 			</form>
 
 			<div class="dialog-message dialog-message-error" ng-repeat="error in reset.errors">
@@ -259,32 +266,34 @@
 			<div class="divisor"></div>
 
 			<div class="button-pushable">
-				<button class="button account-submit" ng-click="reset.validateCode();">Send</button>
+				<button class="button account-submit lightorange" ng-click="reset.validateCode();">Send</button>
 			</div>
-			
+
 		</div>
 		<div ng-show="reset.step == 2">
 
 			<div ng-show="!reset.success">
 
-				<div>Type your new password</div>
+				<p>Type your new password</p>
 
 				<form class="form">
-					
-					<input type="password" maxlength="250" ng-model="reset.form.password" ng-enter="reset.changePassword()" id="account-reset-password" value="" class="input" placeholder="password" tabindex="10" />
-					
+
+					<div class="support-form-group form-group">
+						<input type="password" maxlength="250" ng-model="reset.form.password" ng-enter="reset.changePassword()" id="account-reset-password" value="" class="form-input form-field" placeholder="password" tabindex="10" />
+					</div>
+
 					<div class="divider"></div>
-					
+
 					<div class="dialog-message dialog-message-error" ng-repeat="error in reset.errors">
 						{{error}}
 					</div>
-				
+
 				</form>
 
 				<div class="divisor"></div>
 
 				<div class="button-pushable">
-					<button class="button account-submit" ng-click="reset.changePassword();">Change</button>
+					<button class="button account-submit lightorange" ng-click="reset.changePassword();">Change</button>
 				</div>
 
 			</div>
@@ -1590,22 +1599,38 @@ This document was last updated on October 27th, 2014.<br />
 
 				<div class="order-buttons">
 
-					<div class="hide-mobile col-box">
+					<div class="col-box">
 						<p class="two-col">
-							Want free delivery? Share on Facebook or Twitter for double points<span ng-if="referral.invite_url && referral.enabled">, and earn free delivery for any friends you refer</span>.
+							Want free delivery? Share on Facebook or Twitter and earn extra points<span ng-if="referral.invite_url && referral.enabled">, plus earn free delivery for any friends you refer</span>.
 							<br><br>
 						</p>
+						
+						<div class="hide-desktop button-refer">
+							<a href="{{referral.sms}}">
+								<button class="button lightorange">
+									<i class="fa fa-comment"></i>&nbsp;&nbsp;&nbsp;<span>Invite Friends</span>
+								</button>
+							</a>
+						</div>
 
 						<div class="two-col">
 							<div class="col-box">
+								<div class="button-refer">
+									<span class="refer-multiply hide-mobile">Double your points</span>
+									<span class="refer-multiply-small hide-desktop">Double your points by sharing on Facebook</span>
+									<button class="button facebook" ng-click="referral.facebook('order');" ng-if="account.user.has_auth && !order.reward.shared.facebook">
+										<i class="fa fa-facebook-square"></i> <span>Share</span>
+									</button>
+								</div>
 
-								<button class="button facebook button-refer" ng-click="referral.facebook('order');" ng-if="account.user.has_auth && !order.reward.shared.facebook">
-									<i class="fa fa-facebook-square"></i> <span>Share</span>
-								</button>
+								<div class="button-refer">
+									<span class="refer-multiply hide-mobile">Triple your points</span>
+									<span class="refer-multiply-small hide-desktop">Triple them by sharing on Twitter</span>
+									<button class="button twitter" ng-click="referral.twitter('order')" ng-if="account.user.has_auth && !order.reward.shared.twitter">
+										<i class="fa fa-twitter-square"></i> <span>Tweet</span>
+									</button>
+								</div>
 
-								<button class="button twitter button-refer" ng-click="referral.twitter('order')" ng-if="account.user.has_auth && !order.reward.shared.twitter">
-									<i class="fa fa-twitter-square"></i> <span>Tweet</span>
-								</button>
 							</div>
 							<div ng-if="order.reward.shared.facebook">
 								Thanks for sharing on Facebook.
@@ -1622,14 +1647,7 @@ This document was last updated on October 27th, 2014.<br />
 					</div>
 
 
-					<div class="hide-desktop">
-						<p class="order-earn-mobile">Earn a free delivery for every friend you recruit!</p>
-						<a href="{{referral.sms}}">
-							<button class="button lightorange">
-								<i class="fa fa-comment"></i>&nbsp;&nbsp;&nbsp;<span>Invite Friends</span>
-							</button>
-						</a>
-					</div>
+
 
 				</div>
 			</div>
@@ -1837,21 +1855,41 @@ This document was last updated on October 27th, 2014.<br />
 							<span ng-if="account.user.points.away_free_delivery > 0"> You are <strong>{{account.user.points.away_free_delivery}}</strong> points away from a free delivery.</span>
 						</p>
 					</div>
-					<div class="hide-mobile">
+					<div class="hide-desktop"><br></div>
+					<div>
 						<p>
-							Want more points? Share on Facebook or Twitter for double points<span ng-if="referral.invite_url && referral.enabled">, and earn free delivery for any friends you refer</span>.
+							Want more points? Share on Facebook or Twitter and earn extra points<span ng-if="referral.invite_url && referral.enabled">, plus earn free delivery for any friends you refer</span>.
 							<br><br>
 						</p>
+						
+
+						<div class="hide-desktop button-refer">
+
+							<a href="{{referral.sms}}">
+								<button class="button lightorange">
+									<i class="fa fa-comment"></i>&nbsp;&nbsp;&nbsp;<span>Invite Friends</span>
+								</button>
+							</a>
+						</div>
 
 						<div class="col-box">
+							
+							<div class="button-refer">
+								<span class="refer-multiply hide-mobile">Double your points</span>
+								<span class="refer-multiply-small hide-desktop">Double your points by sharing on Facebook</span>
+								<button class="button facebook" ng-click="referral.facebook('order');" ng-if="account.user.has_auth && !order.reward.shared.facebook">
+									<i class="fa fa-facebook-square"></i> <span>Share</span>
+								</button>
+							</div>
 
-							<button class="button facebook button-refer" ng-click="referral.facebook('order');" ng-if="account.user.has_auth && !order.reward.shared.facebook">
-								<i class="fa fa-facebook-square"></i> <span>Share</span>
-							</button>
+							<div class="button-refer">
+								<span class="refer-multiply hide-mobile">Triple your points</span>
+								<span class="refer-multiply-small hide-desktop">Triple them by sharing on Twitter</span>
+								<button class="button twitter" ng-click="referral.twitter('order')" ng-if="account.user.has_auth && !order.reward.shared.twitter">
+									<i class="fa fa-twitter-square"></i> <span>Tweet</span>
+								</button>
+							</div>
 
-							<button class="button twitter button-refer" ng-click="referral.twitter('order')" ng-if="account.user.has_auth && !order.reward.shared.twitter">
-								<i class="fa fa-twitter-square"></i> <span>Tweet</span>
-							</button>
 						</div>
 
 						<div ng-if="order.reward.shared.facebook">
@@ -1866,15 +1904,6 @@ This document was last updated on October 27th, 2014.<br />
 					</div>
 
 
-					<div class="hide-desktop">
-						<p class="order-earn-mobile">Earn a free delivery for every friend you recruit!</p>
-						<br>
-						<a href="{{referral.sms}}">
-							<button class="button lightorange">
-								<i class="fa fa-comment"></i>&nbsp;&nbsp;&nbsp;<span>Invite Friends</span>
-							</button>
-						</a>
-					</div>
 
 				</div>
 			</div>
@@ -2127,8 +2156,32 @@ This document was last updated on October 27th, 2014.<br />
 		<div class="divider spacer-one-onehalf"></div>
 		<p>
 			<strong>{{invitedUsers}}</strong> just placed an order!
+			<br>
 			Get free deliveries for any other new customers you refer ;)
 		</p>
+	</div>
+
+	<div class="hide-mobile dialog-padding account-modal" ng-if="referral.url">
+
+		<div class="col-box">
+			<button class="button facebook button-refer" ng-click="referral.facebook('account')">
+				<i class="fa fa-facebook-square"></i> <span>Share</span>
+			</button>
+
+			<br><br>
+
+			<button class="button twitter button-refer" ng-click="referral.twitter('account')">
+				<i class="fa fa-twitter-square"></i> <span>Tweet</span>
+			</button>
+		</div>
+
+		<br><br>
+			<p>Your code: <span class="referal-text-spacer"></span><b>{{referral.invite_code}}</b></p>
+			<div>
+				<br>
+				<p>Invite URL: <span class="referal-text-spacer"></span><input class="referal-text-box modal" type="text" ng-simulate-read-only="{{referral.url}}" value="http://{{referral.url}}"></p>
+			</div>
+
 	</div>
 
 	<div class="dialog-divider"></div>
@@ -2171,7 +2224,10 @@ This document was last updated on October 27th, 2014.<br />
 				<ng-include  src="'assets/view/restaurant-mobile.html'"></ng-include>
 			</span>
 
-			
+			<div class="content-padding hide-mobile" ng-if="config.suggestions && show_suggestions">
+				<p>See an issue with our menu? Wanna add something? <a href class="suggestion-text" ng-click="suggestion();"> Tell us!</a></p>
+			</div>
+
 		</div>
 
 	</div>
@@ -2472,7 +2528,7 @@ This document was last updated on October 27th, 2014.<br />
 				<div class="toggle-wrapper clearfix">
 					<button ng-click="order.tooglePayment( 'card' )" ng-if="(restaurant.credit == '1')" ng-class="{'toggle-active': order.form.pay_type=='card' }" class="payment-form-toggle">card</button>
 					<button ng-click="order.tooglePayment( 'cash' )" ng-if="(restaurant.cash == '1')"  ng-class="{'toggle-active': order.form.pay_type=='cash' }" class="payment-form-toggle">cash</button>
-					<button ng-click="order.tooglePayment( 'applepay' )" ng-if="(restaurant.credit == '1') && applePay"  ng-class="{'toggle-active': order.form.pay_type=='applepay' }" class="payment-form-toggle"><i class="fa fa-apple"></i> pay</button>
+					<button ng-click="order.tooglePayment( 'applepay' )" ng-if="(restaurant.credit == '1') && applePay"  ng-class="{'toggle-active': order.form.pay_type=='applepay' }" class="payment-form-toggle">apple pay</button>
 				</div>
 
 				<div class="divider spacer-two-two"></div>
@@ -2633,7 +2689,7 @@ This document was last updated on October 27th, 2014.<br />
 		<br>
 
 		<button class="button green hide-desktop" ng-click="seeSmallMenu()">less food</button>
-
+		
 	</div>
 
 	<div ng-if="!fullmenu">
@@ -2821,19 +2877,25 @@ This document was last updated on October 27th, 2014.<br />
 
 	<div ng-controller="RestaurantSuggestionCtrl">
 
-		<div ng-if="tab == 'suggestion'">
+		<div ng-if="tab == 'form'">
 
 			<div class="dialog-padding">
 
-				<p>What's wrong?</p>
+				<p class="suggestion-header">What's up?</p>
+				<div class="support-form-group form-group">
+					<textarea ng-autosize ng-focus="softKeyboardModal($event)" ng-model="suggestion.content" class="form-input form-field"></textarea>
+				</div>
 
 				<div class="divider spacer-one-onehalf"></div>
 
+				<p class="suggestion-header">Any specific items you'd like to see, enter here:</p>
 				<div class="support-form-group form-group">
-					<textarea ng-focus="softKeyboardModal($event)" ng-model="suggestion.content" class="form-input form-field"></textarea>
+					<textarea ng-autosize ng-focus="softKeyboardModal($event)" ng-model="suggestion.add_more_content" class="form-input form-field"></textarea>
 				</div>
 
 			</div>
+			
+			<div class="dialog-divider"></div>
 
 			<div class="dialog-padding dialog-bottom-buttons">
 				<div class="button-pushable">
@@ -2841,43 +2903,13 @@ This document was last updated on October 27th, 2014.<br />
 				</div>
 			</div>
 
-			<div class="dialog-padding">
-				<div class="dialog-divider"></div>
-				<br>
-					<p>See items or options we should add: <a href="" class="cursor" ng-click="change_tab( 'more-stuff' )">yes!</a></p>
-				<br>
-			</div>
-
-		</div>
-
-		<div ng-if="tab == 'more-stuff'">
-
-			<div class="dialog-padding account-modal">
-
-				<span ng-click="change_tab( 'suggestion' )" class="back-link cursor"><span>&laquo;</span> BACK</span>
-
-				<p>Any specific items you'd like to see, enter here, otherwise, just click "Add more stuff!"</p>
-
-				<div class="divider spacer-one-onehalf"></div>
-
-				<div class="support-form-group form-group">
-					<textarea ng-focus="softKeyboardModal($event)" ng-model="suggestion.add_more_content" class="form-input form-field"></textarea>
-				</div>
-
-			</div>
-
-			<div class="dialog-padding dialog-bottom-buttons">
-				<div class="button-pushable">
-					<button class="button green" ng-click="send_form();">Add more stuff!</button>
-				</div>
-			</div>
 
 		</div>
 
 		<div ng-if="tab == 'thank-you'">
 
 			<div class="dialog-padding">
-				<p><strong>Thank you!</strong></p>
+				<p class="suggestion-thanks">Thank you!</p>
 				<div class="location-gorillia animated-resize shake"></div>
 				<button class="button green" ng-click="close()">Get me out of here</button>
 			</div>
@@ -2991,7 +3023,8 @@ This document was last updated on October 27th, 2014.<br />
 							<span ng-if="community_closed" class="small">
 								{{community_closed}}
 							</span>
-							<span ng-if="!community_closed"><b>Wahhhhhh!!!</b><br>No delivery is available</span>
+							<span ng-if="!community_closed && !openSoon"><b>Wahhhhhh!!!</b><br>No delivery is available</span>
+							<span ng-if="!community_closed && openSoon">Delivery available soon!!</span>
 						</span>
 					</div>
 					<div class="bubble-tail-spacer"></div>
@@ -3066,60 +3099,32 @@ This document was last updated on October 27th, 2014.<br />
 
 	</div>
 </div>
+
+<div class="content-padding suggestion-footer" ng-if="config.suggestions && show_suggestions">
+	<p>Want something else delivered? <a href class="suggestion-text" ng-click="suggestion();"> Let us know!</a></p>
+</div>
+
 <ng-include src="'assets/view/restaurants-suggestion.html'"></ng-include>
 </script><script type="text/ng-template" id="assets/view/restaurants-suggestion.html">
 <div class="restaurants-suggestion-container zoom-anim-dialog mfp-hide dialog mfp-hide">
 
 	<div ng-controller="RestaurantsSuggestionCtrl">
 
-		<div ng-if="tab == 'suggestion'">
-
-			<div class="dialog-padding">
-
-				<p>What's wrong?</p>
-
-				<div class="divider spacer-one-onehalf"></div>
-
-				<div class="support-form-group form-group">
-					<textarea ng-focus="softKeyboardModal($event)" ng-model="suggestion.content" class="form-input form-field"></textarea>
-				</div>
-
-			</div>
-
-			<div class="dialog-padding dialog-bottom-buttons">
-				<div class="button-pushable">
-					<button class="button green" ng-click="send_form()">Submit</button>
-				</div>
-			</div>
-
-			<div class="dialog-padding">
-				<div class="dialog-divider"></div>
-				<br>
-					<p>See more restaurants we should add: <a href="" class="cursor" ng-click="change_tab( 'more-stuff' )">yes!</a></p>
-				<br>
-			</div>
-
-		</div>
-
-		<div ng-if="tab == 'more-stuff'">
+		<div ng-if="tab == 'form'">
 
 			<div class="dialog-padding account-modal">
 
-				<span ng-click="change_tab( 'suggestion' )" class="back-link cursor"><span>&laquo;</span> BACK</span>
-
-				<p>What restaurants should we add?</p>
-
-				<div class="divider spacer-one-onehalf"></div>
+				<p class="suggestion-header">What restaurants should we add?</p>
 
 				<div class="support-form-group form-group">
-					<textarea ng-focus="softKeyboardModal($event)" ng-model="suggestion.add_more_content" class="form-input form-field"></textarea>
+					<textarea ng-autosize ng-focus="softKeyboardModal($event)" ng-model="suggestion.add_more_content" class="form-input form-field"></textarea>
 				</div>
-
 			</div>
+			<div class="dialog-divider"></div>
 
 			<div class="dialog-padding dialog-bottom-buttons">
 				<div class="button-pushable">
-					<button class="button green" ng-click="send_form();">Add more restaurants!</button>
+					<button class="button green" ng-click="send_form();">Please add!</button>
 				</div>
 			</div>
 
@@ -3128,7 +3133,7 @@ This document was last updated on October 27th, 2014.<br />
 		<div ng-if="tab == 'thank-you'">
 
 			<div class="dialog-padding">
-				<p><strong>Thank you!</strong></p>
+				<p class="suggestion-thanks">Thank you!</p>
 				<div class="location-gorillia animated-resize shake"></div>
 				<button class="button green" ng-click="close()">Get me out of here</button>
 			</div>
