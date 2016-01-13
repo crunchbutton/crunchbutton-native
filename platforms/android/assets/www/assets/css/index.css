@@ -1,0 +1,135 @@
+/**
+ * phonegap specific css
+ *
+ */
+
+
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Open Sans Light'), local('OpenSans-Light'), url(../fonts/OpenSans-Light.woff) format('woff');
+}
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Open Sans'), local('OpenSans'), url(../fonts/OpenSans.woff) format('woff');
+}
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 600;
+	src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(../fonts/OpenSans-Semibold.woff) format('woff');
+}
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Open Sans Bold'), local('OpenSans-Bold'), url(../fonts/OpenSans-Bold.woff) format('woff');
+}
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 800;
+	src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'), url(../fonts/OpenSans-Extrabold.woff) format('woff');
+}
+
+* {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);	/* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+html {
+	overflow: hidden;
+}
+body {
+	-webkit-touch-callout: none;				/* prevent callout to copy image, etc when tap to hold */
+	-webkit-text-size-adjust: none;				/* prevent webkit from resizing text to fit */
+	-webkit-user-select: none;					/* prevent copy paste, to allow, change 'none' to 'text' */
+	overflow: hidden;							/* no scrolling */
+}
+.bg {
+	-webkit-transform: translate3d(0,0,0);
+	/*-webkit-transition: background-position linear 0.1s; */
+}
+
+.parallax-bg {
+	background-position: -321px -83px;
+}
+
+.nav-top {
+	padding-top: 21px;
+	padding-bottom: 3px;
+}
+
+.nav-top .logo {
+	background-position-y: 4px;
+}
+.location-detect {
+	height: 40.5px;
+}
+.dialog-message-error {
+	padding-bottom: .7em;
+}
+
+.page-restaurant-loaded .snap-content-inner.bg, .page-location .snap-content-inner.bg, .location-overpull-preload-one {
+	background: #fffef8 url(../images/micro/location-hidden-orange1.svg) no-repeat;
+	background-position: center 30px !important;
+	background-size: 175px 90px !important;
+}
+.page-restaurant-loaded .snap-content-inner.bg.step-two, .page-location .snap-content-inner.bg.step-two, .location-overpull-preload-two {
+	background: #fffef8 url(../images/micro/location-hidden-orange2.svg) no-repeat;
+}
+.page-restaurant-loaded .snap-content-inner.bg.step-three, .page-location .snap-content-inner.bg.step-three, .location-overpull-preload-three {
+	background: #fffef8 url(../images/micro/location-hidden-orange3.svg) no-repeat;
+}
+
+@media (max-width: 568px) {
+	.home-top {
+		background: #90562f url(../images/micro/bg-sandwich-phone.jpg);
+		background-position: -321px -113px;
+	}
+}
+@media (min-width: 768px) {
+	.page-location .snap-content-inner.bg {
+		background-position: center 60px !important;
+	}
+}
+
+
+
+.loggedin-hideables {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	background: #fc9a6b;
+	z-index: 100;
+}
+
+.preload-home {
+	height: 0;
+	width: 0;
+	background: url(../images/micro/bg-sandwich-phone.jpg);
+}
+
+.animation-fade.ng-leave .splash-top .logo {
+	-webkit-transition: .2s ease-out;
+	-webkit-transform: translateY(-25px);
+}
+
+textarea.form-input {
+	padding-left: .31em;
+	padding-right: .31em;
+}
+
+.community-image {
+	margin-top: 1.3em;
+}
+
+@media screen and (max-height: 480px) {
+	.splash-bottom {
+		bottom: 8em !important;
+	}
+}

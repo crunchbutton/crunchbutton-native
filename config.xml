@@ -23,7 +23,7 @@
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="disable-cursor" value="false" />
-    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-minSdkVersion" value="15" />
     <preference name="android-installLocation" value="auto" />
     <preference name="BackupWebStorage" value="local" />
     <gap:plugin name="org.apache.cordova.battery-status" />
