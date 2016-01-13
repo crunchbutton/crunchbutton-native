@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.crunchbutton" version="3.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.crunchbutton" version="3.0.20" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="DisallowOverscroll" value="false" />
@@ -26,36 +26,14 @@
     <feature name="Notification">
         <param name="ios-package" value="CDVNotification" />
     </feature>
-    <feature name="FacebookConnectPlugin">
-        <param name="ios-package" value="FacebookConnectPlugin" />
-        <param name="onload" value="true" />
-    </feature>
-    <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin" />
-    <access origin="https://m.facebook.com" />
-    <access origin="https://graph.facebook.com" />
-    <access origin="https://api.facebook.com" />
-    <access origin="https://*.fbcdn.net" />
-    <access origin="https://*.akamaihd.net" />
-    <preference name="AndroidPersistentFileLocation" value="Internal" />
-    <feature name="File">
-        <param name="ios-package" value="CDVFile" />
-        <param name="onload" value="true" />
-    </feature>
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
-    <feature name="LongPressFix">
-        <param name="ios-package" value="LongPressFix" />
-        <param name="onload" value="true" />
-    </feature>
     <feature name="Media">
         <param name="ios-package" value="CDVSound" />
-    </feature>
-    <feature name="NativeAudio">
-        <param name="ios-package" value="NativeAudio" />
     </feature>
     <feature name="NetworkStatus">
         <param name="ios-package" value="CDVConnection" />
@@ -81,6 +59,24 @@
     <feature name="PushNotification">
         <param name="ios-package" value="PushPlugin" />
     </feature>
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <feature name="File">
+        <param name="ios-package" value="CDVFile" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="NativeAudio">
+        <param name="ios-package" value="NativeAudio" />
+    </feature>
+    <feature name="FacebookConnectPlugin">
+        <param name="ios-package" value="FacebookConnectPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin" />
+    <access origin="https://m.facebook.com" />
+    <access origin="https://graph.facebook.com" />
+    <access origin="https://api.facebook.com" />
+    <access origin="https://*.fbcdn.net" />
+    <access origin="https://*.akamaihd.net" />
     <icon src="icon.png" />
     <icon height="180" src="res/icon/ios/icon-180.png" width="180" />
     <icon height="60" src="res/icon/ios/icon-60.png" width="60" />
@@ -160,7 +156,7 @@
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="blackopaque" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
-    <preference name="splash-screen-duration" value="0" />
+    <preference name="FadeSplashScreen" value="0" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

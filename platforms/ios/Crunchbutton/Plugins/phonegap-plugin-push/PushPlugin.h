@@ -27,12 +27,17 @@
 #import <Cordova/CDV.h>
 #import <Cordova/CDVPlugin.h>
 
-@interface PushPlugin : CDVPlugin
+@protocol GGLInstanceIDDelegate;
+@interface PushPlugin : CDVPlugin<GGLInstanceIDDelegate>
 {
     NSDictionary *notificationMessage;
     BOOL    isInline;
     NSString *notificationCallbackId;
     NSString *callback;
+    BOOL    clearBadge;
+    
+    NSDictionary *handlerObj;
+    void (^completionHandler)(UIBackgroundFetchResult);
     
     BOOL ready;
 }
@@ -42,7 +47,9 @@
 @property (nonatomic, copy) NSString *callback;
 
 @property (nonatomic, strong) NSDictionary *notificationMessage;
-@property BOOL                          isInline;
+@property BOOL isInline;
+@property BOOL clearBadge;
+@property (nonatomic, strong) NSDictionary *handlerObj;
 
 - (void)init:(CDVInvokedUrlCommand*)command;
 - (void)unregister:(CDVInvokedUrlCommand*)command;
@@ -52,5 +59,12 @@
 
 - (void)setNotificationMessage:(NSDictionary *)notification;
 - (void)notificationReceived;
+
+//  GCM Features
+@property(nonatomic, assign) BOOL usesGCM;
+@property(nonatomic, strong) NSNumber* gcmSandbox;
+@property(nonatomic, strong) NSString *gcmSenderId;
+@property(nonatomic, strong) NSDictionary *gcmRegistrationOptions;
+@property(nonatomic, strong) void (^gcmRegistrationHandler) (NSString *registrationToken, NSError *error);
 
 @end
