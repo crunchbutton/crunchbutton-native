@@ -283,7 +283,7 @@ $(function() {
 				FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
 
 				FB.init({
-					appId: '***REMOVED***',
+					appId: '411729638889643',
 					//cookie: true,
 					xfbml: true,
 					//oauth: true,
