@@ -76,7 +76,7 @@ $(function() {
 		App.version = 'cordova';
 
 		if (!App.minimalMode) {
-			getAppVersion(function(response) {
+			cordova.getAppVersion.getVersionNumber(function(version) {
 				App.version = response;
 			});
 		}

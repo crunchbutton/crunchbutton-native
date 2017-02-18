@@ -4,18 +4,24 @@
  **/
 
 var now = new Date();
-var _gmtServer = now.getUTCFullYear() + '/' + (now.getUTCMonth()+1) + '/' + now.getUTCDate() + '/' + now.getUTCHours() + '/' + now.getUTCMinutes() + '/' + now.getUTCSeconds();
+var _gmtServer = now.getUTCFullYear() + '/' + (now.getUTCMonth() + 1) + '/' + now.getUTCDate() + '/' + now.getUTCHours() + '/' + now.getUTCMinutes() + '/' + now.getUTCSeconds();
 
 if (!window.plugins) {
 	window.plugins = {};
 }
 
-var onSuccess = function(){console.log('1',arguments);};
-var onError = function(){console.log('0',arguments);};
+var onSuccess = function() {
+	console.log('1', arguments);
+};
+var onError = function() {
+	console.log('0', arguments);
+};
 
 
 var login = function() {
-	FB.login(status, {scope: 'email'});
+	FB.login(status, {
+		scope: 'email'
+	});
 };
 
 // if the app user isnt logged or this is the first time the app is loaded, hide the main stuff
@@ -54,44 +60,44 @@ $(function() {
 		}
 
 
-		if( navigator && navigator.Sysinfo && navigator.Sysinfo.getInfo ){
-			navigator.Sysinfo.getInfo( function( info ){
-				if( info && info.cpuInfo && info.cpuInfo.mhz ){
-					var mhz = parseInt( info.cpuInfo.mhz );
+		if (navigator && navigator.Sysinfo && navigator.Sysinfo.getInfo) {
+			navigator.Sysinfo.getInfo(function(info) {
+				if (info && info.cpuInfo && info.cpuInfo.mhz) {
+					var mhz = parseInt(info.cpuInfo.mhz);
 					// 3d menu effects slow on older devices #3106
-					if( mhz <= 1200 || !App.isVersionCompatible( '2', window.device.version ) ){
+					if (mhz <= 1200 || !App.isVersionCompatible('2', window.device.version)) {
 						App.useTransform = false;
-						console.log('navigator.Sysinfo.getInfo: ' + mhz );
+						console.log('navigator.Sysinfo.getInfo: ' + mhz);
 					}
 				}
-			} );
+			});
 		}
 
 		// prevent android back
-		document.addEventListener('backbutton', function (e) {
+		document.addEventListener('backbutton', function(e) {
 			e.preventDefault();
-		}, false );
+		}, false);
 
 		//gamecenter.auth( onSuccess, onError );
 		App.version = 'cordova';
 
 		if (!App.minimalMode) {
-			getAppVersion(function(response) {
+			cordova.getAppVersion.getVersionNumber(function(version) {
 				App.version = response;
 			});
 		}
 
 		// Disable paralax for android old versions - #3105
-		if( App.isAndroid() ){
+		if (App.isAndroid()) {
 			var version;
-			if( window && window.device && window.device.version ){
+			if (window && window.device && window.device.version) {
 				version = window.device.version;
 			} else if (cordova && cordova.version) {
 				version = cordova.version;
 			}
 
-			App.parallax.enabled = App.isVersionCompatible( '4.4', version );
-			App.transitionAnimationEnabled = App.isVersionCompatible( '4', version );
+			App.parallax.enabled = App.isVersionCompatible('4.4', version);
+			App.transitionAnimationEnabled = App.isVersionCompatible('4', version);
 		}
 
 		// detect if device has facebook
@@ -106,29 +112,29 @@ $(function() {
 				//appAvailability.check('com.facebook.katana',success, fail);
 				App.hasFacebook = false;
 			} else if (device.platform == 'iOS') {
-				appAvailability.check('fbauth2://',success, fail);
+				appAvailability.check('fbauth2://', success, fail);
 			} else {
 				App.hasFacebook = false;
 			}
 		}
 
 
-		function orientationChanged (orientationEvent) {
+		function orientationChanged(orientationEvent) {
 			if (!App || !App.parallax.enabled || !App.parallax.x || !App.parallax.width) {
 				return;
 			}
 
 			// Run it at first to when the animation is enable it doesnt jump the image backgroup
-			if( App.isAndroid() ){
-				if( App.parallax.pause ){
+			if (App.isAndroid()) {
+				if (App.parallax.pause) {
 					return;
 				}
-				if( App.parallax.first ){
+				if (App.parallax.first) {
 					App.parallax.first = false;
 					App.parallax.pause = true;
-					setTimeout( function(){
+					setTimeout(function() {
 						App.parallax.pause = false;
-					}, 3500 );
+					}, 3500);
 				}
 			}
 
@@ -158,8 +164,8 @@ $(function() {
 				}
 			}
 
-			var tanOfGamma = Math.tan(gamma*(Math.PI/180));
-			var tanOfBeta = Math.tan((beta -45)*(Math.PI/180));
+			var tanOfGamma = Math.tan(gamma * (Math.PI / 180));
+			var tanOfBeta = Math.tan((beta - 45) * (Math.PI / 180));
 			//calculate the tan of the rotation around the X and Y axes
 			//we treat beta = 45degrees as neutral
 			//Math.tan takes radians, not degrees, as the argument
@@ -202,11 +208,11 @@ $(function() {
 
 			App.parallax.bg = el;
 
-			var imgURL = window.getComputedStyle(App.parallax.bg).backgroundImage ;
+			var imgURL = window.getComputedStyle(App.parallax.bg).backgroundImage;
 			//get the current background-image
 
 			//bg image format is url(' + url + ') so we strip the url() bit
-			imgURL = imgURL.replace(/"/g,'').replace(/url\(|\)$/ig, '');
+			imgURL = imgURL.replace(/"/g, '').replace(/url\(|\)$/ig, '');
 
 			//now we make a new image element and set this as its source
 			var theImage = new Image();
@@ -221,24 +227,24 @@ $(function() {
 				var elRect = App.parallax.bg.getBoundingClientRect();
 
 				// hack to fix the android paralax problem #2305
-				if( App.isAndroid() ){
-					if( elRect.width > 0 && elRect.height > 0 ){
+				if (App.isAndroid()) {
+					if (elRect.width > 0 && elRect.height > 0) {
 						App.parallax.elRect = elRect;
 					} else {
 						elRect = App.parallax.elRect;
-						angular.element( '.home-top' ).height( App.parallax.elRect.height );
+						angular.element('.home-top').height(App.parallax.elRect.height);
 					}
 				}
 
 				App.parallax.width = this.width;
 				App.parallax.height = this.height;
-				App.parallax.x = -1 * (this.width - elRect.width)/2;
-				App.parallax.y = -1 * (this.height - elRect.height)/2;
+				App.parallax.x = -1 * (this.width - elRect.width) / 2;
+				App.parallax.y = -1 * (this.height - elRect.height) / 2;
 
 				// hack to fix the android paralax problem #2305
-				if( App.isAndroid() ){
+				if (App.isAndroid()) {
 					App.parallax.x = App.parallax.x / 2;
-					App.parallax.y = - ( App.parallax.y / 2 );
+					App.parallax.y = -(App.parallax.y / 2);
 					App.parallax.bg.style.backgroundSize = App.parallax.width + 'px ' + App.parallax.height + 'px';
 					App.parallax.bg.style.backgroundRepeat = 'no-repeat';
 				}
@@ -259,7 +265,9 @@ $(function() {
 
 		// top tap scroller
 		window.addEventListener('statusTap', function() {
-			$('html, body, .snap-content-inner').animate({scrollTop: 0}, 200, $.easing.easeInOutQuart ? 'easeInOutQuart' : null);
+			$('html, body, .snap-content-inner').animate({
+				scrollTop: 0
+			}, 200, $.easing.easeInOutQuart ? 'easeInOutQuart' : null);
 		});
 
 		setTimeout(function() {
@@ -268,17 +276,17 @@ $(function() {
 					'storage': 'none',
 					'clientId': device.uuid
 				});
-				ga('send', 'event','appload');
+				ga('send', 'event', 'appload');
 			} catch (e) {}
 		});
 
 		$(document).focus(function() {
-			$('body').scrollTop(280-$('.snap-content-inner').scrollTop());
+			$('body').scrollTop(280 - $('.snap-content-inner').scrollTop());
 		}, '.location-address');
 
-		var facebookInit = function(){
+		var facebookInit = function() {
 			// Verify if angular is already started
-			if( window.FB && window.angular && angular.element('html') && angular.element('html').injector() && angular.element('html').injector().get('FacebookService') ){
+			if (window.FB && window.angular && angular.element('html') && angular.element('html').injector() && angular.element('html').injector().get('FacebookService')) {
 				var facebookService = angular.element('html').injector().get('FacebookService');
 				FB.Event.subscribe('auth.statusChange', facebookService.processStatus);
 
@@ -294,9 +302,9 @@ $(function() {
 
 				FB.getLoginStatus(facebookService.processStatus);
 			} else {
-				setTimeout( function(){
+				setTimeout(function() {
 					facebookInit();
-				}, 1500 );
+				}, 1500);
 			}
 		}
 		facebookInit();
@@ -306,28 +314,33 @@ $(function() {
 			console.debug('init audio');
 			$('audio').each(function() {
 				console.debug($(this).find('source'));
-				window.plugins.NativeAudio.preloadSimple(this.id, $(this).find('source').attr('src').replace('/',''), function(msg){console.info(msg)}, function(msg){ console.error( 'Error: ' + msg ); });
+				window.plugins.NativeAudio.preloadSimple(this.id, $(this).find('source').attr('src').replace('/', ''), function(msg) {
+					console.info(msg)
+				}, function(msg) {
+					console.error('Error: ' + msg);
+				});
 			});
 		}
 
 
 	}, true);
-} );
+});
 
 
-if ( !window.console ){
+if (!window.console) {
 	console = {};
 }
-console.log = console.log || function(){};
-console.warn = console.warn || function(){};
-console.error = console.error || function(){};
-console.info = console.info || function(){};
-console.debug = console.debug || function(){};
+console.log = console.log || function() {};
+console.warn = console.warn || function() {};
+console.error = console.error || function() {};
+console.info = console.info || function() {};
+console.debug = console.debug || function() {};
 
 (function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) return;
-js = d.createElement(s); js.id = id;
-js.src = '//connect.facebook.com/en_US/sdk/debug.js';
-fjs.parentNode.insertBefore(js, fjs);
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s);
+	js.id = id;
+	js.src = '//connect.facebook.com/en_US/sdk/debug.js';
+	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
