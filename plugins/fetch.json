@@ -1,133 +1,4 @@
 {
-    "cordova-plugin-geolocation": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-geolocation",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-network-information": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-network-information",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-media": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-media",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-splashscreen": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-splashscreen",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-vibration": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-vibration",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-dialogs": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-dialogs",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-device": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-device",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-inappbrowser": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-inappbrowser",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-statusbar": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-statusbar",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "ionic-plugin-keyboard": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/driftyco/ionic-plugins-keyboard",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-applepay": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/arzynik/cordova-plugin-applepay",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {
-            "STRIPE_PUBLISHABLE_KEY": "***REMOVED***",
-            "APPLE_PAY_MERCHANT": "merchant.com.crunchbutton"
-        }
-    },
-    "phonegap-plugin-push": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/phonegap/phonegap-plugin-push",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "net.bgta.phonegap.plugin.appversion": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/bgta/net.bgta.phonegap.appversion",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-appavailability": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/ohh2ahh/AppAvailability",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-whitelist": {
         "source": {
             "type": "registry",
@@ -135,6 +6,42 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-geolocation": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-geolocation"
+        },
+        "is_top_level": true,
+        "variables": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " "
+        }
+    },
+    "cordova-plugin-compat": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-compat"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-network-information": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-network-information"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-media": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-media"
+        },
+        "is_top_level": true,
+        "variables": {
+            "MICROPHONE_USAGE_DESCRIPTION": " "
+        }
     },
     "cordova-plugin-file": {
         "source": {
@@ -144,10 +51,58 @@
         "is_top_level": false,
         "variables": {}
     },
-    "cordova-plugin-nativeaudio": {
+    "cordova-plugin-splashscreen": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-splashscreen@4.0.1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-vibration": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-vibration"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-dialogs": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-dialogs"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-device": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-device"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-inappbrowser@1.6.1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-statusbar": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-statusbar@2.2.1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "ionic-plugin-keyboard": {
         "source": {
             "type": "git",
-            "url": "https://github.com/floatinghotpot/cordova-plugin-nativeaudio",
+            "url": "https://github.com/driftyco/ionic-plugins-keyboard",
             "subdir": "."
         },
         "is_top_level": true,
@@ -163,6 +118,52 @@
         "variables": {
             "APP_ID": "***REMOVED***",
             "APP_NAME": "Crunchbutton"
+        }
+    },
+    "net.bgta.phonegap.plugin.appversion": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/alignace/phonegap-appversion",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-appavailability": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ohh2ahh/AppAvailability",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-ios-longpress-fix": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/EddyVerbruggen/cordova-plugin-ios-longpress-fix",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-nativeaudio": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/floatinghotpot/cordova-plugin-nativeaudio",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "phonegap-plugin-push": {
+        "source": {
+            "type": "registry",
+            "id": "phonegap-plugin-push@1.9.3"
+        },
+        "is_top_level": true,
+        "variables": {
+            "SENDER_ID": "***REMOVED***"
         }
     }
 }

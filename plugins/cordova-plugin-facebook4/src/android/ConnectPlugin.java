@@ -16,13 +16,17 @@ import com.facebook.FacebookSdk;
 import com.facebook.FacebookServiceException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.FacebookAuthorizationException;
 import com.facebook.appevents.AppEventsLogger;
+import com.facebook.applinks.AppLinkData;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.share.ShareApi;
 import com.facebook.share.Sharer;
 import com.facebook.share.model.GameRequestContent;
+import com.facebook.share.model.ShareHashtag;
 import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.model.ShareOpenGraphObject;
 import com.facebook.share.model.ShareOpenGraphAction;
 import com.facebook.share.model.ShareOpenGraphContent;
 import com.facebook.share.model.AppInviteContent;
@@ -111,9 +115,11 @@ public class ConnectPlugin extends CordovaPlugin {
                             return;
                         }
 
-                        Log.d(TAG, "returning login object " + jsonObject.toString());
-                        loginContext.success(getResponse());
-                        loginContext = null;
+                        if (loginContext != null) {
+                            Log.d(TAG, "returning login object " + jsonObject.toString());
+                            loginContext.success(getResponse());
+                            loginContext = null;
+                        }
                     }
                 }).executeAsync();
             }
@@ -128,6 +134,12 @@ public class ConnectPlugin extends CordovaPlugin {
             public void onError(FacebookException e) {
                 Log.e("Activity", String.format("Error: %s", e.toString()));
                 handleError(e, loginContext);
+                // Sign-out current instance in case token is still valid for previous user
+                if (e instanceof FacebookAuthorizationException) {
+                    if (AccessToken.getCurrentAccessToken() != null) {
+                        LoginManager.getInstance().logOut();
+                    }
+                }
             }
         });
 
@@ -186,7 +198,7 @@ public class ConnectPlugin extends CordovaPlugin {
                         JSONObject json = new JSONObject();
                         json.put("requestId", result.getRequestId());
                         json.put("recipientsIds", new JSONArray(result.getRequestRecipients()));
-                        showDialogContext.success();
+                        showDialogContext.success(json);
                         showDialogContext = null;
                     } catch (JSONException ex) {
                         showDialogContext.success();
@@ -322,8 +334,40 @@ public class ConnectPlugin extends CordovaPlugin {
             executeAppInvite(args, callbackContext);
 
             return true;
+        } else if (action.equals("getDeferredApplink")) {
+            executeGetDeferredApplink(args, callbackContext);
+            return true;
+        } else if (action.equals("activateApp")) {
+            cordova.getThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
+                    AppEventsLogger.activateApp(cordova.getActivity());
+                }
+            });
+
+            return true;
         }
         return false;
+    }
+
+    private void executeGetDeferredApplink(JSONArray args,
+                                           final CallbackContext callbackContext) {
+        AppLinkData.fetchDeferredAppLinkData(cordova.getActivity().getApplicationContext(),
+                new AppLinkData.CompletionHandler() {
+                    @Override
+                    public void onDeferredAppLinkDataFetched(
+                            AppLinkData appLinkData) {
+                        PluginResult pr;
+                        if (appLinkData == null) {
+                            pr = new PluginResult(PluginResult.Status.OK, "");
+                        } else {
+                            pr = new PluginResult(PluginResult.Status.OK, appLinkData.getTargetUri().toString());
+                        }
+
+                        callbackContext.sendPluginResult(pr);
+                        return;
+                    }
+                });
     }
 
     private void executeAppInvite(JSONArray args, CallbackContext callbackContext) {
@@ -379,7 +423,7 @@ public class ConnectPlugin extends CordovaPlugin {
         }
     }
 
-    private void executeDialog(JSONArray args, CallbackContext callbackContext) {
+    private void executeDialog(JSONArray args, CallbackContext callbackContext) throws JSONException {
         Map<String, String> params = new HashMap<String, String>();
         String method = null;
         JSONObject parameters;
@@ -450,6 +494,9 @@ public class ConnectPlugin extends CordovaPlugin {
                 }
             }
 
+            // Set up the activity result callback to this class
+            cordova.setActivityResultCallback(this);
+
             gameRequestDialog.show(builder.build());
 
         } else if (method.equalsIgnoreCase("share") || method.equalsIgnoreCase("feed")) {
@@ -463,6 +510,8 @@ public class ConnectPlugin extends CordovaPlugin {
             showDialogContext.sendPluginResult(pr);
 
             ShareLinkContent content = buildContent(params);
+            // Set up the activity result callback to this class
+            cordova.setActivityResultCallback(this);
             shareDialog.show(content);
 
         } else if (method.equalsIgnoreCase("share_open_graph")) {
@@ -476,17 +525,54 @@ public class ConnectPlugin extends CordovaPlugin {
             showDialogContext.sendPluginResult(pr);
 
             if (!params.containsKey("action")) {
-                callbackContext.error("Missing required parameter \"action\"");
+                callbackContext.error("Missing required parameter 'action'");
             }
-            ShareOpenGraphAction openGraphAction = new ShareOpenGraphAction.Builder()
-                    .setActionType(params.get("action"))
-                    .build();
+
+            if (!params.containsKey("object")) {
+                callbackContext.error("Missing required parameter 'object'.");
+            }
+
+            ShareOpenGraphObject.Builder objectBuilder = new ShareOpenGraphObject.Builder();
+            JSONObject jObject = new JSONObject(params.get("object"));
+
+            Iterator<?> objectKeys = jObject.keys();
+
+            String objectType = "";
+
+            while ( objectKeys.hasNext() ) {
+                String key = (String)objectKeys.next();
+                String value = jObject.getString(key);
+
+                objectBuilder.putString(key, value);
+
+                if (key.equals("og:type"))
+                    objectType = value;
+            }
+
+            if (objectType.equals("")) {
+                callbackContext.error("Missing required object parameter 'og:type'");
+            }
+
+            ShareOpenGraphAction.Builder actionBuilder = new ShareOpenGraphAction.Builder();
+            actionBuilder.setActionType(params.get("action"));
+
+            if (params.containsKey("action_properties")) {
+                JSONObject jActionProperties = new JSONObject(params.get("action_properties"));
+
+                Iterator<?> actionKeys = jActionProperties.keys();
+
+                while ( actionKeys.hasNext() ) {
+                    String actionKey = (String)actionKeys.next();
+
+                    actionBuilder.putString(actionKey, jActionProperties.getString(actionKey));
+                }
+            }
+
+            actionBuilder.putObject(objectType, objectBuilder.build());
 
             ShareOpenGraphContent.Builder content = new ShareOpenGraphContent.Builder()
-                    .setAction(openGraphAction);
-
-            if (params.containsKey("previewPropertyName"))
-                content.setPreviewPropertyName(params.get("previewPropertyName"));
+                    .setPreviewPropertyName(objectType)
+                    .setAction(actionBuilder.build());
 
             shareDialog.show(content.build());
 
@@ -569,6 +655,7 @@ public class ConnectPlugin extends CordovaPlugin {
 
         if (declinedPermission != null) {
             graphContext.error("This request needs declined permission: " + declinedPermission);
+			return;
         }
 
         if (publishPermissions && readPermissions) {
@@ -706,14 +793,21 @@ public class ConnectPlugin extends CordovaPlugin {
 
     private ShareLinkContent buildContent(Map<String, String> paramBundle) {
         ShareLinkContent.Builder builder = new ShareLinkContent.Builder();
+        if (paramBundle.containsKey("href"))
+            builder.setContentUrl(Uri.parse(paramBundle.get("href")));
         if (paramBundle.containsKey("caption"))
             builder.setContentTitle(paramBundle.get("caption"));
         if (paramBundle.containsKey("description"))
             builder.setContentDescription(paramBundle.get("description"));
-        if (paramBundle.containsKey("href"))
-            builder.setContentUrl(Uri.parse(paramBundle.get("href")));
+        if (paramBundle.containsKey("link"))
+            builder.setContentUrl(Uri.parse(paramBundle.get("link")));
         if (paramBundle.containsKey("picture"))
             builder.setImageUrl(Uri.parse(paramBundle.get("picture")));
+        if (paramBundle.containsKey("quote"))
+            builder.setQuote(paramBundle.get("quote"));
+        if (paramBundle.containsKey("hashtag"))
+            builder.setShareHashtag(new ShareHashtag.Builder().setHashtag(paramBundle.get("hashtag")).build());
+
         return builder.build();
     }
 

@@ -21,6 +21,18 @@
 #import <FBSDKCoreKit/FBSDKCopying.h>
 
 /*!
+ @typedef NS_ENUM(NSUInteger, FBSDKAppInviteDestination)
+ @abstract Specifies the privacy of a group.
+ */
+typedef NS_ENUM(NSUInteger, FBSDKAppInviteDestination)
+{
+  /*! Deliver to Facebook. */
+  FBSDKAppInviteDestinationFacebook = 0,
+  /*! Deliver to Messenger. */
+  FBSDKAppInviteDestinationMessenger,
+};
+
+/*!
  @abstract A model for app invite.
  */
 @interface FBSDKAppInviteContent : NSObject <FBSDKCopying, NSSecureCoding>
@@ -43,6 +55,29 @@
  @deprecated Use `appInvitePreviewImageURL` instead.
  */
 @property (nonatomic, copy) NSURL *previewImageURL __attribute__ ((deprecated("use appInvitePreviewImageURL instead")));
+
+/*!
+ @abstract Promotional code to be displayed while sending and receiving the invite.
+
+ @discussion This is optional. This can be between 0 and 10 characters long and can contain
+ alphanumeric characters only. To set a promo code, you need to set promo text.
+ */
+@property (nonatomic, copy) NSString *promotionCode;
+
+/*!
+ @abstract Promotional text to be displayed while sending and receiving the invite.
+
+ @discussion This is optional. This can be between 0 and 80 characters long and can contain
+ alphanumeric and spaces only.
+ */
+@property (nonatomic, copy) NSString *promotionText;
+
+/*!
+ @abstract Destination for the app invite.
+
+ @discussion This is optional and for declaring destination of the invite.
+ */
+@property FBSDKAppInviteDestination destination;
 
 /*!
  @abstract Compares the receiver to another app invite content.

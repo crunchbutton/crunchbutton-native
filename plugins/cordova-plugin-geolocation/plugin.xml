@@ -22,7 +22,7 @@
 xmlns:rim="http://www.blackberry.com/ns/widgets"
 xmlns:android="http://schemas.android.com/apk/res/android"
            id="cordova-plugin-geolocation"
-      version="2.0.1-dev">
+      version="2.4.1">
 
     <name>Geolocation</name>
     <description>Cordova Geolocation Plugin</description>
@@ -31,10 +31,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <repo>https://git-wip-us.apache.org/repos/asf/cordova-plugin-geolocation.git</repo>
     <issue>https://issues.apache.org/jira/browse/CB/component/12320638</issue>
 
-    <engines>
-      <engine name="cordova-android" version=">=5.0.0-dev" />
-    </engines>
-
+    <dependency id="cordova-plugin-compat" version="^1.0.0" />
 
     <!-- android -->
     <platform name="android">
@@ -42,6 +39,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-feature android:name="android.hardware.location.gps" />
         </config-file>
 
         <config-file target="res/xml/config.xml" parent="/*">
@@ -70,9 +68,9 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
         </config-file>
-        
+
     </platform>
-    
+
     <!-- ios -->
     <platform name="ios">
 
@@ -101,10 +99,11 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <source-file src="src/ios/CDVLocation.m" />
         <framework src="CoreLocation.framework" />
         
+        <preference name="GEOLOCATION_USAGE_DESCRIPTION" default=" " />
         <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
-            <string></string>
+            <string>$GEOLOCATION_USAGE_DESCRIPTION</string>
         </config-file>
-        
+
     </platform>
 
     <!-- blackberry10 -->
@@ -240,7 +239,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             <clobbers target="navigator.geolocation" />
         </js-module>
     </platform>
-    
+
     <!-- firefoxos -->
     <platform name="firefoxos">
       <config-file target="config.xml" parent="/*">

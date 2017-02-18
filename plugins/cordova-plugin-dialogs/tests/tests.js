@@ -19,6 +19,9 @@
  *
 */
 
+/* jshint jasmine: true */
+/* global cordova */
+
 exports.defineAutoTests = function () {
     describe('Notification (navigator.notification)', function () {
         it("should exist", function () {
@@ -57,12 +60,12 @@ exports.defineManualTests = function (contentEl, createActionButton) {
         var logLine = document.createElement('div');
         logLine.innerHTML = message;
         log.appendChild(logLine);
-    }
+    };
 
     var clearLog = function () {
         var log = document.getElementById('info');
         log.innerHTML = '';
-    }
+    };
 
     var beep = function () {
         console.log("beep()");
@@ -111,14 +114,14 @@ exports.defineManualTests = function (contentEl, createActionButton) {
             buttons);
     };
 
-    var promptDialog = function (message, title, buttons) {
+    var promptDialog = function (message, title, buttons,defaultText) {
         clearLog();
         navigator.notification.prompt(message,
             function (r) {
                 if (r && r.buttonIndex === 0) {
                     var msg = "Dismissed dialog";
                     if (r.input1) {
-                        msg += " with input: " + r.input1
+                        msg += " with input: " + r.input1;
                     }
                     logMessage(msg);
                     console.log(msg);
@@ -128,7 +131,7 @@ exports.defineManualTests = function (contentEl, createActionButton) {
                 }
             },
             title,
-            buttons);
+            buttons,defaultText);
     };
 
     /******************************************************************************/
@@ -144,13 +147,15 @@ exports.defineManualTests = function (contentEl, createActionButton) {
         '<p/> <div id="confirm"></div>' +
         'Expected result: Dialog will say "You pressed confirm". Press Yes, No, or Maybe, Not Sure to close dialog. Status box will tell you what option you selected, and should use 1-based indexing.' +
         '<p/> <div id="prompt"></div>' +
-        'Expected result: Dialog will say "You pressed prompt". Enter any message and press Yes, No, or Maybe, Not Sure to close dialog. Status box will tell you what option you selected and message you entered, and should use 1-based indexing.' +
+        'Expected result: Dialog will say "You pressed prompt". Enter any message and press Yes, No, or Maybe, Not Sure to close dialog. Status box will tell you what option you selected and message you entered or if empty, it will display "Default Text", and should use 1-based indexing.' +
         '<p/> <div id="built_in_alert"></div>' +
         'Expected result: Dialog will have title "index.html" and say "You pressed alert" Press OK to close dialog. Nothing will get updated in status box.' +
         '<p/> <div id="built_in_confirm"></div>' +
         'Expected result: Dialog will have title "index.html" and say "You selected confirm". Press Cancel or OK to close dialog. Nothing will get updated in status box.' +
         '<p/> <div id="built_in_prompt"></div>' +
-        'Expected result: Dialog will have title "index.html" and say "This is a prompt". "Default value" will be in text box. Press Cancel or OK to close dialog. Nothing will get updated in status box.';
+        'Expected result: Dialog will have title "index.html" and say "This is a prompt". "Default value" will be in text box. Press Cancel or OK to close dialog. Nothing will get updated in status box.' +
+        '<p/> <h3>CB-8947 Tests</h3><div id="cb8947"></div>' +
+        'Expected results: Dialogs will not crash iOS';
 
     contentEl.innerHTML = '<div id="info"></div>' +
         dialogs_tests;
@@ -177,18 +182,56 @@ exports.defineManualTests = function (contentEl, createActionButton) {
     }, 'confirm');
 
     createActionButton('Prompt Dialog', function () {
-        promptDialog('You pressed prompt.', 'Prompt Dialog', ['Yes', 'No', 'Maybe, Not Sure']);
+        promptDialog('You pressed prompt.', 'Prompt Dialog', ['Yes', 'No', 'Maybe, Not Sure'],'Default Text');
     }, 'prompt');
 
+    createActionButton('Prompt Dialog - no default', function () {
+        promptDialog('You pressed prompt.', 'Prompt Dialog', ['Yes', 'No']);
+    }, 'prompt');    
+
     createActionButton('Built-in Alert Dialog', function () {
-        typeof alert === 'function' && alert('You pressed alert');
+        if (typeof alert === 'function') {
+            alert('You pressed alert');
+        }
     }, 'built_in_alert');
 
     createActionButton('Built-in Confirm Dialog', function () {
-        typeof confirm === 'function' && confirm('You selected confirm');
+        if (typeof confirm === 'function') {
+            confirm('You selected confirm');
+        }
     }, 'built_in_confirm');
 
     createActionButton('Built-in Prompt Dialog', function () {
-        typeof prompt === 'function' && prompt('This is a prompt', 'Default value');
+        if (typeof prompt === 'function') {
+            prompt('This is a prompt', 'Default value');
+        }
     }, 'built_in_prompt');
+
+    // CB-8947 - ensure number messages don't crash iOS
+    createActionButton('Alert Dialog with Number', function () {
+        var callback = function() { clearLog(); console.log("Test passed"); };
+        navigator.notification.alert(17, callback);
+    }, 'cb8947');
+
+    // CB-8947 - ensure object messages don't crash iOS
+    createActionButton('Alert Dialog with Object', function () {
+        var object = { number: 42, message: "Make sure an object doesn't crash iOS", issue: 'CB-8947'};
+        var callback = function() { clearLog(); console.log("Test passed"); };
+        navigator.notification.alert(object, callback);
+    }, 'cb8947');
+
+    // CB-8947 - ensure object messages don't crash iOS
+    createActionButton('Confirm Dialog with Object', function () {
+        var object = { number: 42, message: "Make sure an object doesn't crash iOS", issue: 'CB-8947'};
+        var callback = function() { clearLog(); console.log("Test passed"); };
+        navigator.notification.confirm(object, callback);
+    }, 'cb8947');
+
+    // CB-8947 - ensure object messages don't crash iOS
+    createActionButton('Prompt Dialog with Object', function () {
+        var object = { number: 42, message: "Make sure an object doesn't crash iOS", issue: 'CB-8947'};
+        var callback = function() { clearLog(); console.log("Test passed"); };
+        navigator.notification.prompt(object, callback);
+    }, 'cb8947');
+
 };

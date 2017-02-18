@@ -4,11 +4,15 @@
 
 ## Installation
 
+See npm package for versions - https://www.npmjs.com/package/cordova-plugin-facebook4
+
 Make sure you've registered your Facebook app with Facebook and have an `APP_ID` [https://developers.facebook.com/apps](https://developers.facebook.com/apps).
 
 ```bash
 $ cordova plugin add cordova-plugin-facebook4 --save --variable APP_ID="123456789" --variable APP_NAME="myApplication"
 ```
+
+If you need to change your `APP_ID` after installation, it's recommended that you remove and then re-add the plugin as above. Note that changes to the `APP_ID` value in your `config.xml` file will *not* be propagated to the individual platform builds.
 
 ## Usage
 
@@ -18,7 +22,7 @@ The Facebook plugin for [Apache Cordova](http://cordova.apache.org/) allows you 
 
 ## Compatibility
 
-  * Cordova v5.0.0.
+  * Cordova >= 5.0.0
   * cordova-android >= 4.0
   * cordova-ios >= 3.8
   * cordova-browser >= 3.6
@@ -40,8 +44,6 @@ The Facebook plugin for [Apache Cordova](http://cordova.apache.org/) allows you 
 
 `facebookConnectPlugin.login(Array strings of permissions, Function success, Function failure)`
 
-**NOTE** : Developers should call `facebookConnectPlugin.browserInit(<appId>)` before login - **Web App ONLY** (see [Web App Guide](platforms/web/README.md))
-
 Success function returns an Object like:
 
 	{
@@ -61,6 +63,14 @@ Failure function returns an error String.
 ### Logout
 
 `facebookConnectPlugin.logout(Function success, Function failure)`
+
+### Check permissions (iOS only)
+
+`facebookConnectPlugin.checkHasCorrectPermissions(Array strings of permissions, Function success, Function failure)`
+
+Success function returns a success string if all passed permissions are granted.
+
+Failure function returns an error String if any passed permissions are not granted.
 
 ### Get Status
 
@@ -94,8 +104,12 @@ Share Dialog:
 		href: "http://example.com",
 		caption: "Such caption, very feed.",
 		description: "Much description",
-		picture: 'http://example.com/image.png'
+		picture: 'http://example.com/image.png',
+		hashtag: '#myHashtag',
+		share_feedWeb: true, // iOS only
 	}
+
+For iOS, the default dialog mode is [`FBSDKShareDialogModeAutomatic`](https://developers.facebook.com/docs/reference/ios/current/constants/FBSDKShareDialogMode/). You can share that by adding a specific dialog mode parameter. The available share dialog modes are: `share_sheet`, `share_feedBrowser`, `share_native` and `share_feedWeb`. [Read more about share dialog modes](https://developers.facebook.com/docs/reference/ios/current/constants/FBSDKShareDialogMode/)
 
 Game request:
 
@@ -117,6 +131,31 @@ Send Dialog:
 		description: "The site I told you about",
 		picture: "http://example.com/image.png"
 	}
+	
+Share dialog - Open Graph Story: (currently only fully available on Android, iOS currently does not support action_properties)
+
+	{
+		var obj = {};
+	
+    	obj['og:type'] = 'objectname';
+    	obj['og:title'] = 'Some title';
+    	obj['og:url'] = 'https://en.wikipedia.org/wiki/Main_Page';
+    	obj['og:description'] = 'Some description.';
+
+    	var ap = {};
+    	
+    	ap['expires_in'] = 3600;
+    	
+    	var options = {
+    		method: 'share_open_graph', // Required
+        	action: 'actionname', // Required
+        	action_properties: JSON.stringify(ap), // Optional
+        	object: JSON.stringify(obj) // Required
+    	};
+	}
+	
+In case you want to use custom actions/objects, just prepend the app namespace to the name (E.g: ` obj['og:type'] = 'appnamespace:objectname' `, `action: 'appnamespace:actionname'`. The namespace of a Facebook app is found on the Settings page. 
+
 
 For options information see: [Facebook share dialog documentation](https://developers.facebook.com/docs/sharing/reference/share-dialog) [Facebook send dialog documentation](https://developers.facebook.com/docs/sharing/reference/send-dialog)
 
@@ -172,6 +211,10 @@ Events are listed on the [insights page](https://www.facebook.com/insights/)
 
 **NOTE:** Both parameters are required. The currency specification is expected to be an [ISO 4217 currency code](http://en.wikipedia.org/wiki/ISO_4217)
 
+### Manually log activation events
+
+`activateApp(Function success, Function failure)`
+
 ### App Invites
 
 `facebookConnectPlugin.appInvite(Object options, Function success, Function failure)`
@@ -188,11 +231,11 @@ Example options:
 ## Sample Code
 
 ```js
-facebookConnectPlugin.appInvite(    
+facebookConnectPlugin.appInvite(
     {
         url: "http://example.com",
         picture: "http://example.com/image.png"
-    }, 
+    },
     function(obj){
         if(obj) {
             if(obj.completionGesture == "cancel") {
@@ -203,7 +246,7 @@ facebookConnectPlugin.appInvite(
         } else {
             // user just pressed done, bad guy
         }
-    }, 
+    },
     function(obj){
         // error
         console.log(obj);

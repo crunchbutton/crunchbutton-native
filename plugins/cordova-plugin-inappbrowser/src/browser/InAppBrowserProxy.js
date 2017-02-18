@@ -19,10 +19,7 @@
  *
 */
 
-var cordova = require('cordova'),
-    channel = require('cordova/channel'),
-    modulemapper = require('cordova/modulemapper'),
-    urlutil = require('cordova/urlutil');
+var modulemapper = require('cordova/modulemapper');
 
 var browserWrap,
     popup,
@@ -69,8 +66,7 @@ var IAB = {
     open: function (win, lose, args) {
         var strUrl = args[0],
             target = args[1],
-            features = args[2],
-            url;
+            features = args[2];
 
         if (target === "_self" || !target) {
             window.location = strUrl;
@@ -81,9 +77,12 @@ var IAB = {
             if (!browserWrap) {
                 browserWrap = document.createElement("div");
                 browserWrap.style.position = "absolute";
+                browserWrap.style.top = "0";
+                browserWrap.style.left = "0";
+                browserWrap.style.boxSizing = "border-box";
                 browserWrap.style.borderWidth = "40px";
-                browserWrap.style.width = "calc(100% - 80px)";
-                browserWrap.style.height = "calc(100% - 80px)";
+                browserWrap.style.width = "100vw";
+                browserWrap.style.height = "100vh";
                 browserWrap.style.borderStyle = "solid";
                 browserWrap.style.borderColor = "rgba(0,0,0,0.25)";
 
@@ -108,6 +107,7 @@ var IAB = {
 
             if (features.indexOf("location=yes") !== -1 || features.indexOf("location") === -1) {
                 popup.style.height = "calc(100% - 60px)";
+                popup.style.marginBottom = "-4px";
 
                 navigationButtonsDiv = document.createElement("div");
                 navigationButtonsDiv.style.height = "60px";
@@ -193,7 +193,9 @@ var IAB = {
         if (browserWrap && popup) {
             try {
                 popup.contentWindow.eval(code);
-                hasCallback && win([]);
+                if (hasCallback) {
+                    win([]);
+                }
             } catch(e) {
                 console.error('Error occured while trying to injectScriptCode: ' + JSON.stringify(e));
             }
@@ -203,19 +205,25 @@ var IAB = {
     injectScriptFile: function (win, fail, args) {
         var msg = 'Browser cordova-plugin-inappbrowser injectScriptFile is not yet implemented';
         console.warn(msg);
-        fail && fail(msg);
+        if (fail) {
+            fail(msg);
+        }
     }, 
 
     injectStyleCode: function (win, fail, args) {
         var msg = 'Browser cordova-plugin-inappbrowser injectStyleCode is not yet implemented';
         console.warn(msg);
-        fail && fail(msg);
+        if (fail) {
+            fail(msg);
+        }
     },
 
     injectStyleFile: function (win, fail, args) {
         var msg = 'Browser cordova-plugin-inappbrowser injectStyleFile is not yet implemented';
         console.warn(msg);
-        fail && fail(msg);
+        if (fail) {
+            fail(msg);
+        }
     }
 };
 

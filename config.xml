@@ -1,111 +1,137 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.crunchbutton" version="3.0.20" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Crunchbutton</name>
-    <description>
+	<name>Crunchbutton</name>
+	<description>
 		One click food ordering
 	</description>
-    <author email="tech@crunchbutton.com" href="http://crunchbutton.com">
+	<author email="tech@crunchbutton.com" href="http://crunchbutton.com">
 		Devin Smith, Crunchbutton
 	</author>
-    <content src="index.html" />
-    <preference name="permissions" value="none" />
-    <preference name="orientation" value="default" />
-    <preference name="target-device" value="universal" />
-    <preference name="fullscreen" value="false" />
-    <preference name="webviewbounce" value="false" />
-    <preference name="prerendered-icon" value="true" />
-    <preference name="stay-in-webview" value="false" />
-    <preference name="ios-statusbarstyle" value="black-opaque" />
-    <preference name="detect-data-types" value="true" />
-    <preference name="exit-on-suspend" value="false" />
-    <preference name="show-splash-screen-spinner" value="false" />
-    <preference name="ShowSplashScreenSpinner" value="false" />
-    <preference name="auto-hide-splash-screen" value="true" />
-    <preference name="AutoHideSplashScreen" value="true" />
-    <preference name="disable-cursor" value="false" />
-    <preference name="android-minSdkVersion" value="15" />
-    <preference name="android-installLocation" value="auto" />
-    <preference name="BackupWebStorage" value="local" />
-    <gap:plugin name="org.apache.cordova.battery-status" />
-    <gap:plugin name="org.apache.cordova.camera" />
-    <gap:plugin name="org.apache.cordova.media-capture" />
-    <gap:plugin name="org.apache.cordova.console" />
-    <gap:plugin name="org.apache.cordova.contacts" />
-    <gap:plugin name="org.apache.cordova.device" />
-    <gap:plugin name="org.apache.cordova.device-motion" />
-    <gap:plugin name="org.apache.cordova.device-orientation" />
-    <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.file" />
-    <gap:plugin name="org.apache.cordova.file-transfer" />
-    <gap:plugin name="org.apache.cordova.geolocation" />
-    <gap:plugin name="org.apache.cordova.globalization" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
-    <gap:plugin name="org.apache.cordova.media" />
-    <gap:plugin name="org.apache.cordova.network-information" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
-    <gap:plugin name="org.apache.cordova.vibration" />
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="BackgroundColor" value="0x00000000" />
-    <preference name="HideKeyboardFormAccessoryBar" value="true" />
-    <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#000000" />
-    <preference name="StatusBarStyle" value="blackopaque" />
-    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
-    <preference name="FadeSplashScreen" value="0" />
-    <platform name="ios">
-        <icon src="icon.png" />
-        <icon height="180" src="res/icon/ios/icon-180.png" width="180" />
-        <icon height="60" src="res/icon/ios/icon-60.png" width="60" />
-        <icon height="120" src="res/icon/ios/icon-60-2x.png" width="120" />
-        <icon height="76" src="res/icon/ios/icon-76.png" width="76" />
-        <icon height="152" src="res/icon/ios/icon-76-2x.png" width="152" />
-        <icon height="40" src="res/icon/ios/icon-40.png" width="40" />
-        <icon height="80" src="res/icon/ios/icon-40-2x.png" width="80" />
-        <icon height="57" src="res/icon/ios/icon-57.png" width="57" />
-        <icon height="114" src="res/icon/ios/icon-57-2x.png" width="114" />
-        <icon height="72" src="res/icon/ios/icon-72.png" width="72" />
-        <icon height="144" src="res/icon/ios/icon-72-2x.png" width="144" />
-        <icon height="29" src="res/icon/ios/icon-29.png" width="29" />
-        <icon height="58" src="res/icon/ios/icon-29-2x.png" width="58" />
-        <icon height="50" src="res/icon/ios/icon-50.png" width="50" />
-        <icon height="100" src="res/icon/ios/icon-50-2x.png" width="100" />
-        <splash height="480" src="res/screen/ios/screen-iphone-portrait.png" width="320" />
-        <splash height="960" src="res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
-        <splash height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
-        <splash height="2048" src="res/screen/ios/screen-ipad-portrait-2x.png" width="1536" />
-        <splash height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
-        <splash height="1536" src="res/screen/ios/screen-ipad-landscape-2x.png" width="2048" />
-        <splash height="1136" src="res/screen/ios/screen-iphone-portrait-iphone5-2x.png" width="640" />
-        <splash height="1334" src="res/screen/ios/screen-iphone-portrait-iphone6-2x.png" width="750" />
-        <splash height="2208" src="res/screen/ios/screen-iphone-portrait-iphone6plus-2x.png" width="1242" />
-        <splash height="1242" src="res/screen/ios/screen-iphone-landscape-iphone6plus-2x.png" width="2208" />
-    </platform>
-    <platform name="android">
-        <icon src="res/icon/android/icon-512.png" />
-        <icon density="ldpi" src="res/icon/android/icon-36-ldpi.png" />
-        <icon density="mdpi" src="res/icon/android/icon-48-mdpi.png" />
-        <icon density="hdpi" src="res/icon/android/icon-72-hdpi.png" />
-        <icon density="xhdpi" src="res/icon/android/icon-96-xhdpi.png" />
-        <icon density="xxhdpi" src="res/icon/android/icon-144-xxhdpi.png" />
-        <splash density="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" />
-        <splash density="port-ldpi" src="res/screen/android/screen-ldpi-portrait.png" />
-        <splash density="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png" />
-        <splash density="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />
-    </platform>
-    <access origin="*" />
-    <plugin name="cordova-plugin-whitelist" version="1" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
-    <platform name="android">
-        <allow-intent href="market:*" />
-    </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
-    <engine name="ios" spec="~3.9.1" />
+	<content src="index.html"/>
+	<preference name="permissions" value="none"/>
+	<preference name="orientation" value="default"/>
+	<preference name="target-device" value="universal"/>
+	<preference name="fullscreen" value="false"/>
+	<preference name="webviewbounce" value="false"/>
+	<preference name="prerendered-icon" value="true"/>
+	<preference name="stay-in-webview" value="false"/>
+	<preference name="ios-statusbarstyle" value="black-opaque"/>
+	<preference name="detect-data-types" value="true"/>
+	<preference name="exit-on-suspend" value="false"/>
+	<preference name="show-splash-screen-spinner" value="false"/>
+	<preference name="ShowSplashScreenSpinner" value="false"/>
+	<preference name="auto-hide-splash-screen" value="true"/>
+	<preference name="AutoHideSplashScreen" value="true"/>
+	<preference name="disable-cursor" value="false"/>
+	<preference name="android-minSdkVersion" value="15"/>
+	<preference name="android-installLocation" value="auto"/>
+	<preference name="BackupWebStorage" value="local"/>
+	<gap:plugin name="org.apache.cordova.battery-status"/>
+	<gap:plugin name="org.apache.cordova.camera"/>
+	<gap:plugin name="org.apache.cordova.media-capture"/>
+	<gap:plugin name="org.apache.cordova.console"/>
+	<gap:plugin name="org.apache.cordova.contacts"/>
+	<gap:plugin name="org.apache.cordova.device"/>
+	<gap:plugin name="org.apache.cordova.device-motion"/>
+	<gap:plugin name="org.apache.cordova.device-orientation"/>
+	<gap:plugin name="org.apache.cordova.dialogs"/>
+	<gap:plugin name="org.apache.cordova.file"/>
+	<gap:plugin name="org.apache.cordova.file-transfer"/>
+	<gap:plugin name="org.apache.cordova.geolocation"/>
+	<gap:plugin name="org.apache.cordova.globalization"/>
+	<gap:plugin name="org.apache.cordova.inappbrowser"/>
+	<gap:plugin name="org.apache.cordova.media"/>
+	<gap:plugin name="org.apache.cordova.network-information"/>
+	<gap:plugin name="org.apache.cordova.splashscreen"/>
+	<gap:plugin name="org.apache.cordova.vibration"/>
+	<preference name="DisallowOverscroll" value="true"/>
+	<preference name="BackgroundColor" value="0x00000000"/>
+	<preference name="HideKeyboardFormAccessoryBar" value="true"/>
+	<preference name="StatusBarOverlaysWebView" value="true"/>
+	<preference name="StatusBarBackgroundColor" value="#000000"/>
+	<preference name="StatusBarStyle" value="blackopaque"/>
+	<preference name="KeyboardDisplayRequiresUserAction" value="false"/>
+	<preference name="FadeSplashScreen" value="0"/>
+	<platform name="ios">
+		<icon src="res/icon.png"/>
+		<icon height="180" src="res/icon/ios/icon-180.png" width="180"/>
+		<icon height="60" src="res/icon/ios/icon-60.png" width="60"/>
+		<icon height="120" src="res/icon/ios/icon-60-2x.png" width="120"/>
+		<icon height="76" src="res/icon/ios/icon-76.png" width="76"/>
+		<icon height="152" src="res/icon/ios/icon-76-2x.png" width="152"/>
+		<icon height="40" src="res/icon/ios/icon-40.png" width="40"/>
+		<icon height="80" src="res/icon/ios/icon-40-2x.png" width="80"/>
+		<icon height="57" src="res/icon/ios/icon-57.png" width="57"/>
+		<icon height="114" src="res/icon/ios/icon-57-2x.png" width="114"/>
+		<icon height="72" src="res/icon/ios/icon-72.png" width="72"/>
+		<icon height="144" src="res/icon/ios/icon-72-2x.png" width="144"/>
+		<icon height="29" src="res/icon/ios/icon-29.png" width="29"/>
+		<icon height="58" src="res/icon/ios/icon-29-2x.png" width="58"/>
+		<icon height="50" src="res/icon/ios/icon-50.png" width="50"/>
+		<icon height="100" src="res/icon/ios/icon-50-2x.png" width="100"/>
+		<splash height="480" src="res/screen/ios/screen-iphone-portrait.png" width="320"/>
+		<splash height="960" src="res/screen/ios/screen-iphone-portrait-2x.png" width="640"/>
+		<splash height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768"/>
+		<splash height="2048" src="res/screen/ios/screen-ipad-portrait-2x.png" width="1536"/>
+		<splash height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024"/>
+		<splash height="1536" src="res/screen/ios/screen-ipad-landscape-2x.png" width="2048"/>
+		<splash height="1136" src="res/screen/ios/screen-iphone-portrait-iphone5-2x.png" width="640"/>
+		<splash height="1334" src="res/screen/ios/screen-iphone-portrait-iphone6-2x.png" width="750"/>
+		<splash height="2208" src="res/screen/ios/screen-iphone-portrait-iphone6plus-2x.png" width="1242"/>
+		<splash height="1242" src="res/screen/ios/screen-iphone-landscape-iphone6plus-2x.png" width="2208"/>
+	</platform>
+	<platform name="android">
+		<icon src="res/icon/android/icon-512.png"/>
+		<icon density="ldpi" src="res/icon/android/icon-36-ldpi.png"/>
+		<icon density="mdpi" src="res/icon/android/icon-48-mdpi.png"/>
+		<icon density="hdpi" src="res/icon/android/icon-72-hdpi.png"/>
+		<icon density="xhdpi" src="res/icon/android/icon-96-xhdpi.png"/>
+		<icon density="xxhdpi" src="res/icon/android/icon-144-xxhdpi.png"/>
+		<splash density="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png"/>
+		<splash density="port-ldpi" src="res/screen/android/screen-ldpi-portrait.png"/>
+		<splash density="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png"/>
+		<splash density="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png"/>
+	</platform>
+	<access origin="*"/>
+	<plugin name="cordova-plugin-whitelist" version="1"/>
+	<allow-intent href="http://*/*"/>
+	<allow-intent href="https://*/*"/>
+	<allow-intent href="tel:*"/>
+	<allow-intent href="sms:*"/>
+	<allow-intent href="mailto:*"/>
+	<allow-intent href="geo:*"/>
+	<platform name="android">
+		<allow-intent href="market:*"/>
+	</platform>
+	<platform name="ios">
+		<allow-intent href="itms:*"/>
+		<allow-intent href="itms-apps:*"/>
+	</platform>
+	<engine name="ios" spec="~4.3.1"/>
+
+	<plugin name="cordova-plugin-geolocation" />
+	<plugin name="cordova-plugin-network-information" />
+	<plugin name="cordova-plugin-media" />
+	<plugin name="cordova-plugin-splashscreen" />
+	<plugin name="cordova-plugin-vibration" />
+	<plugin name="cordova-plugin-dialogs" />
+	<plugin name="cordova-plugin-device" />
+	<plugin name="cordova-plugin-inappbrowser" />
+	<plugin name="cordova-plugin-statusbar" />
+
+	<plugin name="ionic-plugins-keyboard" spec="https://github.com/driftyco/ionic-plugins-keyboard" />
+
+	<plugin name="cordova-plugin-facebook4" spec="https://github.com/jeduan/cordova-plugin-facebook4">
+	    <variable name="APP_ID" value="***REMOVED***" />
+		<variable name="APP_NAME" value="Crunchbutton" />
+	</plugin>
+
+	<plugin name="phonegap-appversion" spec="https://github.com/alignace/phonegap-appversion" />
+	<plugin name="AppAvailability" spec="https://github.com/ohh2ahh/AppAvailability" />
+	<plugin name="cordova-plugin-ios-longpress-fix" spec="https://github.com/EddyVerbruggen/cordova-plugin-ios-longpress-fix" />
+	<plugin name="cordova-plugin-nativeaudio" spec="https://github.com/floatinghotpot/cordova-plugin-nativeaudio" />
+	<plugin name="phonegap-plugin-push" source="npm">
+		<variable name="SENDER_ID" value="***REMOVED***" />
+	</plugin>
+
 </widget>
