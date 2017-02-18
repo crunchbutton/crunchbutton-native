@@ -140,7 +140,7 @@ file_put_contents($path.'index.html', $index);
 echo "Building index js...\n";
 $index = file_get_contents($path.'index.js');
 if( $live ){
-	$index = str_replace('FACEBOOK_APP_IP', '***REMOVED***', $index);
+	$index = str_replace('FACEBOOK_APP_IP', 'ID', $index);
 } else {
 	$index = str_replace('FACEBOOK_APP_IP', $config->facebook, $index);
 }
