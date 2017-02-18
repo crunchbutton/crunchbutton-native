@@ -128,10 +128,10 @@
 	<plugin name="cordova-plugin-appversion" spec="~1.0.0"/>
 	<plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
 	<plugin name="phonegap-plugin-push" spec="~1.9.3">
-		<variable name="SENDER_ID" value="***REMOVED***"/>
+		<variable name="SENDER_ID" value="ID"/>
 	</plugin>
 	<plugin name="cordova-plugin-facebook4" spec="~1.7.4">
-		<variable name="APP_ID" value="***REMOVED***"/>
+		<variable name="APP_ID" value="ID"/>
 		<variable name="APP_NAME" value="Crunchbutton"/>
 	</plugin>
 	<allow-intent href="http://*/*"/>
