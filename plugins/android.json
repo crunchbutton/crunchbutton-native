@@ -1,0 +1,70 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-appavailability": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-applepay": {
+            "STRIPE_PUBLISHABLE_KEY": "***REMOVED***",
+            "APPLE_PAY_MERCHANT": "merchant.com.crunchbutton",
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "***REMOVED***",
+            "APP_NAME": "Crunchbutton",
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-nativeaudio": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "net.bgta.phonegap.plugin.appversion": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        },
+        "phonegap-plugin-push": {
+            "PACKAGE_NAME": "com.crunchbutton"
+        }
+    },
+    "dependent_plugins": {}
+}

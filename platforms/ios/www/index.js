@@ -74,7 +74,7 @@ $(function() {
 
 		//gamecenter.auth( onSuccess, onError );
 		App.version = 'cordova';
-		
+
 		if (!App.minimalMode) {
 			getAppVersion(function(response) {
 				App.version = response;
@@ -300,7 +300,7 @@ $(function() {
 			}
 		}
 		facebookInit();
-		
+
 
 		if (window.plugins.NativeAudio) {
 			console.debug('init audio');
@@ -323,3 +323,11 @@ console.warn = console.warn || function(){};
 console.error = console.error || function(){};
 console.info = console.info || function(){};
 console.debug = console.debug || function(){};
+
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = '//connect.facebook.com/en_US/sdk/debug.js';
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
