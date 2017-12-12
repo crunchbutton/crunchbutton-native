@@ -1,4 +1,6 @@
 # Crunchbutton Native
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcrunchbutton%2Fcrunchbutton-native.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcrunchbutton%2Fcrunchbutton-native?ref=badge_shield)
+
 
 Crunchbutton native was originally created in early 2012 using a pretty old version of PhoneGap, and has since been converted to a recent version of Cordova. Many of its features were created long before Ionic was released. It uses Ionic only for resource generation. Much of its code could be simplified using now existing Ionic or ngCordova libraries.
 
@@ -45,3 +47,6 @@ For iOS, use xcode for your releases. For Android, you can use the **release_and
 ## Notes
 
 Note that newer versions of Cordova require cocoapods installed. There is a pod required for the push plugin which will error out if you do not have cocoapods properly configured.
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcrunchbutton%2Fcrunchbutton-native.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcrunchbutton%2Fcrunchbutton-native?ref=badge_large)
